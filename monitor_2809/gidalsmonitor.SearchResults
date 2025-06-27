@@ -1,0 +1,4 @@
+---- VfdInit Matches (3 in 3 files) ----
+Main.c (main):	VfdInit();
+VFD.c (main):void VfdInit(void)
+VFD.h (main):extern void VfdInit(void);

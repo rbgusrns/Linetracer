@@ -1,0 +1,42 @@
+---- g_q1745user_vel Matches (42 in 9 files) ----
+brilrun.asm (main):DW$64	.dwtag  DW_TAG_variable, DW_AT_name("g_q1745user_vel"), DW_AT_symbol_name("_g_q1745user_vel")
+brilrun.asm (main):;*** 37	-----------------------    g_q1745user_vel = 471859200L;
+brilrun.c (main):	g_q1745user_vel = _IQ(3600);
+extremerun.asm (main):DW$25	.dwtag  DW_TAG_variable, DW_AT_name("g_q1745user_vel"), DW_AT_symbol_name("_g_q1745user_vel")
+extremerun.asm (main):;*** 248	-----------------------    if ( (*p_info).q17vel <= g_q1745user_vel ) goto g3;
+extremerun.asm (main):;*** 248	-----------------------    (*p_info).q17vel = g_q1745user_vel;
+extremerun.asm (main):;** 1191	-----------------------    if ( g_q1745user_vel <= 720896000L ) goto g6;
+extremerun.asm (main):;** 1192	-----------------------    g_q1745user_vel = 720896000L;
+extremerun.asm (main):;*** 207	-----------------------    g_q1745user_vel = 524288000L;
+extremerun.asm (main):;*** 184	-----------------------    g_q1745user_vel = 524288000L;
+extremerun.asm (main):;*** 161	-----------------------    g_q1745user_vel = 655360000L;
+extremerun.asm (main):;*** 137	-----------------------    g_q1745user_vel = 498073600L;
+extremerun.asm (main):;*** 115	-----------------------    g_q1745user_vel = 471859200L;
+extremerun.asm (main):;*** 92	-----------------------    g_q1745user_vel = 458752000L;
+extremerun.asm (main):;*** 66	-----------------------    g_q1745user_vel = 458752000L;
+extremerun.asm (main):;*** 38	-----------------------    g_q1745user_vel = 393216000L;
+extremerun.c (main):	g_q1745user_vel = _IQ(3000);
+extremerun.c (main):	g_q1745user_vel = _IQ(3500);
+extremerun.c (main):	g_q1745user_vel = _IQ(3500);
+extremerun.c (main):	g_q1745user_vel = _IQ(3600);
+extremerun.c (main):	g_q1745user_vel = _IQ(3800);
+extremerun.c (main):	g_q1745user_vel = _IQ(5000);
+extremerun.c (main):	g_q1745user_vel = _IQ(4000);
+extremerun.c (main):		g_q1745user_vel = _IQ(4000);
+extremerun.c (main):	if( pinfo->q17vel > g_q1745user_vel) pinfo->q17vel = g_q1745user_vel;  //최고 속도 제한.
+extremerun.c (main):		if( g_q1745user_vel > _IQ(6500)) 
+extremerun.c (main):			g_q1745user_vel = _IQ(6500);
+extremerun.c (main):		if( g_q1745user_vel > _IQ(5500)) 
+extremerun.c (main):			g_q1745user_vel = _IQ(5500);
+main.asm (main):DW$75	.dwtag  DW_TAG_variable, DW_AT_name("g_q1745user_vel"), DW_AT_symbol_name("_g_q1745user_vel")
+main.asm (main):;*** 156	-----------------------    g_q1745user_vel = 393216000L;
+main.c (main):	g_q1745user_vel = _IQ(3000);
+main.c (main):	g_q17_45vel = _IQ(7000); // g_q1745user_vel 
+search.asm (main):DW$48	.dwtag  DW_TAG_variable, DW_AT_name("g_q1745user_vel"), DW_AT_symbol_name("_g_q1745user_vel")
+search.asm (main):;** 1045	-----------------------    g_q1745user_vel += 26214400L;
+search.asm (main):;** 1061	-----------------------    VFDPrintf("45V%5u", (unsigned)(g_q1745user_vel>>17));
+search.asm (main):;** 1050	-----------------------    g_q1745user_vel -= 26214400L;
+search.c (main):			g_q1745user_vel += _IQ(200);
+search.c (main):			g_q1745user_vel -= _IQ(200);
+search.c (main):		VFDPrintf("45V%5u",IQ_TO_UINT16(g_q1745user_vel));
+Variable.h (main):__VARIABLE_EXE__ 	_iq	g_q1745user_vel,
