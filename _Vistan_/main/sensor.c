@@ -221,11 +221,13 @@ interrupt void adc_timer_ISR(void)
 		   	adc_v2 = 0;
     
 
-	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;	
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+
 
 	GpioDataRegs.GPACLEAR.all = ( ON_L << sen_shoot_arr[ g_int32_sen_cnt ] ); //sensor shoot stop
 	
 #if 1
+
 	adc_v1 += (long)AdcMirror.ADCRESULT0;
 	adc_v1 += (long)AdcMirror.ADCRESULT1;
 	adc_v1 += (long)AdcMirror.ADCRESULT2;
@@ -245,6 +247,7 @@ interrupt void adc_timer_ISR(void)
 	adc_v2 += (long)AdcMirror.ADCRESULT13;
 	adc_v2 += (long)AdcMirror.ADCRESULT14;
 	adc_v2 += (long)AdcMirror.ADCRESULT15;
+    
 #endif
 	
 	AdcRegs.ADCTRL2.bit.RST_SEQ1 = ON; //ADC ÃÊ±âÈ­	

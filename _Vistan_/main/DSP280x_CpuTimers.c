@@ -152,7 +152,6 @@ DINT;
 		EALLOW;  // This is needed to write to EALLOW protected registers
 	
 		PieVectTable.TINT0 = &Sensor_Value; // Sensor interrupt
-
 		PieVectTable.XINT13 = &motor_ISR; // Motor interrupt
 		PieVectTable.ADCINT = &adc_timer_ISR; // ADC interrupt
 		
