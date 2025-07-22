@@ -47,7 +47,7 @@
 /*extreme pd value*/
 //#define	DOWN_KP  				_IQ7( 0.007 )  // 
 #define	DOWN_KP  				_IQ7( 0.014 )
-#define DOWN_KD				_IQ7( 0.005 )
+#define DOWN_KD					_IQ7( 0.005 )
 
 //떨어 뜨릴 값이 0.2 까지 이므로 1.5에서 0.1의 차이는 1.3 이다.
 //따라서 간 거리가 200이 될때까지 1.3을 떨어뜨려야 하므로 X * 200 = 1.3 이된다.  ?????
@@ -367,7 +367,7 @@ static void position_to_vel( void )
 interrupt void  motor_ISR(void)
 {	
 	g_Flag.motor_ISR_flag = ON; // 주행 플래그
-	
+	//LEFT_LED_ON;
 	position_PID();
 	position_to_vel();
 	
@@ -597,5 +597,6 @@ interrupt void  motor_ISR(void)
 	
 	if( g_Flag.start_flag )		g_int32timer_cnt++;
 	StartCpuTimer0();
+	
 }
 

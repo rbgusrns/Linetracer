@@ -1,8 +1,7 @@
----- HISPCP Matches (7 in 5 files) ----
-DSP280x_Adc.asm (main):	.dwattr DW$44, DW_AT_name("HISPCP"), DW_AT_symbol_name("_HISPCP")
-DSP280x_GlobalVariableDefs.asm (main):	.dwattr DW$610, DW_AT_name("HISPCP"), DW_AT_symbol_name("_HISPCP")
-DSP280x_SysCtrl.asm (main):;*** 209	-----------------------    SysCtrlRegs.HISPCP.all = 1u;
-DSP280x_SysCtrl.asm (main):	.dwattr DW$25, DW_AT_name("HISPCP"), DW_AT_symbol_name("_HISPCP")
-DSP280x_SysCtrl.c (main):// HISPCP/LOSPCP prescale register settings, normally it will be set to default values
-DSP280x_SysCtrl.c (main):   SysCtrlRegs.HISPCP.all = 0x0001;// sysclkout/2 = 50MHz
-DSP280x_SysCtrl.h (include):   union   HISPCP_REG  HISPCP;    // 10: High-speed peripheral clock pre-scaler
+---- LEFT_LED_ON Matches (6 in 4 files) ----
+Motor.c (main):		//LEFT_LED_ON;
+Motor.c (main):	//LEFT_LED_ON;
+search.c (main):		LEFT_LED_ON;
+sensor.c (main):			//	LEFT_LED_ON;
+sensor.c (main):                    LEFT_LED_ON;
+Variable.h (main):#define LEFT_LED_ON GpioDataRegs.GPASET.bit.GPIO12 = 1	

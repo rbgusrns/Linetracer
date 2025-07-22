@@ -894,7 +894,6 @@ void Set_Accel(){
 
 	SET_END();
 
-    acc_info_read_rom();
 }
 
 void Set_PosPID(void)

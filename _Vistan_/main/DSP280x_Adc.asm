@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Mon Jun 30 01:49:30 2025                 *
+;* Date/Time created: Tue Jul 22 00:53:55 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -24,8 +24,8 @@ DW$4	.dwtag  DW_TAG_variable, DW_AT_name("SysCtrlRegs"), DW_AT_symbol_name("_Sys
 	.dwattr DW$4, DW_AT_type(*DW$T$88)
 	.dwattr DW$4, DW_AT_declaration(0x01)
 	.dwattr DW$4, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI76010 C:\Users\rbgus\AppData\Local\Temp\TI7604 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI7602 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI7606 --object_file DSP280x_Adc.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI69610 C:\Users\rbgus\AppData\Local\Temp\TI6964 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI6962 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI6966 --object_file DSP280x_Adc.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_InitAdc
 
@@ -58,20 +58,20 @@ _InitAdc:
 ;*** 40	-----------------------    asm(" EALLOW");
 ;*** 41	-----------------------    *(&SysCtrlRegs+12L) |= 0x8u;
 ;*** 42	-----------------------    asm(" EDIS");
-;*** 56	-----------------------    AdcRegs.ADCTRL1.all = 336u;
-;*** 59	-----------------------    AdcRegs.ADCTRL2.all = 0u;
-;*** 61	-----------------------    C$1 = &AdcRegs;
-;*** 61	-----------------------    ((volatile unsigned *)C$1)[1] |= 0x800u;
-;*** 62	-----------------------    *(&AdcRegs+1L) |= 0x400u;
-;*** 64	-----------------------    AdcRegs.ADCMAXCONV.all = 15u;
-;*** 66	-----------------------    AdcRegs.ADCCHSELSEQ1.all = 12816u;
-;*** 67	-----------------------    AdcRegs.ADCCHSELSEQ2.all = 30292u;
-;*** 68	-----------------------    AdcRegs.ADCCHSELSEQ3.all = 0xba98u;
-;*** 69	-----------------------    AdcRegs.ADCCHSELSEQ4.all = 0xfedcu;
-;*** 75	-----------------------    *((volatile struct _ADCCHSELSEQ1_BITS *)C$1+3L) &= 0xfff0u;
-;*** 85	-----------------------    AdcRegs.ADCTRL3.all = 228u;
-;*** 87	-----------------------    DSP28x_usDelay(139998uL);
-;*** 87	-----------------------    return;
+;*** 72	-----------------------    AdcRegs.ADCTRL1.all = 336u;
+;*** 75	-----------------------    AdcRegs.ADCTRL2.all = 0u;
+;*** 77	-----------------------    C$1 = &AdcRegs;
+;*** 77	-----------------------    ((volatile unsigned *)C$1)[1] |= 0x800u;
+;*** 78	-----------------------    *(&AdcRegs+1L) |= 0x400u;
+;*** 80	-----------------------    AdcRegs.ADCMAXCONV.all = 15u;
+;*** 82	-----------------------    AdcRegs.ADCCHSELSEQ1.all = 12816u;
+;*** 83	-----------------------    AdcRegs.ADCCHSELSEQ2.all = 30292u;
+;*** 84	-----------------------    AdcRegs.ADCCHSELSEQ3.all = 0xba98u;
+;*** 85	-----------------------    AdcRegs.ADCCHSELSEQ4.all = 0xfedcu;
+;*** 91	-----------------------    *((volatile struct _ADCCHSELSEQ1_BITS *)C$1+3L) &= 0xfff0u;
+;*** 117	-----------------------    AdcRegs.ADCTRL3.all = 228u;
+;*** 119	-----------------------    DSP28x_usDelay(139998uL);
+;*** 119	-----------------------    return;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -86,41 +86,41 @@ DW$6	.dwtag  DW_TAG_variable, DW_AT_name("C$1"), DW_AT_symbol_name("C$1")
         OR        @_SysCtrlRegs+12,#0x0008 ; |41| 
 	.dwpsn	"DSP280x_Adc.c",42,2
  EDIS
-	.dwpsn	"DSP280x_Adc.c",56,2
+	.dwpsn	"DSP280x_Adc.c",72,2
         MOVW      DP,#_AdcRegs
-        MOV       @_AdcRegs,#336        ; |56| 
-	.dwpsn	"DSP280x_Adc.c",59,2
-        MOV       @_AdcRegs+1,#0        ; |59| 
-	.dwpsn	"DSP280x_Adc.c",61,2
-        MOVL      XAR4,#_AdcRegs        ; |61| 
-        OR        *+XAR4[1],#0x0800     ; |61| 
-	.dwpsn	"DSP280x_Adc.c",62,2
-        OR        @_AdcRegs+1,#0x0400   ; |62| 
-	.dwpsn	"DSP280x_Adc.c",64,2
-        MOV       @_AdcRegs+2,#15       ; |64| 
-	.dwpsn	"DSP280x_Adc.c",66,2
-        MOV       @_AdcRegs+3,#12816    ; |66| 
-	.dwpsn	"DSP280x_Adc.c",67,2
-        MOV       @_AdcRegs+4,#30292    ; |67| 
-	.dwpsn	"DSP280x_Adc.c",68,2
-        MOV       @_AdcRegs+5,#47768    ; |68| 
-	.dwpsn	"DSP280x_Adc.c",69,2
-        MOV       @_AdcRegs+6,#65244    ; |69| 
+        MOV       @_AdcRegs,#336        ; |72| 
 	.dwpsn	"DSP280x_Adc.c",75,2
-        AND       *+XAR4[3],#0xfff0     ; |75| 
+        MOV       @_AdcRegs+1,#0        ; |75| 
+	.dwpsn	"DSP280x_Adc.c",77,2
+        MOVL      XAR4,#_AdcRegs        ; |77| 
+        OR        *+XAR4[1],#0x0800     ; |77| 
+	.dwpsn	"DSP280x_Adc.c",78,2
+        OR        @_AdcRegs+1,#0x0400   ; |78| 
+	.dwpsn	"DSP280x_Adc.c",80,2
+        MOV       @_AdcRegs+2,#15       ; |80| 
+	.dwpsn	"DSP280x_Adc.c",82,2
+        MOV       @_AdcRegs+3,#12816    ; |82| 
+	.dwpsn	"DSP280x_Adc.c",83,2
+        MOV       @_AdcRegs+4,#30292    ; |83| 
+	.dwpsn	"DSP280x_Adc.c",84,2
+        MOV       @_AdcRegs+5,#47768    ; |84| 
 	.dwpsn	"DSP280x_Adc.c",85,2
-        MOV       @_AdcRegs+24,#228     ; |85| 
-	.dwpsn	"DSP280x_Adc.c",87,5
+        MOV       @_AdcRegs+6,#65244    ; |85| 
+	.dwpsn	"DSP280x_Adc.c",91,2
+        AND       *+XAR4[3],#0xfff0     ; |91| 
+	.dwpsn	"DSP280x_Adc.c",117,2
+        MOV       @_AdcRegs+24,#228     ; |117| 
+	.dwpsn	"DSP280x_Adc.c",119,5
         MOV       AL,#8926
         SPM       #0
         MOV       AH,#2
-        LCR       #_DSP28x_usDelay      ; |87| 
-        ; call occurs [#_DSP28x_usDelay] ; |87| 
-	.dwpsn	"DSP280x_Adc.c",90,1
+        LCR       #_DSP28x_usDelay      ; |119| 
+        ; call occurs [#_DSP28x_usDelay] ; |119| 
+	.dwpsn	"DSP280x_Adc.c",122,1
         LRETR
         ; return occurs
 	.dwattr DW$5, DW_AT_end_file("DSP280x_Adc.c")
-	.dwattr DW$5, DW_AT_end_line(0x5a)
+	.dwattr DW$5, DW_AT_end_line(0x7a)
 	.dwattr DW$5, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$5

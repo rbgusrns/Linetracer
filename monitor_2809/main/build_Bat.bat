@@ -1,8 +1,8 @@
 title MRSFAF_cpu(TMS2809)_monitor_compile
 color 00
 
-set PATH_BAT= C:\project\monitor_2809\Compiler
-set TARGET_BAT=a_monitor
+set PATH_BAT= ..\Compiler
+set TARGET_BAT=a_DOUKSINI
 
 cls
 

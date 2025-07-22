@@ -64,8 +64,8 @@ volatile Uint16 sen_shoot_arr[ SEN_END ] =
 
 volatile Uint16 sen_adc_seq[ ADC_NUM ] = 
 {
-	ADC_15,ADC_14,ADC_13,ADC_12,ADC_11,ADC_10,ADC_9,ADC_8,
-	ADC_7,ADC_6,ADC_5,ADC_4,ADC_3,ADC_2,ADC_1,ADC_0
+	ADC_0,ADC_1,ADC_2,ADC_3,ADC_4,ADC_5,ADC_6,ADC_7,
+	ADC_8,ADC_9,ADC_10,ADC_11,ADC_12,ADC_13,ADC_14,ADC_15
 
 };
 

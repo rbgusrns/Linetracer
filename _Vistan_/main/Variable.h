@@ -117,13 +117,13 @@
 
 
 
-#define RIGHT_LED_ON GpioDataRegs.GPASET.bit.GPIO27 = 1
-#define RIGHT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO27 = 1
+#define RIGHT_LED_ON GpioDataRegs.GPASET.bit.GPIO12 = 1
+#define RIGHT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO12 = 1
 
-#define LEFT_LED_ON GpioDataRegs.GPASET.bit.GPIO12 = 1	
-#define LEFT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO12 = 1
+#define LEFT_LED_ON GpioDataRegs.GPASET.bit.GPIO27 = 1	
+#define LEFT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO27 = 1
 
-#define BUZZ_ON GpioDataRegs.GPASET.bit.GPIO13 = 1	
+#define BUZZ_ON GpioDataRegs.GPASET.bit.GPIO13  = 1	
 #define BUZZ_OFF GpioDataRegs.GPACLEAR.bit.GPIO13 = 1
 
 #define RIGHT_BLUE_ON GpioDataRegs.GPBSET.bit.GPIO34 = 1

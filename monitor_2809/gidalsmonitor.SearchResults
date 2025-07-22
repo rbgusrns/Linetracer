@@ -1,4 +1,10 @@
----- VfdInit Matches (3 in 3 files) ----
-Main.c (main):	VfdInit();
-VFD.c (main):void VfdInit(void)
-VFD.h (main):extern void VfdInit(void);
+---- InitFlashAPI2809 Matches (9 in 7 files) ----
+flash.asm (main):DW$88	.dwtag  DW_TAG_subprogram, DW_AT_name("InitFlashAPI2809"), DW_AT_symbol_name("_InitFlashAPI2809")
+flash.c (flash):void InitFlashAPI2809(void)
+flash.c (main):void InitFlashAPI2809(void)
+flash.h (flash):extern void InitFlashAPI2809(void);
+flash.h (main):extern void InitFlashAPI2809(void);
+main.asm (main):DW$25	.dwtag  DW_TAG_subprogram, DW_AT_name("InitFlashAPI2809"), DW_AT_symbol_name("_InitFlashAPI2809")
+main.asm (main):;*** 176	-----------------------    InitFlashAPI2809();
+main.asm (main):;*** 176	-----------------------    InitFlashAPI2809();  // [19]
+main.c (main):	InitFlashAPI2809();

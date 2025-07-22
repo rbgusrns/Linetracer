@@ -1,7 +1,7 @@
 #include "DSP280x_Device.h"     // DSP280x Headerfile Include File
 #include "DSP280x_Examples.h"   // DSP280x Examples Include File
 
-/*
+
 void InitFlashAPI2808(void)
 {
 	Uint16 VersionHex;
@@ -25,7 +25,7 @@ void InitFlashAPI2808(void)
 	}
 	
 }
-*/
+/*
 void InitFlashAPI2809(void)
 {
 	Uint16 VersionHex;
@@ -49,7 +49,7 @@ void InitFlashAPI2809(void)
 	}
 	
 }
-
+*/
 FLASH_ST FlashStatus;
 FLASH_ST ProgStatus;
 void DeleteAllFlash(void)

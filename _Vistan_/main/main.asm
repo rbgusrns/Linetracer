@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Mon Jun 30 01:49:32 2025                 *
+;* Date/Time created: Tue Jul 22 00:53:59 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -724,8 +724,8 @@ DW$141	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g
 	.dwattr DW$141, DW_AT_location[DW_OP_addr _g_fast_info]
 	.dwattr DW$141, DW_AT_type(*DW$T$208)
 	.dwattr DW$141, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI69210 C:\Users\rbgus\AppData\Local\Temp\TI6924 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI6922 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI6926 --object_file main.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI23210 C:\Users\rbgus\AppData\Local\Temp\TI2324 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI2322 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI2326 --object_file main.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_print_second_info
 
@@ -922,7 +922,7 @@ L4:
         ; return occurs
 
 DW$146	.dwtag  DW_TAG_loop
-	.dwattr DW$146, DW_AT_name("C:\project\_Vistan_\main\main.asm:L1:1:1751215772")
+	.dwattr DW$146, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L1:1:1753113239")
 	.dwattr DW$146, DW_AT_begin_file("main.c")
 	.dwattr DW$146, DW_AT_begin_line(0x10a)
 	.dwattr DW$146, DW_AT_end_line(0x124)
@@ -1626,8 +1626,8 @@ _main:
 ;***  	-----------------------    *(&CpuTimer1Regs+4L) &= 0xffefu;
 ;*** 204	-----------------------    race_start_init();
 ;*** 211	-----------------------    C$1 = &GpioDataRegs;
-;*** 211	-----------------------    ((volatile unsigned *)C$1)[4] |= 0x1000u;
-;*** 212	-----------------------    ((volatile unsigned *)C$1)[5] |= 0x800u;
+;*** 211	-----------------------    ((volatile unsigned *)C$1)[5] |= 0x800u;
+;*** 212	-----------------------    ((volatile unsigned *)C$1)[4] |= 0x1000u;
 ;*** 214	-----------------------    *((volatile struct _GPBDAT_BITS *)C$1+12L) |= 2u;
 ;*** 216	-----------------------    *(&GpioDataRegs+12L) |= 4u;
 ;*** 218	-----------------------    *(&GpioDataRegs+4L) |= 0x2000u;
@@ -1667,9 +1667,9 @@ DW$158	.dwtag  DW_TAG_variable, DW_AT_name("C$1"), DW_AT_symbol_name("C$1")
         ; call occurs [#_race_start_init] ; |204| 
 	.dwpsn	"main.c",211,2
         MOVL      XAR4,#_GpioDataRegs   ; |211| 
-        OR        *+XAR4[4],#0x1000     ; |211| 
+        OR        *+XAR4[5],#0x0800     ; |211| 
 	.dwpsn	"main.c",212,2
-        OR        *+XAR4[5],#0x0800     ; |212| 
+        OR        *+XAR4[4],#0x1000     ; |212| 
 	.dwpsn	"main.c",214,2
         MOVB      ACC,#12
         ADDL      ACC,XAR4
@@ -1716,7 +1716,7 @@ DW$L$_main$2$E:
 	.dwcfa	0xc0, 7
 
 DW$159	.dwtag  DW_TAG_loop
-	.dwattr DW$159, DW_AT_name("C:\project\_Vistan_\main\main.asm:L5:1:1751215772")
+	.dwattr DW$159, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L5:1:1753113239")
 	.dwattr DW$159, DW_AT_begin_file("main.c")
 	.dwattr DW$159, DW_AT_begin_line(0xe0)
 	.dwattr DW$159, DW_AT_end_line(0xf9)
@@ -1802,7 +1802,7 @@ L7:
         ; return occurs
 
 DW$164	.dwtag  DW_TAG_loop
-	.dwattr DW$164, DW_AT_name("C:\project\_Vistan_\main\main.asm:L6:1:1751215772")
+	.dwattr DW$164, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L6:1:1753113239")
 	.dwattr DW$164, DW_AT_begin_file("main.c")
 	.dwattr DW$164, DW_AT_begin_line(0xfe)
 	.dwattr DW$164, DW_AT_end_line(0x103)
