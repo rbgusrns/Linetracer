@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Tue Jul 22 00:54:06 2025                 *
+;* Date/Time created: Thu Jul 24 14:56:32 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -290,7 +290,10 @@ DW$78	.dwtag  DW_TAG_variable, DW_AT_name("g_Flag"), DW_AT_symbol_name("_g_Flag"
 	.align	2
 _$T0$1$0:
 	.field  	0,32			; _$T0$1$0[0] @ 0
-	.space	128
+	.field  	0,32			; _$T0$1$0[1] @ 32
+	.field  	0,32			; _$T0$1$0[2] @ 64
+	.field  	0,32			; _$T0$1$0[3] @ 96
+	.field  	0,32			; _$T0$1$0[4] @ 128
 
 DW$79	.dwtag  DW_TAG_variable, DW_AT_name("$T0$1$0"), DW_AT_symbol_name("_$T0$1$0")
 	.dwattr DW$79, DW_AT_type(*DW$T$110)
@@ -335,8 +338,8 @@ DW$88	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$88, DW_AT_type(*DW$T$128)
 	.dwattr DW$88, DW_AT_declaration(0x01)
 	.dwattr DW$88, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI14010 C:\Users\rbgus\AppData\Local\Temp\TI1404 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI1402 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI1406 --object_file brilrun.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI84010 C:\Users\rbgus\AppData\Local\Temp\TI8404 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI8402 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI8406 --object_file brilrun.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 ***	Parameter deleted: perr == &g_err;
 	.sect	".text"
 
@@ -368,7 +371,7 @@ DW$89	.dwtag  DW_TAG_subprogram, DW_AT_name("bril_180_turn_compute"), DW_AT_symb
 _bril_180_turn_compute$0:
 ;*** 376	-----------------------    shift = g_int32shift_level;
 ;*** 378	-----------------------    (*pinfo).q17acc = g_q17user_acc;
-;*** 379	-----------------------    (*pinfo).q7kp_val = 192L;
+;*** 379	-----------------------    (*pinfo).q7kp_val = 89L;
 ;*** 381	-----------------------    (*pinfo).q17in_vel = g_q17user_vel;
 ;*** 382	-----------------------    (*pinfo).q17out_vel = (*pinfo).q17vel = (*pinfo).q17in_vel;
 ;*** 384	-----------------------    if ( (*pinfo).u16turn_dir&4 ) goto g3;
@@ -437,7 +440,7 @@ DW$99	.dwtag  DW_TAG_variable, DW_AT_name("U$9"), DW_AT_symbol_name("U$9")
         MOVB      XAR0,#18              ; |378| 
         MOVL      *+XAR1[AR0],XAR6      ; |378| 
 	.dwpsn	"brilrun.c",379,2
-        MOVB      XAR6,#192
+        MOVB      XAR6,#89
         MOVL      *+XAR1[0],XAR6        ; |379| 
 	.dwpsn	"brilrun.c",381,2
         MOVW      DP,#_g_q17user_vel
@@ -680,9 +683,9 @@ DW$100	.dwtag  DW_TAG_subprogram, DW_AT_name("bril_default_turn_compute"), DW_AT
 _bril_default_turn_compute$0:
 ;*** 403	-----------------------    shift = g_int32shift_level;
 ;*** 405	-----------------------    (*pinfo).q17acc = g_q17user_acc;
-;*** 406	-----------------------    (*pinfo).q7kp_val = 192L;
+;*** 406	-----------------------    (*pinfo).q7kp_val = 89L;
 ;*** 408	-----------------------    (*pinfo).q17in_vel = g_q17user_vel;
-;*** 409	-----------------------    if ( g_q17user_vel <= 360448000L ) goto g3;
+;*** 409	-----------------------    if ( g_q17user_vel <= 380108800L ) goto g3;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -748,7 +751,7 @@ DW$110	.dwtag  DW_TAG_variable, DW_AT_name("U$12"), DW_AT_symbol_name("U$12")
         MOVL      ACC,@_g_q17user_acc   ; |405| 
         MOVL      *+XAR1[AR0],ACC       ; |405| 
 	.dwpsn	"brilrun.c",406,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |406| 
 	.dwpsn	"brilrun.c",408,2
         MOVW      DP,#_g_q17user_vel
@@ -756,11 +759,11 @@ DW$110	.dwtag  DW_TAG_variable, DW_AT_name("U$12"), DW_AT_symbol_name("U$12")
         MOVL      ACC,@_g_q17user_vel   ; |408| 
         MOVL      *+XAR1[AR0],ACC       ; |408| 
 	.dwpsn	"brilrun.c",409,2
-        MOV       ACC,#11000 << 15
+        MOV       ACC,#11600 << 15
         CMPL      ACC,@_g_q17user_vel   ; |409| 
         BF        L9,GEQ                ; |409| 
         ; branchcc occurs ; |409| 
-;*** 410	-----------------------    (*pinfo).q17in_vel = 360448000L;
+;*** 410	-----------------------    (*pinfo).q17in_vel = 380108800L;
 	.dwpsn	"brilrun.c",410,3
         MOVL      *+XAR1[AR0],ACC       ; |410| 
 L9:    
@@ -1006,7 +1009,7 @@ _bril_90_turn_compute$0:
 ;*** 280	-----------------------    m_dist = 0L;
 ;*** 281	-----------------------    shift = g_int32shift_level;
 ;*** 283	-----------------------    (*p_info).q17acc = g_q17user_acc;
-;*** 284	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 284	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 286	-----------------------    (*p_info).q17in_vel = g_q17user_vel;
 ;*** 287	-----------------------    (*p_info).q17vel = (*p_info).q17out_vel = (*p_info).q17in_vel;
 ;*** 289	-----------------------    if ( (*p_info).u16turn_dir&4 ) goto g3;
@@ -1109,7 +1112,7 @@ DW$129	.dwtag  DW_TAG_variable, DW_AT_name("m_dist"), DW_AT_symbol_name("_m_dist
         MOVB      XAR0,#18              ; |283| 
         MOVL      *+XAR1[AR0],XAR6      ; |283| 
 	.dwpsn	"brilrun.c",284,2
-        MOVB      XAR6,#192
+        MOVB      XAR6,#89
         MOVL      *+XAR1[0],XAR6        ; |284| 
 	.dwpsn	"brilrun.c",286,2
         MOVW      DP,#_g_q17user_vel
@@ -1508,7 +1511,7 @@ L38:
         ; branchcc occurs ; |318| 
 ;*** 321	-----------------------    *((volatile unsigned * const)p_info+12) &= 0xfffdu;
 ;*** 322	-----------------------    *((volatile unsigned * const)p_info+12) &= 0xfffbu;
-;*** 323	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 323	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 325	-----------------------    (*p_info).q17in_vel = g_q17user_vel;
 ;*** 326	-----------------------    (*p_info).q17out_vel = (*p_info).q17vel = (*p_info).q17in_vel;
 ;*** 328	-----------------------    (*p_info).u16turn_cnt = 300u;
@@ -1523,7 +1526,7 @@ L38:
         MOVL      XAR4,ACC              ; |322| 
         AND       *+XAR4[0],#0xfffb     ; |322| 
 	.dwpsn	"brilrun.c",323,13
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |323| 
 	.dwpsn	"brilrun.c",325,13
         MOVW      DP,#_g_q17user_vel
@@ -1696,7 +1699,7 @@ _bril_45_turn_compute$0:
 ;*** 189	-----------------------    m_dist = 0L;
 ;*** 191	-----------------------    K$7 = &p_info[1];
 ;*** 191	-----------------------    bril_turn_division_compute(K$7, mark_cnt+1L);
-;*** 193	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 193	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 194	-----------------------    (*p_info).q17acc = g_q17user_acc;
 ;*** 196	-----------------------    if ( (*p_info).u16turn_dir&4 ) goto g3;
 	.dwcfa	0x1d, -2
@@ -1801,7 +1804,7 @@ DW$148	.dwtag  DW_TAG_variable, DW_AT_name("m_dist"), DW_AT_symbol_name("_m_dist
         LCR       #_bril_turn_division_compute$0 ; |191| 
         ; call occurs [#_bril_turn_division_compute$0] ; |191| 
 	.dwpsn	"brilrun.c",193,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |193| 
 	.dwpsn	"brilrun.c",194,2
         MOVW      DP,#_g_q17user_acc
@@ -1882,10 +1885,10 @@ L43:
         ; branchcc occurs ; |229| 
 L44:    
 ;***	-----------------------g11:
-;*** 243	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 243	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 245	-----------------------    if ( *((volatile unsigned * const)p_info+74L)&1u ) goto g15;
 	.dwpsn	"brilrun.c",243,3
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |243| 
 	.dwpsn	"brilrun.c",245,3
         TBIT      *+XAR1[AR0],#0        ; |245| 
@@ -2218,7 +2221,7 @@ L62:
 L63:    
 ;***	-----------------------g25:
 ;*** 200	-----------------------    (*p_info).q17vel = (*p_info).q17out_vel = (*p_info).q17in_vel = g_q17user_vel;
-;*** 201	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 201	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 203	-----------------------    if ( *((volatile unsigned * const)p_info+74L)&1u ) goto g27;
 	.dwpsn	"brilrun.c",200,3
         MOVW      DP,#_g_q17user_vel
@@ -2230,7 +2233,7 @@ L63:
         MOVB      XAR0,#22              ; |200| 
         MOVL      *+XAR1[AR0],ACC       ; |200| 
 	.dwpsn	"brilrun.c",201,3
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |201| 
 	.dwpsn	"brilrun.c",203,3
         MOVB      XAR0,#74              ; |203| 
@@ -2413,7 +2416,7 @@ _bril_large_turn_compute$0:
 ;*** 433	-----------------------    shift = g_int32shift_level;
 ;*** 438	-----------------------    big_vel = 0L;
 ;*** 439	-----------------------    small_vel = 0L;
-;*** 442	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 442	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 443	-----------------------    (*p_info).q17in_vel = (*p_info).q17vel = (*p_info).q17out_vel = g_q17user_vel;
 ;*** 445	-----------------------    if ( !(*((volatile unsigned * const)p_info+74L)&1u) ) goto g3;
 	.dwcfa	0x1d, -2
@@ -2503,7 +2506,7 @@ DW$165	.dwtag  DW_TAG_variable, DW_AT_name("small_vel"), DW_AT_symbol_name("_sma
 	.dwpsn	"brilrun.c",439,17
         MOVL      *-SP[10],ACC          ; |439| 
 	.dwpsn	"brilrun.c",442,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |442| 
 	.dwpsn	"brilrun.c",443,2
         MOVW      DP,#_g_q17user_vel
@@ -3046,7 +3049,7 @@ _bril_straight_compute$0:
 ;*** 62	-----------------------    shift = g_int32shift_level;
 ;*** 67	-----------------------    big_vel = 0L;
 ;*** 68	-----------------------    small_vel = 0L;
-;*** 70	-----------------------    (*p_info).q7kp_val = 192L;
+;*** 70	-----------------------    (*p_info).q7kp_val = 89L;
 ;*** 72	-----------------------    if ( mark_cnt > 0L ) goto g3;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
@@ -3135,7 +3138,7 @@ DW$182	.dwtag  DW_TAG_variable, DW_AT_name("small_vel"), DW_AT_symbol_name("_sma
 	.dwpsn	"brilrun.c",68,17
         MOVL      *-SP[10],ACC          ; |68| 
 	.dwpsn	"brilrun.c",70,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |70| 
 	.dwpsn	"brilrun.c",72,2
         MOVL      ACC,XAR3
@@ -4151,7 +4154,7 @@ L128:
         ; return occurs
 
 DW$190	.dwtag  DW_TAG_loop
-	.dwattr DW$190, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L127:1:1753113246")
+	.dwattr DW$190, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L127:1:1753336593")
 	.dwattr DW$190, DW_AT_begin_file("brilrun.c")
 	.dwattr DW$190, DW_AT_begin_line(0x204)
 	.dwattr DW$190, DW_AT_end_line(0x209)
@@ -4378,7 +4381,7 @@ L132:
         ; return occurs
 
 DW$198	.dwtag  DW_TAG_loop
-	.dwattr DW$198, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L129:1:1753113246")
+	.dwattr DW$198, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L129:1:1753336593")
 	.dwattr DW$198, DW_AT_begin_file("brilrun.c")
 	.dwattr DW$198, DW_AT_begin_line(0x285)
 	.dwattr DW$198, DW_AT_end_line(0x29b)
@@ -5054,7 +5057,7 @@ L151:
         ; return occurs
 
 DW$207	.dwtag  DW_TAG_loop
-	.dwattr DW$207, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L147:1:1753113246")
+	.dwattr DW$207, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L147:1:1753336593")
 	.dwattr DW$207, DW_AT_begin_file("brilrun.c")
 	.dwattr DW$207, DW_AT_begin_line(0x21a)
 	.dwattr DW$207, DW_AT_end_line(0x25a)
@@ -5929,7 +5932,7 @@ DW$L$_bril_run$16$E:
         ; return occurs
 
 DW$271	.dwtag  DW_TAG_loop
-	.dwattr DW$271, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L168:1:1753113246")
+	.dwattr DW$271, DW_AT_name("C:\project\Linetracer\_Vistan_\main\brilrun.asm:L168:1:1753336593")
 	.dwattr DW$271, DW_AT_begin_file("brilrun.c")
 	.dwattr DW$271, DW_AT_begin_line(0x2c7)
 	.dwattr DW$271, DW_AT_end_line(0x2e9)

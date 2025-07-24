@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Tue Jul 22 00:54:05 2025                 *
+;* Date/Time created: Thu Jul 24 14:56:31 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -203,8 +203,8 @@ DW$62	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$62, DW_AT_type(*DW$T$113)
 	.dwattr DW$62, DW_AT_declaration(0x01)
 	.dwattr DW$62, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI13210 C:\Users\rbgus\AppData\Local\Temp\TI1324 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI1322 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI1326 --object_file fastrun.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI55610 C:\Users\rbgus\AppData\Local\Temp\TI5564 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI5562 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI5566 --object_file fastrun.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 
 DW$63	.dwtag  DW_TAG_subprogram, DW_AT_name("default_turn_compute"), DW_AT_symbol_name("_default_turn_compute$0")
@@ -233,7 +233,7 @@ DW$63	.dwtag  DW_TAG_subprogram, DW_AT_name("default_turn_compute"), DW_AT_symbo
 ;*                                                             *
 ;***************************************************************
 _default_turn_compute$0:
-;*** 177	-----------------------    (*pinfo).q7kp_val = 192L;
+;*** 177	-----------------------    (*pinfo).q7kp_val = 89L;
 ;*** 178	-----------------------    *((volatile unsigned * const)pinfo+12) &= 0xfffdu;
 ;*** 179	-----------------------    *((volatile unsigned * const)pinfo+12) &= 0xfffeu;
 ;*** 181	-----------------------    (*pinfo).q17acc = g_q17user_acc;
@@ -290,7 +290,7 @@ DW$70	.dwtag  DW_TAG_variable, DW_AT_name("K$15"), DW_AT_symbol_name("K$15")
         MOVL      XAR1,XAR4             ; |176| 
         MOVL      XAR6,ACC              ; |176| 
 	.dwpsn	"fastrun.c",177,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |177| 
 	.dwpsn	"fastrun.c",178,2
         MOVB      ACC,#12
@@ -512,7 +512,7 @@ DW$71	.dwtag  DW_TAG_subprogram, DW_AT_name("straight_compute"), DW_AT_symbol_na
 _straight_compute$0:
 ;*** 104	-----------------------    big_vel = 0.0F;
 ;*** 105	-----------------------    small_vel = 0.0F;
-;*** 107	-----------------------    (*pinfo).q7kp_val = 192L;
+;*** 107	-----------------------    (*pinfo).q7kp_val = 89L;
 ;*** 108	-----------------------    *((volatile unsigned * const)pinfo+12) &= 0xfffdu;
 ;*** 109	-----------------------    *((volatile unsigned * const)pinfo+12) &= 0xfffeu;
 ;*** 112	-----------------------    (mark_cnt > 0L) ? (S$3 = *((volatile long * const)pinfo-14L)) : (S$3 = 0L);
@@ -589,7 +589,7 @@ DW$84	.dwtag  DW_TAG_variable, DW_AT_name("small_vel"), DW_AT_symbol_name("_smal
 	.dwpsn	"fastrun.c",105,19
         MOVL      *-SP[10],ACC          ; |105| 
 	.dwpsn	"fastrun.c",107,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |107| 
 	.dwpsn	"fastrun.c",108,2
         MOVB      ACC,#12
@@ -1255,7 +1255,7 @@ L21:
         ; return occurs
 
 DW$94	.dwtag  DW_TAG_loop
-	.dwattr DW$94, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L20:1:1753113245")
+	.dwattr DW$94, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L20:1:1753336591")
 	.dwattr DW$94, DW_AT_begin_file("fastrun.c")
 	.dwattr DW$94, DW_AT_begin_line(0x115)
 	.dwattr DW$94, DW_AT_end_line(0x124)
@@ -2273,7 +2273,7 @@ DW$L$_second_run$7$E:
         ; return occurs
 
 DW$129	.dwtag  DW_TAG_loop
-	.dwattr DW$129, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L40:1:1753113245")
+	.dwattr DW$129, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L40:1:1753336591")
 	.dwattr DW$129, DW_AT_begin_file("fastrun.c")
 	.dwattr DW$129, DW_AT_begin_line(0x18f)
 	.dwattr DW$129, DW_AT_end_line(0x1a9)
@@ -2397,7 +2397,7 @@ DW$137	.dwtag  DW_TAG_subprogram, DW_AT_name("large_turn_compute"), DW_AT_symbol
 _large_turn_compute:
 ;*** 209	-----------------------    big_vel = 0L;
 ;*** 210	-----------------------    small_vel = 0L;
-;*** 212	-----------------------    (*pinfo).q7kp_val = 192L;
+;*** 212	-----------------------    (*pinfo).q7kp_val = 89L;
 ;*** 213	-----------------------    *((volatile unsigned * const)pinfo+12) &= 0xfffdu;
 ;*** 214	-----------------------    *((volatile unsigned * const)pinfo+12) &= 0xfffeu;
 ;*** 216	-----------------------    (*((volatile long * const)pinfo-14L) != 0L) ? (S$3 = *((volatile long * const)pinfo-14L)) : (S$3 = g_q17user_vel);
@@ -2474,7 +2474,7 @@ DW$150	.dwtag  DW_TAG_variable, DW_AT_name("small_vel"), DW_AT_symbol_name("_sma
 	.dwpsn	"fastrun.c",210,17
         MOVL      *-SP[10],ACC          ; |210| 
 	.dwpsn	"fastrun.c",212,2
-        MOVB      ACC,#192
+        MOVB      ACC,#89
         MOVL      *+XAR1[0],ACC         ; |212| 
 	.dwpsn	"fastrun.c",213,2
         MOVB      ACC,#12

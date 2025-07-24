@@ -1,7 +1,9 @@
----- LEFT_LED_ON Matches (6 in 4 files) ----
-Motor.c (main):		//LEFT_LED_ON;
-Motor.c (main):	//LEFT_LED_ON;
-search.c (main):		LEFT_LED_ON;
-sensor.c (main):			//	LEFT_LED_ON;
-sensor.c (main):                    LEFT_LED_ON;
-Variable.h (main):#define LEFT_LED_ON GpioDataRegs.GPASET.bit.GPIO12 = 1	
+---- ext_secession_for_angle_func Matches (8 in 1 files) ----
+extremerun.c (main):static void ext_secession_for_angle_func( fast_run_str *pinfo , error_str *perr , int32 mark_cnt );
+extremerun.c (main):		ext_secession_for_angle_func( ( pinfo + 1 ), perr,( mark_cnt + 1 ) );	// 다음 턴을 미리 계산 한 후에 out vel 결정 
+extremerun.c (main):	ext_secession_for_angle_func( ( pinfo + 1 ) , p_err , ( mark_cnt + 1 ) );
+extremerun.c (main):			ext_secession_for_angle_func( ( pinfo + 1 ) , perr , ( mark_cnt + 1 ) ); // 직진 45 90 180 270 큰턴 나누기 
+extremerun.c (main):				ext_secession_for_angle_func( ( pinfo + 1 ) , perr, ( mark_cnt + 1 ) ); // 직진 45 90 180 270 큰턴 나누기 
+extremerun.c (main):		ext_secession_for_angle_func( ( pinfo + 1 ) , perr , ( mark_cnt + 1 ) ); // 직진 45 90 180 270 큰턴 나누기 
+extremerun.c (main):static void ext_secession_for_angle_func( fast_run_str *pinfo , error_str *perr , int32 mark_cnt ) // 직진 45 90 180 270 큰턴 나누기 
+extremerun.c (main):		ext_secession_for_angle_func( &g_fast_info[ i ], &g_err ,i );

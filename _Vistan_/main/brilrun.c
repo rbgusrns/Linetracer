@@ -526,7 +526,7 @@ extern void bril_turn_division_func( void )
 extern void bril_select(void)
 {
 	int32 i = 0;
-	int32 select[5] = 0;
+	int32 select[5] = {0,0,0,0,0};
 
 	g_Flag.BALL_flag = OFF;
 	g_Flag.B45_flag = OFF;

@@ -71,7 +71,7 @@
 #define	MAX_SPEED_HANDLE			_IQ16(1.15)
 
 
-#define POS_KP_UP		_IQ7( 1.5 )	//1.5
+#define POS_KP_UP		_IQ7( 0.7 )	//1.5
 //#define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 #define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 
@@ -88,6 +88,7 @@
 #define	TURN_180					0x0040
 #define	TURN_270					0x0080
 #define	LARGE_TURN					0x0100
+
 
 
 #define VEL_45 500
@@ -117,11 +118,11 @@
 
 
 
-#define RIGHT_LED_ON GpioDataRegs.GPASET.bit.GPIO12 = 1
-#define RIGHT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO12 = 1
+#define RIGHT_LED_ON GpioDataRegs.GPASET.bit.GPIO27 = 1
+#define RIGHT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO27 = 1
 
-#define LEFT_LED_ON GpioDataRegs.GPASET.bit.GPIO27 = 1	
-#define LEFT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO27 = 1
+#define LEFT_LED_ON GpioDataRegs.GPASET.bit.GPIO12 = 1	
+#define LEFT_LED_OFF GpioDataRegs.GPACLEAR.bit.GPIO12 = 1
 
 #define BUZZ_ON GpioDataRegs.GPASET.bit.GPIO13  = 1	
 #define BUZZ_OFF GpioDataRegs.GPACLEAR.bit.GPIO13 = 1
@@ -298,8 +299,8 @@ typedef enum extrem_variable_vel
 	LIMIT_45_VEL = 300 , 
 	LIMIT_90_VEL = 200 , 
 
-	//LIMIT_SHIFT_VEL = 2900 ,
-	LIMIT_SHIFT_VEL = 2750 ,
+	LIMIT_SHIFT_VEL = 2900 ,
+	//LIMIT_SHIFT_VEL = 2750 ,
 
 	LIMIT_ACC = 10 , 
 

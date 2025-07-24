@@ -74,7 +74,7 @@ void Variable_Init( void )
 	g_int32err_cnt = 0;
 	g_int32dist = 0;
 
-    g_int32decel = 2000;
+    g_int32decel = 2000; //가속보다 감속을 더하자 ..
 	g_float32time_cnt = 0.0;
 	g_int32timer_cnt = 0;
 
@@ -102,7 +102,6 @@ void Variable_Init( void )
 	//
 	g_q17straight_dist  = _IQ17(0); // extreme run 
 	g_q17shift_dist = _IQ17(0);
-	g_q17correction_dist = _IQ17(0);
 
 	g_q17right_handle = _IQ(1);
 	g_q17left_handle = _IQ(1);
@@ -150,7 +149,6 @@ void Variable_Init( void )
 	/*	extremerun variables	*/
 	g_int32shift_level=4;
 	g_q17end_vel = _IQ(2200);
-	g_q17end = _IQ(2000);
 	g_q17end_dist = _IQ(100);
 	
 	g_q1745user_vel = _IQ(3000);
@@ -167,8 +165,8 @@ void Variable_Init( void )
 	
 	g_q17short_acc = _IQ(12000);
 	
-	g_q17s4s_vel = _IQ(3000);
-	g_q17s44s_vel = _IQ(3200); 
+	g_q17s4s_vel = _IQ(3200);
+	g_q17s44s_vel = _IQ(3400); 
 	g_q17escape45_vel = _IQ(3500);
 	 
 	g_q7shift_pos = _IQ7(0.0);
@@ -193,14 +191,14 @@ void main(void)
 	///초기값 설정//
 	MOTOR_TIMER_ENABLE; // start cputimer1 
 
-	//maxmin_read_rom();
-    //turnvel_read_rom();
-    //acc_info_read_rom();
-    //handle_read_rom();
-    //turnmark_info_read_rom();
-	//cross_info_read_rom();
-	//mark_read_rom();
-	//fast_infor_read_rom();
+	maxmin_read_rom();
+    turnvel_read_rom();
+    acc_info_read_rom();
+    handle_read_rom();
+    turnmark_info_read_rom();
+	cross_info_read_rom();
+	mark_read_rom();
+	fast_infor_read_rom();
 	race_start_init();
 
     

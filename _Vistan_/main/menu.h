@@ -39,7 +39,6 @@ extern void ext_info(void);
 extern void bril_info(void);
 extern void F_bril_select();
 
-void ext_select(void);
 
 
 
