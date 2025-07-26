@@ -18,12 +18,12 @@ OUTPUT TRANSLATION MAP
    OUTPUT FILES: a_Vistan.hex [b0..b15]
 
    CONTENTS: 003e8000..003e8001   codestart Data Width=2   
-             003e8002..003ed6f7   .text Data Width=2   
-             003ed6f8..003ef2cd   .econst Data Width=2   
-             003ef2ce..003ef54d   VFD_FONT Data Width=2   
-             003ef54e..003ef718   .cinit Data Width=2   
-             003ef719..003ef87f   IQmath Data Width=2   
-             003ef880..003ef8a2   ramfuncs Data Width=2   
+             003e8002..003ed3bf   .text Data Width=2   
+             003ed3c0..003eedfe   .econst Data Width=2   
+             003eedff..003ef07e   VFD_FONT Data Width=2   
+             003ef07f..003ef217   .cinit Data Width=2   
+             003ef218..003ef37e   IQmath Data Width=2   
+             003ef37f..003ef3a1   ramfuncs Data Width=2   
 
 --------------------------------------------------------------------------------
 00000000..003fffff  Page=1  Memory Width=16  ROM Width=16  "*DEFAULT PAGE 1*"

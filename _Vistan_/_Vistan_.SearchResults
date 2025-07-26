@@ -1,9 +1,156 @@
----- ext_secession_for_angle_func Matches (8 in 1 files) ----
-extremerun.c (main):static void ext_secession_for_angle_func( fast_run_str *pinfo , error_str *perr , int32 mark_cnt );
-extremerun.c (main):		ext_secession_for_angle_func( ( pinfo + 1 ), perr,( mark_cnt + 1 ) );	// 다음 턴을 미리 계산 한 후에 out vel 결정 
-extremerun.c (main):	ext_secession_for_angle_func( ( pinfo + 1 ) , p_err , ( mark_cnt + 1 ) );
-extremerun.c (main):			ext_secession_for_angle_func( ( pinfo + 1 ) , perr , ( mark_cnt + 1 ) ); // 직진 45 90 180 270 큰턴 나누기 
-extremerun.c (main):				ext_secession_for_angle_func( ( pinfo + 1 ) , perr, ( mark_cnt + 1 ) ); // 직진 45 90 180 270 큰턴 나누기 
-extremerun.c (main):		ext_secession_for_angle_func( ( pinfo + 1 ) , perr , ( mark_cnt + 1 ) ); // 직진 45 90 180 270 큰턴 나누기 
-extremerun.c (main):static void ext_secession_for_angle_func( fast_run_str *pinfo , error_str *perr , int32 mark_cnt ) // 직진 45 90 180 270 큰턴 나누기 
-extremerun.c (main):		ext_secession_for_angle_func( &g_fast_info[ i ], &g_err ,i );
+---- VFDprintf Matches (155 in 17 files) ----
+brilrun.asm (main):DW$42	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+brilrun.asm (main):;*** 567	-----------------------    VFDPrintf("BLTRN: %ld", select[i]);
+brilrun.asm (main):;*** 564	-----------------------    VFDPrintf("B180:  %ld", select[i]);
+brilrun.asm (main):;*** 561	-----------------------    VFDPrintf("B90:   %ld", select[i]);
+brilrun.asm (main):;*** 558	-----------------------    VFDPrintf("B45:   %ld", select[i]);
+brilrun.asm (main):;*** 555	-----------------------    VFDPrintf("ALL:   %ld", select[i]);
+brilrun.asm (main):;*** 573	-----------------------    VFDPrintf("       ");
+brilrun.asm (main):;*** 579	-----------------------    VFDPrintf("       4");
+brilrun.asm (main):;*** 585	-----------------------    VFDPrintf("     9");
+brilrun.asm (main):;*** 591	-----------------------    VFDPrintf("   8");
+brilrun.asm (main):;*** 597	-----------------------    VFDPrintf(" L");
+brilrun.asm (main):;*** 667	-----------------------    VFDPrintf("brl %f", _IQ17toF(g_q17user_vel));
+brilrun.asm (main):;*** 669	-----------------------    VFDPrintf("        ");
+brilrun.asm (main):;*** 681	-----------------------    VFDPrintf("%f", _IQ7toF(g_pos.iq7pid_out));
+brilrun.c (main):				VFDPrintf("ALL:   %ld",select[i]);
+brilrun.c (main):				VFDPrintf("B45:   %ld",select[i]);
+brilrun.c (main):				VFDPrintf("B90:   %ld",select[i]);
+brilrun.c (main):				VFDPrintf("B180:  %ld",select[i]);
+brilrun.c (main):				VFDPrintf("BLTRN: %ld",select[i]);
+brilrun.c (main):	VFDPrintf("       ");
+brilrun.c (main):			VFDPrintf("       4");
+brilrun.c (main):			VFDPrintf("     9");
+brilrun.c (main):			VFDPrintf("   8");
+brilrun.c (main):			VFDPrintf(" L");
+brilrun.c (main):	VFDPrintf("brl %f",_IQ17toF(g_q17user_vel));	
+brilrun.c (main):	VFDPrintf("        ");
+brilrun.c (main):		//VFDPrintf("%8f",_IQtoF(g_q17shift_pos_val));
+brilrun.c (main):		VFDPrintf("%f",_IQ7toF(g_pos.iq7pid_out));
+fastrun.asm (main):DW$19	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+fastrun.asm (main):;*** 64	-----------------------    VFDPrintf("   ERROR");
+fastrun.asm (main):;*** 385	-----------------------    VFDPrintf("fst %f", _IQ17toF(g_q17user_vel));
+fastrun.asm (main):;*** 387	-----------------------    VFDPrintf("        ");
+fastrun.c (main):				VFDPrintf("   ERROR");
+fastrun.c (main):	VFDPrintf("fst %f",_IQ17toF(g_q17user_vel));	
+fastrun.c (main):	VFDPrintf("        ");
+main.asm (main):DW$24	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+main.asm (main):;*** 188	-----------------------    VFDPrintf("LOADING_");
+main.c (main):	VFDPrintf("LOADING_");
+menu.asm (main):DW$12	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+menu.asm (main):;*** 66	-----------------------    VFDPrintf((char *)((long)row*54L+(long)column*9L+&menu_sel));
+menu.c (main):	VFDPrintf(menu_sel[row][column]);
+Motor.asm (main):DW$7	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+Motor.asm (main):;*** 263	-----------------------    VFDPrintf("   ERROR");
+Motor.c (main):		VFDPrintf("   ERROR");
+search.asm (main):DW$13	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+search.asm (main):;*** 284	-----------------------    VFDPrintf("Err_%3ld_", g_int32total_cnt);
+search.asm (main):;*** 308	-----------------------    VFDPrintf("Sch_%4f", _IQ17toF(g_q17user_vel));
+search.asm (main):;*** 311	-----------------------    VFDPrintf("        ");
+search.asm (main):;*** 929	-----------------------    VFDPrintf("level%3ld", g_int32shift_level);
+search.asm (main):;*** 953	-----------------------    VFDPrintf("45V%5u", (unsigned)(g_q1745user_vel>>17));
+search.asm (main):;*** 977	-----------------------    VFDPrintf("45A%5u", (unsigned)(g_q17_45acc>>17));
+search.asm (main):;** 1001	-----------------------    VFDPrintf("max%5u", (unsigned)(g_q17max_acc>>17));
+search.asm (main):;** 1025	-----------------------    VFDPrintf("mid%5u", (unsigned)(g_q17mid_acc>>17));
+search.asm (main):;** 1049	-----------------------    VFDPrintf("sht%5u", (unsigned)(g_q17short_acc>>17));
+search.asm (main):;** 1073	-----------------------    VFDPrintf("s4s %4u", (unsigned)(g_q17s4s_vel>>17));
+search.asm (main):;** 1097	-----------------------    VFDPrintf("s44s%4u", (unsigned)(g_q17s44s_vel>>17));
+search.asm (main):;** 1121	-----------------------    VFDPrintf("escp%4u", (unsigned)(g_q17escape45_vel>>17));
+search.asm (main):;*** 552	-----------------------    VFDPrintf("ON_LGOFF");
+search.asm (main):;*** 550	-----------------------    VFDPrintf("ON______");
+search.asm (main):;*** 548	-----------------------    VFDPrintf("90_LGOFF");
+search.asm (main):;*** 546	-----------------------    VFDPrintf("90__OFF_");
+search.asm (main):;*** 383	-----------------------    VFDPrintf("VEL:%4f", _IQ17toF(g_q17user_vel));
+search.asm (main):;*** 438	-----------------------    VFDPrintf("LMIT:%3u", g_u16turnmark_limit);
+search.asm (main):;*** 461	-----------------------    VFDPrintf("THOLD:%2u", (unsigned)(g_q17sen_valmax>>17));
+search.asm (main):;*** 486	-----------------------    VFDPrintf("MARKD:%2u", (unsigned)(g_q17turnmark_dist>>17));
+search.asm (main):;*** 509	-----------------------    VFDPrintf("errflg%2ld", g_int32fasterror_flag);
+search.asm (main):;*** 412	-----------------------    VFDPrintf("SFT:%4f", _IQ17toF(g_q17shift_pos_val));
+search.asm (main):;*** 814	-----------------------    VFDPrintf("Pkp:%3.1f", _IQ7toF(g_pos.iq7kp));
+search.asm (main):;*** 837	-----------------------    VFDPrintf("Pkd:%3.1f", _IQ7toF(g_pos.iq7kd));
+search.asm (main):;*** 869	-----------------------    VFDPrintf("Mkp:%3.2f", _IQ28toF(g_q28kp));
+search.asm (main):;*** 892	-----------------------    VFDPrintf("Mkd:%3.2f", _IQ28toF(g_q28kd));
+search.asm (main):;*** 580	-----------------------    VFDPrintf("IS:%4.3f", _IQ16toF(g_q16in_corner_limit));
+search.asm (main):;*** 605	-----------------------    VFDPrintf("OS:%4.3f", _IQ16toF(g_q16out_corner_limit));
+search.asm (main):;*** 628	-----------------------    VFDPrintf("IF:%4.3f", _IQ16toF(g_q16in_corner_fast_limit));
+search.asm (main):;*** 653	-----------------------    VFDPrintf("OF:%4.3f", _IQ16toF(g_q16out_corner_fast_limit));
+search.asm (main):;*** 679	-----------------------    VFDPrintf("EDV:%4u", (unsigned)(g_q17end_vel>>17));
+search.asm (main):;*** 702	-----------------------    VFDPrintf("EDIS:%3u", (unsigned)(g_q17end_dist>>17));
+search.asm (main):;*** 731	-----------------------    VFDPrintf("EA:%5u", (unsigned)(g_q17end_acc>>17));
+search.asm (main):;*** 758	-----------------------    VFDPrintf("AC:%5u", (unsigned)(g_q17user_acc>>17));
+search.asm (main):;*** 783	-----------------------    VFDPrintf("FVL:%4u", (unsigned)(g_q17fast_vel_limit>>17));
+search.c (main):    //VFDPrintf("%8d",g_fast_info[g_int32mark_cnt].u16turn_way);
+search.c (main):		VFDPrintf("Err_%3ld_",g_int32total_cnt);
+search.c (main):	VFDPrintf("Sch_%4f",_IQ17toF(g_q17user_vel));
+search.c (main):	VFDPrintf("        ");
+search.c (main):	    VFDPrintf("VEL:%4f",_IQ17toF(g_q17user_vel));
+search.c (main):	    VFDPrintf("SFT:%4f",_IQ17toF(g_q17shift_pos_val));
+search.c (main):		VFDPrintf("LMIT:%3u",g_u16turnmark_limit);
+search.c (main):		VFDPrintf("THOLD:%2u",IQ_TO_UINT16(g_q17sen_valmax));
+search.c (main):		VFDPrintf("MARKD:%2u",IQ_TO_UINT16(g_q17turnmark_dist));
+search.c (main):		VFDPrintf("errflg%2ld",g_int32fasterror_flag);
+search.c (main):			VFDPrintf("90__OFF_");
+search.c (main):			VFDPrintf("90_LGOFF");
+search.c (main):			VFDPrintf("ON______");
+search.c (main):			VFDPrintf("ON_LGOFF");
+search.c (main):			VFDPrintf("IS:%4.3f",_IQ16toF(g_q16in_corner_limit));
+search.c (main):			VFDPrintf("OS:%4.3f",_IQ16toF(g_q16out_corner_limit));
+search.c (main):			VFDPrintf("IF:%4.3f",_IQ16toF(g_q16in_corner_fast_limit));
+search.c (main):			VFDPrintf("OF:%4.3f",_IQ16toF(g_q16out_corner_fast_limit));
+search.c (main):		VFDPrintf("EDV:%4u",IQ_TO_UINT16(g_q17end_vel));
+search.c (main):		VFDPrintf("EDIS:%3u",IQ_TO_UINT16(g_q17end_dist));
+search.c (main):		VFDPrintf("EA:%5u",IQ_TO_UINT16(g_q17end_acc));
+search.c (main):		VFDPrintf("AC:%5u",IQ_TO_UINT16(g_q17user_acc));
+search.c (main):		VFDPrintf("FVL:%4u",IQ_TO_UINT16(g_q17fast_vel_limit));
+search.c (main):	    VFDPrintf("Pkp:%3.1f",_IQ7toF(g_pos.iq7kp));
+search.c (main):	    VFDPrintf("Pkd:%3.1f",_IQ7toF(g_pos.iq7kd));
+search.c (main):	    VFDPrintf("Mkp:%3.2f",_IQ28toF(g_q28kp));
+search.c (main):	    VFDPrintf("Mkd:%3.2f",_IQ28toF(g_q28kd));
+search.c (main):		VFDPrintf("level%3ld",g_int32shift_level);
+search.c (main):		VFDPrintf("45V%5u",IQ_TO_UINT16(g_q1745user_vel));
+search.c (main):		VFDPrintf("45A%5u",IQ_TO_UINT16(g_q17_45acc));
+search.c (main):		VFDPrintf("max%5u",IQ_TO_UINT16(g_q17max_acc));
+search.c (main):		VFDPrintf("mid%5u",IQ_TO_UINT16(g_q17mid_acc));
+search.c (main):		VFDPrintf("sht%5u",IQ_TO_UINT16(g_q17short_acc));
+search.c (main):		VFDPrintf("s4s %4u",IQ_TO_UINT16(g_q17s4s_vel));
+search.c (main):		VFDPrintf("s44s%4u",IQ_TO_UINT16(g_q17s44s_vel));
+search.c (main):		VFDPrintf("escp%4u",IQ_TO_UINT16(g_q17escape45_vel));
+sensor.asm (main):DW$15	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+sensor.asm (main):;*** 685	-----------------------    VFDPrintf("        ");
+sensor.asm (main):;*** 712	-----------------------    VFDPrintf("MARK:%3u", (unsigned)g_int32mark_cnt);
+sensor.asm (main):;*** 731	-----------------------    VFDPrintf("T:%5.3lf", g_float32time_cnt);
+sensor.asm (main):;*** 730	-----------------------    VFDPrintf("%3ld | %2u", g_int32mark_cnt, g_line_info.u16cross_total_cnt);
+sensor.asm (main):;*** 723	-----------------------    VFDPrintf("T:%5.3lf", g_float32time_cnt);
+sensor.asm (main):;*** 722	-----------------------    VFDPrintf("%3ld | %2u", g_int32mark_cnt, g_line_info.u16cross_total_cnt);
+sensor.asm (main):;*** 749	-----------------------    VFDPrintf("-SAVED!-");
+sensor.asm (main):;** 1000	-----------------------    VFDPrintf("        ");
+sensor.asm (main):;** 1006	-----------------------    VFDPrintf("P:%6ld", g_pos.iq7temp_pos>>7);
+sensor.asm (main):;*** 873	-----------------------    VFDPrintf("LOADING_");
+sensor.asm (main):;*** 875	-----------------------    VFDPrintf("SET_MAX_");
+sensor.asm (main):;*** 894	-----------------------    VFDPrintf("LOADING_");
+sensor.asm (main):;*** 896	-----------------------    VFDPrintf("SET_MIN_");
+sensor.asm (main):;*** 935	-----------------------    VFDPrintf("        ");
+sensor.asm (main):;*** 953	-----------------------    VFDPrintf("S%2d:%4.0f", Sen_Num, _IQ17toF((K$21[(long)Sen_Num]).iq17result));
+sensor.asm (main):;*** 967	-----------------------    VFDPrintf("        ");
+sensor.asm (main):;*** 986	-----------------------    VFDPrintf("S%2d:%4ld", i, (K$22[(long)i]).iq17data>>17);
+sensor.c (main):		VFDPrintf("        ");
+sensor.c (main):		VFDPrintf("MARK:%3u",(Uint16)(g_int32mark_cnt));
+sensor.c (main):				if( toggle )	VFDPrintf("%3ld | %2u",g_int32mark_cnt , g_line_info.u16cross_total_cnt);	
+sensor.c (main):				else	VFDPrintf("T:%5.3lf",g_float32time_cnt);
+sensor.c (main):				if( toggle )	VFDPrintf("%3ld | %2u",g_int32mark_cnt , g_line_info.u16cross_total_cnt);	
+sensor.c (main):				else	VFDPrintf("T:%5.3lf",g_float32time_cnt);
+sensor.c (main):				VFDPrintf("-SAVED!-");	
+sensor.c (main):						//VFDPrintf("cross");
+sensor.c (main):    VFDPrintf("LOADING_");
+sensor.c (main):	VFDPrintf("SET_MAX_");
+sensor.c (main):    VFDPrintf("LOADING_");
+sensor.c (main):	VFDPrintf("SET_MIN_");
+sensor.c (main):	VFDPrintf("        ");
+sensor.c (main):		VFDPrintf("S%2d:%4.0f",Sen_Num,_IQtoF(g_sen[Sen_Num].iq17result));
+sensor.c (main):	VFDPrintf("        ");
+sensor.c (main):		VFDPrintf("S%2d:%4ld",i,g_sen[i].iq17data>>17);
+sensor.c (main):	VFDPrintf("        ");
+sensor.c (main):		VFDPrintf("P:%6ld",g_pos.iq7temp_pos>>7);
+VFD.asm (main):DW$50	.dwtag  DW_TAG_subprogram, DW_AT_name("VFDPrintf"), DW_AT_symbol_name("_VFDPrintf")
+VFD.c (main):void VFDPrintf(char *Form, ... )
+VFD.h (main):extern void VFDPrintf(char *Form, ... );

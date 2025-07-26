@@ -74,7 +74,7 @@ void Variable_Init( void )
 	g_int32err_cnt = 0;
 	g_int32dist = 0;
 
-    g_int32decel = 2000; //가속보다 감속을 더하자 ..
+    g_int32decel = 15000; //가속보다 감속을 더하자 .. 감속도 고정 !
 	g_float32time_cnt = 0.0;
 	g_int32timer_cnt = 0;
 
@@ -107,7 +107,7 @@ void Variable_Init( void )
 	g_q17left_handle = _IQ(1);
 
 
-	g_q17user_acc = _IQ(10000);
+	g_q17user_acc = _IQ(13000);
 	g_q17end_acc = _IQ(12500); // _IQ(13500)
 	g_q17fast_vel_limit = _IQ(8000);
 	//g_q17sec_end_vel = _IQ(2300);
@@ -151,8 +151,8 @@ void Variable_Init( void )
 	g_q17end_vel = _IQ(2200);
 	g_q17end_dist = _IQ(100);
 	
-	g_q1745user_vel = _IQ(3000);
-    g_q1790user_vel = _IQ(3000);
+	g_q1745user_vel = _IQ(4000);
+    g_q1790user_vel = _IQ(3500);
 
 	g_q17_45acc = _IQ(10000);
 	g_q17_45vel = _IQ(7000); // g_q1745user_vel 
@@ -160,10 +160,9 @@ void Variable_Init( void )
 	g_q17ext_large_vel = g_q17user_vel + _IQ(VEL_LARGE);
 	g_q17ext_large_acc = _IQ(3000); // large turn accel  
 	
-	g_q17max_acc = _IQ(10000);
-	g_q17mid_acc = _IQ(10000);
-	
-	g_q17short_acc = _IQ(12000);
+	g_q17max_acc = g_q17user_acc;
+	g_q17mid_acc = g_q17user_acc;
+	g_q17short_acc = g_q17user_acc;
 	
 	g_q17s4s_vel = _IQ(3200);
 	g_q17s44s_vel = _IQ(3400); 

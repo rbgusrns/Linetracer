@@ -19,19 +19,19 @@
 #if 1
 
 char menu_sel[4][6][9] = {
-							{"EXTREME", "Bril_ctl", "_ MODE _", "Brl_RACE", "  NULL  "  , "  NULL  "},
+							{"_SENSOR_", "MAX_MIN_", "__4095__", "SEN_127_", "Set_MARK", "  NULL  " },
 						 	{"MOTOR_ST", "Set_VELO", "Set_ACC_", "Set_HAND", "Set_MPID" , "Set_PPID" },
 						 	{"_ RACE _", "1st_RACE", "2nd_RACE", "fst_info", "brl__info" , "  NULL  " },
-                            {"_SENSOR_", "MAX_MIN_", "__4095__", "SEN_127_", "Set_MARK", "  NULL  " }    
+                            {"EXTREME", "Bril_ctl", "_ MODE _", "Brl_RACE", "  NULL  "  , "  NULL  "}    
 						  };
 
 
 void (* menu_functions[ROW][COLUMN])(void) = 
 {
-       NULL   , extreme_ctl      ,F_bril_select , bril_run_start ,       NULL       ,     NULL     ,
+       NULL   , Set_Max_Min      ,    F_4095    ,     F_127      ,   Set_TurnMark   ,     NULL     ,
 	   NULL   , Set_Velocity     , Set_Accel    ,  Set_Handle    ,   Set_MotorPID   ,  Set_PosPID  ,
- 	   NULL   , search_run       ,  fast_run    ,  fst_info      ,   bril_info      ,     NULL   ,
-	   NULL   , Set_Max_Min      ,    F_4095    ,     F_127      ,   Set_TurnMark   ,     NULL      
+ 	   NULL   , search_run       ,  fast_run    ,  fst_info      ,   bril_info      ,     NULL     ,
+	   NULL   , extreme_ctl      ,F_bril_select , bril_run_start ,       NULL       ,     NULL           
 };        //
 
 #endif
@@ -87,11 +87,7 @@ void fst_info()
 	TxPrintf("fst_info\n");
 	print_sec_info(g_fast_info);
 }
-void ext_info()
-{
-	TxPrintf("ext_info\n");
-	print_ext_info(g_fast_info);
-}
+
 
 void bril_info()
 {
@@ -102,7 +98,7 @@ void bril_info()
 void F_bril_select()
 {
 	bril_select();
-    row = 0;
+    row = 3;
     column = 3;
 }
 

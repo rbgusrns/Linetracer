@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Thu Jul 24 14:56:31 2025                 *
+;* Date/Time created: Fri Jul 25 20:04:35 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -203,8 +203,8 @@ DW$62	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$62, DW_AT_type(*DW$T$113)
 	.dwattr DW$62, DW_AT_declaration(0x01)
 	.dwattr DW$62, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI55610 C:\Users\rbgus\AppData\Local\Temp\TI5564 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI5562 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI5566 --object_file fastrun.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI09210 C:\Users\rbgus\AppData\Local\Temp\TI0924 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI0922 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI0926 --object_file fastrun.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 
 DW$63	.dwtag  DW_TAG_subprogram, DW_AT_name("default_turn_compute"), DW_AT_symbol_name("_default_turn_compute$0")
@@ -678,13 +678,12 @@ L5:
         BF        L7,NTC                ; |131| 
         ; branchcc occurs ; |131| 
 ;*** 132	-----------------------    (*pinfo).q17acc;
-;*** 132	-----------------------    (*pinfo).q17acc = 1310720000L;
+;*** 132	-----------------------    (*pinfo).q17acc = g_q17user_acc;
 ;*** 132	-----------------------    goto g8;
 	.dwpsn	"fastrun.c",132,4
         MOVB      XAR0,#18              ; |132| 
         MOVL      ACC,*+XAR1[AR0]       ; |132| 
-        MOV       AL,#0
-        MOV       AH,#20000
+        MOVL      ACC,@_g_q17user_acc   ; |132| 
         MOVL      *+XAR1[AR0],ACC       ; |132| 
         BF        L7,UNC                ; |132| 
         ; branch occurs ; |132| 
@@ -1255,7 +1254,7 @@ L21:
         ; return occurs
 
 DW$94	.dwtag  DW_TAG_loop
-	.dwattr DW$94, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L20:1:1753336591")
+	.dwattr DW$94, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L20:1:1753441475")
 	.dwattr DW$94, DW_AT_begin_file("fastrun.c")
 	.dwattr DW$94, DW_AT_begin_line(0x115)
 	.dwattr DW$94, DW_AT_end_line(0x124)
@@ -2273,7 +2272,7 @@ DW$L$_second_run$7$E:
         ; return occurs
 
 DW$129	.dwtag  DW_TAG_loop
-	.dwattr DW$129, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L40:1:1753336591")
+	.dwattr DW$129, DW_AT_name("C:\project\Linetracer\_Vistan_\main\fastrun.asm:L40:1:1753441475")
 	.dwattr DW$129, DW_AT_begin_file("fastrun.c")
 	.dwattr DW$129, DW_AT_begin_line(0x18f)
 	.dwattr DW$129, DW_AT_end_line(0x1a9)

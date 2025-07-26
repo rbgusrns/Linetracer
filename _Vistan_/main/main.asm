@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Thu Jul 24 14:56:27 2025                 *
+;* Date/Time created: Fri Jul 25 20:04:32 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -756,8 +756,8 @@ DW$149	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g
 	.dwattr DW$149, DW_AT_location[DW_OP_addr _g_fast_info]
 	.dwattr DW$149, DW_AT_type(*DW$T$208)
 	.dwattr DW$149, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI80410 C:\Users\rbgus\AppData\Local\Temp\TI8044 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI8042 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI8046 --object_file main.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI83610 C:\Users\rbgus\AppData\Local\Temp\TI8364 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI8362 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI8366 --object_file main.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_print_second_info
 
@@ -765,9 +765,9 @@ DW$150	.dwtag  DW_TAG_subprogram, DW_AT_name("print_second_info"), DW_AT_symbol_
 	.dwattr DW$150, DW_AT_low_pc(_print_second_info)
 	.dwattr DW$150, DW_AT_high_pc(0x00)
 	.dwattr DW$150, DW_AT_begin_file("main.c")
-	.dwattr DW$150, DW_AT_begin_line(0x105)
+	.dwattr DW$150, DW_AT_begin_line(0x104)
 	.dwattr DW$150, DW_AT_begin_column(0x06)
-	.dwpsn	"main.c",262,1
+	.dwpsn	"main.c",261,1
 
 	.dwfde DW$CIE
 
@@ -791,7 +791,7 @@ _print_second_info:
 ;***  	-----------------------    #pragma LOOP_FLAGS(5376u)
 ;***  	-----------------------    U$6 = &g_fast_info[0];
 ;***  	-----------------------    U$2 = 0L;
-;*** 263	-----------------------    i = 0;
+;*** 262	-----------------------    i = 0;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -821,124 +821,124 @@ DW$153	.dwtag  DW_TAG_variable, DW_AT_name("U$6"), DW_AT_symbol_name("U$6")
         MOVL      XAR4,#_g_fast_info
         MOVL      XAR2,XAR4
         MOVB      XAR3,#0
-	.dwpsn	"main.c",263,6
+	.dwpsn	"main.c",262,6
         MOVB      XAR1,#0
 L1:    
 DW$L$_print_second_info$2$B:
 ;***	-----------------------g2:
-;*** 267	-----------------------    TxPrintf("%d| dst: %5d| dec: %5ld| mdst: %5ld| turn_dir: 0x%04X| acc: %5ld| in: %5ld| vel: %5ld| out: %5ld| cnt: %d | down: %d| s44s: %d| escape: %d| kp: %.2f|\n\n", i, (*U$6).u16dist, (*U$6).q17dec_dist>>17, (*U$6).q17m_dist>>17, (*U$6).u16turn_dir, (*U$6).q17acc>>17, (*U$6).q17in_vel>>17, (*U$6).q17vel>>17, (*U$6).q17out_vel>>17, (*U$6).u16turn_cnt, *((volatile unsigned *)U$6+12)>>2&1, *((volatile unsigned *)U$6+12)>>1&1, *((volatile unsigned *)U$6+12)>>3&1, _IQ7toF((*U$6).q7kp_val));
-;*** 283	-----------------------    if ( U$2 == g_int32total_cnt ) goto g4;
-	.dwpsn	"main.c",267,8
-        MOVL      ACC,*+XAR2[0]         ; |267| 
-        LCR       #__IQ7toF             ; |267| 
-        ; call occurs [#__IQ7toF] ; |267| 
-        MOVL      XAR4,#FSL1            ; |267| 
-        MOVB      XAR0,#37              ; |267| 
-        MOVL      *-SP[2],XAR4          ; |267| 
-        MOVL      XAR6,ACC              ; |267| 
-        MOV       *-SP[3],AR1           ; |267| 
-        MOV       AL,*+XAR2[AR0]        ; |267| 
-        MOV       T,#17                 ; |267| 
-        MOVB      XAR0,#26              ; |267| 
-        MOV       *-SP[4],AL            ; |267| 
-        MOVL      ACC,*+XAR2[AR0]       ; |267| 
-        ASRL      ACC,T                 ; |267| 
-        MOVB      XAR0,#28              ; |267| 
-        MOVL      *-SP[6],ACC           ; |267| 
-        MOVL      ACC,*+XAR2[AR0]       ; |267| 
-        ASRL      ACC,T                 ; |267| 
-        MOVB      XAR0,#36              ; |267| 
-        MOVL      *-SP[8],ACC           ; |267| 
-        MOV       AL,*+XAR2[AR0]        ; |267| 
-        MOVB      XAR0,#18              ; |267| 
-        MOV       *-SP[9],AL            ; |267| 
-        MOVL      ACC,*+XAR2[AR0]       ; |267| 
-        ASRL      ACC,T                 ; |267| 
-        MOVB      XAR0,#20              ; |267| 
-        MOVL      *-SP[12],ACC          ; |267| 
-        MOVL      ACC,*+XAR2[AR0]       ; |267| 
-        ASRL      ACC,T                 ; |267| 
-        MOVB      XAR0,#22              ; |267| 
-        MOVL      *-SP[14],ACC          ; |267| 
-        MOVL      ACC,*+XAR2[AR0]       ; |267| 
-        ASRL      ACC,T                 ; |267| 
-        MOVB      XAR0,#24              ; |267| 
-        MOVL      *-SP[16],ACC          ; |267| 
-        MOVL      ACC,*+XAR2[AR0]       ; |267| 
-        ASRL      ACC,T                 ; |267| 
-        MOVB      XAR0,#35              ; |267| 
-        MOVL      *-SP[18],ACC          ; |267| 
-        MOV       AL,*+XAR2[AR0]        ; |267| 
-        MOVB      XAR0,#12              ; |267| 
-        MOV       *-SP[19],AL           ; |267| 
-        AND       AL,*+XAR2[AR0],#0x0004 ; |267| 
-        LSR       AL,2                  ; |267| 
-        MOV       *-SP[20],AL           ; |267| 
-        AND       AL,*+XAR2[AR0],#0x0002 ; |267| 
-        LSR       AL,1                  ; |267| 
-        MOV       *-SP[21],AL           ; |267| 
-        AND       AL,*+XAR2[AR0],#0x0008 ; |267| 
-        LSR       AL,3                  ; |267| 
-        MOV       *-SP[22],AL           ; |267| 
-        MOVL      *-SP[24],XAR6         ; |267| 
-        LCR       #_TxPrintf            ; |267| 
-        ; call occurs [#_TxPrintf] ; |267| 
-	.dwpsn	"main.c",283,8
+;*** 266	-----------------------    TxPrintf("%d| dst: %5d| dec: %5ld| mdst: %5ld| turn_dir: 0x%04X| acc: %5ld| in: %5ld| vel: %5ld| out: %5ld| cnt: %d | down: %d| s44s: %d| escape: %d| kp: %.2f|\n\n", i, (*U$6).u16dist, (*U$6).q17dec_dist>>17, (*U$6).q17m_dist>>17, (*U$6).u16turn_dir, (*U$6).q17acc>>17, (*U$6).q17in_vel>>17, (*U$6).q17vel>>17, (*U$6).q17out_vel>>17, (*U$6).u16turn_cnt, *((volatile unsigned *)U$6+12)>>2&1, *((volatile unsigned *)U$6+12)>>1&1, *((volatile unsigned *)U$6+12)>>3&1, _IQ7toF((*U$6).q7kp_val));
+;*** 282	-----------------------    if ( U$2 == g_int32total_cnt ) goto g4;
+	.dwpsn	"main.c",266,8
+        MOVL      ACC,*+XAR2[0]         ; |266| 
+        LCR       #__IQ7toF             ; |266| 
+        ; call occurs [#__IQ7toF] ; |266| 
+        MOVL      XAR4,#FSL1            ; |266| 
+        MOVB      XAR0,#37              ; |266| 
+        MOVL      *-SP[2],XAR4          ; |266| 
+        MOVL      XAR6,ACC              ; |266| 
+        MOV       *-SP[3],AR1           ; |266| 
+        MOV       AL,*+XAR2[AR0]        ; |266| 
+        MOV       T,#17                 ; |266| 
+        MOVB      XAR0,#26              ; |266| 
+        MOV       *-SP[4],AL            ; |266| 
+        MOVL      ACC,*+XAR2[AR0]       ; |266| 
+        ASRL      ACC,T                 ; |266| 
+        MOVB      XAR0,#28              ; |266| 
+        MOVL      *-SP[6],ACC           ; |266| 
+        MOVL      ACC,*+XAR2[AR0]       ; |266| 
+        ASRL      ACC,T                 ; |266| 
+        MOVB      XAR0,#36              ; |266| 
+        MOVL      *-SP[8],ACC           ; |266| 
+        MOV       AL,*+XAR2[AR0]        ; |266| 
+        MOVB      XAR0,#18              ; |266| 
+        MOV       *-SP[9],AL            ; |266| 
+        MOVL      ACC,*+XAR2[AR0]       ; |266| 
+        ASRL      ACC,T                 ; |266| 
+        MOVB      XAR0,#20              ; |266| 
+        MOVL      *-SP[12],ACC          ; |266| 
+        MOVL      ACC,*+XAR2[AR0]       ; |266| 
+        ASRL      ACC,T                 ; |266| 
+        MOVB      XAR0,#22              ; |266| 
+        MOVL      *-SP[14],ACC          ; |266| 
+        MOVL      ACC,*+XAR2[AR0]       ; |266| 
+        ASRL      ACC,T                 ; |266| 
+        MOVB      XAR0,#24              ; |266| 
+        MOVL      *-SP[16],ACC          ; |266| 
+        MOVL      ACC,*+XAR2[AR0]       ; |266| 
+        ASRL      ACC,T                 ; |266| 
+        MOVB      XAR0,#35              ; |266| 
+        MOVL      *-SP[18],ACC          ; |266| 
+        MOV       AL,*+XAR2[AR0]        ; |266| 
+        MOVB      XAR0,#12              ; |266| 
+        MOV       *-SP[19],AL           ; |266| 
+        AND       AL,*+XAR2[AR0],#0x0004 ; |266| 
+        LSR       AL,2                  ; |266| 
+        MOV       *-SP[20],AL           ; |266| 
+        AND       AL,*+XAR2[AR0],#0x0002 ; |266| 
+        LSR       AL,1                  ; |266| 
+        MOV       *-SP[21],AL           ; |266| 
+        AND       AL,*+XAR2[AR0],#0x0008 ; |266| 
+        LSR       AL,3                  ; |266| 
+        MOV       *-SP[22],AL           ; |266| 
+        MOVL      *-SP[24],XAR6         ; |266| 
+        LCR       #_TxPrintf            ; |266| 
+        ; call occurs [#_TxPrintf] ; |266| 
+	.dwpsn	"main.c",282,8
         MOVW      DP,#_g_int32total_cnt
         MOVL      ACC,XAR3
-        CMPL      ACC,@_g_int32total_cnt ; |283| 
-        BF        L2,EQ                 ; |283| 
-        ; branchcc occurs ; |283| 
+        CMPL      ACC,@_g_int32total_cnt ; |282| 
+        BF        L2,EQ                 ; |282| 
+        ; branchcc occurs ; |282| 
 DW$L$_print_second_info$2$E:
 DW$L$_print_second_info$3$B:
-;*** 287	-----------------------    if ( U$2-g_int32total_cnt != 5L ) goto g5;
-	.dwpsn	"main.c",287,9
+;*** 286	-----------------------    if ( U$2-g_int32total_cnt != 5L ) goto g5;
+	.dwpsn	"main.c",286,9
         MOVB      XAR6,#5
-        MOVL      ACC,XAR3              ; |287| 
-        SUBL      ACC,@_g_int32total_cnt ; |287| 
-        CMPL      ACC,XAR6              ; |287| 
-        BF        L3,NEQ                ; |287| 
-        ; branchcc occurs ; |287| 
+        MOVL      ACC,XAR3              ; |286| 
+        SUBL      ACC,@_g_int32total_cnt ; |286| 
+        CMPL      ACC,XAR6              ; |286| 
+        BF        L3,NEQ                ; |286| 
+        ; branchcc occurs ; |286| 
 DW$L$_print_second_info$3$E:
-;*** 287	-----------------------    goto g6;
-        BF        L4,UNC                ; |287| 
-        ; branch occurs ; |287| 
+;*** 286	-----------------------    goto g6;
+        BF        L4,UNC                ; |286| 
+        ; branch occurs ; |286| 
 L2:    
 DW$L$_print_second_info$5$B:
 ;***	-----------------------g4:
-;*** 284	-----------------------    TxPrintf("-----------------------------------\n");
-	.dwpsn	"main.c",284,9
-        MOVL      XAR4,#FSL2            ; |284| 
-        MOVL      *-SP[2],XAR4          ; |284| 
-        LCR       #_TxPrintf            ; |284| 
-        ; call occurs [#_TxPrintf] ; |284| 
+;*** 283	-----------------------    TxPrintf("-----------------------------------\n");
+	.dwpsn	"main.c",283,9
+        MOVL      XAR4,#FSL2            ; |283| 
+        MOVL      *-SP[2],XAR4          ; |283| 
+        LCR       #_TxPrintf            ; |283| 
+        ; call occurs [#_TxPrintf] ; |283| 
 DW$L$_print_second_info$5$E:
 L3:    
 DW$L$_print_second_info$6$B:
 ;***	-----------------------g5:
-;*** 264	-----------------------    U$6 += 38;
-;*** 264	-----------------------    ++i;
-;*** 264	-----------------------    if ( (++U$2) < 256L ) goto g2;
+;*** 263	-----------------------    U$6 += 38;
+;*** 263	-----------------------    ++i;
+;*** 263	-----------------------    if ( (++U$2) < 256L ) goto g2;
 ;***	-----------------------g6:
 ;***  	-----------------------    return;
-	.dwpsn	"main.c",264,18
-        MOVL      ACC,XAR2              ; |264| 
-        MOVB      XAR4,#38              ; |264| 
-        ADDU      ACC,AR4               ; |264| 
-        MOVL      XAR2,ACC              ; |264| 
+	.dwpsn	"main.c",263,18
+        MOVL      ACC,XAR2              ; |263| 
+        MOVB      XAR4,#38              ; |263| 
+        ADDU      ACC,AR4               ; |263| 
+        MOVL      XAR2,ACC              ; |263| 
         MOV       AL,AR1
-        ADDB      AL,#1                 ; |264| 
-        MOVZ      AR1,AL                ; |264| 
+        ADDB      AL,#1                 ; |263| 
+        MOVZ      AR1,AL                ; |263| 
         MOVL      ACC,XAR3
-        ADDB      ACC,#1                ; |264| 
-        MOVL      XAR3,ACC              ; |264| 
-        MOV       ACC,#256              ; |264| 
-        CMPL      ACC,XAR3              ; |264| 
-        BF        L1,GT                 ; |264| 
-        ; branchcc occurs ; |264| 
+        ADDB      ACC,#1                ; |263| 
+        MOVL      XAR3,ACC              ; |263| 
+        MOV       ACC,#256              ; |263| 
+        CMPL      ACC,XAR3              ; |263| 
+        BF        L1,GT                 ; |263| 
+        ; branchcc occurs ; |263| 
 DW$L$_print_second_info$6$E:
 L4:    
-	.dwpsn	"main.c",291,1
+	.dwpsn	"main.c",290,1
         SUBB      SP,#24
 	.dwcfa	0x1d, -8
         MOVL      XAR3,*--SP
@@ -954,10 +954,10 @@ L4:
         ; return occurs
 
 DW$154	.dwtag  DW_TAG_loop
-	.dwattr DW$154, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L1:1:1753336587")
+	.dwattr DW$154, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L1:1:1753441472")
 	.dwattr DW$154, DW_AT_begin_file("main.c")
-	.dwattr DW$154, DW_AT_begin_line(0x108)
-	.dwattr DW$154, DW_AT_end_line(0x122)
+	.dwattr DW$154, DW_AT_begin_line(0x107)
+	.dwattr DW$154, DW_AT_end_line(0x121)
 DW$155	.dwtag  DW_TAG_loop_range
 	.dwattr DW$155, DW_AT_low_pc(DW$L$_print_second_info$2$B)
 	.dwattr DW$155, DW_AT_high_pc(DW$L$_print_second_info$2$E)
@@ -973,7 +973,7 @@ DW$158	.dwtag  DW_TAG_loop_range
 	.dwendtag DW$154
 
 	.dwattr DW$150, DW_AT_end_file("main.c")
-	.dwattr DW$150, DW_AT_end_line(0x123)
+	.dwattr DW$150, DW_AT_end_line(0x122)
 	.dwattr DW$150, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$150
@@ -1275,7 +1275,7 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
 ;*** 72	-----------------------    g_q17user_vel_2000 = 0L;
 ;*** 74	-----------------------    g_int32err_cnt = 0L;
 ;*** 75	-----------------------    g_int32dist = 0L;
-;*** 77	-----------------------    g_int32decel = 2000L;
+;*** 77	-----------------------    g_int32decel = 15000L;
 ;*** 78	-----------------------    g_float32time_cnt = 0.0F;
 ;*** 79	-----------------------    g_int32timer_cnt = 0L;
 ;*** 81	-----------------------    g_q17turnmark_dist = 9175040L;
@@ -1295,7 +1295,7 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
 ;*** 104	-----------------------    g_q17shift_dist = 0L;
 ;*** 106	-----------------------    g_q17right_handle = 131072L;
 ;*** 107	-----------------------    g_q17left_handle = 131072L;
-;*** 110	-----------------------    g_q17user_acc = 1310720000L;
+;*** 110	-----------------------    g_q17user_acc = 1703936000L;
 ;*** 111	-----------------------    g_q17end_acc = 1638400000L;
 ;*** 112	-----------------------    g_q17fast_vel_limit = 1048576000L;
 ;*** 115	-----------------------    g_q17user_vel = 301465600L;
@@ -1317,25 +1317,25 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
 ;*** 150	-----------------------    g_int32shift_level = 4L;
 ;*** 151	-----------------------    g_q17end_vel = 288358400L;
 ;*** 152	-----------------------    g_q17end_dist = 13107200L;
-;*** 154	-----------------------    g_q1745user_vel = 393216000L;
-;*** 155	-----------------------    g_q1790user_vel = 393216000L;
+;*** 154	-----------------------    g_q1745user_vel = 524288000L;
+;*** 155	-----------------------    g_q1790user_vel = 458752000L;
 ;*** 157	-----------------------    g_q17_45acc = 1310720000L;
 ;*** 158	-----------------------    g_q17_45vel = 917504000L;
 ;*** 160	-----------------------    g_q17ext_large_vel = 367001600L;
 ;*** 161	-----------------------    g_q17ext_large_acc = 393216000L;
-;*** 163	-----------------------    g_q17max_acc = 1310720000L;
-;*** 164	-----------------------    g_q17mid_acc = 1310720000L;
-;*** 166	-----------------------    g_q17short_acc = 1572864000L;
-;*** 168	-----------------------    g_q17s4s_vel = 419430400L;
-;*** 169	-----------------------    g_q17s44s_vel = 445644800L;
-;*** 170	-----------------------    g_q17escape45_vel = 458752000L;
-;*** 172	-----------------------    g_q7shift_pos = 0L;
-;*** 173	-----------------------    g_q17shift_pos_val = 0L;
-;*** 174	-----------------------    g_q7shift_pos_val = 0L;
-;*** 176	-----------------------    g_int32ext_mode_cnt = 3L;
-;*** 177	-----------------------    g_int32fasterror_flag = 1L;
-;*** 178	-----------------------    i = 0u;
-;*** 178	-----------------------    return;
+;*** 163	-----------------------    g_q17max_acc = 1703936000L;
+;*** 164	-----------------------    g_q17mid_acc = 1703936000L;
+;*** 165	-----------------------    g_q17short_acc = 1703936000L;
+;*** 167	-----------------------    g_q17s4s_vel = 419430400L;
+;*** 168	-----------------------    g_q17s44s_vel = 445644800L;
+;*** 169	-----------------------    g_q17escape45_vel = 458752000L;
+;*** 171	-----------------------    g_q7shift_pos = 0L;
+;*** 172	-----------------------    g_q17shift_pos_val = 0L;
+;*** 173	-----------------------    g_q7shift_pos_val = 0L;
+;*** 175	-----------------------    g_int32ext_mode_cnt = 3L;
+;*** 176	-----------------------    g_int32fasterror_flag = 1L;
+;*** 177	-----------------------    i = 0u;
+;*** 177	-----------------------    return;
 	.dwpsn	"main.c",55,2
         MOVL      XAR4,#_g_lm           ; |55| 
         LCR       #_motor_vari_init     ; |55| 
@@ -1381,7 +1381,7 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
         MOVL      @_g_int32dist,ACC     ; |75| 
 	.dwpsn	"main.c",77,5
         MOVW      DP,#_g_int32decel
-        MOVL      XAR4,#2000            ; |77| 
+        MOVL      XAR4,#15000           ; |77| 
         MOVL      @_g_int32decel,XAR4   ; |77| 
 	.dwpsn	"main.c",78,2
         MOVW      DP,#_g_float32time_cnt
@@ -1445,7 +1445,7 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
 	.dwpsn	"main.c",107,2
         MOVL      @_g_q17left_handle,XAR4 ; |107| 
 	.dwpsn	"main.c",110,2
-        MOV       PH,#20000
+        MOV       PH,#26000
         MOV       PL,#0
         MOVL      @_g_q17user_acc,P     ; |110| 
 	.dwpsn	"main.c",111,2
@@ -1523,11 +1523,11 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
         MOVW      DP,#_g_q17end_dist
         MOVL      @_g_q17end_dist,P     ; |152| 
 	.dwpsn	"main.c",154,2
-        MOV       PH,#6000
+        MOV       PH,#8000
         MOV       PL,#0
         MOVL      @_g_q1745user_vel,P   ; |154| 
 	.dwpsn	"main.c",155,5
-        MOV       PH,#6000
+        MOV       PH,#7000
         MOV       PL,#0
         MOVL      @_g_q1790user_vel,P   ; |155| 
 	.dwpsn	"main.c",157,2
@@ -1548,50 +1548,50 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
         MOV       PL,#0
         MOVL      @_g_q17ext_large_acc,P ; |161| 
 	.dwpsn	"main.c",163,2
-        MOV       PH,#20000
+        MOV       PH,#26000
         MOV       PL,#0
         MOVW      DP,#_g_q17max_acc
         MOVL      @_g_q17max_acc,P      ; |163| 
 	.dwpsn	"main.c",164,2
-        MOV       PH,#20000
+        MOV       PH,#26000
         MOV       PL,#0
         MOVL      @_g_q17mid_acc,P      ; |164| 
-	.dwpsn	"main.c",166,2
-        MOV       PH,#24000
+	.dwpsn	"main.c",165,2
+        MOV       PH,#26000
         MOV       PL,#0
-        MOVL      @_g_q17short_acc,P    ; |166| 
-	.dwpsn	"main.c",168,2
+        MOVL      @_g_q17short_acc,P    ; |165| 
+	.dwpsn	"main.c",167,2
         MOV       PH,#6400
         MOV       PL,#0
-        MOVL      @_g_q17s4s_vel,P      ; |168| 
-	.dwpsn	"main.c",169,2
+        MOVL      @_g_q17s4s_vel,P      ; |167| 
+	.dwpsn	"main.c",168,2
         MOV       PH,#6800
         MOV       PL,#0
         MOVW      DP,#_g_q17s44s_vel
-        MOVL      @_g_q17s44s_vel,P     ; |169| 
-	.dwpsn	"main.c",170,2
+        MOVL      @_g_q17s44s_vel,P     ; |168| 
+	.dwpsn	"main.c",169,2
         MOV       PH,#7000
         MOV       PL,#0
-        MOVL      @_g_q17escape45_vel,P ; |170| 
-	.dwpsn	"main.c",172,2
+        MOVL      @_g_q17escape45_vel,P ; |169| 
+	.dwpsn	"main.c",171,2
         MOVW      DP,#_g_q7shift_pos
         MOVB      ACC,#0
-        MOVL      @_g_q7shift_pos,ACC   ; |172| 
+        MOVL      @_g_q7shift_pos,ACC   ; |171| 
+	.dwpsn	"main.c",172,2
+        MOVL      @_g_q17shift_pos_val,ACC ; |172| 
 	.dwpsn	"main.c",173,2
-        MOVL      @_g_q17shift_pos_val,ACC ; |173| 
-	.dwpsn	"main.c",174,2
-        MOVL      @_g_q7shift_pos_val,ACC ; |174| 
-	.dwpsn	"main.c",176,2
+        MOVL      @_g_q7shift_pos_val,ACC ; |173| 
+	.dwpsn	"main.c",175,2
         MOVW      DP,#_g_int32ext_mode_cnt
         MOVB      ACC,#3
-        MOVL      @_g_int32ext_mode_cnt,ACC ; |176| 
-	.dwpsn	"main.c",177,2
+        MOVL      @_g_int32ext_mode_cnt,ACC ; |175| 
+	.dwpsn	"main.c",176,2
         MOVB      ACC,#1
-        MOVL      @_g_int32fasterror_flag,ACC ; |177| 
-	.dwpsn	"main.c",178,2
+        MOVL      @_g_int32fasterror_flag,ACC ; |176| 
+	.dwpsn	"main.c",177,2
         MOVW      DP,#_i
-        MOV       @_i,#0                ; |178| 
-	.dwpsn	"main.c",180,1
+        MOV       @_i,#0                ; |177| 
+	.dwpsn	"main.c",179,1
         SUBB      SP,#2
 	.dwcfa	0x1d, -8
         MOVL      XAR3,*--SP
@@ -1606,7 +1606,7 @@ DW$164	.dwtag  DW_TAG_variable, DW_AT_name("C$4"), DW_AT_symbol_name("C$4")
         LRETR
         ; return occurs
 	.dwattr DW$160, DW_AT_end_file("main.c")
-	.dwattr DW$160, DW_AT_end_line(0xb4)
+	.dwattr DW$160, DW_AT_end_line(0xb3)
 	.dwattr DW$160, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$160
@@ -1618,9 +1618,9 @@ DW$165	.dwtag  DW_TAG_subprogram, DW_AT_name("main"), DW_AT_symbol_name("_main")
 	.dwattr DW$165, DW_AT_low_pc(_main)
 	.dwattr DW$165, DW_AT_high_pc(0x00)
 	.dwattr DW$165, DW_AT_begin_file("main.c")
-	.dwattr DW$165, DW_AT_begin_line(0xb6)
+	.dwattr DW$165, DW_AT_begin_line(0xb5)
 	.dwattr DW$165, DW_AT_begin_column(0x06)
-	.dwpsn	"main.c",183,1
+	.dwpsn	"main.c",182,1
 
 	.dwfde DW$CIE
 
@@ -1640,18 +1640,18 @@ DW$165	.dwtag  DW_TAG_subprogram, DW_AT_name("main"), DW_AT_symbol_name("_main")
 ;*                                                             *
 ;***************************************************************
 _main:
-;*** 184	-----------------------    System_Init();
-;*** 185	-----------------------    Variable_Init();
-;*** 187	-----------------------    VfdInit();
-;*** 189	-----------------------    VFDPrintf("LOADING_");
+;*** 183	-----------------------    System_Init();
+;*** 184	-----------------------    Variable_Init();
+;*** 186	-----------------------    VfdInit();
+;*** 188	-----------------------    VFDPrintf("LOADING_");
 ;***  	-----------------------    *(&CpuTimer1Regs+4L) &= 0xffefu;
-;*** 194	-----------------------    maxmin_read_rom();
-;*** 195	-----------------------    turnvel_read_rom();
-;*** 196	-----------------------    acc_info_read_rom();
-;*** 197	-----------------------    handle_read_rom();
-;*** 198	-----------------------    turnmark_info_read_rom();
-;*** 199	-----------------------    cross_info_read_rom();
-;*** 200	-----------------------    mark_read_rom();
+;*** 193	-----------------------    maxmin_read_rom();
+;*** 194	-----------------------    turnvel_read_rom();
+;*** 195	-----------------------    acc_info_read_rom();
+;*** 196	-----------------------    handle_read_rom();
+;*** 197	-----------------------    turnmark_info_read_rom();
+;*** 198	-----------------------    cross_info_read_rom();
+;*** 199	-----------------------    mark_read_rom();
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -1664,122 +1664,122 @@ _main:
 DW$166	.dwtag  DW_TAG_variable, DW_AT_name("C$1"), DW_AT_symbol_name("C$1")
 	.dwattr DW$166, DW_AT_type(*DW$T$182)
 	.dwattr DW$166, DW_AT_location[DW_OP_reg12]
+	.dwpsn	"main.c",183,2
+        LCR       #_System_Init         ; |183| 
+        ; call occurs [#_System_Init] ; |183| 
 	.dwpsn	"main.c",184,2
-        LCR       #_System_Init         ; |184| 
-        ; call occurs [#_System_Init] ; |184| 
-	.dwpsn	"main.c",185,2
-        LCR       #_Variable_Init       ; |185| 
-        ; call occurs [#_Variable_Init] ; |185| 
-	.dwpsn	"main.c",187,2
-        LCR       #_VfdInit             ; |187| 
-        ; call occurs [#_VfdInit] ; |187| 
-	.dwpsn	"main.c",189,2
-        MOVL      XAR4,#FSL3            ; |189| 
-        MOVL      *-SP[2],XAR4          ; |189| 
-        LCR       #_VFDPrintf           ; |189| 
-        ; call occurs [#_VFDPrintf] ; |189| 
+        LCR       #_Variable_Init       ; |184| 
+        ; call occurs [#_Variable_Init] ; |184| 
+	.dwpsn	"main.c",186,2
+        LCR       #_VfdInit             ; |186| 
+        ; call occurs [#_VfdInit] ; |186| 
+	.dwpsn	"main.c",188,2
+        MOVL      XAR4,#FSL3            ; |188| 
+        MOVL      *-SP[2],XAR4          ; |188| 
+        LCR       #_VFDPrintf           ; |188| 
+        ; call occurs [#_VFDPrintf] ; |188| 
         MOVW      DP,#_CpuTimer1Regs+4
         AND       @_CpuTimer1Regs+4,#0xffef
-	.dwpsn	"main.c",194,2
-        LCR       #_maxmin_read_rom     ; |194| 
-        ; call occurs [#_maxmin_read_rom] ; |194| 
+	.dwpsn	"main.c",193,2
+        LCR       #_maxmin_read_rom     ; |193| 
+        ; call occurs [#_maxmin_read_rom] ; |193| 
+	.dwpsn	"main.c",194,5
+        LCR       #_turnvel_read_rom    ; |194| 
+        ; call occurs [#_turnvel_read_rom] ; |194| 
 	.dwpsn	"main.c",195,5
-        LCR       #_turnvel_read_rom    ; |195| 
-        ; call occurs [#_turnvel_read_rom] ; |195| 
+        LCR       #_acc_info_read_rom   ; |195| 
+        ; call occurs [#_acc_info_read_rom] ; |195| 
 	.dwpsn	"main.c",196,5
-        LCR       #_acc_info_read_rom   ; |196| 
-        ; call occurs [#_acc_info_read_rom] ; |196| 
+        LCR       #_handle_read_rom     ; |196| 
+        ; call occurs [#_handle_read_rom] ; |196| 
 	.dwpsn	"main.c",197,5
-        LCR       #_handle_read_rom     ; |197| 
-        ; call occurs [#_handle_read_rom] ; |197| 
-	.dwpsn	"main.c",198,5
-        LCR       #_turnmark_info_read_rom ; |198| 
-        ; call occurs [#_turnmark_info_read_rom] ; |198| 
+        LCR       #_turnmark_info_read_rom ; |197| 
+        ; call occurs [#_turnmark_info_read_rom] ; |197| 
+	.dwpsn	"main.c",198,2
+        LCR       #_cross_info_read_rom ; |198| 
+        ; call occurs [#_cross_info_read_rom] ; |198| 
 	.dwpsn	"main.c",199,2
-        LCR       #_cross_info_read_rom ; |199| 
-        ; call occurs [#_cross_info_read_rom] ; |199| 
-	.dwpsn	"main.c",200,2
-        LCR       #_mark_read_rom       ; |200| 
-        ; call occurs [#_mark_read_rom] ; |200| 
-;*** 201	-----------------------    fast_infor_read_rom();
-;*** 202	-----------------------    race_start_init();
-;*** 209	-----------------------    C$1 = &GpioDataRegs;
-;*** 209	-----------------------    ((volatile unsigned *)C$1)[4] |= 0x1000u;
-;*** 210	-----------------------    ((volatile unsigned *)C$1)[5] |= 0x800u;
-;*** 212	-----------------------    *((volatile struct _GPBDAT_BITS *)C$1+12L) |= 2u;
-;*** 214	-----------------------    *(&GpioDataRegs+12L) |= 4u;
-;*** 216	-----------------------    *(&GpioDataRegs+4L) |= 0x2000u;
-;*** 218	-----------------------    TxPrintf("%5f, %5F\n", _IQ16toF(1572864L), _IQ16toF(_IQ16div(393216000L, 16384000L)));
-;*** 220	-----------------------    menu_start();
+        LCR       #_mark_read_rom       ; |199| 
+        ; call occurs [#_mark_read_rom] ; |199| 
+;*** 200	-----------------------    fast_infor_read_rom();
+;*** 201	-----------------------    race_start_init();
+;*** 208	-----------------------    C$1 = &GpioDataRegs;
+;*** 208	-----------------------    ((volatile unsigned *)C$1)[4] |= 0x1000u;
+;*** 209	-----------------------    ((volatile unsigned *)C$1)[5] |= 0x800u;
+;*** 211	-----------------------    *((volatile struct _GPBDAT_BITS *)C$1+12L) |= 2u;
+;*** 213	-----------------------    *(&GpioDataRegs+12L) |= 4u;
+;*** 215	-----------------------    *(&GpioDataRegs+4L) |= 0x2000u;
+;*** 217	-----------------------    TxPrintf("%5f, %5F\n", _IQ16toF(1572864L), _IQ16toF(_IQ16div(393216000L, 16384000L)));
+;*** 219	-----------------------    menu_start();
 ;***  	-----------------------    #pragma LOOP_FLAGS(4096u)
+	.dwpsn	"main.c",200,2
+        LCR       #_fast_infor_read_rom ; |200| 
+        ; call occurs [#_fast_infor_read_rom] ; |200| 
 	.dwpsn	"main.c",201,2
-        LCR       #_fast_infor_read_rom ; |201| 
-        ; call occurs [#_fast_infor_read_rom] ; |201| 
-	.dwpsn	"main.c",202,2
-        LCR       #_race_start_init     ; |202| 
-        ; call occurs [#_race_start_init] ; |202| 
+        LCR       #_race_start_init     ; |201| 
+        ; call occurs [#_race_start_init] ; |201| 
+	.dwpsn	"main.c",208,2
+        MOVL      XAR4,#_GpioDataRegs   ; |208| 
+        OR        *+XAR4[4],#0x1000     ; |208| 
 	.dwpsn	"main.c",209,2
-        MOVL      XAR4,#_GpioDataRegs   ; |209| 
-        OR        *+XAR4[4],#0x1000     ; |209| 
-	.dwpsn	"main.c",210,2
-        OR        *+XAR4[5],#0x0800     ; |210| 
-	.dwpsn	"main.c",212,2
+        OR        *+XAR4[5],#0x0800     ; |209| 
+	.dwpsn	"main.c",211,2
         MOVB      ACC,#12
         ADDL      ACC,XAR4
-        MOVL      XAR4,ACC              ; |212| 
-        OR        *+XAR4[0],#0x0002     ; |212| 
-	.dwpsn	"main.c",214,2
+        MOVL      XAR4,ACC              ; |211| 
+        OR        *+XAR4[0],#0x0002     ; |211| 
+	.dwpsn	"main.c",213,2
         MOVW      DP,#_GpioDataRegs+12
-        OR        @_GpioDataRegs+12,#0x0004 ; |214| 
-	.dwpsn	"main.c",216,2
-        OR        @_GpioDataRegs+4,#0x2000 ; |216| 
-	.dwpsn	"main.c",218,2
+        OR        @_GpioDataRegs+12,#0x0004 ; |213| 
+	.dwpsn	"main.c",215,2
+        OR        @_GpioDataRegs+4,#0x2000 ; |215| 
+	.dwpsn	"main.c",217,2
         MOV       AL,#0
         MOV       AH,#24
-        LCR       #__IQ16toF            ; |218| 
-        ; call occurs [#__IQ16toF] ; |218| 
+        LCR       #__IQ16toF            ; |217| 
+        ; call occurs [#__IQ16toF] ; |217| 
         MOV       PH,#250
         MOV       PL,#0
-        MOVL      XAR1,ACC              ; |218| 
-        MOVL      *-SP[2],P             ; |218| 
+        MOVL      XAR1,ACC              ; |217| 
+        MOVL      *-SP[2],P             ; |217| 
         MOV       ACC,#12000 << 15
-        LCR       #__IQ16div            ; |218| 
-        ; call occurs [#__IQ16div] ; |218| 
-        LCR       #__IQ16toF            ; |218| 
-        ; call occurs [#__IQ16toF] ; |218| 
-        MOVL      XAR4,#FSL4            ; |218| 
-        MOVL      *-SP[2],XAR4          ; |218| 
-        MOVL      *-SP[4],XAR1          ; |218| 
-        MOVL      *-SP[6],ACC           ; |218| 
-        LCR       #_TxPrintf            ; |218| 
-        ; call occurs [#_TxPrintf] ; |218| 
-	.dwpsn	"main.c",220,2
-        LCR       #_menu_start          ; |220| 
-        ; call occurs [#_menu_start] ; |220| 
+        LCR       #__IQ16div            ; |217| 
+        ; call occurs [#__IQ16div] ; |217| 
+        LCR       #__IQ16toF            ; |217| 
+        ; call occurs [#__IQ16toF] ; |217| 
+        MOVL      XAR4,#FSL4            ; |217| 
+        MOVL      *-SP[2],XAR4          ; |217| 
+        MOVL      *-SP[4],XAR1          ; |217| 
+        MOVL      *-SP[6],ACC           ; |217| 
+        LCR       #_TxPrintf            ; |217| 
+        ; call occurs [#_TxPrintf] ; |217| 
+	.dwpsn	"main.c",219,2
+        LCR       #_menu_start          ; |219| 
+        ; call occurs [#_menu_start] ; |219| 
 L5:    
 DW$L$_main$3$B:
 ;***	-----------------------g2:
-;*** 222	-----------------------    goto g2;
-	.dwpsn	"main.c",222,9
-        BF        L5,UNC                ; |222| 
-        ; branch occurs ; |222| 
+;*** 221	-----------------------    goto g2;
+	.dwpsn	"main.c",221,9
+        BF        L5,UNC                ; |221| 
+        ; branch occurs ; |221| 
 DW$L$_main$3$E:
 	.dwcfa	0x1d, -4
 	.dwcfa	0x1d, -2
 	.dwcfa	0xc0, 7
 
 DW$167	.dwtag  DW_TAG_loop
-	.dwattr DW$167, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L5:1:1753336587")
+	.dwattr DW$167, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L5:1:1753441472")
 	.dwattr DW$167, DW_AT_begin_file("main.c")
-	.dwattr DW$167, DW_AT_begin_line(0xde)
-	.dwattr DW$167, DW_AT_end_line(0xf7)
+	.dwattr DW$167, DW_AT_begin_line(0xdd)
+	.dwattr DW$167, DW_AT_end_line(0xf6)
 DW$168	.dwtag  DW_TAG_loop_range
 	.dwattr DW$168, DW_AT_low_pc(DW$L$_main$3$B)
 	.dwattr DW$168, DW_AT_high_pc(DW$L$_main$3$E)
 	.dwendtag DW$167
 
 	.dwattr DW$165, DW_AT_end_file("main.c")
-	.dwattr DW$165, DW_AT_end_line(0xf8)
+	.dwattr DW$165, DW_AT_end_line(0xf7)
 	.dwattr DW$165, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$165
@@ -1791,9 +1791,9 @@ DW$169	.dwtag  DW_TAG_subprogram, DW_AT_name("Delay"), DW_AT_symbol_name("_Delay
 	.dwattr DW$169, DW_AT_low_pc(_Delay)
 	.dwattr DW$169, DW_AT_high_pc(0x00)
 	.dwattr DW$169, DW_AT_begin_file("main.c")
-	.dwattr DW$169, DW_AT_begin_line(0xfa)
+	.dwattr DW$169, DW_AT_begin_line(0xf9)
 	.dwattr DW$169, DW_AT_begin_column(0x06)
-	.dwpsn	"main.c",251,1
+	.dwpsn	"main.c",250,1
 
 	.dwfde DW$CIE
 
@@ -1813,7 +1813,7 @@ DW$169	.dwtag  DW_TAG_subprogram, DW_AT_name("Delay"), DW_AT_symbol_name("_Delay
 ;*                                                             *
 ;***************************************************************
 _Delay:
-;*** 252	-----------------------    if ( Cnt == 0uL ) goto g4;
+;*** 251	-----------------------    if ( Cnt == 0uL ) goto g4;
 ;***  	-----------------------    #pragma MUST_ITERATE(1, 4294967295, 1)
 ;***  	-----------------------    #pragma LOOP_FLAGS(4096u)
 	.dwcfa	0x1d, -2
@@ -1827,45 +1827,45 @@ DW$170	.dwtag  DW_TAG_formal_parameter, DW_AT_name("Cnt"), DW_AT_symbol_name("_C
 DW$171	.dwtag  DW_TAG_variable, DW_AT_name("Cnt"), DW_AT_symbol_name("_Cnt")
 	.dwattr DW$171, DW_AT_type(*DW$T$36)
 	.dwattr DW$171, DW_AT_location[DW_OP_reg0]
-	.dwpsn	"main.c",252,2
-        TEST      ACC                   ; |252| 
-        BF        L7,EQ                 ; |252| 
-        ; branchcc occurs ; |252| 
+	.dwpsn	"main.c",251,2
+        TEST      ACC                   ; |251| 
+        BF        L7,EQ                 ; |251| 
+        ; branchcc occurs ; |251| 
 L6:    
 DW$L$_Delay$2$B:
 ;***	-----------------------g3:
-;*** 254	-----------------------    asm("\t\tnop");
-;*** 256	-----------------------    asm("\tnop");
-;*** 254	-----------------------    if ( --Cnt ) goto g3;
+;*** 253	-----------------------    asm("\t\tnop");
+;*** 255	-----------------------    asm("\tnop");
+;*** 253	-----------------------    if ( --Cnt ) goto g3;
 ;***	-----------------------g4:
 ;***  	-----------------------    return;
-	.dwpsn	"main.c",254,3
+	.dwpsn	"main.c",253,3
 		nop
-	.dwpsn	"main.c",256,3
+	.dwpsn	"main.c",255,3
 	nop
-	.dwpsn	"main.c",254,3
-        SUBB      ACC,#1                ; |254| 
-        BF        L6,NEQ                ; |254| 
-        ; branchcc occurs ; |254| 
+	.dwpsn	"main.c",253,3
+        SUBB      ACC,#1                ; |253| 
+        BF        L6,NEQ                ; |253| 
+        ; branchcc occurs ; |253| 
 DW$L$_Delay$2$E:
 L7:    
-	.dwpsn	"main.c",258,1
+	.dwpsn	"main.c",257,1
         SPM       #0
         LRETR
         ; return occurs
 
 DW$172	.dwtag  DW_TAG_loop
-	.dwattr DW$172, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L6:1:1753336587")
+	.dwattr DW$172, DW_AT_name("C:\project\Linetracer\_Vistan_\main\main.asm:L6:1:1753441472")
 	.dwattr DW$172, DW_AT_begin_file("main.c")
-	.dwattr DW$172, DW_AT_begin_line(0xfc)
-	.dwattr DW$172, DW_AT_end_line(0x101)
+	.dwattr DW$172, DW_AT_begin_line(0xfb)
+	.dwattr DW$172, DW_AT_end_line(0x100)
 DW$173	.dwtag  DW_TAG_loop_range
 	.dwattr DW$173, DW_AT_low_pc(DW$L$_Delay$2$B)
 	.dwattr DW$173, DW_AT_high_pc(DW$L$_Delay$2$E)
 	.dwendtag DW$172
 
 	.dwattr DW$169, DW_AT_end_file("main.c")
-	.dwattr DW$169, DW_AT_end_line(0x102)
+	.dwattr DW$169, DW_AT_end_line(0x101)
 	.dwattr DW$169, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$169

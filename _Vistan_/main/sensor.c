@@ -499,7 +499,7 @@ void position_PID(void) // 500us
 	g_pos.iq7proportion_val = _IQ7mpy( g_pos.iq7past_pos[ 0 ] , g_pos.iq7kp );
 	g_pos.iq7differential_val =_IQ7mpy(( g_pos.iq7past_pos[ 0 ] - g_pos.iq7past_pos[ 3 ] ) +_IQ7mpy( _IQ7(3) , (g_pos.iq7past_pos[ 1 ] - g_pos.iq7past_pos[ 2 ]) ),g_pos.iq7kd);
 	g_pos.iq7pid_out = g_pos.iq7proportion_val + g_pos.iq7differential_val; // position pd compute
-
+    
 	if( g_pos.iq7pid_out > POS_END)			g_pos.iq7pid_out = POS_END;
 	else if( g_pos.iq7pid_out < -POS_END )		g_pos.iq7pid_out = -POS_END;
 	else;
@@ -838,14 +838,14 @@ void turnmark_check(turnmark_t* p_mark,turnmark_t* p_remark)
 				if( pmark == g_ptr -> g_lmark )
                 {
                     
-                    LEFT_LED_ON;
-					BUZZ_ON;
+                    //LEFT_LED_ON;
+					//BUZZ_ON;
                     g_Flag.lmark_flag = ON;
 				}
 				else if ( pmark == g_ptr -> g_rmark )
 				{
-                    RIGHT_LED_ON;
-					BUZZ_ON;
+                    //RIGHT_LED_ON;
+					//BUZZ_ON;
                     g_Flag.rmark_flag = ON;
 				}
 				else;

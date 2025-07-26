@@ -29,34 +29,6 @@ volatile _iq17 shift_left[] =
 };
 
 
-
-extern void brl_2800(void)
-{
-	// 속도 
-	g_q17user_vel = _IQ(2800); // search run vel
-	g_q1745user_vel = _IQ(3600);
-    g_q1790user_vel = _IQ(3000);
-	g_q17end_vel = _IQ(2200);
-
-	g_q17ext_large_vel = _IQ(2800);
-
-	g_q17s4s_vel = _IQ(2800);
-	g_q17s44s_vel = _IQ(3800); 
-	g_q17escape45_vel = _IQ(4200);
-	
-	// 가속도  
-	g_q17user_acc = _IQ(10000);
-	g_q17_45acc = _IQ(6000);
-	g_q17ext_large_acc = _IQ(3000); // large turn accel  
-
-	g_q17max_acc = _IQ(10000);
-	g_q17mid_acc = _IQ(10000);
-	g_q17short_acc = _IQ(10000);
-
-}
-
-
-
 static void bril_straight_compute( fast_run_str *p_info, int32 mark_cnt, error_str *p_err )  // straight, end compute
 { 
 	int32 shift = g_int32shift_level;
@@ -209,7 +181,7 @@ static void bril_45_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_st
 
 	else if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) )  //직진 - 45도 - 직진
 	{
-		pinfo->q17acc = _IQ17(10000); // LIMIT_ACC
+		pinfo->q17acc = g_q17user_acc; // LIMIT_ACC
 
 		ext_memmove_sec_info_struct_func( pinfo , pinfo + 1 , g_q17s4s_vel , m_dist ); //  3000이 MAX 바로 가속하자 !!!!!!!!!!!!!!!!!
 		pinfo->q17shift_before = ( pinfo->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ];
@@ -222,7 +194,7 @@ static void bril_45_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_st
 		
 		if( ( pinfo + 1 )->u16turn_dir & TURN_90 )
 			pinfo->q17shift_before = ( ( pinfo + 1 )->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ];
-
+        
 		//pinfo->q17shift_before = ( ( pinfo + 1 )->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ]; //이게 맞다 
 	}
 	
@@ -307,7 +279,7 @@ static void  bril_90_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_s
 			}
 		} while( 0 );
 
-        if( ( ( pinfo - 2 )->u16turn_dir & STRAIGHT ) && ( ( pinfo - 1 )->u16turn_dir & TURN_90 ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) ) //  직진 - 45 - 45 - 직진 에서의 45도 
+        if( ( ( pinfo - 2 )->u16turn_dir & STRAIGHT ) && ( ( pinfo - 1 )->u16turn_dir & TURN_90 ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) ) //  직진 - 90 - 90 - 직진 에서의 90도 
         {
             pinfo->down_flag = ON;
             pinfo->escape_flag = ON;    //escape 이면 90도 가변 하면 안되므로...                
@@ -336,8 +308,8 @@ static void  bril_90_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_s
 	}
 	else //다음 턴이 턴일 경우 
 	{
-        #if 1
-		if( ( pinfo + 1 )->u16turn_dir & ( TURN_90 ) ) //연속 턴 
+        
+		if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_90 ) )  && ( ( pinfo + 1 )->u16turn_dir & ( TURN_90 ) ) ) //연속 턴 
 		{
 			bril_turn_division_compute( ( pinfo + 1 ) , ( mark_cnt + 1 ), perr );
 			
@@ -345,10 +317,10 @@ static void  bril_90_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_s
             pinfo->down_flag = ON; 
             pinfo->q7kp_val = POS_KP_DOWN;
             pinfo->q17shift_before = ( ( pinfo + 1 )->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ];
-
+            
 		} 
-        #endif
-        if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_90 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 45도 - 45도 - 직진 에서의 45도 
+        
+        if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_90 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 90도 - 90도 - 직진 에서의 90도 
         {
             pinfo->down_flag = ON; 
             pinfo->q7kp_val = POS_KP_DOWN;
@@ -406,8 +378,6 @@ static void bril_default_turn_compute( fast_run_str *pinfo, int32 mark_cnt, erro
 	pinfo->q7kp_val = POS_KP_UP; 
 	
 	pinfo->q17in_vel = g_q17user_vel;
-	if( g_q17user_vel > _IQ(LIMIT_SHIFT_VEL) )
-		pinfo->q17in_vel = _IQ( LIMIT_SHIFT_VEL );
 
 	pinfo->q17out_vel = pinfo->q17vel = pinfo->q17in_vel;
 	pinfo->q17shift_before = ( pinfo->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ];
@@ -708,6 +678,7 @@ void bril_run( fast_run_str *p_info )
 	while(1)
 	{
 		//VFDPrintf("%8f",_IQtoF(g_q17shift_pos_val));
+		//VFDPrintf("%f",_IQ7toF(g_pos.iq7pid_out));
 		g_q17straight_dist = ( (g_rm.q17gone_distance + g_lm.q17gone_distance) >> 1 );		 
 		
 		make_position();	// 포지션 갱신 

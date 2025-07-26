@@ -14,9 +14,6 @@
 #ifndef __BRILRUN_H__
 #define __BRILRUN_H__
 
-
-extern void brl_2800(void);
-
 extern void bril_run(fast_run_str *pinfo);
 extern void bril_select(void);
 

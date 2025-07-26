@@ -28,14 +28,12 @@
 #define DELAY	125000 // 0.125sec
 
 extern	void menu_start(void);
-extern	void menu_high(void);
 extern	void menu(void);
 
 extern void vel_control(void);
 extern void bril_run_start(void);
 extern void fast_run(void);
 extern void fst_info(void);
-extern void ext_info(void);
 extern void bril_info(void);
 extern void F_bril_select();
 

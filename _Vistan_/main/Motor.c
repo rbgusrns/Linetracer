@@ -225,7 +225,7 @@ void move_to_move( volatile _iq17 dist , volatile _iq17 dec_dist , volatile _iq1
 
 	g_rm.int32accel = g_lm.int32accel = ( int32 )( acc >> 17 );
 
-    g_rm.int32decel = g_lm.int32decel = g_lm.int32accel + ( int32 )( g_int32decel );
+    g_rm.int32decel = g_lm.int32decel = ( g_int32decel );
 
 	g_rm.q17decel_dist = dec_dist;
 	g_lm.q17decel_dist = dec_dist;
@@ -282,21 +282,21 @@ static void position_to_vel( void )
 		if( g_rm.q17decel_dist>= _IQabs(g_rm.q17err_dist) && 
 			 g_lm.q17decel_dist>= _IQabs(g_lm.q17err_dist))  //감속 구간.
 		{
-			LEFT_BLUE_ON;
-			RIGHT_BLUE_OFF;
+			//LEFT_BLUE_ON;
+			//RIGHT_BLUE_OFF;
 		}
 		else  //가속 구간.
 		{
-			RIGHT_BLUE_ON;
-			LEFT_BLUE_OFF;
+			//RIGHT_BLUE_ON;
+			//LEFT_BLUE_OFF;
 		}
 		ext_kval_ctrl_func( ( KVAL_DOWN | KVAL_KP ) , &g_pos , DOWN_KP , g_fast_info[g_int32mark_cnt].q7kp_val );
 		
 	}
 	else if( g_fast_info[g_int32mark_cnt].s44s_flag )  //직진 - 45도 - 45도 - 직진 에서 진입직진이 짧은 직진이 아닐 경우
 	{
-		LEFT_BLUE_ON;
-		RIGHT_BLUE_ON;
+		//LEFT_BLUE_ON;
+		//RIGHT_BLUE_ON;
 	
 		if( g_q17straight_dist > _IQ( g_fast_info[g_int32mark_cnt].u16dist) - _IQ(SEN_TO_WHEEL_DIST) )  //진입하자마자 kp를 풀면 직진 보정을 못하므로...
 		{
@@ -304,8 +304,8 @@ static void position_to_vel( void )
 		}   //안정화 이후 kp 푼다 !!
 		else
 		{
-			LEFT_BLUE_OFF;
-			RIGHT_BLUE_OFF;
+			//LEFT_BLUE_OFF;
+			//RIGHT_BLUE_OFF;
 		
 			ext_kval_ctrl_func( ( KVAL_UP | KVAL_KP ) , &g_pos , DOWN_KP , g_fast_info[g_int32mark_cnt].q7kp_val );
 			//아닐 경우 복

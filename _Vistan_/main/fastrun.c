@@ -129,7 +129,7 @@ static void straight_compute( fast_run_str *pinfo, int32 mark_cnt, error_str *pe
 		pinfo->q17acc = g_q17user_acc;
 
 		if( pinfo->u16turn_dir & ETURN )
-			pinfo->q17acc = pinfo->q17acc > _IQ17(10000) ? _IQ17(10000) : _IQ17(10000);
+			pinfo->q17acc = pinfo->q17acc > g_q17user_acc ? g_q17user_acc : g_q17user_acc;
 	}
 	else if( pinfo->u16dist> MID_DIST )		pinfo->q17acc = g_q17user_acc; //+ _IQ17(1000);  // 중간 직진 가속 
 	else									pinfo->q17acc = g_q17user_acc;// + _IQ17(4000);
