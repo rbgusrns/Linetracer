@@ -92,8 +92,8 @@ void ext_kval_ctrl_func( Uint32 mode , position_t *p_pos , _iq7 ratio , volatile
 	}
 
 	if( mode & KVAL_UP ) //º¹±Í 
-	{
-		kval += _IQ7mpy( ratio, ( g_q17shift_dist >> 10 ) ); 
+	{                           
+		kval += _IQ7mpy( ratio, ( g_q17shift_dist >> 10 ) ); //shift_dist = Æ½´ç °£ °Å¸®. ÀÌ °Å¸®°¡ 200ÀÌ µÉ¶§±îÁö ³·Ãç¾ß ÇÔ !!
 		if( kval > up_limit )
 			kval = up_limit;
 		
@@ -105,7 +105,7 @@ void ext_kval_ctrl_func( Uint32 mode , position_t *p_pos , _iq7 ratio , volatile
 			kval = limit;
 		
 	}
-
+    
 	*pval = kval;
 
 }

@@ -1121,7 +1121,7 @@ void extreme_ctl()
 		VFDPrintf("escp%4u",IQ_TO_UINT16(g_q17escape45_vel));
 	}
 	DELAY_US(150000);
-
+    extvel_write_rom();
 	
 }
 

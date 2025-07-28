@@ -49,7 +49,7 @@
 #define	DOWN_KP  				_IQ7( 0.014 )
 #define DOWN_KD					_IQ7( 0.005 )
 
-//떨어 뜨릴 값이 0.2 까지 이므로 1.5에서 0.1의 차이는 1.3 이다.
+//떨어 뜨릴 값이 0.1 까지 이므로 1.5에서 0.1의 차이는 1.3 이다.
 //따라서 간 거리가 200이 될때까지 1.3을 떨어뜨려야 하므로 X * 200 = 1.3 이된다.  ?????
 
 
@@ -297,18 +297,18 @@ static void position_to_vel( void )
 	{
 		//LEFT_BLUE_ON;
 		//RIGHT_BLUE_ON;
-	
+	    //s44s일경우 안정화 이후 푼다.. 그냥 down일 경우 바로 풀어버림 
 		if( g_q17straight_dist > _IQ( g_fast_info[g_int32mark_cnt].u16dist) - _IQ(SEN_TO_WHEEL_DIST) )  //진입하자마자 kp를 풀면 직진 보정을 못하므로...
 		{
 			ext_kval_ctrl_func( ( KVAL_DOWN | KVAL_KP ) , &g_pos , DOWN_KP , g_fast_info[g_int32mark_cnt].q7kp_val );
-		}   //안정화 이후 kp 푼다 !!
+		}   //안정화 이후 kp 풀어놓고 턴 진입. 
 		else
 		{
 			//LEFT_BLUE_OFF;
 			//RIGHT_BLUE_OFF;
 		
 			ext_kval_ctrl_func( ( KVAL_UP | KVAL_KP ) , &g_pos , DOWN_KP , g_fast_info[g_int32mark_cnt].q7kp_val );
-			//아닐 경우 복
+			//아닐 경우 복귀
 		}
 	}
 	else //kp값 원래대로 돌리기	
@@ -320,6 +320,8 @@ static void position_to_vel( void )
 	}
 	
 #endif
+    //s44s_flag : 직진에서 다음, 다다음 턴이 45도인 경우에직진 거리가 200보다 길다면 ON. 200보다 낮다면 down_flag ON. 
+
 
 	//가속 플래그가 떳을 경우 user_vel만 최고 속도로 변경한 후 탈출
 	#if 1

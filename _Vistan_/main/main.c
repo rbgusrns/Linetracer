@@ -151,7 +151,7 @@ void Variable_Init( void )
 	g_q17end_vel = _IQ(2200);
 	g_q17end_dist = _IQ(100);
 	
-	g_q1745user_vel = _IQ(4000);
+	g_q1745user_vel = _IQ(3500);
     g_q1790user_vel = _IQ(3500);
 
 	g_q17_45acc = _IQ(10000);
@@ -164,8 +164,8 @@ void Variable_Init( void )
 	g_q17mid_acc = g_q17user_acc;
 	g_q17short_acc = g_q17user_acc;
 	
-	g_q17s4s_vel = _IQ(3200);
-	g_q17s44s_vel = _IQ(3400); 
+	g_q17s4s_vel = _IQ(3500);
+	g_q17s44s_vel = _IQ(4000); 
 	g_q17escape45_vel = _IQ(3500);
 	 
 	g_q7shift_pos = _IQ7(0.0);
@@ -199,7 +199,7 @@ void main(void)
 	mark_read_rom();
 	fast_infor_read_rom();
 	race_start_init();
-
+    extvel_read_rom();
     
 	//g_Flag.motor_start = ON;
 	//move_to_end(_IQ(100), _IQ(0), g_q17end_acc);

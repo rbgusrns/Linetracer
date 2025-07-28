@@ -19,6 +19,8 @@ extern void maxmin_write_rom(void);
 extern void maxmin_read_rom(void);
 extern void turnvel_write_rom(void);
 extern void turnvel_read_rom(void);
+extern void extvel_write_rom(void);
+extern void extvel_read_rom(void);
 extern void line_info_write_rom(void);
 extern void line_info_read_rom(void);
 extern void cross_info_write_rom(void);

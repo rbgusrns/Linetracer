@@ -29,6 +29,12 @@ typedef enum
 	
 	_MAXMIN_CTRL = 1,
 	_TURNVEL_CTRL,
+	_S44SVEL_CTRL,
+	_S4SVEL_CTRL,
+	_ESCVEL_CTRL,
+	_45VEL_CTRL,
+	_45ACC_CTRL,
+	_SHIFT_CTRL,
 	_LINE_MARKCNT,
 	_LINE_RL_INFO,
 	_LINE_RL_INFO2,
@@ -336,6 +342,163 @@ void turnvel_read_rom(void)
 	//g_rm.q17user_vel = g_lm.q17user_vel = g_q17user_vel;
 
 }
+
+
+void extvel_write_rom(void)
+{
+	int32 i,j,k,l,m,n;
+	Uint16 write_buf1[_TURNVEL_BLOCK]= {0,}; //s44s
+    Uint16 write_buf2[_TURNVEL_BLOCK]= {0,}; //s4s
+    Uint16 write_buf3[_TURNVEL_BLOCK]= {0,}; //45
+    Uint16 write_buf4[_TURNVEL_BLOCK]= {0,}; //esc
+    Uint16 write_buf5[_ACC_BLOCK]= {0,}; //45acc
+    Uint16 write_buf6[_TURNMARK_BLOCK]= {0,}; //shift
+    
+	Uint16 Rom_Data_Buffer;
+	
+	memset( (void * )write_buf1 , 0x00 , sizeof( write_buf1 ) );
+	memset( (void * )write_buf2 , 0x00 , sizeof( write_buf2 ) );
+	memset( (void * )write_buf3 , 0x00 , sizeof( write_buf3 ) );
+	memset( (void * )write_buf4 , 0x00 , sizeof( write_buf4 ) );
+	memset( (void * )write_buf5 , 0x00 , sizeof( write_buf5 ) );
+	memset( (void * )write_buf6 , 0x00 , sizeof( write_buf6 ) );
+
+	
+	i = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17s44s_vel >> 17);
+	write_buf1[ i++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf1[ i++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_S44SVEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), write_buf1 );
+
+
+    j = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17s4s_vel >> 17);
+	write_buf2[ j++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf2[ j++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_S4SVEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), write_buf2 );
+
+
+    k = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q1745user_vel >> 17);
+	write_buf3[ k++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf3[ k++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_45VEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), write_buf3 );
+
+
+    l = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17escape45_vel >> 17);
+	write_buf4[ l++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf4[ l++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_ESCVEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), write_buf4 );
+
+    m = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17_45acc >> 17);
+	write_buf5[ m++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf5[ m++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_45ACC_CTRL) , 0 , (Uint16)(_ACC_BLOCK), write_buf5 );
+
+
+    n = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_int32shift_level );
+	write_buf6[ n++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf6[ n++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_SHIFT_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), write_buf6 );
+	
+}
+
+
+
+void extvel_read_rom(void)
+{
+	int32 i,j,k,l,m,n;
+	Uint16 read_buf1[_TURNVEL_BLOCK]= {0,}; //s44s
+    Uint16 read_buf2[_TURNVEL_BLOCK]= {0,}; //s4s
+    Uint16 read_buf3[_TURNVEL_BLOCK]= {0,}; //45
+    Uint16 read_buf4[_TURNVEL_BLOCK]= {0,}; //esc
+    Uint16 read_buf5[_ACC_BLOCK]= {0,}; //45acc
+    Uint16 read_buf6[_TURNMARK_BLOCK]= {0,}; //shift
+    
+	Uint16 Rom_Data_Buffer;
+
+    
+
+	i = 0;
+
+	SpiReadRom((Uint16)(_S44SVEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), read_buf1 );
+	
+	Rom_Data_Buffer = ((read_buf1[i++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf1[i++] & 0xff) << 8);
+    g_q17s44s_vel = _IQ(Rom_Data_Buffer);
+
+
+
+    j = 0;
+
+    SpiReadRom((Uint16)(_S4SVEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), read_buf2 );
+	
+	Rom_Data_Buffer = ((read_buf2[j++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf2[j++] & 0xff) << 8);
+    g_q17s4s_vel = _IQ(Rom_Data_Buffer);
+	
+
+
+    k = 0;
+
+    SpiReadRom((Uint16)(_45VEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), read_buf3 );
+	
+	Rom_Data_Buffer = ((read_buf3[k++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf3[k++] & 0xff) << 8);
+    g_q1745user_vel = _IQ(Rom_Data_Buffer);
+	
+
+
+
+    l = 0;
+
+    SpiReadRom((Uint16)(_ESCVEL_CTRL) , 0 , (Uint16)(_TURNVEL_BLOCK), read_buf4 );
+
+	Rom_Data_Buffer = ((read_buf4[l++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf4[l++] & 0xff) << 8);
+    g_q17escape45_vel = _IQ(Rom_Data_Buffer);
+
+	
+
+    
+    m = 0;
+
+    SpiReadRom((Uint16)(_45ACC_CTRL) , 0 , (Uint16)(_ACC_BLOCK), read_buf5 );
+
+	Rom_Data_Buffer = ((read_buf5[m++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf5[m++] & 0xff) << 8);
+    g_q17_45acc = _IQ(Rom_Data_Buffer);
+	    
+
+
+
+    n = 0;
+
+    SpiReadRom((Uint16)(_SHIFT_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), read_buf6 );
+
+	Rom_Data_Buffer = ((read_buf6[n++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf6[n++] & 0xff) << 8);
+    g_int32shift_level = Rom_Data_Buffer;
+	
+	
+}
+
+
 
 void pid_write_rom(void)
 {
