@@ -18,7 +18,7 @@
 #include "Sensor.h"
 
 
-#define POS_END _IQ7(12000)		//14500
+#define POS_END _IQ7(14500)		//14500
 
 
 static position_enable(void);
@@ -130,7 +130,7 @@ void sen_vari_init(void)
 	g_sen[ 0 ].iq7weight = _IQ7(-16000);		g_sen[ 15 ].u16active_arr = 0x0001;		g_sen[ 15 ].u16passive_arr = 0xfffe;
 #endif
 
-#if 0
+#if 1
 	g_sen[ L7 ].iq7weight = _IQ7(14500);		g_sen[ L7 ].u16active_arr = 0x8000; 	g_sen[ 15 ].u16passive_arr = 0x7fff;
  	g_sen[ L6 ].iq7weight = _IQ7(12500);		g_sen[ L6 ].u16active_arr = 0x4000; 	g_sen[ 14 ].u16passive_arr = 0xbfff;
 	g_sen[ L5 ].iq7weight = _IQ7(10500);		g_sen[ L5 ].u16active_arr = 0x2000; 	g_sen[ 13 ].u16passive_arr = 0xdfff;
@@ -152,7 +152,7 @@ void sen_vari_init(void)
 	g_sen[ R0 ].iq7weight = _IQ7(-14500);		g_sen[ R0 ].u16active_arr = 0x0001;		g_sen[ 0 ].u16passive_arr = 0xfffe;    
 #endif
 
-#if 1
+#if 0
 	g_sen[ L7 ].iq7weight = _IQ7(12000);		g_sen[ L7 ].u16active_arr = 0x8000; 	g_sen[ 15 ].u16passive_arr = 0x7fff;
  	g_sen[ L6 ].iq7weight = _IQ7(10400);		g_sen[ L6 ].u16active_arr = 0x4000; 	g_sen[ 14 ].u16passive_arr = 0xbfff;
 	g_sen[ L5 ].iq7weight = _IQ7(8800);		    g_sen[ L5 ].u16active_arr = 0x2000; 	g_sen[ 13 ].u16passive_arr = 0xdfff;

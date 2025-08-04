@@ -109,7 +109,7 @@ void Variable_Init( void )
 
 	g_q17user_acc = _IQ(13000);
 	g_q17end_acc = _IQ(12500); // _IQ(13500)
-	g_q17fast_vel_limit = _IQ(8000);
+	g_q17fast_vel_limit = _IQ(7700);
 	//g_q17sec_end_vel = _IQ(2300);
 	
 	g_q17user_vel = _IQ(2300); // search run vel
@@ -215,7 +215,7 @@ void main(void)
 	BUZZ_OFF;
 
 	TxPrintf("%5f, %5F\n", _IQ16toF(HANDLE_CENTER / 250) , _IQ16toF(_IQ16div(HANDLE_CENTER, _IQ16(250)) ) );
-	
+	TxPrintf("PULSE_TO_V: %10f\n",_IQ25toF(_IQ25( 33.37209546898672 )));
 	menu_start();
 
 	while( 1 )

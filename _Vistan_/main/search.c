@@ -326,7 +326,7 @@ void  search_run(void)
 	
 	while(1)
 	{
-        //TxPrintf("L:%f\tR:%f\n",_IQtoF(g_q17left_handle),_IQtoF(g_q17right_handle));
+        //TxPrintf("L:%f\tR:%f\n",_IQtoF(g_lm.q17cur_vel_avr),_IQtoF(g_rm.q17cur_vel_avr));
         //TxPrintf("L:%f\tR:%f\n",_IQtoF(g_lm.q17next_acc),_IQtoF(g_rm.q17next_acc));
 		make_position(); // 포지션 업데이트 
 		
@@ -347,8 +347,10 @@ void  search_run(void)
 				return;
 			}
 			
+			
 			g_Flag.motor_ISR_flag = OFF;
 		}
+		
 
 		
 	}

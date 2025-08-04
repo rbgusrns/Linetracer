@@ -30,8 +30,8 @@
 
 #define ON_L		1L
 //#define HANDLE_CENTER 			_IQ16( 7800 )
-#define HANDLE_CENTER 			_IQ16( 6000 )
-#define CENTER_POSITION			_IQ7( 12000 )  
+#define HANDLE_CENTER 			_IQ16( 7250 )
+#define CENTER_POSITION			_IQ7( 14500 )  
 
 #define SENSOR_TIMER_ENABLE		do{ StartCpuTimer0();	}while(0);
 #define SENSOR_TIMER_DISABLE	do{	StopCpuTimer0();	}while(0);

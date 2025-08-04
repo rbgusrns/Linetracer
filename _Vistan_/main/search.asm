@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Tue Jul 29 01:52:28 2025                 *
+;* Date/Time created: Mon Aug 04 03:11:16 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -309,8 +309,8 @@ DW$86	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$86, DW_AT_type(*DW$T$111)
 	.dwattr DW$86, DW_AT_declaration(0x01)
 	.dwattr DW$86, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI55210 C:\Users\rbgus\AppData\Local\Temp\TI5524 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI5522 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI5526 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI61210 C:\Users\rbgus\AppData\Local\Temp\TI6124 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI6122 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI6126 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_turn_info_compute
 
@@ -519,17 +519,15 @@ L4:
         TBIT      *+XAR1[AR0],#3        ; |156| 
         BF        L30,TC                ; |156| 
         ; branchcc occurs ; |156| 
-;*** 158	-----------------------    if ( (*pinfo).u16dist <= 240u ) goto g31;
+;*** 158	-----------------------    if ( (*pinfo).u16dist <= 275u ) goto g31;
 	.dwpsn	"search.c",158,3
         MOVB      XAR0,#37              ; |158| 
-        MOV       AL,*+XAR1[AR0]        ; |158| 
-        CMPB      AL,#240               ; |158| 
+        CMP       *+XAR1[AR0],#275      ; |158| 
         BF        L27,LOS               ; |158| 
         ; branchcc occurs ; |158| 
-;*** 163	-----------------------    if ( (*pinfo).u16dist <= 240u ) goto g15;
+;*** 163	-----------------------    if ( (*pinfo).u16dist <= 275u ) goto g15;
 	.dwpsn	"search.c",163,8
-        MOV       AL,*+XAR1[AR0]        ; |163| 
-        CMPB      AL,#240               ; |163| 
+        CMP       *+XAR1[AR0],#275      ; |163| 
         BF        L5,LOS                ; |163| 
         ; branchcc occurs ; |163| 
 ;*** 163	-----------------------    if ( (*pinfo).u16dist <= 460u ) goto g30;
@@ -961,7 +959,7 @@ L33:
         ; return occurs
 
 DW$104	.dwtag  DW_TAG_loop
-	.dwattr DW$104, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L32:1:1753721548")
+	.dwattr DW$104, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L32:1:1754244676")
 	.dwattr DW$104, DW_AT_begin_file("search.c")
 	.dwattr DW$104, DW_AT_begin_line(0x70)
 	.dwattr DW$104, DW_AT_end_line(0x74)
@@ -1254,7 +1252,7 @@ L41:
         ; return occurs
 
 DW$109	.dwtag  DW_TAG_loop
-	.dwattr DW$109, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L40:1:1753721548")
+	.dwattr DW$109, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L40:1:1754244676")
 	.dwattr DW$109, DW_AT_begin_file("search.c")
 	.dwattr DW$109, DW_AT_begin_line(0x122)
 	.dwattr DW$109, DW_AT_end_line(0x122)
@@ -1265,7 +1263,7 @@ DW$110	.dwtag  DW_TAG_loop_range
 
 
 DW$111	.dwtag  DW_TAG_loop
-	.dwattr DW$111, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L39:1:1753721548")
+	.dwattr DW$111, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L39:1:1754244676")
 	.dwattr DW$111, DW_AT_begin_file("search.c")
 	.dwattr DW$111, DW_AT_begin_line(0x11e)
 	.dwattr DW$111, DW_AT_end_line(0x127)
@@ -1276,7 +1274,7 @@ DW$112	.dwtag  DW_TAG_loop_range
 
 
 DW$113	.dwtag  DW_TAG_loop
-	.dwattr DW$113, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L37:1:1753721548")
+	.dwattr DW$113, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L37:1:1754244676")
 	.dwattr DW$113, DW_AT_begin_file("search.c")
 	.dwattr DW$113, DW_AT_begin_line(0x113)
 	.dwattr DW$113, DW_AT_end_line(0x113)
@@ -1428,12 +1426,12 @@ DW$122	.dwtag  DW_TAG_variable, DW_AT_name("K$11"), DW_AT_symbol_name("K$11")
 L42:    
 DW$L$_search_run$2$B:
 ;***	-----------------------g2:
-;*** 350	-----------------------    *&g_Flag &= 0xfffdu;
+;*** 351	-----------------------    *&g_Flag &= 0xfffdu;
 ;***	-----------------------g3:
 ;***  	-----------------------    #pragma LOOP_FLAGS(5120u)
-	.dwpsn	"search.c",350,4
+	.dwpsn	"search.c",351,4
         MOVW      DP,#_g_Flag
-        AND       @_g_Flag,#0xfffd      ; |350| 
+        AND       @_g_Flag,#0xfffd      ; |351| 
 DW$L$_search_run$2$E:
 L43:    
 DW$L$_search_run$3$B:
@@ -1509,7 +1507,7 @@ DW$L$_search_run$6$E:
 	.dwpsn	"search.c",346,5
         AND       *+XAR3[0],#0xfffd     ; |346| 
 	.dwpsn	"search.c",347,5
-	.dwpsn	"search.c",357,1
+	.dwpsn	"search.c",359,1
         SUBB      SP,#8
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -1519,10 +1517,10 @@ DW$L$_search_run$6$E:
         ; return occurs
 
 DW$123	.dwtag  DW_TAG_loop
-	.dwattr DW$123, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L43:1:1753721548")
+	.dwattr DW$123, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L43:1:1754244676")
 	.dwattr DW$123, DW_AT_begin_file("search.c")
 	.dwattr DW$123, DW_AT_begin_line(0x14b)
-	.dwattr DW$123, DW_AT_end_line(0x15e)
+	.dwattr DW$123, DW_AT_end_line(0x15f)
 DW$124	.dwtag  DW_TAG_loop_range
 	.dwattr DW$124, DW_AT_low_pc(DW$L$_search_run$3$B)
 	.dwattr DW$124, DW_AT_high_pc(DW$L$_search_run$3$E)
@@ -1541,7 +1539,7 @@ DW$128	.dwtag  DW_TAG_loop_range
 	.dwendtag DW$123
 
 	.dwattr DW$116, DW_AT_end_file("search.c")
-	.dwattr DW$116, DW_AT_end_line(0x165)
+	.dwattr DW$116, DW_AT_end_line(0x167)
 	.dwattr DW$116, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$116
@@ -1788,9 +1786,9 @@ DW$141	.dwtag  DW_TAG_subprogram, DW_AT_name("extreme_ctl"), DW_AT_symbol_name("
 	.dwattr DW$141, DW_AT_low_pc(_extreme_ctl)
 	.dwattr DW$141, DW_AT_high_pc(0x00)
 	.dwattr DW$141, DW_AT_begin_file("search.c")
-	.dwattr DW$141, DW_AT_begin_line(0x385)
+	.dwattr DW$141, DW_AT_begin_line(0x387)
 	.dwattr DW$141, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",902,1
+	.dwpsn	"search.c",904,1
 
 	.dwfde DW$CIE
 
@@ -1857,781 +1855,781 @@ DW$149	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L51:    
 ;***	-----------------------g2:
-;*** 913	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g5;
-	.dwpsn	"search.c",913,8
-        TBIT      @_GpioDataRegs+1,#14  ; |913| 
-        BF        L52,TC                ; |913| 
-        ; branchcc occurs ; |913| 
-;*** 915	-----------------------    --g_int32shift_level;
-;*** 916	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 918	-----------------------    if ( g_int32shift_level >= 0L ) goto g5;
-	.dwpsn	"search.c",915,4
+;*** 915	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g5;
+	.dwpsn	"search.c",915,8
+        TBIT      @_GpioDataRegs+1,#14  ; |915| 
+        BF        L52,TC                ; |915| 
+        ; branchcc occurs ; |915| 
+;*** 917	-----------------------    --g_int32shift_level;
+;*** 918	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 920	-----------------------    if ( g_int32shift_level >= 0L ) goto g5;
+	.dwpsn	"search.c",917,4
         MOVB      ACC,#1
         MOVW      DP,#_g_int32shift_level
-        SUBL      @_g_int32shift_level,ACC ; |915| 
-	.dwpsn	"search.c",916,4
+        SUBL      @_g_int32shift_level,ACC ; |917| 
+	.dwpsn	"search.c",918,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |916| 
-        ; call occurs [#_DSP28x_usDelay] ; |916| 
-	.dwpsn	"search.c",918,4
+        LCR       #_DSP28x_usDelay      ; |918| 
+        ; call occurs [#_DSP28x_usDelay] ; |918| 
+	.dwpsn	"search.c",920,4
         MOVW      DP,#_g_int32shift_level
-        MOVL      ACC,@_g_int32shift_level ; |918| 
-        BF        L52,GEQ               ; |918| 
-        ; branchcc occurs ; |918| 
-;*** 919	-----------------------    g_int32shift_level = 0L;
-	.dwpsn	"search.c",919,5
+        MOVL      ACC,@_g_int32shift_level ; |920| 
+        BF        L52,GEQ               ; |920| 
+        ; branchcc occurs ; |920| 
+;*** 921	-----------------------    g_int32shift_level = 0L;
+	.dwpsn	"search.c",921,5
         MOVB      ACC,#0
-        MOVL      @_g_int32shift_level,ACC ; |919| 
+        MOVL      @_g_int32shift_level,ACC ; |921| 
 L52:    
 ;***	-----------------------g5:
 ;***	-----------------------g5:
-;*** 923	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g9;
-	.dwpsn	"search.c",923,3
+;*** 925	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g9;
+	.dwpsn	"search.c",925,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |923| 
-        BF        L55,NTC               ; |923| 
-        ; branchcc occurs ; |923| 
+        TBIT      @_GpioDataRegs,#14    ; |925| 
+        BF        L55,NTC               ; |925| 
+        ; branchcc occurs ; |925| 
 L53:    
 ;***	-----------------------g6:
-;*** 929	-----------------------    VFDPrintf("level%3ld", g_int32shift_level);
-;*** 903	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
-	.dwpsn	"search.c",929,3
+;*** 931	-----------------------    VFDPrintf("level%3ld", g_int32shift_level);
+;*** 905	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
+	.dwpsn	"search.c",931,3
         MOVW      DP,#_g_int32shift_level
-        MOVL      XAR4,#FSL4            ; |929| 
-        MOVL      ACC,@_g_int32shift_level ; |929| 
-        MOVL      *-SP[2],XAR4          ; |929| 
-        MOVL      *-SP[4],ACC           ; |929| 
-        LCR       #_VFDPrintf           ; |929| 
-        ; call occurs [#_VFDPrintf] ; |929| 
-	.dwpsn	"search.c",903,8
+        MOVL      XAR4,#FSL4            ; |931| 
+        MOVL      ACC,@_g_int32shift_level ; |931| 
+        MOVL      *-SP[2],XAR4          ; |931| 
+        MOVL      *-SP[4],ACC           ; |931| 
+        LCR       #_VFDPrintf           ; |931| 
+        ; call occurs [#_VFDPrintf] ; |931| 
+	.dwpsn	"search.c",905,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |903| 
-        BF        L51,TC                ; |903| 
-        ; branchcc occurs ; |903| 
+        TBIT      @_GpioDataRegs+1,#15  ; |905| 
+        BF        L51,TC                ; |905| 
+        ; branchcc occurs ; |905| 
 L54:    
 ;***	-----------------------g7:
-;*** 907	-----------------------    ++g_int32shift_level;
-;*** 908	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 910	-----------------------    if ( g_int32shift_level <= 8L ) goto g5;
-	.dwpsn	"search.c",907,4
+;*** 909	-----------------------    ++g_int32shift_level;
+;*** 910	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 912	-----------------------    if ( g_int32shift_level <= 8L ) goto g5;
+	.dwpsn	"search.c",909,4
         MOVB      ACC,#1
         MOVW      DP,#_g_int32shift_level
-        ADDL      @_g_int32shift_level,ACC ; |907| 
-	.dwpsn	"search.c",908,4
+        ADDL      @_g_int32shift_level,ACC ; |909| 
+	.dwpsn	"search.c",910,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |908| 
-        ; call occurs [#_DSP28x_usDelay] ; |908| 
-	.dwpsn	"search.c",910,4
+        LCR       #_DSP28x_usDelay      ; |910| 
+        ; call occurs [#_DSP28x_usDelay] ; |910| 
+	.dwpsn	"search.c",912,4
         MOVW      DP,#_g_int32shift_level
         MOVB      ACC,#8
-        CMPL      ACC,@_g_int32shift_level ; |910| 
-        BF        L52,GEQ               ; |910| 
-        ; branchcc occurs ; |910| 
-;*** 911	-----------------------    g_int32shift_level = 8L;
-;*** 911	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g6;
-	.dwpsn	"search.c",911,5
-        MOVL      @_g_int32shift_level,ACC ; |911| 
+        CMPL      ACC,@_g_int32shift_level ; |912| 
+        BF        L52,GEQ               ; |912| 
+        ; branchcc occurs ; |912| 
+;*** 913	-----------------------    g_int32shift_level = 8L;
+;*** 913	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g6;
+	.dwpsn	"search.c",913,5
+        MOVL      @_g_int32shift_level,ACC ; |913| 
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |911| 
-        BF        L53,TC                ; |911| 
-        ; branchcc occurs ; |911| 
+        TBIT      @_GpioDataRegs,#14    ; |913| 
+        BF        L53,TC                ; |913| 
+        ; branchcc occurs ; |913| 
 L55:    
 ;***	-----------------------g9:
-;*** 925	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 926	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 927	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 928	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g13;
-	.dwpsn	"search.c",925,4
+	.dwpsn	"search.c",927,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |925| 
-        ; call occurs [#_DSP28x_usDelay] ; |925| 
-	.dwpsn	"search.c",926,4
+        LCR       #_DSP28x_usDelay      ; |927| 
+        ; call occurs [#_DSP28x_usDelay] ; |927| 
+	.dwpsn	"search.c",928,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |926| 
-        ; call occurs [#_DSP28x_usDelay] ; |926| 
+        LCR       #_DSP28x_usDelay      ; |928| 
+        ; call occurs [#_DSP28x_usDelay] ; |928| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L59,TC
         ; branchcc occurs
 L56:    
 ;***	-----------------------g10:
-;*** 937	-----------------------    g_q1745user_vel += 26214400L;
-;*** 938	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",937,4
+;*** 939	-----------------------    g_q1745user_vel += 26214400L;
+;*** 940	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",939,4
         MOVW      DP,#_g_q1745user_vel
-        MOVL      ACC,@_g_q1745user_vel ; |937| 
-        ADD       ACC,#800 << 15        ; |937| 
-        MOVL      @_g_q1745user_vel,ACC ; |937| 
-	.dwpsn	"search.c",938,4
+        MOVL      ACC,@_g_q1745user_vel ; |939| 
+        ADD       ACC,#800 << 15        ; |939| 
+        MOVL      @_g_q1745user_vel,ACC ; |939| 
+	.dwpsn	"search.c",940,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |938| 
-        ; call occurs [#_DSP28x_usDelay] ; |938| 
+        LCR       #_DSP28x_usDelay      ; |940| 
+        ; call occurs [#_DSP28x_usDelay] ; |940| 
 L57:    
 ;***	-----------------------g11:
-;*** 947	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g15;
-	.dwpsn	"search.c",947,3
+;*** 949	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g15;
+	.dwpsn	"search.c",949,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |947| 
-        BF        L60,NTC               ; |947| 
-        ; branchcc occurs ; |947| 
+        TBIT      @_GpioDataRegs,#14    ; |949| 
+        BF        L60,NTC               ; |949| 
+        ; branchcc occurs ; |949| 
 L58:    
 ;***	-----------------------g12:
-;*** 953	-----------------------    VFDPrintf("45V%5u", (unsigned)(g_q1745user_vel>>17));
-;*** 933	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g10;
-	.dwpsn	"search.c",953,3
+;*** 955	-----------------------    VFDPrintf("45V%5u", (unsigned)(g_q1745user_vel>>17));
+;*** 935	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g10;
+	.dwpsn	"search.c",955,3
         MOVW      DP,#_g_q1745user_vel
-        MOVL      XAR4,#FSL5            ; |953| 
-        MOV       T,#17                 ; |953| 
-        MOVL      ACC,@_g_q1745user_vel ; |953| 
-        MOVL      *-SP[2],XAR4          ; |953| 
-        ASRL      ACC,T                 ; |953| 
-        MOV       *-SP[3],AL            ; |953| 
-        LCR       #_VFDPrintf           ; |953| 
-        ; call occurs [#_VFDPrintf] ; |953| 
-	.dwpsn	"search.c",933,8
+        MOVL      XAR4,#FSL5            ; |955| 
+        MOV       T,#17                 ; |955| 
+        MOVL      ACC,@_g_q1745user_vel ; |955| 
+        MOVL      *-SP[2],XAR4          ; |955| 
+        ASRL      ACC,T                 ; |955| 
+        MOV       *-SP[3],AL            ; |955| 
+        LCR       #_VFDPrintf           ; |955| 
+        ; call occurs [#_VFDPrintf] ; |955| 
+	.dwpsn	"search.c",935,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |933| 
-        BF        L56,NTC               ; |933| 
-        ; branchcc occurs ; |933| 
+        TBIT      @_GpioDataRegs+1,#15  ; |935| 
+        BF        L56,NTC               ; |935| 
+        ; branchcc occurs ; |935| 
 L59:    
 ;***	-----------------------g13:
-;*** 940	-----------------------    K$0 = &GpioDataRegs;
-;*** 940	-----------------------    if ( K$0[1]&0x4000u ) goto g11;
-	.dwpsn	"search.c",940,8
-        MOVL      XAR3,#_GpioDataRegs   ; |940| 
-        TBIT      *+XAR3[1],#14         ; |940| 
-        BF        L57,TC                ; |940| 
-        ; branchcc occurs ; |940| 
-;*** 942	-----------------------    g_q1745user_vel -= 26214400L;
-;*** 943	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 943	-----------------------    if ( *K$0&0x4000u ) goto g12;
-	.dwpsn	"search.c",942,4
+;*** 942	-----------------------    K$0 = &GpioDataRegs;
+;*** 942	-----------------------    if ( K$0[1]&0x4000u ) goto g11;
+	.dwpsn	"search.c",942,8
+        MOVL      XAR3,#_GpioDataRegs   ; |942| 
+        TBIT      *+XAR3[1],#14         ; |942| 
+        BF        L57,TC                ; |942| 
+        ; branchcc occurs ; |942| 
+;*** 944	-----------------------    g_q1745user_vel -= 26214400L;
+;*** 945	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 945	-----------------------    if ( *K$0&0x4000u ) goto g12;
+	.dwpsn	"search.c",944,4
         MOV       ACC,#800 << 15
         MOVW      DP,#_g_q1745user_vel
-        SUBL      @_g_q1745user_vel,ACC ; |942| 
-	.dwpsn	"search.c",943,4
+        SUBL      @_g_q1745user_vel,ACC ; |944| 
+	.dwpsn	"search.c",945,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |943| 
-        ; call occurs [#_DSP28x_usDelay] ; |943| 
-        TBIT      *+XAR3[0],#14         ; |943| 
-        BF        L58,TC                ; |943| 
-        ; branchcc occurs ; |943| 
+        LCR       #_DSP28x_usDelay      ; |945| 
+        ; call occurs [#_DSP28x_usDelay] ; |945| 
+        TBIT      *+XAR3[0],#14         ; |945| 
+        BF        L58,TC                ; |945| 
+        ; branchcc occurs ; |945| 
 L60:    
 ;***	-----------------------g15:
-;*** 949	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 950	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 951	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 952	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g19;
-	.dwpsn	"search.c",949,4
+	.dwpsn	"search.c",951,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |949| 
-        ; call occurs [#_DSP28x_usDelay] ; |949| 
-	.dwpsn	"search.c",950,4
+        LCR       #_DSP28x_usDelay      ; |951| 
+        ; call occurs [#_DSP28x_usDelay] ; |951| 
+	.dwpsn	"search.c",952,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |950| 
-        ; call occurs [#_DSP28x_usDelay] ; |950| 
+        LCR       #_DSP28x_usDelay      ; |952| 
+        ; call occurs [#_DSP28x_usDelay] ; |952| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L64,TC
         ; branchcc occurs
 L61:    
 ;***	-----------------------g16:
-;*** 961	-----------------------    g_q17_45acc += 26214400L;
-;*** 962	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",961,4
+;*** 963	-----------------------    g_q17_45acc += 26214400L;
+;*** 964	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",963,4
         MOVW      DP,#_g_q17_45acc
-        MOVL      ACC,@_g_q17_45acc     ; |961| 
-        ADD       ACC,#800 << 15        ; |961| 
-        MOVL      @_g_q17_45acc,ACC     ; |961| 
-	.dwpsn	"search.c",962,4
+        MOVL      ACC,@_g_q17_45acc     ; |963| 
+        ADD       ACC,#800 << 15        ; |963| 
+        MOVL      @_g_q17_45acc,ACC     ; |963| 
+	.dwpsn	"search.c",964,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |962| 
-        ; call occurs [#_DSP28x_usDelay] ; |962| 
+        LCR       #_DSP28x_usDelay      ; |964| 
+        ; call occurs [#_DSP28x_usDelay] ; |964| 
 L62:    
 ;***	-----------------------g17:
-;*** 971	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g21;
-	.dwpsn	"search.c",971,3
+;*** 973	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g21;
+	.dwpsn	"search.c",973,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |971| 
-        BF        L65,NTC               ; |971| 
-        ; branchcc occurs ; |971| 
+        TBIT      @_GpioDataRegs,#14    ; |973| 
+        BF        L65,NTC               ; |973| 
+        ; branchcc occurs ; |973| 
 L63:    
 ;***	-----------------------g18:
-;*** 977	-----------------------    VFDPrintf("45A%5u", (unsigned)(g_q17_45acc>>17));
-;*** 957	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g16;
-	.dwpsn	"search.c",977,3
+;*** 979	-----------------------    VFDPrintf("45A%5u", (unsigned)(g_q17_45acc>>17));
+;*** 959	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g16;
+	.dwpsn	"search.c",979,3
         MOVW      DP,#_g_q17_45acc
-        MOVL      XAR4,#FSL6            ; |977| 
-        MOV       T,#17                 ; |977| 
-        MOVL      ACC,@_g_q17_45acc     ; |977| 
-        MOVL      *-SP[2],XAR4          ; |977| 
-        ASRL      ACC,T                 ; |977| 
-        MOV       *-SP[3],AL            ; |977| 
-        LCR       #_VFDPrintf           ; |977| 
-        ; call occurs [#_VFDPrintf] ; |977| 
-	.dwpsn	"search.c",957,8
+        MOVL      XAR4,#FSL6            ; |979| 
+        MOV       T,#17                 ; |979| 
+        MOVL      ACC,@_g_q17_45acc     ; |979| 
+        MOVL      *-SP[2],XAR4          ; |979| 
+        ASRL      ACC,T                 ; |979| 
+        MOV       *-SP[3],AL            ; |979| 
+        LCR       #_VFDPrintf           ; |979| 
+        ; call occurs [#_VFDPrintf] ; |979| 
+	.dwpsn	"search.c",959,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |957| 
-        BF        L61,NTC               ; |957| 
-        ; branchcc occurs ; |957| 
+        TBIT      @_GpioDataRegs+1,#15  ; |959| 
+        BF        L61,NTC               ; |959| 
+        ; branchcc occurs ; |959| 
 L64:    
 ;***	-----------------------g19:
-;*** 964	-----------------------    K$0 = &GpioDataRegs;
-;*** 964	-----------------------    if ( K$0[1]&0x4000u ) goto g17;
-	.dwpsn	"search.c",964,8
-        MOVL      XAR3,#_GpioDataRegs   ; |964| 
-        TBIT      *+XAR3[1],#14         ; |964| 
-        BF        L62,TC                ; |964| 
-        ; branchcc occurs ; |964| 
-;*** 966	-----------------------    g_q17_45acc -= 26214400L;
-;*** 967	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 967	-----------------------    if ( *K$0&0x4000u ) goto g18;
-	.dwpsn	"search.c",966,4
+;*** 966	-----------------------    K$0 = &GpioDataRegs;
+;*** 966	-----------------------    if ( K$0[1]&0x4000u ) goto g17;
+	.dwpsn	"search.c",966,8
+        MOVL      XAR3,#_GpioDataRegs   ; |966| 
+        TBIT      *+XAR3[1],#14         ; |966| 
+        BF        L62,TC                ; |966| 
+        ; branchcc occurs ; |966| 
+;*** 968	-----------------------    g_q17_45acc -= 26214400L;
+;*** 969	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 969	-----------------------    if ( *K$0&0x4000u ) goto g18;
+	.dwpsn	"search.c",968,4
         MOV       ACC,#800 << 15
         MOVW      DP,#_g_q17_45acc
-        SUBL      @_g_q17_45acc,ACC     ; |966| 
-	.dwpsn	"search.c",967,4
+        SUBL      @_g_q17_45acc,ACC     ; |968| 
+	.dwpsn	"search.c",969,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |967| 
-        ; call occurs [#_DSP28x_usDelay] ; |967| 
-        TBIT      *+XAR3[0],#14         ; |967| 
-        BF        L63,TC                ; |967| 
-        ; branchcc occurs ; |967| 
+        LCR       #_DSP28x_usDelay      ; |969| 
+        ; call occurs [#_DSP28x_usDelay] ; |969| 
+        TBIT      *+XAR3[0],#14         ; |969| 
+        BF        L63,TC                ; |969| 
+        ; branchcc occurs ; |969| 
 L65:    
 ;***	-----------------------g21:
-;*** 973	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 974	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 975	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 976	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g25;
-	.dwpsn	"search.c",973,4
+	.dwpsn	"search.c",975,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |973| 
-        ; call occurs [#_DSP28x_usDelay] ; |973| 
-	.dwpsn	"search.c",974,4
+        LCR       #_DSP28x_usDelay      ; |975| 
+        ; call occurs [#_DSP28x_usDelay] ; |975| 
+	.dwpsn	"search.c",976,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |974| 
-        ; call occurs [#_DSP28x_usDelay] ; |974| 
+        LCR       #_DSP28x_usDelay      ; |976| 
+        ; call occurs [#_DSP28x_usDelay] ; |976| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L69,TC
         ; branchcc occurs
 L66:    
 ;***	-----------------------g22:
-;*** 985	-----------------------    g_q17max_acc += 65536000L;
-;*** 986	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",985,4
+;*** 987	-----------------------    g_q17max_acc += 65536000L;
+;*** 988	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",987,4
         MOVW      DP,#_g_q17max_acc
-        MOVL      ACC,@_g_q17max_acc    ; |985| 
-        ADD       ACC,#2000 << 15       ; |985| 
-        MOVL      @_g_q17max_acc,ACC    ; |985| 
-	.dwpsn	"search.c",986,4
+        MOVL      ACC,@_g_q17max_acc    ; |987| 
+        ADD       ACC,#2000 << 15       ; |987| 
+        MOVL      @_g_q17max_acc,ACC    ; |987| 
+	.dwpsn	"search.c",988,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |986| 
-        ; call occurs [#_DSP28x_usDelay] ; |986| 
+        LCR       #_DSP28x_usDelay      ; |988| 
+        ; call occurs [#_DSP28x_usDelay] ; |988| 
 L67:    
 ;***	-----------------------g23:
-;*** 995	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g27;
-	.dwpsn	"search.c",995,3
+;*** 997	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g27;
+	.dwpsn	"search.c",997,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |995| 
-        BF        L70,NTC               ; |995| 
-        ; branchcc occurs ; |995| 
+        TBIT      @_GpioDataRegs,#14    ; |997| 
+        BF        L70,NTC               ; |997| 
+        ; branchcc occurs ; |997| 
 L68:    
 ;***	-----------------------g24:
-;** 1001	-----------------------    VFDPrintf("max%5u", (unsigned)(g_q17max_acc>>17));
-;*** 981	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g22;
-	.dwpsn	"search.c",1001,3
+;** 1003	-----------------------    VFDPrintf("max%5u", (unsigned)(g_q17max_acc>>17));
+;*** 983	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g22;
+	.dwpsn	"search.c",1003,3
         MOVW      DP,#_g_q17max_acc
-        MOVL      XAR4,#FSL7            ; |1001| 
-        MOV       T,#17                 ; |1001| 
-        MOVL      ACC,@_g_q17max_acc    ; |1001| 
-        MOVL      *-SP[2],XAR4          ; |1001| 
-        ASRL      ACC,T                 ; |1001| 
-        MOV       *-SP[3],AL            ; |1001| 
-        LCR       #_VFDPrintf           ; |1001| 
-        ; call occurs [#_VFDPrintf] ; |1001| 
-	.dwpsn	"search.c",981,8
+        MOVL      XAR4,#FSL7            ; |1003| 
+        MOV       T,#17                 ; |1003| 
+        MOVL      ACC,@_g_q17max_acc    ; |1003| 
+        MOVL      *-SP[2],XAR4          ; |1003| 
+        ASRL      ACC,T                 ; |1003| 
+        MOV       *-SP[3],AL            ; |1003| 
+        LCR       #_VFDPrintf           ; |1003| 
+        ; call occurs [#_VFDPrintf] ; |1003| 
+	.dwpsn	"search.c",983,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |981| 
-        BF        L66,NTC               ; |981| 
-        ; branchcc occurs ; |981| 
+        TBIT      @_GpioDataRegs+1,#15  ; |983| 
+        BF        L66,NTC               ; |983| 
+        ; branchcc occurs ; |983| 
 L69:    
 ;***	-----------------------g25:
-;*** 988	-----------------------    K$0 = &GpioDataRegs;
-;*** 988	-----------------------    if ( K$0[1]&0x4000u ) goto g23;
-	.dwpsn	"search.c",988,8
-        MOVL      XAR3,#_GpioDataRegs   ; |988| 
-        TBIT      *+XAR3[1],#14         ; |988| 
-        BF        L67,TC                ; |988| 
-        ; branchcc occurs ; |988| 
-;*** 990	-----------------------    g_q17max_acc -= 65536000L;
-;*** 991	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 991	-----------------------    if ( *K$0&0x4000u ) goto g24;
-	.dwpsn	"search.c",990,4
+;*** 990	-----------------------    K$0 = &GpioDataRegs;
+;*** 990	-----------------------    if ( K$0[1]&0x4000u ) goto g23;
+	.dwpsn	"search.c",990,8
+        MOVL      XAR3,#_GpioDataRegs   ; |990| 
+        TBIT      *+XAR3[1],#14         ; |990| 
+        BF        L67,TC                ; |990| 
+        ; branchcc occurs ; |990| 
+;*** 992	-----------------------    g_q17max_acc -= 65536000L;
+;*** 993	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 993	-----------------------    if ( *K$0&0x4000u ) goto g24;
+	.dwpsn	"search.c",992,4
         MOV       ACC,#2000 << 15
         MOVW      DP,#_g_q17max_acc
-        SUBL      @_g_q17max_acc,ACC    ; |990| 
-	.dwpsn	"search.c",991,4
+        SUBL      @_g_q17max_acc,ACC    ; |992| 
+	.dwpsn	"search.c",993,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |991| 
-        ; call occurs [#_DSP28x_usDelay] ; |991| 
-        TBIT      *+XAR3[0],#14         ; |991| 
-        BF        L68,TC                ; |991| 
-        ; branchcc occurs ; |991| 
+        LCR       #_DSP28x_usDelay      ; |993| 
+        ; call occurs [#_DSP28x_usDelay] ; |993| 
+        TBIT      *+XAR3[0],#14         ; |993| 
+        BF        L68,TC                ; |993| 
+        ; branchcc occurs ; |993| 
 L70:    
 ;***	-----------------------g27:
-;*** 997	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 998	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 999	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1000	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g31;
-	.dwpsn	"search.c",997,4
+	.dwpsn	"search.c",999,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |997| 
-        ; call occurs [#_DSP28x_usDelay] ; |997| 
-	.dwpsn	"search.c",998,4
+        LCR       #_DSP28x_usDelay      ; |999| 
+        ; call occurs [#_DSP28x_usDelay] ; |999| 
+	.dwpsn	"search.c",1000,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |998| 
-        ; call occurs [#_DSP28x_usDelay] ; |998| 
+        LCR       #_DSP28x_usDelay      ; |1000| 
+        ; call occurs [#_DSP28x_usDelay] ; |1000| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L74,TC
         ; branchcc occurs
 L71:    
 ;***	-----------------------g28:
-;** 1009	-----------------------    g_q17mid_acc += 65536000L;
-;** 1010	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",1009,4
+;** 1011	-----------------------    g_q17mid_acc += 65536000L;
+;** 1012	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",1011,4
         MOVW      DP,#_g_q17mid_acc
-        MOVL      ACC,@_g_q17mid_acc    ; |1009| 
-        ADD       ACC,#2000 << 15       ; |1009| 
-        MOVL      @_g_q17mid_acc,ACC    ; |1009| 
-	.dwpsn	"search.c",1010,4
+        MOVL      ACC,@_g_q17mid_acc    ; |1011| 
+        ADD       ACC,#2000 << 15       ; |1011| 
+        MOVL      @_g_q17mid_acc,ACC    ; |1011| 
+	.dwpsn	"search.c",1012,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1010| 
-        ; call occurs [#_DSP28x_usDelay] ; |1010| 
+        LCR       #_DSP28x_usDelay      ; |1012| 
+        ; call occurs [#_DSP28x_usDelay] ; |1012| 
 L72:    
 ;***	-----------------------g29:
-;** 1019	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g33;
-	.dwpsn	"search.c",1019,3
+;** 1021	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g33;
+	.dwpsn	"search.c",1021,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |1019| 
-        BF        L75,NTC               ; |1019| 
-        ; branchcc occurs ; |1019| 
+        TBIT      @_GpioDataRegs,#14    ; |1021| 
+        BF        L75,NTC               ; |1021| 
+        ; branchcc occurs ; |1021| 
 L73:    
 ;***	-----------------------g30:
-;** 1025	-----------------------    VFDPrintf("mid%5u", (unsigned)(g_q17mid_acc>>17));
-;** 1005	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g28;
-	.dwpsn	"search.c",1025,3
+;** 1027	-----------------------    VFDPrintf("mid%5u", (unsigned)(g_q17mid_acc>>17));
+;** 1007	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g28;
+	.dwpsn	"search.c",1027,3
         MOVW      DP,#_g_q17mid_acc
-        MOVL      XAR4,#FSL8            ; |1025| 
-        MOV       T,#17                 ; |1025| 
-        MOVL      ACC,@_g_q17mid_acc    ; |1025| 
-        MOVL      *-SP[2],XAR4          ; |1025| 
-        ASRL      ACC,T                 ; |1025| 
-        MOV       *-SP[3],AL            ; |1025| 
-        LCR       #_VFDPrintf           ; |1025| 
-        ; call occurs [#_VFDPrintf] ; |1025| 
-	.dwpsn	"search.c",1005,8
+        MOVL      XAR4,#FSL8            ; |1027| 
+        MOV       T,#17                 ; |1027| 
+        MOVL      ACC,@_g_q17mid_acc    ; |1027| 
+        MOVL      *-SP[2],XAR4          ; |1027| 
+        ASRL      ACC,T                 ; |1027| 
+        MOV       *-SP[3],AL            ; |1027| 
+        LCR       #_VFDPrintf           ; |1027| 
+        ; call occurs [#_VFDPrintf] ; |1027| 
+	.dwpsn	"search.c",1007,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |1005| 
-        BF        L71,NTC               ; |1005| 
-        ; branchcc occurs ; |1005| 
+        TBIT      @_GpioDataRegs+1,#15  ; |1007| 
+        BF        L71,NTC               ; |1007| 
+        ; branchcc occurs ; |1007| 
 L74:    
 ;***	-----------------------g31:
-;** 1012	-----------------------    K$0 = &GpioDataRegs;
-;** 1012	-----------------------    if ( K$0[1]&0x4000u ) goto g29;
-	.dwpsn	"search.c",1012,8
-        MOVL      XAR3,#_GpioDataRegs   ; |1012| 
-        TBIT      *+XAR3[1],#14         ; |1012| 
-        BF        L72,TC                ; |1012| 
-        ; branchcc occurs ; |1012| 
-;** 1014	-----------------------    g_q17mid_acc -= 65536000L;
-;** 1015	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1015	-----------------------    if ( *K$0&0x4000u ) goto g30;
-	.dwpsn	"search.c",1014,4
+;** 1014	-----------------------    K$0 = &GpioDataRegs;
+;** 1014	-----------------------    if ( K$0[1]&0x4000u ) goto g29;
+	.dwpsn	"search.c",1014,8
+        MOVL      XAR3,#_GpioDataRegs   ; |1014| 
+        TBIT      *+XAR3[1],#14         ; |1014| 
+        BF        L72,TC                ; |1014| 
+        ; branchcc occurs ; |1014| 
+;** 1016	-----------------------    g_q17mid_acc -= 65536000L;
+;** 1017	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1017	-----------------------    if ( *K$0&0x4000u ) goto g30;
+	.dwpsn	"search.c",1016,4
         MOV       ACC,#2000 << 15
         MOVW      DP,#_g_q17mid_acc
-        SUBL      @_g_q17mid_acc,ACC    ; |1014| 
-	.dwpsn	"search.c",1015,4
+        SUBL      @_g_q17mid_acc,ACC    ; |1016| 
+	.dwpsn	"search.c",1017,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1015| 
-        ; call occurs [#_DSP28x_usDelay] ; |1015| 
-        TBIT      *+XAR3[0],#14         ; |1015| 
-        BF        L73,TC                ; |1015| 
-        ; branchcc occurs ; |1015| 
+        LCR       #_DSP28x_usDelay      ; |1017| 
+        ; call occurs [#_DSP28x_usDelay] ; |1017| 
+        TBIT      *+XAR3[0],#14         ; |1017| 
+        BF        L73,TC                ; |1017| 
+        ; branchcc occurs ; |1017| 
 L75:    
 ;***	-----------------------g33:
-;** 1021	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1022	-----------------------    DSP28x_usDelay(2999998uL);
+;** 1023	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1024	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g37;
-	.dwpsn	"search.c",1021,4
+	.dwpsn	"search.c",1023,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1021| 
-        ; call occurs [#_DSP28x_usDelay] ; |1021| 
-	.dwpsn	"search.c",1022,4
+        LCR       #_DSP28x_usDelay      ; |1023| 
+        ; call occurs [#_DSP28x_usDelay] ; |1023| 
+	.dwpsn	"search.c",1024,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |1022| 
-        ; call occurs [#_DSP28x_usDelay] ; |1022| 
+        LCR       #_DSP28x_usDelay      ; |1024| 
+        ; call occurs [#_DSP28x_usDelay] ; |1024| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L79,TC
         ; branchcc occurs
 L76:    
 ;***	-----------------------g34:
-;** 1033	-----------------------    g_q17short_acc += 65536000L;
-;** 1034	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",1033,4
+;** 1035	-----------------------    g_q17short_acc += 65536000L;
+;** 1036	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",1035,4
         MOVW      DP,#_g_q17short_acc
-        MOVL      ACC,@_g_q17short_acc  ; |1033| 
-        ADD       ACC,#2000 << 15       ; |1033| 
-        MOVL      @_g_q17short_acc,ACC  ; |1033| 
-	.dwpsn	"search.c",1034,4
+        MOVL      ACC,@_g_q17short_acc  ; |1035| 
+        ADD       ACC,#2000 << 15       ; |1035| 
+        MOVL      @_g_q17short_acc,ACC  ; |1035| 
+	.dwpsn	"search.c",1036,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1034| 
-        ; call occurs [#_DSP28x_usDelay] ; |1034| 
+        LCR       #_DSP28x_usDelay      ; |1036| 
+        ; call occurs [#_DSP28x_usDelay] ; |1036| 
 L77:    
 ;***	-----------------------g35:
-;** 1043	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g39;
-	.dwpsn	"search.c",1043,3
+;** 1045	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g39;
+	.dwpsn	"search.c",1045,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |1043| 
-        BF        L80,NTC               ; |1043| 
-        ; branchcc occurs ; |1043| 
+        TBIT      @_GpioDataRegs,#14    ; |1045| 
+        BF        L80,NTC               ; |1045| 
+        ; branchcc occurs ; |1045| 
 L78:    
 ;***	-----------------------g36:
-;** 1049	-----------------------    VFDPrintf("sht%5u", (unsigned)(g_q17short_acc>>17));
-;** 1029	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g34;
-	.dwpsn	"search.c",1049,3
+;** 1051	-----------------------    VFDPrintf("sht%5u", (unsigned)(g_q17short_acc>>17));
+;** 1031	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g34;
+	.dwpsn	"search.c",1051,3
         MOVW      DP,#_g_q17short_acc
-        MOVL      XAR4,#FSL9            ; |1049| 
-        MOV       T,#17                 ; |1049| 
-        MOVL      ACC,@_g_q17short_acc  ; |1049| 
-        MOVL      *-SP[2],XAR4          ; |1049| 
-        ASRL      ACC,T                 ; |1049| 
-        MOV       *-SP[3],AL            ; |1049| 
-        LCR       #_VFDPrintf           ; |1049| 
-        ; call occurs [#_VFDPrintf] ; |1049| 
-	.dwpsn	"search.c",1029,8
+        MOVL      XAR4,#FSL9            ; |1051| 
+        MOV       T,#17                 ; |1051| 
+        MOVL      ACC,@_g_q17short_acc  ; |1051| 
+        MOVL      *-SP[2],XAR4          ; |1051| 
+        ASRL      ACC,T                 ; |1051| 
+        MOV       *-SP[3],AL            ; |1051| 
+        LCR       #_VFDPrintf           ; |1051| 
+        ; call occurs [#_VFDPrintf] ; |1051| 
+	.dwpsn	"search.c",1031,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |1029| 
-        BF        L76,NTC               ; |1029| 
-        ; branchcc occurs ; |1029| 
+        TBIT      @_GpioDataRegs+1,#15  ; |1031| 
+        BF        L76,NTC               ; |1031| 
+        ; branchcc occurs ; |1031| 
 L79:    
 ;***	-----------------------g37:
-;** 1036	-----------------------    K$0 = &GpioDataRegs;
-;** 1036	-----------------------    if ( K$0[1]&0x4000u ) goto g35;
-	.dwpsn	"search.c",1036,8
-        MOVL      XAR3,#_GpioDataRegs   ; |1036| 
-        TBIT      *+XAR3[1],#14         ; |1036| 
-        BF        L77,TC                ; |1036| 
-        ; branchcc occurs ; |1036| 
-;** 1038	-----------------------    g_q17short_acc -= 65536000L;
-;** 1039	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1039	-----------------------    if ( *K$0&0x4000u ) goto g36;
-	.dwpsn	"search.c",1038,4
+;** 1038	-----------------------    K$0 = &GpioDataRegs;
+;** 1038	-----------------------    if ( K$0[1]&0x4000u ) goto g35;
+	.dwpsn	"search.c",1038,8
+        MOVL      XAR3,#_GpioDataRegs   ; |1038| 
+        TBIT      *+XAR3[1],#14         ; |1038| 
+        BF        L77,TC                ; |1038| 
+        ; branchcc occurs ; |1038| 
+;** 1040	-----------------------    g_q17short_acc -= 65536000L;
+;** 1041	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1041	-----------------------    if ( *K$0&0x4000u ) goto g36;
+	.dwpsn	"search.c",1040,4
         MOV       ACC,#2000 << 15
         MOVW      DP,#_g_q17short_acc
-        SUBL      @_g_q17short_acc,ACC  ; |1038| 
-	.dwpsn	"search.c",1039,4
+        SUBL      @_g_q17short_acc,ACC  ; |1040| 
+	.dwpsn	"search.c",1041,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1039| 
-        ; call occurs [#_DSP28x_usDelay] ; |1039| 
-        TBIT      *+XAR3[0],#14         ; |1039| 
-        BF        L78,TC                ; |1039| 
-        ; branchcc occurs ; |1039| 
+        LCR       #_DSP28x_usDelay      ; |1041| 
+        ; call occurs [#_DSP28x_usDelay] ; |1041| 
+        TBIT      *+XAR3[0],#14         ; |1041| 
+        BF        L78,TC                ; |1041| 
+        ; branchcc occurs ; |1041| 
 L80:    
 ;***	-----------------------g39:
-;** 1045	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1046	-----------------------    DSP28x_usDelay(2999998uL);
+;** 1047	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1048	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g43;
-	.dwpsn	"search.c",1045,4
+	.dwpsn	"search.c",1047,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1045| 
-        ; call occurs [#_DSP28x_usDelay] ; |1045| 
-	.dwpsn	"search.c",1046,4
+        LCR       #_DSP28x_usDelay      ; |1047| 
+        ; call occurs [#_DSP28x_usDelay] ; |1047| 
+	.dwpsn	"search.c",1048,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |1046| 
-        ; call occurs [#_DSP28x_usDelay] ; |1046| 
+        LCR       #_DSP28x_usDelay      ; |1048| 
+        ; call occurs [#_DSP28x_usDelay] ; |1048| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L84,TC
         ; branchcc occurs
 L81:    
 ;***	-----------------------g40:
-;** 1057	-----------------------    g_q17s4s_vel += 13107200L;
-;** 1058	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",1057,4
+;** 1059	-----------------------    g_q17s4s_vel += 13107200L;
+;** 1060	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",1059,4
         MOVW      DP,#_g_q17s4s_vel
-        MOVL      ACC,@_g_q17s4s_vel    ; |1057| 
-        ADD       ACC,#400 << 15        ; |1057| 
-        MOVL      @_g_q17s4s_vel,ACC    ; |1057| 
-	.dwpsn	"search.c",1058,4
+        MOVL      ACC,@_g_q17s4s_vel    ; |1059| 
+        ADD       ACC,#400 << 15        ; |1059| 
+        MOVL      @_g_q17s4s_vel,ACC    ; |1059| 
+	.dwpsn	"search.c",1060,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1058| 
-        ; call occurs [#_DSP28x_usDelay] ; |1058| 
+        LCR       #_DSP28x_usDelay      ; |1060| 
+        ; call occurs [#_DSP28x_usDelay] ; |1060| 
 L82:    
 ;***	-----------------------g41:
-;** 1067	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g45;
-	.dwpsn	"search.c",1067,3
+;** 1069	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g45;
+	.dwpsn	"search.c",1069,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |1067| 
-        BF        L85,NTC               ; |1067| 
-        ; branchcc occurs ; |1067| 
+        TBIT      @_GpioDataRegs,#14    ; |1069| 
+        BF        L85,NTC               ; |1069| 
+        ; branchcc occurs ; |1069| 
 L83:    
 ;***	-----------------------g42:
-;** 1073	-----------------------    VFDPrintf("s4s %4u", (unsigned)(g_q17s4s_vel>>17));
-;** 1053	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g40;
-	.dwpsn	"search.c",1073,3
+;** 1075	-----------------------    VFDPrintf("s4s %4u", (unsigned)(g_q17s4s_vel>>17));
+;** 1055	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g40;
+	.dwpsn	"search.c",1075,3
         MOVW      DP,#_g_q17s4s_vel
-        MOVL      XAR4,#FSL10           ; |1073| 
-        MOV       T,#17                 ; |1073| 
-        MOVL      ACC,@_g_q17s4s_vel    ; |1073| 
-        MOVL      *-SP[2],XAR4          ; |1073| 
-        ASRL      ACC,T                 ; |1073| 
-        MOV       *-SP[3],AL            ; |1073| 
-        LCR       #_VFDPrintf           ; |1073| 
-        ; call occurs [#_VFDPrintf] ; |1073| 
-	.dwpsn	"search.c",1053,8
+        MOVL      XAR4,#FSL10           ; |1075| 
+        MOV       T,#17                 ; |1075| 
+        MOVL      ACC,@_g_q17s4s_vel    ; |1075| 
+        MOVL      *-SP[2],XAR4          ; |1075| 
+        ASRL      ACC,T                 ; |1075| 
+        MOV       *-SP[3],AL            ; |1075| 
+        LCR       #_VFDPrintf           ; |1075| 
+        ; call occurs [#_VFDPrintf] ; |1075| 
+	.dwpsn	"search.c",1055,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |1053| 
-        BF        L81,NTC               ; |1053| 
-        ; branchcc occurs ; |1053| 
+        TBIT      @_GpioDataRegs+1,#15  ; |1055| 
+        BF        L81,NTC               ; |1055| 
+        ; branchcc occurs ; |1055| 
 L84:    
 ;***	-----------------------g43:
-;** 1060	-----------------------    K$0 = &GpioDataRegs;
-;** 1060	-----------------------    if ( K$0[1]&0x4000u ) goto g41;
-	.dwpsn	"search.c",1060,8
-        MOVL      XAR3,#_GpioDataRegs   ; |1060| 
-        TBIT      *+XAR3[1],#14         ; |1060| 
-        BF        L82,TC                ; |1060| 
-        ; branchcc occurs ; |1060| 
-;** 1062	-----------------------    g_q17s4s_vel -= 13107200L;
-;** 1063	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1063	-----------------------    if ( *K$0&0x4000u ) goto g42;
-	.dwpsn	"search.c",1062,4
+;** 1062	-----------------------    K$0 = &GpioDataRegs;
+;** 1062	-----------------------    if ( K$0[1]&0x4000u ) goto g41;
+	.dwpsn	"search.c",1062,8
+        MOVL      XAR3,#_GpioDataRegs   ; |1062| 
+        TBIT      *+XAR3[1],#14         ; |1062| 
+        BF        L82,TC                ; |1062| 
+        ; branchcc occurs ; |1062| 
+;** 1064	-----------------------    g_q17s4s_vel -= 13107200L;
+;** 1065	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1065	-----------------------    if ( *K$0&0x4000u ) goto g42;
+	.dwpsn	"search.c",1064,4
         MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17s4s_vel
-        SUBL      @_g_q17s4s_vel,ACC    ; |1062| 
-	.dwpsn	"search.c",1063,4
+        SUBL      @_g_q17s4s_vel,ACC    ; |1064| 
+	.dwpsn	"search.c",1065,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1063| 
-        ; call occurs [#_DSP28x_usDelay] ; |1063| 
-        TBIT      *+XAR3[0],#14         ; |1063| 
-        BF        L83,TC                ; |1063| 
-        ; branchcc occurs ; |1063| 
+        LCR       #_DSP28x_usDelay      ; |1065| 
+        ; call occurs [#_DSP28x_usDelay] ; |1065| 
+        TBIT      *+XAR3[0],#14         ; |1065| 
+        BF        L83,TC                ; |1065| 
+        ; branchcc occurs ; |1065| 
 L85:    
 ;***	-----------------------g45:
-;** 1069	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1070	-----------------------    DSP28x_usDelay(2999998uL);
+;** 1071	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1072	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g49;
-	.dwpsn	"search.c",1069,4
+	.dwpsn	"search.c",1071,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1069| 
-        ; call occurs [#_DSP28x_usDelay] ; |1069| 
-	.dwpsn	"search.c",1070,4
+        LCR       #_DSP28x_usDelay      ; |1071| 
+        ; call occurs [#_DSP28x_usDelay] ; |1071| 
+	.dwpsn	"search.c",1072,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |1070| 
-        ; call occurs [#_DSP28x_usDelay] ; |1070| 
+        LCR       #_DSP28x_usDelay      ; |1072| 
+        ; call occurs [#_DSP28x_usDelay] ; |1072| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L89,TC
         ; branchcc occurs
 L86:    
 ;***	-----------------------g46:
-;** 1081	-----------------------    g_q17s44s_vel += 13107200L;
-;** 1082	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",1081,4
+;** 1083	-----------------------    g_q17s44s_vel += 13107200L;
+;** 1084	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",1083,4
         MOVW      DP,#_g_q17s44s_vel
-        MOVL      ACC,@_g_q17s44s_vel   ; |1081| 
-        ADD       ACC,#400 << 15        ; |1081| 
-        MOVL      @_g_q17s44s_vel,ACC   ; |1081| 
-	.dwpsn	"search.c",1082,4
+        MOVL      ACC,@_g_q17s44s_vel   ; |1083| 
+        ADD       ACC,#400 << 15        ; |1083| 
+        MOVL      @_g_q17s44s_vel,ACC   ; |1083| 
+	.dwpsn	"search.c",1084,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1082| 
-        ; call occurs [#_DSP28x_usDelay] ; |1082| 
+        LCR       #_DSP28x_usDelay      ; |1084| 
+        ; call occurs [#_DSP28x_usDelay] ; |1084| 
 L87:    
 ;***	-----------------------g47:
-;** 1091	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g51;
-	.dwpsn	"search.c",1091,3
+;** 1093	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g51;
+	.dwpsn	"search.c",1093,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |1091| 
-        BF        L90,NTC               ; |1091| 
-        ; branchcc occurs ; |1091| 
+        TBIT      @_GpioDataRegs,#14    ; |1093| 
+        BF        L90,NTC               ; |1093| 
+        ; branchcc occurs ; |1093| 
 L88:    
 ;***	-----------------------g48:
-;** 1097	-----------------------    VFDPrintf("s44s%4u", (unsigned)(g_q17s44s_vel>>17));
-;** 1077	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g46;
-	.dwpsn	"search.c",1097,3
+;** 1099	-----------------------    VFDPrintf("s44s%4u", (unsigned)(g_q17s44s_vel>>17));
+;** 1079	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g46;
+	.dwpsn	"search.c",1099,3
         MOVW      DP,#_g_q17s44s_vel
-        MOVL      XAR4,#FSL11           ; |1097| 
-        MOV       T,#17                 ; |1097| 
-        MOVL      ACC,@_g_q17s44s_vel   ; |1097| 
-        MOVL      *-SP[2],XAR4          ; |1097| 
-        ASRL      ACC,T                 ; |1097| 
-        MOV       *-SP[3],AL            ; |1097| 
-        LCR       #_VFDPrintf           ; |1097| 
-        ; call occurs [#_VFDPrintf] ; |1097| 
-	.dwpsn	"search.c",1077,8
+        MOVL      XAR4,#FSL11           ; |1099| 
+        MOV       T,#17                 ; |1099| 
+        MOVL      ACC,@_g_q17s44s_vel   ; |1099| 
+        MOVL      *-SP[2],XAR4          ; |1099| 
+        ASRL      ACC,T                 ; |1099| 
+        MOV       *-SP[3],AL            ; |1099| 
+        LCR       #_VFDPrintf           ; |1099| 
+        ; call occurs [#_VFDPrintf] ; |1099| 
+	.dwpsn	"search.c",1079,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |1077| 
-        BF        L86,NTC               ; |1077| 
-        ; branchcc occurs ; |1077| 
+        TBIT      @_GpioDataRegs+1,#15  ; |1079| 
+        BF        L86,NTC               ; |1079| 
+        ; branchcc occurs ; |1079| 
 L89:    
 ;***	-----------------------g49:
-;** 1084	-----------------------    K$0 = &GpioDataRegs;
-;** 1084	-----------------------    if ( K$0[1]&0x4000u ) goto g47;
-	.dwpsn	"search.c",1084,8
-        MOVL      XAR3,#_GpioDataRegs   ; |1084| 
-        TBIT      *+XAR3[1],#14         ; |1084| 
-        BF        L87,TC                ; |1084| 
-        ; branchcc occurs ; |1084| 
-;** 1086	-----------------------    g_q17s44s_vel -= 13107200L;
-;** 1087	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1087	-----------------------    if ( *K$0&0x4000u ) goto g48;
-	.dwpsn	"search.c",1086,4
+;** 1086	-----------------------    K$0 = &GpioDataRegs;
+;** 1086	-----------------------    if ( K$0[1]&0x4000u ) goto g47;
+	.dwpsn	"search.c",1086,8
+        MOVL      XAR3,#_GpioDataRegs   ; |1086| 
+        TBIT      *+XAR3[1],#14         ; |1086| 
+        BF        L87,TC                ; |1086| 
+        ; branchcc occurs ; |1086| 
+;** 1088	-----------------------    g_q17s44s_vel -= 13107200L;
+;** 1089	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1089	-----------------------    if ( *K$0&0x4000u ) goto g48;
+	.dwpsn	"search.c",1088,4
         MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17s44s_vel
-        SUBL      @_g_q17s44s_vel,ACC   ; |1086| 
-	.dwpsn	"search.c",1087,4
+        SUBL      @_g_q17s44s_vel,ACC   ; |1088| 
+	.dwpsn	"search.c",1089,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1087| 
-        ; call occurs [#_DSP28x_usDelay] ; |1087| 
-        TBIT      *+XAR3[0],#14         ; |1087| 
-        BF        L88,TC                ; |1087| 
-        ; branchcc occurs ; |1087| 
+        LCR       #_DSP28x_usDelay      ; |1089| 
+        ; call occurs [#_DSP28x_usDelay] ; |1089| 
+        TBIT      *+XAR3[0],#14         ; |1089| 
+        BF        L88,TC                ; |1089| 
+        ; branchcc occurs ; |1089| 
 L90:    
 ;***	-----------------------g51:
-;** 1093	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1094	-----------------------    DSP28x_usDelay(2999998uL);
+;** 1095	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1096	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g55;
-	.dwpsn	"search.c",1093,4
+	.dwpsn	"search.c",1095,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1093| 
-        ; call occurs [#_DSP28x_usDelay] ; |1093| 
-	.dwpsn	"search.c",1094,4
+        LCR       #_DSP28x_usDelay      ; |1095| 
+        ; call occurs [#_DSP28x_usDelay] ; |1095| 
+	.dwpsn	"search.c",1096,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |1094| 
-        ; call occurs [#_DSP28x_usDelay] ; |1094| 
+        LCR       #_DSP28x_usDelay      ; |1096| 
+        ; call occurs [#_DSP28x_usDelay] ; |1096| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L94,TC
         ; branchcc occurs
 L91:    
 ;***	-----------------------g52:
-;** 1105	-----------------------    g_q17escape45_vel += 13107200L;
-;** 1106	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",1105,4
+;** 1107	-----------------------    g_q17escape45_vel += 13107200L;
+;** 1108	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",1107,4
         MOVW      DP,#_g_q17escape45_vel
-        MOVL      ACC,@_g_q17escape45_vel ; |1105| 
-        ADD       ACC,#400 << 15        ; |1105| 
-        MOVL      @_g_q17escape45_vel,ACC ; |1105| 
-	.dwpsn	"search.c",1106,4
+        MOVL      ACC,@_g_q17escape45_vel ; |1107| 
+        ADD       ACC,#400 << 15        ; |1107| 
+        MOVL      @_g_q17escape45_vel,ACC ; |1107| 
+	.dwpsn	"search.c",1108,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1106| 
-        ; call occurs [#_DSP28x_usDelay] ; |1106| 
+        LCR       #_DSP28x_usDelay      ; |1108| 
+        ; call occurs [#_DSP28x_usDelay] ; |1108| 
 L92:    
 ;***	-----------------------g53:
-;** 1115	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g57;
-	.dwpsn	"search.c",1115,3
+;** 1117	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g57;
+	.dwpsn	"search.c",1117,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |1115| 
-        BF        L95,NTC               ; |1115| 
-        ; branchcc occurs ; |1115| 
+        TBIT      @_GpioDataRegs,#14    ; |1117| 
+        BF        L95,NTC               ; |1117| 
+        ; branchcc occurs ; |1117| 
 L93:    
 ;***	-----------------------g54:
-;** 1121	-----------------------    VFDPrintf("escp%4u", (unsigned)(g_q17escape45_vel>>17));
-;** 1101	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g52;
-	.dwpsn	"search.c",1121,3
+;** 1123	-----------------------    VFDPrintf("escp%4u", (unsigned)(g_q17escape45_vel>>17));
+;** 1103	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g52;
+	.dwpsn	"search.c",1123,3
         MOVW      DP,#_g_q17escape45_vel
-        MOVL      XAR4,#FSL12           ; |1121| 
-        MOV       T,#17                 ; |1121| 
-        MOVL      ACC,@_g_q17escape45_vel ; |1121| 
-        MOVL      *-SP[2],XAR4          ; |1121| 
-        ASRL      ACC,T                 ; |1121| 
-        MOV       *-SP[3],AL            ; |1121| 
-        LCR       #_VFDPrintf           ; |1121| 
-        ; call occurs [#_VFDPrintf] ; |1121| 
-	.dwpsn	"search.c",1101,8
+        MOVL      XAR4,#FSL12           ; |1123| 
+        MOV       T,#17                 ; |1123| 
+        MOVL      ACC,@_g_q17escape45_vel ; |1123| 
+        MOVL      *-SP[2],XAR4          ; |1123| 
+        ASRL      ACC,T                 ; |1123| 
+        MOV       *-SP[3],AL            ; |1123| 
+        LCR       #_VFDPrintf           ; |1123| 
+        ; call occurs [#_VFDPrintf] ; |1123| 
+	.dwpsn	"search.c",1103,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |1101| 
-        BF        L91,NTC               ; |1101| 
-        ; branchcc occurs ; |1101| 
+        TBIT      @_GpioDataRegs+1,#15  ; |1103| 
+        BF        L91,NTC               ; |1103| 
+        ; branchcc occurs ; |1103| 
 L94:    
 ;***	-----------------------g55:
-;** 1108	-----------------------    K$0 = &GpioDataRegs;
-;** 1108	-----------------------    if ( K$0[1]&0x4000u ) goto g53;
-	.dwpsn	"search.c",1108,8
-        MOVL      XAR3,#_GpioDataRegs   ; |1108| 
-        TBIT      *+XAR3[1],#14         ; |1108| 
-        BF        L92,TC                ; |1108| 
-        ; branchcc occurs ; |1108| 
-;** 1110	-----------------------    g_q17escape45_vel -= 13107200L;
-;** 1111	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1111	-----------------------    if ( *K$0&0x4000u ) goto g54;
-	.dwpsn	"search.c",1110,4
+;** 1110	-----------------------    K$0 = &GpioDataRegs;
+;** 1110	-----------------------    if ( K$0[1]&0x4000u ) goto g53;
+	.dwpsn	"search.c",1110,8
+        MOVL      XAR3,#_GpioDataRegs   ; |1110| 
+        TBIT      *+XAR3[1],#14         ; |1110| 
+        BF        L92,TC                ; |1110| 
+        ; branchcc occurs ; |1110| 
+;** 1112	-----------------------    g_q17escape45_vel -= 13107200L;
+;** 1113	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1113	-----------------------    if ( *K$0&0x4000u ) goto g54;
+	.dwpsn	"search.c",1112,4
         MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17escape45_vel
-        SUBL      @_g_q17escape45_vel,ACC ; |1110| 
-	.dwpsn	"search.c",1111,4
+        SUBL      @_g_q17escape45_vel,ACC ; |1112| 
+	.dwpsn	"search.c",1113,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1111| 
-        ; call occurs [#_DSP28x_usDelay] ; |1111| 
-        TBIT      *+XAR3[0],#14         ; |1111| 
-        BF        L93,TC                ; |1111| 
-        ; branchcc occurs ; |1111| 
+        LCR       #_DSP28x_usDelay      ; |1113| 
+        ; call occurs [#_DSP28x_usDelay] ; |1113| 
+        TBIT      *+XAR3[0],#14         ; |1113| 
+        BF        L93,TC                ; |1113| 
+        ; branchcc occurs ; |1113| 
 L95:    
 ;***	-----------------------g57:
-;** 1117	-----------------------    DSP28x_usDelay(2499998uL);
-;** 1118	-----------------------    DSP28x_usDelay(2999998uL);
-;** 1124	-----------------------    extvel_write_rom();
-;** 1124	-----------------------    return;
-	.dwpsn	"search.c",1117,4
+;** 1119	-----------------------    DSP28x_usDelay(2499998uL);
+;** 1120	-----------------------    DSP28x_usDelay(2999998uL);
+;** 1126	-----------------------    extvel_write_rom();
+;** 1126	-----------------------    return;
+	.dwpsn	"search.c",1119,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |1117| 
-        ; call occurs [#_DSP28x_usDelay] ; |1117| 
-	.dwpsn	"search.c",1118,4
+        LCR       #_DSP28x_usDelay      ; |1119| 
+        ; call occurs [#_DSP28x_usDelay] ; |1119| 
+	.dwpsn	"search.c",1120,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |1118| 
-        ; call occurs [#_DSP28x_usDelay] ; |1118| 
-	.dwpsn	"search.c",1124,5
-        LCR       #_extvel_write_rom    ; |1124| 
-        ; call occurs [#_extvel_write_rom] ; |1124| 
-	.dwpsn	"search.c",1126,1
+        LCR       #_DSP28x_usDelay      ; |1120| 
+        ; call occurs [#_DSP28x_usDelay] ; |1120| 
+	.dwpsn	"search.c",1126,5
+        LCR       #_extvel_write_rom    ; |1126| 
+        ; call occurs [#_extvel_write_rom] ; |1126| 
+	.dwpsn	"search.c",1128,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -2640,7 +2638,7 @@ L95:
         LRETR
         ; return occurs
 	.dwattr DW$141, DW_AT_end_file("search.c")
-	.dwattr DW$141, DW_AT_end_line(0x466)
+	.dwattr DW$141, DW_AT_end_line(0x468)
 	.dwattr DW$141, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$141
@@ -2652,9 +2650,9 @@ DW$150	.dwtag  DW_TAG_subprogram, DW_AT_name("ext_turnmode_sel"), DW_AT_symbol_n
 	.dwattr DW$150, DW_AT_low_pc(_ext_turnmode_sel)
 	.dwattr DW$150, DW_AT_high_pc(0x00)
 	.dwattr DW$150, DW_AT_begin_file("search.c")
-	.dwattr DW$150, DW_AT_begin_line(0x205)
+	.dwattr DW$150, DW_AT_begin_line(0x207)
 	.dwattr DW$150, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",518,1
+	.dwpsn	"search.c",520,1
 
 	.dwfde DW$CIE
 
@@ -2686,186 +2684,186 @@ _ext_turnmode_sel:
 L96:    
 DW$L$_ext_turnmode_sel$2$B:
 ;***	-----------------------g2:
-;*** 545	-----------------------    if ( g_int32ext_mode_cnt == 0L ) goto g9;
-	.dwpsn	"search.c",545,3
+;*** 547	-----------------------    if ( g_int32ext_mode_cnt == 0L ) goto g9;
+	.dwpsn	"search.c",547,3
         MOVW      DP,#_g_int32ext_mode_cnt
-        MOVL      ACC,@_g_int32ext_mode_cnt ; |545| 
-        BF        L99,EQ                ; |545| 
-        ; branchcc occurs ; |545| 
+        MOVL      ACC,@_g_int32ext_mode_cnt ; |547| 
+        BF        L99,EQ                ; |547| 
+        ; branchcc occurs ; |547| 
 DW$L$_ext_turnmode_sel$2$E:
 DW$L$_ext_turnmode_sel$3$B:
-;*** 547	-----------------------    if ( g_int32ext_mode_cnt == 1L ) goto g8;
-	.dwpsn	"search.c",547,8
+;*** 549	-----------------------    if ( g_int32ext_mode_cnt == 1L ) goto g8;
+	.dwpsn	"search.c",549,8
         MOVB      ACC,#1
-        CMPL      ACC,@_g_int32ext_mode_cnt ; |547| 
-        BF        L98,EQ                ; |547| 
-        ; branchcc occurs ; |547| 
+        CMPL      ACC,@_g_int32ext_mode_cnt ; |549| 
+        BF        L98,EQ                ; |549| 
+        ; branchcc occurs ; |549| 
 DW$L$_ext_turnmode_sel$3$E:
 DW$L$_ext_turnmode_sel$4$B:
-;*** 549	-----------------------    if ( g_int32ext_mode_cnt == 2L ) goto g7;
-	.dwpsn	"search.c",549,8
+;*** 551	-----------------------    if ( g_int32ext_mode_cnt == 2L ) goto g7;
+	.dwpsn	"search.c",551,8
         MOVB      ACC,#2
-        CMPL      ACC,@_g_int32ext_mode_cnt ; |549| 
-        BF        L97,EQ                ; |549| 
-        ; branchcc occurs ; |549| 
+        CMPL      ACC,@_g_int32ext_mode_cnt ; |551| 
+        BF        L97,EQ                ; |551| 
+        ; branchcc occurs ; |551| 
 DW$L$_ext_turnmode_sel$4$E:
 DW$L$_ext_turnmode_sel$5$B:
-;*** 551	-----------------------    if ( g_int32ext_mode_cnt != 3L ) goto g10;
-	.dwpsn	"search.c",551,8
+;*** 553	-----------------------    if ( g_int32ext_mode_cnt != 3L ) goto g10;
+	.dwpsn	"search.c",553,8
         MOVB      ACC,#3
-        CMPL      ACC,@_g_int32ext_mode_cnt ; |551| 
-        BF        L100,NEQ              ; |551| 
-        ; branchcc occurs ; |551| 
+        CMPL      ACC,@_g_int32ext_mode_cnt ; |553| 
+        BF        L100,NEQ              ; |553| 
+        ; branchcc occurs ; |553| 
 DW$L$_ext_turnmode_sel$5$E:
 DW$L$_ext_turnmode_sel$6$B:
-;*** 552	-----------------------    VFDPrintf("ON_LGOFF");
+;*** 554	-----------------------    VFDPrintf("ON_LGOFF");
+;*** 554	-----------------------    goto g10;
+	.dwpsn	"search.c",554,4
+        MOVL      XAR4,#FSL13           ; |554| 
+        MOVL      *-SP[2],XAR4          ; |554| 
+        LCR       #_VFDPrintf           ; |554| 
+        ; call occurs [#_VFDPrintf] ; |554| 
+        BF        L100,UNC              ; |554| 
+        ; branch occurs ; |554| 
+DW$L$_ext_turnmode_sel$6$E:
+L97:    
+DW$L$_ext_turnmode_sel$7$B:
+;***	-----------------------g7:
+;*** 552	-----------------------    VFDPrintf("ON______");
 ;*** 552	-----------------------    goto g10;
 	.dwpsn	"search.c",552,4
-        MOVL      XAR4,#FSL13           ; |552| 
+        MOVL      XAR4,#FSL14           ; |552| 
         MOVL      *-SP[2],XAR4          ; |552| 
         LCR       #_VFDPrintf           ; |552| 
         ; call occurs [#_VFDPrintf] ; |552| 
         BF        L100,UNC              ; |552| 
         ; branch occurs ; |552| 
-DW$L$_ext_turnmode_sel$6$E:
-L97:    
-DW$L$_ext_turnmode_sel$7$B:
-;***	-----------------------g7:
-;*** 550	-----------------------    VFDPrintf("ON______");
+DW$L$_ext_turnmode_sel$7$E:
+L98:    
+DW$L$_ext_turnmode_sel$8$B:
+;***	-----------------------g8:
+;*** 550	-----------------------    VFDPrintf("90_LGOFF");
 ;*** 550	-----------------------    goto g10;
 	.dwpsn	"search.c",550,4
-        MOVL      XAR4,#FSL14           ; |550| 
+        MOVL      XAR4,#FSL15           ; |550| 
         MOVL      *-SP[2],XAR4          ; |550| 
         LCR       #_VFDPrintf           ; |550| 
         ; call occurs [#_VFDPrintf] ; |550| 
         BF        L100,UNC              ; |550| 
         ; branch occurs ; |550| 
-DW$L$_ext_turnmode_sel$7$E:
-L98:    
-DW$L$_ext_turnmode_sel$8$B:
-;***	-----------------------g8:
-;*** 548	-----------------------    VFDPrintf("90_LGOFF");
-;*** 548	-----------------------    goto g10;
-	.dwpsn	"search.c",548,4
-        MOVL      XAR4,#FSL15           ; |548| 
-        MOVL      *-SP[2],XAR4          ; |548| 
-        LCR       #_VFDPrintf           ; |548| 
-        ; call occurs [#_VFDPrintf] ; |548| 
-        BF        L100,UNC              ; |548| 
-        ; branch occurs ; |548| 
 DW$L$_ext_turnmode_sel$8$E:
 L99:    
 DW$L$_ext_turnmode_sel$9$B:
 ;***	-----------------------g9:
-;*** 546	-----------------------    VFDPrintf("90__OFF_");
-	.dwpsn	"search.c",546,4
-        MOVL      XAR4,#FSL16           ; |546| 
-        MOVL      *-SP[2],XAR4          ; |546| 
-        LCR       #_VFDPrintf           ; |546| 
-        ; call occurs [#_VFDPrintf] ; |546| 
+;*** 548	-----------------------    VFDPrintf("90__OFF_");
+	.dwpsn	"search.c",548,4
+        MOVL      XAR4,#FSL16           ; |548| 
+        MOVL      *-SP[2],XAR4          ; |548| 
+        LCR       #_VFDPrintf           ; |548| 
+        ; call occurs [#_VFDPrintf] ; |548| 
 DW$L$_ext_turnmode_sel$9$E:
 L100:    
 DW$L$_ext_turnmode_sel$10$B:
 ;***	-----------------------g10:
-;*** 521	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g13;
-	.dwpsn	"search.c",521,3
+;*** 523	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g13;
+	.dwpsn	"search.c",523,3
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |521| 
-        BF        L101,TC               ; |521| 
-        ; branchcc occurs ; |521| 
+        TBIT      @_GpioDataRegs+1,#15  ; |523| 
+        BF        L101,TC               ; |523| 
+        ; branchcc occurs ; |523| 
 DW$L$_ext_turnmode_sel$10$E:
 DW$L$_ext_turnmode_sel$11$B:
-;*** 523	-----------------------    ++g_int32ext_mode_cnt;
-;*** 524	-----------------------    DSP28x_usDelay(999998uL);
-;*** 526	-----------------------    if ( g_int32ext_mode_cnt < 4L ) goto g16;
-	.dwpsn	"search.c",523,4
+;*** 525	-----------------------    ++g_int32ext_mode_cnt;
+;*** 526	-----------------------    DSP28x_usDelay(999998uL);
+;*** 528	-----------------------    if ( g_int32ext_mode_cnt < 4L ) goto g16;
+	.dwpsn	"search.c",525,4
         MOVB      ACC,#1
         MOVW      DP,#_g_int32ext_mode_cnt
-        ADDL      @_g_int32ext_mode_cnt,ACC ; |523| 
-	.dwpsn	"search.c",524,4
+        ADDL      @_g_int32ext_mode_cnt,ACC ; |525| 
+	.dwpsn	"search.c",526,4
         MOV       AL,#16958
         MOV       AH,#15
-        LCR       #_DSP28x_usDelay      ; |524| 
-        ; call occurs [#_DSP28x_usDelay] ; |524| 
-	.dwpsn	"search.c",526,4
+        LCR       #_DSP28x_usDelay      ; |526| 
+        ; call occurs [#_DSP28x_usDelay] ; |526| 
+	.dwpsn	"search.c",528,4
         MOVW      DP,#_g_int32ext_mode_cnt
         MOVB      ACC,#4
-        CMPL      ACC,@_g_int32ext_mode_cnt ; |526| 
-        BF        L102,GT               ; |526| 
-        ; branchcc occurs ; |526| 
+        CMPL      ACC,@_g_int32ext_mode_cnt ; |528| 
+        BF        L102,GT               ; |528| 
+        ; branchcc occurs ; |528| 
 DW$L$_ext_turnmode_sel$11$E:
 DW$L$_ext_turnmode_sel$12$B:
-;*** 527	-----------------------    g_int32ext_mode_cnt = 3L;
-;*** 527	-----------------------    goto g16;
-	.dwpsn	"search.c",527,5
+;*** 529	-----------------------    g_int32ext_mode_cnt = 3L;
+;*** 529	-----------------------    goto g16;
+	.dwpsn	"search.c",529,5
         MOVB      ACC,#3
-        MOVL      @_g_int32ext_mode_cnt,ACC ; |527| 
-        BF        L102,UNC              ; |527| 
-        ; branch occurs ; |527| 
+        MOVL      @_g_int32ext_mode_cnt,ACC ; |529| 
+        BF        L102,UNC              ; |529| 
+        ; branch occurs ; |529| 
 DW$L$_ext_turnmode_sel$12$E:
 L101:    
 DW$L$_ext_turnmode_sel$13$B:
 ;***	-----------------------g13:
-;*** 529	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g16;
-	.dwpsn	"search.c",529,8
-        TBIT      @_GpioDataRegs+1,#14  ; |529| 
-        BF        L102,TC               ; |529| 
-        ; branchcc occurs ; |529| 
+;*** 531	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g16;
+	.dwpsn	"search.c",531,8
+        TBIT      @_GpioDataRegs+1,#14  ; |531| 
+        BF        L102,TC               ; |531| 
+        ; branchcc occurs ; |531| 
 DW$L$_ext_turnmode_sel$13$E:
 DW$L$_ext_turnmode_sel$14$B:
-;*** 531	-----------------------    --g_int32ext_mode_cnt;
-;*** 532	-----------------------    DSP28x_usDelay(999998uL);
-;*** 534	-----------------------    if ( g_int32ext_mode_cnt >= 0L ) goto g16;
-	.dwpsn	"search.c",531,4
+;*** 533	-----------------------    --g_int32ext_mode_cnt;
+;*** 534	-----------------------    DSP28x_usDelay(999998uL);
+;*** 536	-----------------------    if ( g_int32ext_mode_cnt >= 0L ) goto g16;
+	.dwpsn	"search.c",533,4
         MOVB      ACC,#1
         MOVW      DP,#_g_int32ext_mode_cnt
-        SUBL      @_g_int32ext_mode_cnt,ACC ; |531| 
-	.dwpsn	"search.c",532,4
+        SUBL      @_g_int32ext_mode_cnt,ACC ; |533| 
+	.dwpsn	"search.c",534,4
         MOV       AL,#16958
         MOV       AH,#15
-        LCR       #_DSP28x_usDelay      ; |532| 
-        ; call occurs [#_DSP28x_usDelay] ; |532| 
-	.dwpsn	"search.c",534,4
+        LCR       #_DSP28x_usDelay      ; |534| 
+        ; call occurs [#_DSP28x_usDelay] ; |534| 
+	.dwpsn	"search.c",536,4
         MOVW      DP,#_g_int32ext_mode_cnt
-        MOVL      ACC,@_g_int32ext_mode_cnt ; |534| 
-        BF        L102,GEQ              ; |534| 
-        ; branchcc occurs ; |534| 
+        MOVL      ACC,@_g_int32ext_mode_cnt ; |536| 
+        BF        L102,GEQ              ; |536| 
+        ; branchcc occurs ; |536| 
 DW$L$_ext_turnmode_sel$14$E:
 DW$L$_ext_turnmode_sel$15$B:
-;*** 535	-----------------------    g_int32ext_mode_cnt = 0L;
-	.dwpsn	"search.c",535,5
+;*** 537	-----------------------    g_int32ext_mode_cnt = 0L;
+	.dwpsn	"search.c",537,5
         MOVB      ACC,#0
-        MOVL      @_g_int32ext_mode_cnt,ACC ; |535| 
+        MOVL      @_g_int32ext_mode_cnt,ACC ; |537| 
 DW$L$_ext_turnmode_sel$15$E:
 L102:    
 DW$L$_ext_turnmode_sel$16$B:
 ;***	-----------------------g16:
-;*** 539	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g2;
-	.dwpsn	"search.c",539,3
+;*** 541	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g2;
+	.dwpsn	"search.c",541,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |539| 
-        BF        L96,TC                ; |539| 
-        ; branchcc occurs ; |539| 
+        TBIT      @_GpioDataRegs,#14    ; |541| 
+        BF        L96,TC                ; |541| 
+        ; branchcc occurs ; |541| 
 DW$L$_ext_turnmode_sel$16$E:
-;*** 541	-----------------------    DSP28x_usDelay(999998uL);
-;*** 542	-----------------------    return;
-	.dwpsn	"search.c",541,4
+;*** 543	-----------------------    DSP28x_usDelay(999998uL);
+;*** 544	-----------------------    return;
+	.dwpsn	"search.c",543,4
         MOV       AL,#16958
         MOV       AH,#15
-        LCR       #_DSP28x_usDelay      ; |541| 
-        ; call occurs [#_DSP28x_usDelay] ; |541| 
-	.dwpsn	"search.c",542,4
-	.dwpsn	"search.c",556,1
+        LCR       #_DSP28x_usDelay      ; |543| 
+        ; call occurs [#_DSP28x_usDelay] ; |543| 
+	.dwpsn	"search.c",544,4
+	.dwpsn	"search.c",558,1
         SUBB      SP,#2
 	.dwcfa	0x1d, -2
         LRETR
         ; return occurs
 
 DW$151	.dwtag  DW_TAG_loop
-	.dwattr DW$151, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L100:1:1753721548")
+	.dwattr DW$151, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L100:1:1754244676")
 	.dwattr DW$151, DW_AT_begin_file("search.c")
-	.dwattr DW$151, DW_AT_begin_line(0x209)
-	.dwattr DW$151, DW_AT_end_line(0x228)
+	.dwattr DW$151, DW_AT_begin_line(0x20b)
+	.dwattr DW$151, DW_AT_end_line(0x22a)
 DW$152	.dwtag  DW_TAG_loop_range
 	.dwattr DW$152, DW_AT_low_pc(DW$L$_ext_turnmode_sel$10$B)
 	.dwattr DW$152, DW_AT_high_pc(DW$L$_ext_turnmode_sel$10$E)
@@ -2914,7 +2912,7 @@ DW$166	.dwtag  DW_TAG_loop_range
 	.dwendtag DW$151
 
 	.dwattr DW$150, DW_AT_end_file("search.c")
-	.dwattr DW$150, DW_AT_end_line(0x22c)
+	.dwattr DW$150, DW_AT_end_line(0x22e)
 	.dwattr DW$150, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$150
@@ -2926,9 +2924,9 @@ DW$167	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_Velocity"), DW_AT_symbol_name(
 	.dwattr DW$167, DW_AT_low_pc(_Set_Velocity)
 	.dwattr DW$167, DW_AT_high_pc(0x00)
 	.dwattr DW$167, DW_AT_begin_file("search.c")
-	.dwattr DW$167, DW_AT_begin_line(0x167)
+	.dwattr DW$167, DW_AT_begin_line(0x169)
 	.dwattr DW$167, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",360,1
+	.dwpsn	"search.c",362,1
 
 	.dwfde DW$CIE
 
@@ -2967,85 +2965,85 @@ DW$168	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L103:    
 ;***	-----------------------g2:
-;*** 368	-----------------------    g_q17user_vel += 13107200L;
-;*** 369	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",368,4
+;*** 370	-----------------------    g_q17user_vel += 13107200L;
+;*** 371	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",370,4
         MOVW      DP,#_g_q17user_vel
-        MOVL      ACC,@_g_q17user_vel   ; |368| 
-        ADD       ACC,#400 << 15        ; |368| 
-        MOVL      @_g_q17user_vel,ACC   ; |368| 
-	.dwpsn	"search.c",369,4
+        MOVL      ACC,@_g_q17user_vel   ; |370| 
+        ADD       ACC,#400 << 15        ; |370| 
+        MOVL      @_g_q17user_vel,ACC   ; |370| 
+	.dwpsn	"search.c",371,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |369| 
-        ; call occurs [#_DSP28x_usDelay] ; |369| 
+        LCR       #_DSP28x_usDelay      ; |371| 
+        ; call occurs [#_DSP28x_usDelay] ; |371| 
 L104:    
 ;***	-----------------------g3:
-;*** 378	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",378,3
+;*** 380	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",380,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |378| 
-        BF        L107,NTC              ; |378| 
-        ; branchcc occurs ; |378| 
+        TBIT      @_GpioDataRegs,#14    ; |380| 
+        BF        L107,NTC              ; |380| 
+        ; branchcc occurs ; |380| 
 L105:    
 ;***	-----------------------g4:
-;*** 383	-----------------------    VFDPrintf("VEL:%4f", _IQ17toF(g_q17user_vel));
-;*** 363	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",383,6
+;*** 385	-----------------------    VFDPrintf("VEL:%4f", _IQ17toF(g_q17user_vel));
+;*** 365	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",385,6
         MOVW      DP,#_g_q17user_vel
-        MOVL      ACC,@_g_q17user_vel   ; |383| 
-        LCR       #__IQ17toF            ; |383| 
-        ; call occurs [#__IQ17toF] ; |383| 
-        MOVL      XAR4,#FSL17           ; |383| 
-        MOVL      *-SP[2],XAR4          ; |383| 
-        MOVL      *-SP[4],ACC           ; |383| 
-        LCR       #_VFDPrintf           ; |383| 
-        ; call occurs [#_VFDPrintf] ; |383| 
-	.dwpsn	"search.c",363,8
+        MOVL      ACC,@_g_q17user_vel   ; |385| 
+        LCR       #__IQ17toF            ; |385| 
+        ; call occurs [#__IQ17toF] ; |385| 
+        MOVL      XAR4,#FSL17           ; |385| 
+        MOVL      *-SP[2],XAR4          ; |385| 
+        MOVL      *-SP[4],ACC           ; |385| 
+        LCR       #_VFDPrintf           ; |385| 
+        ; call occurs [#_VFDPrintf] ; |385| 
+	.dwpsn	"search.c",365,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |363| 
-        BF        L103,NTC              ; |363| 
-        ; branchcc occurs ; |363| 
+        TBIT      @_GpioDataRegs+1,#15  ; |365| 
+        BF        L103,NTC              ; |365| 
+        ; branchcc occurs ; |365| 
 L106:    
 ;***	-----------------------g5:
-;*** 371	-----------------------    K$0 = &GpioDataRegs;
-;*** 371	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",371,8
-        MOVL      XAR3,#_GpioDataRegs   ; |371| 
-        TBIT      *+XAR3[1],#14         ; |371| 
-        BF        L104,TC               ; |371| 
-        ; branchcc occurs ; |371| 
-;*** 373	-----------------------    g_q17user_vel -= 13107200L;
-;*** 374	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 374	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",373,4
+;*** 373	-----------------------    K$0 = &GpioDataRegs;
+;*** 373	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",373,8
+        MOVL      XAR3,#_GpioDataRegs   ; |373| 
+        TBIT      *+XAR3[1],#14         ; |373| 
+        BF        L104,TC               ; |373| 
+        ; branchcc occurs ; |373| 
+;*** 375	-----------------------    g_q17user_vel -= 13107200L;
+;*** 376	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 376	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",375,4
         MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17user_vel
-        SUBL      @_g_q17user_vel,ACC   ; |373| 
-	.dwpsn	"search.c",374,4
+        SUBL      @_g_q17user_vel,ACC   ; |375| 
+	.dwpsn	"search.c",376,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |374| 
-        ; call occurs [#_DSP28x_usDelay] ; |374| 
-        TBIT      *+XAR3[0],#14         ; |374| 
-        BF        L105,TC               ; |374| 
-        ; branchcc occurs ; |374| 
+        LCR       #_DSP28x_usDelay      ; |376| 
+        ; call occurs [#_DSP28x_usDelay] ; |376| 
+        TBIT      *+XAR3[0],#14         ; |376| 
+        BF        L105,TC               ; |376| 
+        ; branchcc occurs ; |376| 
 L107:    
 ;***	-----------------------g7:
-;*** 380	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 381	-----------------------    turnvel_write_rom();
-;*** 385	-----------------------    return;
-	.dwpsn	"search.c",380,4
+;*** 382	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 383	-----------------------    turnvel_write_rom();
+;*** 387	-----------------------    return;
+	.dwpsn	"search.c",382,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |380| 
-        ; call occurs [#_DSP28x_usDelay] ; |380| 
-	.dwpsn	"search.c",381,4
-        LCR       #_turnvel_write_rom   ; |381| 
-        ; call occurs [#_turnvel_write_rom] ; |381| 
-	.dwpsn	"search.c",385,2
-	.dwpsn	"search.c",386,1
+        LCR       #_DSP28x_usDelay      ; |382| 
+        ; call occurs [#_DSP28x_usDelay] ; |382| 
+	.dwpsn	"search.c",383,4
+        LCR       #_turnvel_write_rom   ; |383| 
+        ; call occurs [#_turnvel_write_rom] ; |383| 
+	.dwpsn	"search.c",387,2
+	.dwpsn	"search.c",388,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -3054,7 +3052,7 @@ L107:
         LRETR
         ; return occurs
 	.dwattr DW$167, DW_AT_end_file("search.c")
-	.dwattr DW$167, DW_AT_end_line(0x182)
+	.dwattr DW$167, DW_AT_end_line(0x184)
 	.dwattr DW$167, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$167
@@ -3066,9 +3064,9 @@ DW$169	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_TurnMark"), DW_AT_symbol_name(
 	.dwattr DW$169, DW_AT_low_pc(_Set_TurnMark)
 	.dwattr DW$169, DW_AT_high_pc(0x00)
 	.dwattr DW$169, DW_AT_begin_file("search.c")
-	.dwattr DW$169, DW_AT_begin_line(0x1a1)
+	.dwattr DW$169, DW_AT_begin_line(0x1a3)
 	.dwattr DW$169, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",418,1
+	.dwpsn	"search.c",420,1
 
 	.dwfde DW$CIE
 
@@ -3119,330 +3117,330 @@ DW$173	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L108:    
 ;***	-----------------------g2:
-;*** 424	-----------------------    ++g_u16turnmark_limit;
-;*** 425	-----------------------    DSP28x_usDelay(999998uL);
-	.dwpsn	"search.c",424,4
+;*** 426	-----------------------    ++g_u16turnmark_limit;
+;*** 427	-----------------------    DSP28x_usDelay(999998uL);
+	.dwpsn	"search.c",426,4
         MOVW      DP,#_g_u16turnmark_limit
-        INC       @_g_u16turnmark_limit ; |424| 
-	.dwpsn	"search.c",425,4
+        INC       @_g_u16turnmark_limit ; |426| 
+	.dwpsn	"search.c",427,4
         MOV       AL,#16958
         MOV       AH,#15
-        LCR       #_DSP28x_usDelay      ; |425| 
-        ; call occurs [#_DSP28x_usDelay] ; |425| 
+        LCR       #_DSP28x_usDelay      ; |427| 
+        ; call occurs [#_DSP28x_usDelay] ; |427| 
 L109:    
 ;***	-----------------------g3:
-;*** 434	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",434,3
+;*** 436	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",436,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |434| 
-        BF        L112,NTC              ; |434| 
-        ; branchcc occurs ; |434| 
+        TBIT      @_GpioDataRegs,#14    ; |436| 
+        BF        L112,NTC              ; |436| 
+        ; branchcc occurs ; |436| 
 L110:    
 ;***	-----------------------g4:
-;*** 438	-----------------------    VFDPrintf("LMIT:%3u", g_u16turnmark_limit);
-;*** 419	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",438,3
+;*** 440	-----------------------    VFDPrintf("LMIT:%3u", g_u16turnmark_limit);
+;*** 421	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",440,3
         MOVW      DP,#_g_u16turnmark_limit
-        MOVL      XAR4,#FSL18           ; |438| 
-        MOV       AL,@_g_u16turnmark_limit ; |438| 
-        MOVL      *-SP[2],XAR4          ; |438| 
-        MOV       *-SP[3],AL            ; |438| 
-        LCR       #_VFDPrintf           ; |438| 
-        ; call occurs [#_VFDPrintf] ; |438| 
-	.dwpsn	"search.c",419,8
+        MOVL      XAR4,#FSL18           ; |440| 
+        MOV       AL,@_g_u16turnmark_limit ; |440| 
+        MOVL      *-SP[2],XAR4          ; |440| 
+        MOV       *-SP[3],AL            ; |440| 
+        LCR       #_VFDPrintf           ; |440| 
+        ; call occurs [#_VFDPrintf] ; |440| 
+	.dwpsn	"search.c",421,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |419| 
-        BF        L108,NTC              ; |419| 
-        ; branchcc occurs ; |419| 
+        TBIT      @_GpioDataRegs+1,#15  ; |421| 
+        BF        L108,NTC              ; |421| 
+        ; branchcc occurs ; |421| 
 L111:    
 ;***	-----------------------g5:
-;*** 427	-----------------------    K$0 = &GpioDataRegs;
-;*** 427	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",427,8
-        MOVL      XAR3,#_GpioDataRegs   ; |427| 
-        TBIT      *+XAR3[1],#14         ; |427| 
-        BF        L109,TC               ; |427| 
-        ; branchcc occurs ; |427| 
-;*** 429	-----------------------    --g_u16turnmark_limit;
-;*** 430	-----------------------    DSP28x_usDelay(999998uL);
-;*** 430	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",429,4
+;*** 429	-----------------------    K$0 = &GpioDataRegs;
+;*** 429	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",429,8
+        MOVL      XAR3,#_GpioDataRegs   ; |429| 
+        TBIT      *+XAR3[1],#14         ; |429| 
+        BF        L109,TC               ; |429| 
+        ; branchcc occurs ; |429| 
+;*** 431	-----------------------    --g_u16turnmark_limit;
+;*** 432	-----------------------    DSP28x_usDelay(999998uL);
+;*** 432	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",431,4
         MOVW      DP,#_g_u16turnmark_limit
-        DEC       @_g_u16turnmark_limit ; |429| 
-	.dwpsn	"search.c",430,4
+        DEC       @_g_u16turnmark_limit ; |431| 
+	.dwpsn	"search.c",432,4
         MOV       AL,#16958
         MOV       AH,#15
-        LCR       #_DSP28x_usDelay      ; |430| 
-        ; call occurs [#_DSP28x_usDelay] ; |430| 
-        TBIT      *+XAR3[0],#14         ; |430| 
-        BF        L110,TC               ; |430| 
-        ; branchcc occurs ; |430| 
+        LCR       #_DSP28x_usDelay      ; |432| 
+        ; call occurs [#_DSP28x_usDelay] ; |432| 
+        TBIT      *+XAR3[0],#14         ; |432| 
+        BF        L110,TC               ; |432| 
+        ; branchcc occurs ; |432| 
 L112:    
 ;***	-----------------------g7:
-;*** 435	-----------------------    DSP28x_usDelay(999998uL);
-;*** 436	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 437	-----------------------    DSP28x_usDelay(999998uL);
+;*** 438	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g11;
-	.dwpsn	"search.c",435,4
+	.dwpsn	"search.c",437,4
         MOV       AL,#16958
         MOV       AH,#15
-        LCR       #_DSP28x_usDelay      ; |435| 
-        ; call occurs [#_DSP28x_usDelay] ; |435| 
-	.dwpsn	"search.c",436,4
+        LCR       #_DSP28x_usDelay      ; |437| 
+        ; call occurs [#_DSP28x_usDelay] ; |437| 
+	.dwpsn	"search.c",438,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |436| 
-        ; call occurs [#_DSP28x_usDelay] ; |436| 
+        LCR       #_DSP28x_usDelay      ; |438| 
+        ; call occurs [#_DSP28x_usDelay] ; |438| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L116,TC
         ; branchcc occurs
 L113:    
 ;***	-----------------------g8:
-;*** 447	-----------------------    g_q17sen_valmax += 131072L;
-;*** 448	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",447,4
-        MOVL      XAR4,#131072          ; |447| 
+;*** 449	-----------------------    g_q17sen_valmax += 131072L;
+;*** 450	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",449,4
+        MOVL      XAR4,#131072          ; |449| 
         MOVW      DP,#_g_q17sen_valmax
-        MOVL      ACC,XAR4              ; |447| 
-        ADDL      @_g_q17sen_valmax,ACC ; |447| 
-	.dwpsn	"search.c",448,4
+        MOVL      ACC,XAR4              ; |449| 
+        ADDL      @_g_q17sen_valmax,ACC ; |449| 
+	.dwpsn	"search.c",450,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |448| 
-        ; call occurs [#_DSP28x_usDelay] ; |448| 
+        LCR       #_DSP28x_usDelay      ; |450| 
+        ; call occurs [#_DSP28x_usDelay] ; |450| 
 L114:    
 ;***	-----------------------g9:
-;*** 457	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
-	.dwpsn	"search.c",457,3
+;*** 459	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
+	.dwpsn	"search.c",459,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |457| 
-        BF        L117,NTC              ; |457| 
-        ; branchcc occurs ; |457| 
+        TBIT      @_GpioDataRegs,#14    ; |459| 
+        BF        L117,NTC              ; |459| 
+        ; branchcc occurs ; |459| 
 L115:    
 ;***	-----------------------g10:
-;*** 461	-----------------------    VFDPrintf("THOLD:%2u", (unsigned)(g_q17sen_valmax>>17));
-;*** 442	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
-	.dwpsn	"search.c",461,3
+;*** 463	-----------------------    VFDPrintf("THOLD:%2u", (unsigned)(g_q17sen_valmax>>17));
+;*** 444	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
+	.dwpsn	"search.c",463,3
         MOVW      DP,#_g_q17sen_valmax
-        MOVL      XAR4,#FSL19           ; |461| 
-        MOV       T,#17                 ; |461| 
-        MOVL      ACC,@_g_q17sen_valmax ; |461| 
-        MOVL      *-SP[2],XAR4          ; |461| 
-        ASRL      ACC,T                 ; |461| 
-        MOV       *-SP[3],AL            ; |461| 
-        LCR       #_VFDPrintf           ; |461| 
-        ; call occurs [#_VFDPrintf] ; |461| 
-	.dwpsn	"search.c",442,8
+        MOVL      XAR4,#FSL19           ; |463| 
+        MOV       T,#17                 ; |463| 
+        MOVL      ACC,@_g_q17sen_valmax ; |463| 
+        MOVL      *-SP[2],XAR4          ; |463| 
+        ASRL      ACC,T                 ; |463| 
+        MOV       *-SP[3],AL            ; |463| 
+        LCR       #_VFDPrintf           ; |463| 
+        ; call occurs [#_VFDPrintf] ; |463| 
+	.dwpsn	"search.c",444,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |442| 
-        BF        L113,NTC              ; |442| 
-        ; branchcc occurs ; |442| 
+        TBIT      @_GpioDataRegs+1,#15  ; |444| 
+        BF        L113,NTC              ; |444| 
+        ; branchcc occurs ; |444| 
 L116:    
 ;***	-----------------------g11:
-;*** 450	-----------------------    K$0 = &GpioDataRegs;
-;*** 450	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
-	.dwpsn	"search.c",450,8
-        MOVL      XAR3,#_GpioDataRegs   ; |450| 
-        TBIT      *+XAR3[1],#14         ; |450| 
-        BF        L114,TC               ; |450| 
-        ; branchcc occurs ; |450| 
-;*** 452	-----------------------    g_q17sen_valmax -= 131072L;
-;*** 453	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 453	-----------------------    if ( *K$0&0x4000u ) goto g10;
-	.dwpsn	"search.c",452,4
-        MOVL      XAR4,#131072          ; |452| 
+;*** 452	-----------------------    K$0 = &GpioDataRegs;
+;*** 452	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
+	.dwpsn	"search.c",452,8
+        MOVL      XAR3,#_GpioDataRegs   ; |452| 
+        TBIT      *+XAR3[1],#14         ; |452| 
+        BF        L114,TC               ; |452| 
+        ; branchcc occurs ; |452| 
+;*** 454	-----------------------    g_q17sen_valmax -= 131072L;
+;*** 455	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 455	-----------------------    if ( *K$0&0x4000u ) goto g10;
+	.dwpsn	"search.c",454,4
+        MOVL      XAR4,#131072          ; |454| 
         MOVW      DP,#_g_q17sen_valmax
-        MOVL      ACC,XAR4              ; |452| 
-        SUBL      @_g_q17sen_valmax,ACC ; |452| 
-	.dwpsn	"search.c",453,4
+        MOVL      ACC,XAR4              ; |454| 
+        SUBL      @_g_q17sen_valmax,ACC ; |454| 
+	.dwpsn	"search.c",455,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |453| 
-        ; call occurs [#_DSP28x_usDelay] ; |453| 
-        TBIT      *+XAR3[0],#14         ; |453| 
-        BF        L115,TC               ; |453| 
-        ; branchcc occurs ; |453| 
+        LCR       #_DSP28x_usDelay      ; |455| 
+        ; call occurs [#_DSP28x_usDelay] ; |455| 
+        TBIT      *+XAR3[0],#14         ; |455| 
+        BF        L115,TC               ; |455| 
+        ; branchcc occurs ; |455| 
 L117:    
 ;***	-----------------------g13:
-;*** 458	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 459	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 460	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 461	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g17;
-	.dwpsn	"search.c",458,4
+	.dwpsn	"search.c",460,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |458| 
-        ; call occurs [#_DSP28x_usDelay] ; |458| 
-	.dwpsn	"search.c",459,4
+        LCR       #_DSP28x_usDelay      ; |460| 
+        ; call occurs [#_DSP28x_usDelay] ; |460| 
+	.dwpsn	"search.c",461,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |459| 
-        ; call occurs [#_DSP28x_usDelay] ; |459| 
+        LCR       #_DSP28x_usDelay      ; |461| 
+        ; call occurs [#_DSP28x_usDelay] ; |461| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L121,TC
         ; branchcc occurs
 L118:    
 ;***	-----------------------g14:
-;*** 472	-----------------------    g_q17turnmark_dist += 131072L;
-;*** 473	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",472,4
-        MOVL      XAR4,#131072          ; |472| 
+;*** 474	-----------------------    g_q17turnmark_dist += 131072L;
+;*** 475	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",474,4
+        MOVL      XAR4,#131072          ; |474| 
         MOVW      DP,#_g_q17turnmark_dist
-        MOVL      ACC,XAR4              ; |472| 
-        ADDL      @_g_q17turnmark_dist,ACC ; |472| 
-	.dwpsn	"search.c",473,4
+        MOVL      ACC,XAR4              ; |474| 
+        ADDL      @_g_q17turnmark_dist,ACC ; |474| 
+	.dwpsn	"search.c",475,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |473| 
-        ; call occurs [#_DSP28x_usDelay] ; |473| 
+        LCR       #_DSP28x_usDelay      ; |475| 
+        ; call occurs [#_DSP28x_usDelay] ; |475| 
 L119:    
 ;***	-----------------------g15:
-;*** 482	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g19;
-	.dwpsn	"search.c",482,3
+;*** 484	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g19;
+	.dwpsn	"search.c",484,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |482| 
-        BF        L122,NTC              ; |482| 
-        ; branchcc occurs ; |482| 
+        TBIT      @_GpioDataRegs,#14    ; |484| 
+        BF        L122,NTC              ; |484| 
+        ; branchcc occurs ; |484| 
 L120:    
 ;***	-----------------------g16:
-;*** 486	-----------------------    VFDPrintf("MARKD:%2u", (unsigned)(g_q17turnmark_dist>>17));
-;*** 467	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g14;
-	.dwpsn	"search.c",486,3
+;*** 488	-----------------------    VFDPrintf("MARKD:%2u", (unsigned)(g_q17turnmark_dist>>17));
+;*** 469	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g14;
+	.dwpsn	"search.c",488,3
         MOVW      DP,#_g_q17turnmark_dist
-        MOVL      XAR4,#FSL20           ; |486| 
-        MOV       T,#17                 ; |486| 
-        MOVL      ACC,@_g_q17turnmark_dist ; |486| 
-        MOVL      *-SP[2],XAR4          ; |486| 
-        ASRL      ACC,T                 ; |486| 
-        MOV       *-SP[3],AL            ; |486| 
-        LCR       #_VFDPrintf           ; |486| 
-        ; call occurs [#_VFDPrintf] ; |486| 
-	.dwpsn	"search.c",467,8
+        MOVL      XAR4,#FSL20           ; |488| 
+        MOV       T,#17                 ; |488| 
+        MOVL      ACC,@_g_q17turnmark_dist ; |488| 
+        MOVL      *-SP[2],XAR4          ; |488| 
+        ASRL      ACC,T                 ; |488| 
+        MOV       *-SP[3],AL            ; |488| 
+        LCR       #_VFDPrintf           ; |488| 
+        ; call occurs [#_VFDPrintf] ; |488| 
+	.dwpsn	"search.c",469,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |467| 
-        BF        L118,NTC              ; |467| 
-        ; branchcc occurs ; |467| 
+        TBIT      @_GpioDataRegs+1,#15  ; |469| 
+        BF        L118,NTC              ; |469| 
+        ; branchcc occurs ; |469| 
 L121:    
 ;***	-----------------------g17:
-;*** 475	-----------------------    K$0 = &GpioDataRegs;
-;*** 475	-----------------------    if ( K$0[1]&0x4000u ) goto g15;
-	.dwpsn	"search.c",475,8
-        MOVL      XAR3,#_GpioDataRegs   ; |475| 
-        TBIT      *+XAR3[1],#14         ; |475| 
-        BF        L119,TC               ; |475| 
-        ; branchcc occurs ; |475| 
-;*** 477	-----------------------    g_q17turnmark_dist -= 131072L;
-;*** 478	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 478	-----------------------    if ( *K$0&0x4000u ) goto g16;
-	.dwpsn	"search.c",477,4
-        MOVL      XAR4,#131072          ; |477| 
+;*** 477	-----------------------    K$0 = &GpioDataRegs;
+;*** 477	-----------------------    if ( K$0[1]&0x4000u ) goto g15;
+	.dwpsn	"search.c",477,8
+        MOVL      XAR3,#_GpioDataRegs   ; |477| 
+        TBIT      *+XAR3[1],#14         ; |477| 
+        BF        L119,TC               ; |477| 
+        ; branchcc occurs ; |477| 
+;*** 479	-----------------------    g_q17turnmark_dist -= 131072L;
+;*** 480	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 480	-----------------------    if ( *K$0&0x4000u ) goto g16;
+	.dwpsn	"search.c",479,4
+        MOVL      XAR4,#131072          ; |479| 
         MOVW      DP,#_g_q17turnmark_dist
-        MOVL      ACC,XAR4              ; |477| 
-        SUBL      @_g_q17turnmark_dist,ACC ; |477| 
-	.dwpsn	"search.c",478,4
+        MOVL      ACC,XAR4              ; |479| 
+        SUBL      @_g_q17turnmark_dist,ACC ; |479| 
+	.dwpsn	"search.c",480,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |478| 
-        ; call occurs [#_DSP28x_usDelay] ; |478| 
-        TBIT      *+XAR3[0],#14         ; |478| 
-        BF        L120,TC               ; |478| 
-        ; branchcc occurs ; |478| 
+        LCR       #_DSP28x_usDelay      ; |480| 
+        ; call occurs [#_DSP28x_usDelay] ; |480| 
+        TBIT      *+XAR3[0],#14         ; |480| 
+        BF        L120,TC               ; |480| 
+        ; branchcc occurs ; |480| 
 L122:    
 ;***	-----------------------g19:
-;*** 483	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 484	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 485	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 486	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g23;
-	.dwpsn	"search.c",483,4
+	.dwpsn	"search.c",485,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |483| 
-        ; call occurs [#_DSP28x_usDelay] ; |483| 
-	.dwpsn	"search.c",484,4
+        LCR       #_DSP28x_usDelay      ; |485| 
+        ; call occurs [#_DSP28x_usDelay] ; |485| 
+	.dwpsn	"search.c",486,4
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |484| 
-        ; call occurs [#_DSP28x_usDelay] ; |484| 
+        LCR       #_DSP28x_usDelay      ; |486| 
+        ; call occurs [#_DSP28x_usDelay] ; |486| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L126,TC
         ; branchcc occurs
 L123:    
 ;***	-----------------------g20:
-;*** 495	-----------------------    g_int32fasterror_flag = 1L;
-;*** 496	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",495,4
+;*** 497	-----------------------    g_int32fasterror_flag = 1L;
+;*** 498	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",497,4
         MOVB      ACC,#1
         MOVW      DP,#_g_int32fasterror_flag
-        MOVL      @_g_int32fasterror_flag,ACC ; |495| 
-	.dwpsn	"search.c",496,4
+        MOVL      @_g_int32fasterror_flag,ACC ; |497| 
+	.dwpsn	"search.c",498,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |496| 
-        ; call occurs [#_DSP28x_usDelay] ; |496| 
+        LCR       #_DSP28x_usDelay      ; |498| 
+        ; call occurs [#_DSP28x_usDelay] ; |498| 
 L124:    
 ;***	-----------------------g21:
-;*** 505	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g25;
-	.dwpsn	"search.c",505,3
+;*** 507	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g25;
+	.dwpsn	"search.c",507,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |505| 
-        BF        L127,NTC              ; |505| 
-        ; branchcc occurs ; |505| 
+        TBIT      @_GpioDataRegs,#14    ; |507| 
+        BF        L127,NTC              ; |507| 
+        ; branchcc occurs ; |507| 
 L125:    
 ;***	-----------------------g22:
-;*** 509	-----------------------    VFDPrintf("errflg%2ld", g_int32fasterror_flag);
-;*** 490	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g20;
-	.dwpsn	"search.c",509,3
+;*** 511	-----------------------    VFDPrintf("errflg%2ld", g_int32fasterror_flag);
+;*** 492	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g20;
+	.dwpsn	"search.c",511,3
         MOVW      DP,#_g_int32fasterror_flag
-        MOVL      XAR4,#FSL21           ; |509| 
-        MOVL      ACC,@_g_int32fasterror_flag ; |509| 
-        MOVL      *-SP[2],XAR4          ; |509| 
-        MOVL      *-SP[4],ACC           ; |509| 
-        LCR       #_VFDPrintf           ; |509| 
-        ; call occurs [#_VFDPrintf] ; |509| 
-	.dwpsn	"search.c",490,8
+        MOVL      XAR4,#FSL21           ; |511| 
+        MOVL      ACC,@_g_int32fasterror_flag ; |511| 
+        MOVL      *-SP[2],XAR4          ; |511| 
+        MOVL      *-SP[4],ACC           ; |511| 
+        LCR       #_VFDPrintf           ; |511| 
+        ; call occurs [#_VFDPrintf] ; |511| 
+	.dwpsn	"search.c",492,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |490| 
-        BF        L123,NTC              ; |490| 
-        ; branchcc occurs ; |490| 
+        TBIT      @_GpioDataRegs+1,#15  ; |492| 
+        BF        L123,NTC              ; |492| 
+        ; branchcc occurs ; |492| 
 L126:    
 ;***	-----------------------g23:
-;*** 498	-----------------------    K$0 = &GpioDataRegs;
-;*** 498	-----------------------    if ( K$0[1]&0x4000u ) goto g21;
-	.dwpsn	"search.c",498,8
-        MOVL      XAR3,#_GpioDataRegs   ; |498| 
-        TBIT      *+XAR3[1],#14         ; |498| 
-        BF        L124,TC               ; |498| 
-        ; branchcc occurs ; |498| 
-;*** 500	-----------------------    g_int32fasterror_flag = 0L;
-;*** 501	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 501	-----------------------    if ( *K$0&0x4000u ) goto g22;
-	.dwpsn	"search.c",500,4
+;*** 500	-----------------------    K$0 = &GpioDataRegs;
+;*** 500	-----------------------    if ( K$0[1]&0x4000u ) goto g21;
+	.dwpsn	"search.c",500,8
+        MOVL      XAR3,#_GpioDataRegs   ; |500| 
+        TBIT      *+XAR3[1],#14         ; |500| 
+        BF        L124,TC               ; |500| 
+        ; branchcc occurs ; |500| 
+;*** 502	-----------------------    g_int32fasterror_flag = 0L;
+;*** 503	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 503	-----------------------    if ( *K$0&0x4000u ) goto g22;
+	.dwpsn	"search.c",502,4
         MOVB      ACC,#0
         MOVW      DP,#_g_int32fasterror_flag
-        MOVL      @_g_int32fasterror_flag,ACC ; |500| 
-	.dwpsn	"search.c",501,4
+        MOVL      @_g_int32fasterror_flag,ACC ; |502| 
+	.dwpsn	"search.c",503,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |501| 
-        ; call occurs [#_DSP28x_usDelay] ; |501| 
-        TBIT      *+XAR3[0],#14         ; |501| 
-        BF        L125,TC               ; |501| 
-        ; branchcc occurs ; |501| 
+        LCR       #_DSP28x_usDelay      ; |503| 
+        ; call occurs [#_DSP28x_usDelay] ; |503| 
+        TBIT      *+XAR3[0],#14         ; |503| 
+        BF        L125,TC               ; |503| 
+        ; branchcc occurs ; |503| 
 L127:    
 ;***	-----------------------g25:
-;*** 506	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 507	-----------------------    turnmark_info_write_rom();
-;*** 512	-----------------------    return;
-	.dwpsn	"search.c",506,4
+;*** 508	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 509	-----------------------    turnmark_info_write_rom();
+;*** 514	-----------------------    return;
+	.dwpsn	"search.c",508,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |506| 
-        ; call occurs [#_DSP28x_usDelay] ; |506| 
-	.dwpsn	"search.c",507,4
-        LCR       #_turnmark_info_write_rom ; |507| 
-        ; call occurs [#_turnmark_info_write_rom] ; |507| 
-	.dwpsn	"search.c",512,2
-	.dwpsn	"search.c",514,1
+        LCR       #_DSP28x_usDelay      ; |508| 
+        ; call occurs [#_DSP28x_usDelay] ; |508| 
+	.dwpsn	"search.c",509,4
+        LCR       #_turnmark_info_write_rom ; |509| 
+        ; call occurs [#_turnmark_info_write_rom] ; |509| 
+	.dwpsn	"search.c",514,2
+	.dwpsn	"search.c",516,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -3451,7 +3449,7 @@ L127:
         LRETR
         ; return occurs
 	.dwattr DW$169, DW_AT_end_file("search.c")
-	.dwattr DW$169, DW_AT_end_line(0x202)
+	.dwattr DW$169, DW_AT_end_line(0x204)
 	.dwattr DW$169, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$169
@@ -3463,9 +3461,9 @@ DW$174	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_Shift"), DW_AT_symbol_name("_S
 	.dwattr DW$174, DW_AT_low_pc(_Set_Shift)
 	.dwattr DW$174, DW_AT_high_pc(0x00)
 	.dwattr DW$174, DW_AT_begin_file("search.c")
-	.dwattr DW$174, DW_AT_begin_line(0x184)
+	.dwattr DW$174, DW_AT_begin_line(0x186)
 	.dwattr DW$174, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",389,1
+	.dwpsn	"search.c",391,1
 
 	.dwfde DW$CIE
 
@@ -3504,81 +3502,81 @@ DW$175	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L128:    
 ;***	-----------------------g2:
-;*** 397	-----------------------    g_q17shift_pos_val += 13107200L;
-;*** 398	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",397,4
+;*** 399	-----------------------    g_q17shift_pos_val += 13107200L;
+;*** 400	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",399,4
         MOVW      DP,#_g_q17shift_pos_val
-        MOVL      ACC,@_g_q17shift_pos_val ; |397| 
-        ADD       ACC,#400 << 15        ; |397| 
-        MOVL      @_g_q17shift_pos_val,ACC ; |397| 
-	.dwpsn	"search.c",398,4
+        MOVL      ACC,@_g_q17shift_pos_val ; |399| 
+        ADD       ACC,#400 << 15        ; |399| 
+        MOVL      @_g_q17shift_pos_val,ACC ; |399| 
+	.dwpsn	"search.c",400,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |398| 
-        ; call occurs [#_DSP28x_usDelay] ; |398| 
+        LCR       #_DSP28x_usDelay      ; |400| 
+        ; call occurs [#_DSP28x_usDelay] ; |400| 
 L129:    
 ;***	-----------------------g3:
-;*** 407	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",407,3
+;*** 409	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",409,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |407| 
-        BF        L132,NTC              ; |407| 
-        ; branchcc occurs ; |407| 
+        TBIT      @_GpioDataRegs,#14    ; |409| 
+        BF        L132,NTC              ; |409| 
+        ; branchcc occurs ; |409| 
 L130:    
 ;***	-----------------------g4:
-;*** 412	-----------------------    VFDPrintf("SFT:%4f", _IQ17toF(g_q17shift_pos_val));
-;*** 392	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",412,6
+;*** 414	-----------------------    VFDPrintf("SFT:%4f", _IQ17toF(g_q17shift_pos_val));
+;*** 394	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",414,6
         MOVW      DP,#_g_q17shift_pos_val
-        MOVL      ACC,@_g_q17shift_pos_val ; |412| 
-        LCR       #__IQ17toF            ; |412| 
-        ; call occurs [#__IQ17toF] ; |412| 
-        MOVL      XAR4,#FSL22           ; |412| 
-        MOVL      *-SP[2],XAR4          ; |412| 
-        MOVL      *-SP[4],ACC           ; |412| 
-        LCR       #_VFDPrintf           ; |412| 
-        ; call occurs [#_VFDPrintf] ; |412| 
-	.dwpsn	"search.c",392,8
+        MOVL      ACC,@_g_q17shift_pos_val ; |414| 
+        LCR       #__IQ17toF            ; |414| 
+        ; call occurs [#__IQ17toF] ; |414| 
+        MOVL      XAR4,#FSL22           ; |414| 
+        MOVL      *-SP[2],XAR4          ; |414| 
+        MOVL      *-SP[4],ACC           ; |414| 
+        LCR       #_VFDPrintf           ; |414| 
+        ; call occurs [#_VFDPrintf] ; |414| 
+	.dwpsn	"search.c",394,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |392| 
-        BF        L128,NTC              ; |392| 
-        ; branchcc occurs ; |392| 
+        TBIT      @_GpioDataRegs+1,#15  ; |394| 
+        BF        L128,NTC              ; |394| 
+        ; branchcc occurs ; |394| 
 L131:    
 ;***	-----------------------g5:
-;*** 400	-----------------------    K$0 = &GpioDataRegs;
-;*** 400	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",400,8
-        MOVL      XAR3,#_GpioDataRegs   ; |400| 
-        TBIT      *+XAR3[1],#14         ; |400| 
-        BF        L129,TC               ; |400| 
-        ; branchcc occurs ; |400| 
-;*** 402	-----------------------    g_q17shift_pos_val -= 13107200L;
-;*** 403	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 403	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",402,4
+;*** 402	-----------------------    K$0 = &GpioDataRegs;
+;*** 402	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",402,8
+        MOVL      XAR3,#_GpioDataRegs   ; |402| 
+        TBIT      *+XAR3[1],#14         ; |402| 
+        BF        L129,TC               ; |402| 
+        ; branchcc occurs ; |402| 
+;*** 404	-----------------------    g_q17shift_pos_val -= 13107200L;
+;*** 405	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 405	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",404,4
         MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17shift_pos_val
-        SUBL      @_g_q17shift_pos_val,ACC ; |402| 
-	.dwpsn	"search.c",403,4
+        SUBL      @_g_q17shift_pos_val,ACC ; |404| 
+	.dwpsn	"search.c",405,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |403| 
-        ; call occurs [#_DSP28x_usDelay] ; |403| 
-        TBIT      *+XAR3[0],#14         ; |403| 
-        BF        L130,TC               ; |403| 
-        ; branchcc occurs ; |403| 
+        LCR       #_DSP28x_usDelay      ; |405| 
+        ; call occurs [#_DSP28x_usDelay] ; |405| 
+        TBIT      *+XAR3[0],#14         ; |405| 
+        BF        L130,TC               ; |405| 
+        ; branchcc occurs ; |405| 
 L132:    
 ;***	-----------------------g7:
-;*** 409	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 410	-----------------------    return;
-	.dwpsn	"search.c",409,4
+;*** 411	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 412	-----------------------    return;
+	.dwpsn	"search.c",411,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |409| 
-        ; call occurs [#_DSP28x_usDelay] ; |409| 
-	.dwpsn	"search.c",410,4
-	.dwpsn	"search.c",414,1
+        LCR       #_DSP28x_usDelay      ; |411| 
+        ; call occurs [#_DSP28x_usDelay] ; |411| 
+	.dwpsn	"search.c",412,4
+	.dwpsn	"search.c",416,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -3587,7 +3585,7 @@ L132:
         LRETR
         ; return occurs
 	.dwattr DW$174, DW_AT_end_file("search.c")
-	.dwattr DW$174, DW_AT_end_line(0x19e)
+	.dwattr DW$174, DW_AT_end_line(0x1a0)
 	.dwattr DW$174, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$174
@@ -3599,9 +3597,9 @@ DW$176	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_PosPID"), DW_AT_symbol_name("_
 	.dwattr DW$176, DW_AT_low_pc(_Set_PosPID)
 	.dwattr DW$176, DW_AT_high_pc(0x00)
 	.dwattr DW$176, DW_AT_begin_file("search.c")
-	.dwattr DW$176, DW_AT_begin_line(0x318)
+	.dwattr DW$176, DW_AT_begin_line(0x31a)
 	.dwattr DW$176, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",793,1
+	.dwpsn	"search.c",795,1
 
 	.dwfde DW$CIE
 
@@ -3644,171 +3642,171 @@ DW$178	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L133:    
 ;***	-----------------------g2:
-;*** 799	-----------------------    g_pos.iq7kp += 12L;
-;*** 800	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",799,4
+;*** 801	-----------------------    g_pos.iq7kp += 12L;
+;*** 802	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",801,4
         MOVB      ACC,#12
         MOVW      DP,#_g_pos+30
-        ADDL      @_g_pos+30,ACC        ; |799| 
-	.dwpsn	"search.c",800,4
+        ADDL      @_g_pos+30,ACC        ; |801| 
+	.dwpsn	"search.c",802,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |800| 
-        ; call occurs [#_DSP28x_usDelay] ; |800| 
+        LCR       #_DSP28x_usDelay      ; |802| 
+        ; call occurs [#_DSP28x_usDelay] ; |802| 
 L134:    
 ;***	-----------------------g3:
-;*** 809	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",809,3
+;*** 811	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",811,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |809| 
-        BF        L137,NTC              ; |809| 
-        ; branchcc occurs ; |809| 
+        TBIT      @_GpioDataRegs,#14    ; |811| 
+        BF        L137,NTC              ; |811| 
+        ; branchcc occurs ; |811| 
 L135:    
 ;***	-----------------------g4:
-;*** 814	-----------------------    VFDPrintf("Pkp:%3.1f", _IQ7toF(g_pos.iq7kp));
-;*** 794	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",814,6
+;*** 816	-----------------------    VFDPrintf("Pkp:%3.1f", _IQ7toF(g_pos.iq7kp));
+;*** 796	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",816,6
         MOVW      DP,#_g_pos+30
-        MOVL      ACC,@_g_pos+30        ; |814| 
-        LCR       #__IQ7toF             ; |814| 
-        ; call occurs [#__IQ7toF] ; |814| 
-        MOVL      XAR4,#FSL23           ; |814| 
-        MOVL      *-SP[2],XAR4          ; |814| 
-        MOVL      *-SP[4],ACC           ; |814| 
-        LCR       #_VFDPrintf           ; |814| 
-        ; call occurs [#_VFDPrintf] ; |814| 
-	.dwpsn	"search.c",794,8
+        MOVL      ACC,@_g_pos+30        ; |816| 
+        LCR       #__IQ7toF             ; |816| 
+        ; call occurs [#__IQ7toF] ; |816| 
+        MOVL      XAR4,#FSL23           ; |816| 
+        MOVL      *-SP[2],XAR4          ; |816| 
+        MOVL      *-SP[4],ACC           ; |816| 
+        LCR       #_VFDPrintf           ; |816| 
+        ; call occurs [#_VFDPrintf] ; |816| 
+	.dwpsn	"search.c",796,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |794| 
-        BF        L133,NTC              ; |794| 
-        ; branchcc occurs ; |794| 
+        TBIT      @_GpioDataRegs+1,#15  ; |796| 
+        BF        L133,NTC              ; |796| 
+        ; branchcc occurs ; |796| 
 L136:    
 ;***	-----------------------g5:
-;*** 802	-----------------------    K$0 = &GpioDataRegs;
-;*** 802	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",802,8
-        MOVL      XAR3,#_GpioDataRegs   ; |802| 
-        TBIT      *+XAR3[1],#14         ; |802| 
-        BF        L134,TC               ; |802| 
-        ; branchcc occurs ; |802| 
-;*** 804	-----------------------    g_pos.iq7kp -= 12L;
-;*** 805	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 805	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",804,4
+;*** 804	-----------------------    K$0 = &GpioDataRegs;
+;*** 804	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",804,8
+        MOVL      XAR3,#_GpioDataRegs   ; |804| 
+        TBIT      *+XAR3[1],#14         ; |804| 
+        BF        L134,TC               ; |804| 
+        ; branchcc occurs ; |804| 
+;*** 806	-----------------------    g_pos.iq7kp -= 12L;
+;*** 807	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 807	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",806,4
         MOVB      ACC,#12
         MOVW      DP,#_g_pos+30
-        SUBL      @_g_pos+30,ACC        ; |804| 
-	.dwpsn	"search.c",805,4
+        SUBL      @_g_pos+30,ACC        ; |806| 
+	.dwpsn	"search.c",807,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |805| 
-        ; call occurs [#_DSP28x_usDelay] ; |805| 
-        TBIT      *+XAR3[0],#14         ; |805| 
-        BF        L135,TC               ; |805| 
-        ; branchcc occurs ; |805| 
+        LCR       #_DSP28x_usDelay      ; |807| 
+        ; call occurs [#_DSP28x_usDelay] ; |807| 
+        TBIT      *+XAR3[0],#14         ; |807| 
+        BF        L135,TC               ; |807| 
+        ; branchcc occurs ; |807| 
 L137:    
 ;***	-----------------------g7:
-;*** 811	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 813	-----------------------    DSP28x_usDelay(2499998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g11;
-	.dwpsn	"search.c",811,4
+	.dwpsn	"search.c",813,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |811| 
-        ; call occurs [#_DSP28x_usDelay] ; |811| 
+        LCR       #_DSP28x_usDelay      ; |813| 
+        ; call occurs [#_DSP28x_usDelay] ; |813| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L141,TC
         ; branchcc occurs
 L138:    
 ;***	-----------------------g8:
-;*** 822	-----------------------    g_pos.iq7kd += 12L;
-;*** 823	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",822,4
+;*** 824	-----------------------    g_pos.iq7kd += 12L;
+;*** 825	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",824,4
         MOVB      ACC,#12
         MOVW      DP,#_g_pos+34
-        ADDL      @_g_pos+34,ACC        ; |822| 
-	.dwpsn	"search.c",823,4
+        ADDL      @_g_pos+34,ACC        ; |824| 
+	.dwpsn	"search.c",825,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |823| 
-        ; call occurs [#_DSP28x_usDelay] ; |823| 
+        LCR       #_DSP28x_usDelay      ; |825| 
+        ; call occurs [#_DSP28x_usDelay] ; |825| 
 L139:    
 ;***	-----------------------g9:
-;*** 832	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
-	.dwpsn	"search.c",832,3
+;*** 834	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
+	.dwpsn	"search.c",834,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |832| 
-        BF        L142,NTC              ; |832| 
-        ; branchcc occurs ; |832| 
+        TBIT      @_GpioDataRegs,#14    ; |834| 
+        BF        L142,NTC              ; |834| 
+        ; branchcc occurs ; |834| 
 L140:    
 ;***	-----------------------g10:
-;*** 837	-----------------------    VFDPrintf("Pkd:%3.1f", _IQ7toF(g_pos.iq7kd));
-;*** 817	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
-	.dwpsn	"search.c",837,6
+;*** 839	-----------------------    VFDPrintf("Pkd:%3.1f", _IQ7toF(g_pos.iq7kd));
+;*** 819	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
+	.dwpsn	"search.c",839,6
         MOVW      DP,#_g_pos+34
-        MOVL      ACC,@_g_pos+34        ; |837| 
-        LCR       #__IQ7toF             ; |837| 
-        ; call occurs [#__IQ7toF] ; |837| 
-        MOVL      XAR4,#FSL24           ; |837| 
-        MOVL      *-SP[2],XAR4          ; |837| 
-        MOVL      *-SP[4],ACC           ; |837| 
-        LCR       #_VFDPrintf           ; |837| 
-        ; call occurs [#_VFDPrintf] ; |837| 
-	.dwpsn	"search.c",817,8
+        MOVL      ACC,@_g_pos+34        ; |839| 
+        LCR       #__IQ7toF             ; |839| 
+        ; call occurs [#__IQ7toF] ; |839| 
+        MOVL      XAR4,#FSL24           ; |839| 
+        MOVL      *-SP[2],XAR4          ; |839| 
+        MOVL      *-SP[4],ACC           ; |839| 
+        LCR       #_VFDPrintf           ; |839| 
+        ; call occurs [#_VFDPrintf] ; |839| 
+	.dwpsn	"search.c",819,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |817| 
-        BF        L138,NTC              ; |817| 
-        ; branchcc occurs ; |817| 
+        TBIT      @_GpioDataRegs+1,#15  ; |819| 
+        BF        L138,NTC              ; |819| 
+        ; branchcc occurs ; |819| 
 L141:    
 ;***	-----------------------g11:
-;*** 825	-----------------------    K$0 = &GpioDataRegs;
-;*** 825	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
-	.dwpsn	"search.c",825,8
-        MOVL      XAR3,#_GpioDataRegs   ; |825| 
-        TBIT      *+XAR3[1],#14         ; |825| 
-        BF        L139,TC               ; |825| 
-        ; branchcc occurs ; |825| 
-;*** 827	-----------------------    g_pos.iq7kd -= 12L;
-;*** 828	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 828	-----------------------    if ( *K$0&0x4000u ) goto g10;
-	.dwpsn	"search.c",827,4
+;*** 827	-----------------------    K$0 = &GpioDataRegs;
+;*** 827	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
+	.dwpsn	"search.c",827,8
+        MOVL      XAR3,#_GpioDataRegs   ; |827| 
+        TBIT      *+XAR3[1],#14         ; |827| 
+        BF        L139,TC               ; |827| 
+        ; branchcc occurs ; |827| 
+;*** 829	-----------------------    g_pos.iq7kd -= 12L;
+;*** 830	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 830	-----------------------    if ( *K$0&0x4000u ) goto g10;
+	.dwpsn	"search.c",829,4
         MOVB      ACC,#12
         MOVW      DP,#_g_pos+34
-        SUBL      @_g_pos+34,ACC        ; |827| 
-	.dwpsn	"search.c",828,4
+        SUBL      @_g_pos+34,ACC        ; |829| 
+	.dwpsn	"search.c",830,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |828| 
-        ; call occurs [#_DSP28x_usDelay] ; |828| 
-        TBIT      *+XAR3[0],#14         ; |828| 
-        BF        L140,TC               ; |828| 
-        ; branchcc occurs ; |828| 
+        LCR       #_DSP28x_usDelay      ; |830| 
+        ; call occurs [#_DSP28x_usDelay] ; |830| 
+        TBIT      *+XAR3[0],#14         ; |830| 
+        BF        L140,TC               ; |830| 
+        ; branchcc occurs ; |830| 
 L142:    
 ;***	-----------------------g13:
-;*** 834	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 835	-----------------------    motor_vari_init(&g_rm);
-;*** 841	-----------------------    motor_vari_init(&g_lm);
-;*** 842	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 842	-----------------------    return;
-	.dwpsn	"search.c",834,4
+;*** 836	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 837	-----------------------    motor_vari_init(&g_rm);
+;*** 843	-----------------------    motor_vari_init(&g_lm);
+;*** 844	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 844	-----------------------    return;
+	.dwpsn	"search.c",836,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |834| 
-        ; call occurs [#_DSP28x_usDelay] ; |834| 
-	.dwpsn	"search.c",835,4
-        MOVL      XAR4,#_g_rm           ; |835| 
-        LCR       #_motor_vari_init     ; |835| 
-        ; call occurs [#_motor_vari_init] ; |835| 
-	.dwpsn	"search.c",841,2
-        MOVL      XAR4,#_g_lm           ; |841| 
-        LCR       #_motor_vari_init     ; |841| 
-        ; call occurs [#_motor_vari_init] ; |841| 
-	.dwpsn	"search.c",842,5
+        LCR       #_DSP28x_usDelay      ; |836| 
+        ; call occurs [#_DSP28x_usDelay] ; |836| 
+	.dwpsn	"search.c",837,4
+        MOVL      XAR4,#_g_rm           ; |837| 
+        LCR       #_motor_vari_init     ; |837| 
+        ; call occurs [#_motor_vari_init] ; |837| 
+	.dwpsn	"search.c",843,2
+        MOVL      XAR4,#_g_lm           ; |843| 
+        LCR       #_motor_vari_init     ; |843| 
+        ; call occurs [#_motor_vari_init] ; |843| 
+	.dwpsn	"search.c",844,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |842| 
-        ; call occurs [#_DSP28x_usDelay] ; |842| 
-	.dwpsn	"search.c",843,1
+        LCR       #_DSP28x_usDelay      ; |844| 
+        ; call occurs [#_DSP28x_usDelay] ; |844| 
+	.dwpsn	"search.c",845,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -3817,7 +3815,7 @@ L142:
         LRETR
         ; return occurs
 	.dwattr DW$176, DW_AT_end_file("search.c")
-	.dwattr DW$176, DW_AT_end_line(0x34b)
+	.dwattr DW$176, DW_AT_end_line(0x34d)
 	.dwattr DW$176, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$176
@@ -3829,9 +3827,9 @@ DW$179	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_MotorPID"), DW_AT_symbol_name(
 	.dwattr DW$179, DW_AT_low_pc(_Set_MotorPID)
 	.dwattr DW$179, DW_AT_high_pc(0x00)
 	.dwattr DW$179, DW_AT_begin_file("search.c")
-	.dwattr DW$179, DW_AT_begin_line(0x34f)
+	.dwattr DW$179, DW_AT_begin_line(0x351)
 	.dwattr DW$179, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",848,1
+	.dwpsn	"search.c",850,1
 
 	.dwfde DW$CIE
 
@@ -3874,175 +3872,175 @@ DW$181	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L143:    
 ;***	-----------------------g2:
-;*** 854	-----------------------    g_q28kp += 2684354L;
-;*** 855	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",854,4
-        MOVL      XAR4,#2684354         ; |854| 
+;*** 856	-----------------------    g_q28kp += 2684354L;
+;*** 857	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",856,4
+        MOVL      XAR4,#2684354         ; |856| 
         MOVW      DP,#_g_q28kp
-        MOVL      ACC,XAR4              ; |854| 
-        ADDL      @_g_q28kp,ACC         ; |854| 
-	.dwpsn	"search.c",855,4
+        MOVL      ACC,XAR4              ; |856| 
+        ADDL      @_g_q28kp,ACC         ; |856| 
+	.dwpsn	"search.c",857,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |855| 
-        ; call occurs [#_DSP28x_usDelay] ; |855| 
+        LCR       #_DSP28x_usDelay      ; |857| 
+        ; call occurs [#_DSP28x_usDelay] ; |857| 
 L144:    
 ;***	-----------------------g3:
-;*** 864	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",864,3
+;*** 866	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",866,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |864| 
-        BF        L147,NTC              ; |864| 
-        ; branchcc occurs ; |864| 
+        TBIT      @_GpioDataRegs,#14    ; |866| 
+        BF        L147,NTC              ; |866| 
+        ; branchcc occurs ; |866| 
 L145:    
 ;***	-----------------------g4:
-;*** 869	-----------------------    VFDPrintf("Mkp:%3.2f", _IQ28toF(g_q28kp));
-;*** 849	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",869,6
+;*** 871	-----------------------    VFDPrintf("Mkp:%3.2f", _IQ28toF(g_q28kp));
+;*** 851	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",871,6
         MOVW      DP,#_g_q28kp
-        MOVL      ACC,@_g_q28kp         ; |869| 
-        LCR       #__IQ28toF            ; |869| 
-        ; call occurs [#__IQ28toF] ; |869| 
-        MOVL      XAR4,#FSL25           ; |869| 
-        MOVL      *-SP[2],XAR4          ; |869| 
-        MOVL      *-SP[4],ACC           ; |869| 
-        LCR       #_VFDPrintf           ; |869| 
-        ; call occurs [#_VFDPrintf] ; |869| 
-	.dwpsn	"search.c",849,8
+        MOVL      ACC,@_g_q28kp         ; |871| 
+        LCR       #__IQ28toF            ; |871| 
+        ; call occurs [#__IQ28toF] ; |871| 
+        MOVL      XAR4,#FSL25           ; |871| 
+        MOVL      *-SP[2],XAR4          ; |871| 
+        MOVL      *-SP[4],ACC           ; |871| 
+        LCR       #_VFDPrintf           ; |871| 
+        ; call occurs [#_VFDPrintf] ; |871| 
+	.dwpsn	"search.c",851,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |849| 
-        BF        L143,NTC              ; |849| 
-        ; branchcc occurs ; |849| 
+        TBIT      @_GpioDataRegs+1,#15  ; |851| 
+        BF        L143,NTC              ; |851| 
+        ; branchcc occurs ; |851| 
 L146:    
 ;***	-----------------------g5:
-;*** 857	-----------------------    K$0 = &GpioDataRegs;
-;*** 857	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",857,8
-        MOVL      XAR3,#_GpioDataRegs   ; |857| 
-        TBIT      *+XAR3[1],#14         ; |857| 
-        BF        L144,TC               ; |857| 
-        ; branchcc occurs ; |857| 
-;*** 859	-----------------------    g_q28kp -= 2684354L;
-;*** 860	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 860	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",859,4
-        MOVL      XAR4,#2684354         ; |859| 
+;*** 859	-----------------------    K$0 = &GpioDataRegs;
+;*** 859	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",859,8
+        MOVL      XAR3,#_GpioDataRegs   ; |859| 
+        TBIT      *+XAR3[1],#14         ; |859| 
+        BF        L144,TC               ; |859| 
+        ; branchcc occurs ; |859| 
+;*** 861	-----------------------    g_q28kp -= 2684354L;
+;*** 862	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 862	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",861,4
+        MOVL      XAR4,#2684354         ; |861| 
         MOVW      DP,#_g_q28kp
-        MOVL      ACC,XAR4              ; |859| 
-        SUBL      @_g_q28kp,ACC         ; |859| 
-	.dwpsn	"search.c",860,4
+        MOVL      ACC,XAR4              ; |861| 
+        SUBL      @_g_q28kp,ACC         ; |861| 
+	.dwpsn	"search.c",862,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |860| 
-        ; call occurs [#_DSP28x_usDelay] ; |860| 
-        TBIT      *+XAR3[0],#14         ; |860| 
-        BF        L145,TC               ; |860| 
-        ; branchcc occurs ; |860| 
+        LCR       #_DSP28x_usDelay      ; |862| 
+        ; call occurs [#_DSP28x_usDelay] ; |862| 
+        TBIT      *+XAR3[0],#14         ; |862| 
+        BF        L145,TC               ; |862| 
+        ; branchcc occurs ; |862| 
 L147:    
 ;***	-----------------------g7:
-;*** 866	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 868	-----------------------    DSP28x_usDelay(2499998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g11;
-	.dwpsn	"search.c",866,4
+	.dwpsn	"search.c",868,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |866| 
-        ; call occurs [#_DSP28x_usDelay] ; |866| 
+        LCR       #_DSP28x_usDelay      ; |868| 
+        ; call occurs [#_DSP28x_usDelay] ; |868| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L151,TC
         ; branchcc occurs
 L148:    
 ;***	-----------------------g8:
-;*** 877	-----------------------    g_q28kd += 2684354L;
-;*** 878	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",877,4
-        MOVL      XAR4,#2684354         ; |877| 
+;*** 879	-----------------------    g_q28kd += 2684354L;
+;*** 880	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",879,4
+        MOVL      XAR4,#2684354         ; |879| 
         MOVW      DP,#_g_q28kd
-        MOVL      ACC,XAR4              ; |877| 
-        ADDL      @_g_q28kd,ACC         ; |877| 
-	.dwpsn	"search.c",878,4
+        MOVL      ACC,XAR4              ; |879| 
+        ADDL      @_g_q28kd,ACC         ; |879| 
+	.dwpsn	"search.c",880,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |878| 
-        ; call occurs [#_DSP28x_usDelay] ; |878| 
+        LCR       #_DSP28x_usDelay      ; |880| 
+        ; call occurs [#_DSP28x_usDelay] ; |880| 
 L149:    
 ;***	-----------------------g9:
-;*** 887	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
-	.dwpsn	"search.c",887,3
+;*** 889	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
+	.dwpsn	"search.c",889,3
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |887| 
-        BF        L152,NTC              ; |887| 
-        ; branchcc occurs ; |887| 
+        TBIT      @_GpioDataRegs,#14    ; |889| 
+        BF        L152,NTC              ; |889| 
+        ; branchcc occurs ; |889| 
 L150:    
 ;***	-----------------------g10:
-;*** 892	-----------------------    VFDPrintf("Mkd:%3.2f", _IQ28toF(g_q28kd));
-;*** 872	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
-	.dwpsn	"search.c",892,6
+;*** 894	-----------------------    VFDPrintf("Mkd:%3.2f", _IQ28toF(g_q28kd));
+;*** 874	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
+	.dwpsn	"search.c",894,6
         MOVW      DP,#_g_q28kd
-        MOVL      ACC,@_g_q28kd         ; |892| 
-        LCR       #__IQ28toF            ; |892| 
-        ; call occurs [#__IQ28toF] ; |892| 
-        MOVL      XAR4,#FSL26           ; |892| 
-        MOVL      *-SP[2],XAR4          ; |892| 
-        MOVL      *-SP[4],ACC           ; |892| 
-        LCR       #_VFDPrintf           ; |892| 
-        ; call occurs [#_VFDPrintf] ; |892| 
-	.dwpsn	"search.c",872,8
+        MOVL      ACC,@_g_q28kd         ; |894| 
+        LCR       #__IQ28toF            ; |894| 
+        ; call occurs [#__IQ28toF] ; |894| 
+        MOVL      XAR4,#FSL26           ; |894| 
+        MOVL      *-SP[2],XAR4          ; |894| 
+        MOVL      *-SP[4],ACC           ; |894| 
+        LCR       #_VFDPrintf           ; |894| 
+        ; call occurs [#_VFDPrintf] ; |894| 
+	.dwpsn	"search.c",874,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |872| 
-        BF        L148,NTC              ; |872| 
-        ; branchcc occurs ; |872| 
+        TBIT      @_GpioDataRegs+1,#15  ; |874| 
+        BF        L148,NTC              ; |874| 
+        ; branchcc occurs ; |874| 
 L151:    
 ;***	-----------------------g11:
-;*** 880	-----------------------    K$0 = &GpioDataRegs;
-;*** 880	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
-	.dwpsn	"search.c",880,8
-        MOVL      XAR3,#_GpioDataRegs   ; |880| 
-        TBIT      *+XAR3[1],#14         ; |880| 
-        BF        L149,TC               ; |880| 
-        ; branchcc occurs ; |880| 
-;*** 882	-----------------------    g_q28kd -= 2684354L;
-;*** 883	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 883	-----------------------    if ( *K$0&0x4000u ) goto g10;
-	.dwpsn	"search.c",882,4
-        MOVL      XAR4,#2684354         ; |882| 
+;*** 882	-----------------------    K$0 = &GpioDataRegs;
+;*** 882	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
+	.dwpsn	"search.c",882,8
+        MOVL      XAR3,#_GpioDataRegs   ; |882| 
+        TBIT      *+XAR3[1],#14         ; |882| 
+        BF        L149,TC               ; |882| 
+        ; branchcc occurs ; |882| 
+;*** 884	-----------------------    g_q28kd -= 2684354L;
+;*** 885	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 885	-----------------------    if ( *K$0&0x4000u ) goto g10;
+	.dwpsn	"search.c",884,4
+        MOVL      XAR4,#2684354         ; |884| 
         MOVW      DP,#_g_q28kd
-        MOVL      ACC,XAR4              ; |882| 
-        SUBL      @_g_q28kd,ACC         ; |882| 
-	.dwpsn	"search.c",883,4
+        MOVL      ACC,XAR4              ; |884| 
+        SUBL      @_g_q28kd,ACC         ; |884| 
+	.dwpsn	"search.c",885,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |883| 
-        ; call occurs [#_DSP28x_usDelay] ; |883| 
-        TBIT      *+XAR3[0],#14         ; |883| 
-        BF        L150,TC               ; |883| 
-        ; branchcc occurs ; |883| 
+        LCR       #_DSP28x_usDelay      ; |885| 
+        ; call occurs [#_DSP28x_usDelay] ; |885| 
+        TBIT      *+XAR3[0],#14         ; |885| 
+        BF        L150,TC               ; |885| 
+        ; branchcc occurs ; |885| 
 L152:    
 ;***	-----------------------g13:
-;*** 889	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 890	-----------------------    motor_vari_init(&g_rm);
-;*** 896	-----------------------    motor_vari_init(&g_lm);
-;*** 897	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 897	-----------------------    return;
-	.dwpsn	"search.c",889,4
+;*** 891	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 892	-----------------------    motor_vari_init(&g_rm);
+;*** 898	-----------------------    motor_vari_init(&g_lm);
+;*** 899	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 899	-----------------------    return;
+	.dwpsn	"search.c",891,4
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |889| 
-        ; call occurs [#_DSP28x_usDelay] ; |889| 
-	.dwpsn	"search.c",890,4
-        MOVL      XAR4,#_g_rm           ; |890| 
-        LCR       #_motor_vari_init     ; |890| 
-        ; call occurs [#_motor_vari_init] ; |890| 
-	.dwpsn	"search.c",896,2
-        MOVL      XAR4,#_g_lm           ; |896| 
-        LCR       #_motor_vari_init     ; |896| 
-        ; call occurs [#_motor_vari_init] ; |896| 
-	.dwpsn	"search.c",897,5
+        LCR       #_DSP28x_usDelay      ; |891| 
+        ; call occurs [#_DSP28x_usDelay] ; |891| 
+	.dwpsn	"search.c",892,4
+        MOVL      XAR4,#_g_rm           ; |892| 
+        LCR       #_motor_vari_init     ; |892| 
+        ; call occurs [#_motor_vari_init] ; |892| 
+	.dwpsn	"search.c",898,2
+        MOVL      XAR4,#_g_lm           ; |898| 
+        LCR       #_motor_vari_init     ; |898| 
+        ; call occurs [#_motor_vari_init] ; |898| 
+	.dwpsn	"search.c",899,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |897| 
-        ; call occurs [#_DSP28x_usDelay] ; |897| 
-	.dwpsn	"search.c",898,1
+        LCR       #_DSP28x_usDelay      ; |899| 
+        ; call occurs [#_DSP28x_usDelay] ; |899| 
+	.dwpsn	"search.c",900,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -4051,7 +4049,7 @@ L152:
         LRETR
         ; return occurs
 	.dwattr DW$179, DW_AT_end_file("search.c")
-	.dwattr DW$179, DW_AT_end_line(0x382)
+	.dwattr DW$179, DW_AT_end_line(0x384)
 	.dwattr DW$179, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$179
@@ -4063,9 +4061,9 @@ DW$182	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_Handle"), DW_AT_symbol_name("_
 	.dwattr DW$182, DW_AT_low_pc(_Set_Handle)
 	.dwattr DW$182, DW_AT_high_pc(0x00)
 	.dwattr DW$182, DW_AT_begin_file("search.c")
-	.dwattr DW$182, DW_AT_begin_line(0x22e)
+	.dwattr DW$182, DW_AT_begin_line(0x230)
 	.dwattr DW$182, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",558,22
+	.dwpsn	"search.c",560,22
 
 	.dwfde DW$CIE
 
@@ -4116,326 +4114,326 @@ DW$186	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L153:    
 ;***	-----------------------g2:
-;*** 564	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 565	-----------------------    g_q16in_corner_limit += 655L;
-	.dwpsn	"search.c",564,5
+;*** 566	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 567	-----------------------    g_q16in_corner_limit += 655L;
+	.dwpsn	"search.c",566,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |564| 
-        ; call occurs [#_DSP28x_usDelay] ; |564| 
-	.dwpsn	"search.c",565,5
+        LCR       #_DSP28x_usDelay      ; |566| 
+        ; call occurs [#_DSP28x_usDelay] ; |566| 
+	.dwpsn	"search.c",567,5
         MOVW      DP,#_g_q16in_corner_limit
-        MOV       ACC,#655              ; |565| 
-        ADDL      @_g_q16in_corner_limit,ACC ; |565| 
+        MOV       ACC,#655              ; |567| 
+        ADDL      @_g_q16in_corner_limit,ACC ; |567| 
 L154:    
 ;***	-----------------------g3:
-;*** 575	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",575,4
+;*** 577	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",577,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |575| 
-        BF        L157,NTC              ; |575| 
-        ; branchcc occurs ; |575| 
+        TBIT      @_GpioDataRegs,#14    ; |577| 
+        BF        L157,NTC              ; |577| 
+        ; branchcc occurs ; |577| 
 L155:    
 ;***	-----------------------g4:
-;*** 580	-----------------------    VFDPrintf("IS:%4.3f", _IQ16toF(g_q16in_corner_limit));
-;*** 561	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",580,4
+;*** 582	-----------------------    VFDPrintf("IS:%4.3f", _IQ16toF(g_q16in_corner_limit));
+;*** 563	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",582,4
         MOVW      DP,#_g_q16in_corner_limit
-        MOVL      ACC,@_g_q16in_corner_limit ; |580| 
-        LCR       #__IQ16toF            ; |580| 
-        ; call occurs [#__IQ16toF] ; |580| 
-        MOVL      XAR4,#FSL27           ; |580| 
-        MOVL      *-SP[2],XAR4          ; |580| 
-        MOVL      *-SP[4],ACC           ; |580| 
-        LCR       #_VFDPrintf           ; |580| 
-        ; call occurs [#_VFDPrintf] ; |580| 
-	.dwpsn	"search.c",561,10
+        MOVL      ACC,@_g_q16in_corner_limit ; |582| 
+        LCR       #__IQ16toF            ; |582| 
+        ; call occurs [#__IQ16toF] ; |582| 
+        MOVL      XAR4,#FSL27           ; |582| 
+        MOVL      *-SP[2],XAR4          ; |582| 
+        MOVL      *-SP[4],ACC           ; |582| 
+        LCR       #_VFDPrintf           ; |582| 
+        ; call occurs [#_VFDPrintf] ; |582| 
+	.dwpsn	"search.c",563,10
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |561| 
-        BF        L153,NTC              ; |561| 
-        ; branchcc occurs ; |561| 
+        TBIT      @_GpioDataRegs+1,#15  ; |563| 
+        BF        L153,NTC              ; |563| 
+        ; branchcc occurs ; |563| 
 L156:    
 ;***	-----------------------g5:
-;*** 568	-----------------------    K$0 = &GpioDataRegs;
-;*** 568	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",568,9
-        MOVL      XAR3,#_GpioDataRegs   ; |568| 
-        TBIT      *+XAR3[1],#14         ; |568| 
-        BF        L154,TC               ; |568| 
-        ; branchcc occurs ; |568| 
-;*** 569	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 570	-----------------------    g_q16in_corner_limit -= 655L;
-;*** 570	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",569,5
+;*** 570	-----------------------    K$0 = &GpioDataRegs;
+;*** 570	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",570,9
+        MOVL      XAR3,#_GpioDataRegs   ; |570| 
+        TBIT      *+XAR3[1],#14         ; |570| 
+        BF        L154,TC               ; |570| 
+        ; branchcc occurs ; |570| 
+;*** 571	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 572	-----------------------    g_q16in_corner_limit -= 655L;
+;*** 572	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",571,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |569| 
-        ; call occurs [#_DSP28x_usDelay] ; |569| 
-	.dwpsn	"search.c",570,5
+        LCR       #_DSP28x_usDelay      ; |571| 
+        ; call occurs [#_DSP28x_usDelay] ; |571| 
+	.dwpsn	"search.c",572,5
         MOVW      DP,#_g_q16in_corner_limit
-        MOV       ACC,#655              ; |570| 
-        SUBL      @_g_q16in_corner_limit,ACC ; |570| 
-        TBIT      *+XAR3[0],#14         ; |570| 
-        BF        L155,TC               ; |570| 
-        ; branchcc occurs ; |570| 
+        MOV       ACC,#655              ; |572| 
+        SUBL      @_g_q16in_corner_limit,ACC ; |572| 
+        TBIT      *+XAR3[0],#14         ; |572| 
+        BF        L155,TC               ; |572| 
+        ; branchcc occurs ; |572| 
 L157:    
 ;***	-----------------------g7:
-;*** 576	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 577	-----------------------    DSP28x_usDelay(3399998uL);
+;*** 578	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 579	-----------------------    DSP28x_usDelay(3399998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g11;
-	.dwpsn	"search.c",576,5
+	.dwpsn	"search.c",578,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |576| 
-        ; call occurs [#_DSP28x_usDelay] ; |576| 
-	.dwpsn	"search.c",577,5
+        LCR       #_DSP28x_usDelay      ; |578| 
+        ; call occurs [#_DSP28x_usDelay] ; |578| 
+	.dwpsn	"search.c",579,5
         MOV       AL,#57662
         MOV       AH,#51
-        LCR       #_DSP28x_usDelay      ; |577| 
-        ; call occurs [#_DSP28x_usDelay] ; |577| 
+        LCR       #_DSP28x_usDelay      ; |579| 
+        ; call occurs [#_DSP28x_usDelay] ; |579| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L161,TC
         ; branchcc occurs
 L158:    
 ;***	-----------------------g8:
-;*** 589	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 590	-----------------------    g_q16out_corner_limit += 655L;
-	.dwpsn	"search.c",589,5
+;*** 591	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 592	-----------------------    g_q16out_corner_limit += 655L;
+	.dwpsn	"search.c",591,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |589| 
-        ; call occurs [#_DSP28x_usDelay] ; |589| 
-	.dwpsn	"search.c",590,5
+        LCR       #_DSP28x_usDelay      ; |591| 
+        ; call occurs [#_DSP28x_usDelay] ; |591| 
+	.dwpsn	"search.c",592,5
         MOVW      DP,#_g_q16out_corner_limit
-        MOV       ACC,#655              ; |590| 
-        ADDL      @_g_q16out_corner_limit,ACC ; |590| 
+        MOV       ACC,#655              ; |592| 
+        ADDL      @_g_q16out_corner_limit,ACC ; |592| 
 L159:    
 ;***	-----------------------g9:
-;*** 600	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
-	.dwpsn	"search.c",600,4
+;*** 602	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
+	.dwpsn	"search.c",602,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |600| 
-        BF        L162,NTC              ; |600| 
-        ; branchcc occurs ; |600| 
+        TBIT      @_GpioDataRegs,#14    ; |602| 
+        BF        L162,NTC              ; |602| 
+        ; branchcc occurs ; |602| 
 L160:    
 ;***	-----------------------g10:
-;*** 605	-----------------------    VFDPrintf("OS:%4.3f", _IQ16toF(g_q16out_corner_limit));
-;*** 586	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
-	.dwpsn	"search.c",605,4
+;*** 607	-----------------------    VFDPrintf("OS:%4.3f", _IQ16toF(g_q16out_corner_limit));
+;*** 588	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
+	.dwpsn	"search.c",607,4
         MOVW      DP,#_g_q16out_corner_limit
-        MOVL      ACC,@_g_q16out_corner_limit ; |605| 
-        LCR       #__IQ16toF            ; |605| 
-        ; call occurs [#__IQ16toF] ; |605| 
-        MOVL      XAR4,#FSL28           ; |605| 
-        MOVL      *-SP[2],XAR4          ; |605| 
-        MOVL      *-SP[4],ACC           ; |605| 
-        LCR       #_VFDPrintf           ; |605| 
-        ; call occurs [#_VFDPrintf] ; |605| 
-	.dwpsn	"search.c",586,10
+        MOVL      ACC,@_g_q16out_corner_limit ; |607| 
+        LCR       #__IQ16toF            ; |607| 
+        ; call occurs [#__IQ16toF] ; |607| 
+        MOVL      XAR4,#FSL28           ; |607| 
+        MOVL      *-SP[2],XAR4          ; |607| 
+        MOVL      *-SP[4],ACC           ; |607| 
+        LCR       #_VFDPrintf           ; |607| 
+        ; call occurs [#_VFDPrintf] ; |607| 
+	.dwpsn	"search.c",588,10
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |586| 
-        BF        L158,NTC              ; |586| 
-        ; branchcc occurs ; |586| 
+        TBIT      @_GpioDataRegs+1,#15  ; |588| 
+        BF        L158,NTC              ; |588| 
+        ; branchcc occurs ; |588| 
 L161:    
 ;***	-----------------------g11:
-;*** 593	-----------------------    K$0 = &GpioDataRegs;
-;*** 593	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
-	.dwpsn	"search.c",593,9
-        MOVL      XAR3,#_GpioDataRegs   ; |593| 
-        TBIT      *+XAR3[1],#14         ; |593| 
-        BF        L159,TC               ; |593| 
-        ; branchcc occurs ; |593| 
-;*** 594	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 595	-----------------------    g_q16out_corner_limit -= 655L;
-;*** 595	-----------------------    if ( *K$0&0x4000u ) goto g10;
-	.dwpsn	"search.c",594,5
+;*** 595	-----------------------    K$0 = &GpioDataRegs;
+;*** 595	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
+	.dwpsn	"search.c",595,9
+        MOVL      XAR3,#_GpioDataRegs   ; |595| 
+        TBIT      *+XAR3[1],#14         ; |595| 
+        BF        L159,TC               ; |595| 
+        ; branchcc occurs ; |595| 
+;*** 596	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 597	-----------------------    g_q16out_corner_limit -= 655L;
+;*** 597	-----------------------    if ( *K$0&0x4000u ) goto g10;
+	.dwpsn	"search.c",596,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |594| 
-        ; call occurs [#_DSP28x_usDelay] ; |594| 
-	.dwpsn	"search.c",595,5
+        LCR       #_DSP28x_usDelay      ; |596| 
+        ; call occurs [#_DSP28x_usDelay] ; |596| 
+	.dwpsn	"search.c",597,5
         MOVW      DP,#_g_q16out_corner_limit
-        MOV       ACC,#655              ; |595| 
-        SUBL      @_g_q16out_corner_limit,ACC ; |595| 
-        TBIT      *+XAR3[0],#14         ; |595| 
-        BF        L160,TC               ; |595| 
-        ; branchcc occurs ; |595| 
+        MOV       ACC,#655              ; |597| 
+        SUBL      @_g_q16out_corner_limit,ACC ; |597| 
+        TBIT      *+XAR3[0],#14         ; |597| 
+        BF        L160,TC               ; |597| 
+        ; branchcc occurs ; |597| 
 L162:    
 ;***	-----------------------g13:
-;*** 601	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 603	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g17;
-	.dwpsn	"search.c",601,5
+	.dwpsn	"search.c",603,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |601| 
-        ; call occurs [#_DSP28x_usDelay] ; |601| 
+        LCR       #_DSP28x_usDelay      ; |603| 
+        ; call occurs [#_DSP28x_usDelay] ; |603| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L166,TC
         ; branchcc occurs
 L163:    
 ;***	-----------------------g14:
-;*** 612	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 613	-----------------------    g_q16in_corner_fast_limit += 655L;
-	.dwpsn	"search.c",612,5
+;*** 614	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 615	-----------------------    g_q16in_corner_fast_limit += 655L;
+	.dwpsn	"search.c",614,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |612| 
-        ; call occurs [#_DSP28x_usDelay] ; |612| 
-	.dwpsn	"search.c",613,5
+        LCR       #_DSP28x_usDelay      ; |614| 
+        ; call occurs [#_DSP28x_usDelay] ; |614| 
+	.dwpsn	"search.c",615,5
         MOVW      DP,#_g_q16in_corner_fast_limit
-        MOV       ACC,#655              ; |613| 
-        ADDL      @_g_q16in_corner_fast_limit,ACC ; |613| 
+        MOV       ACC,#655              ; |615| 
+        ADDL      @_g_q16in_corner_fast_limit,ACC ; |615| 
 L164:    
 ;***	-----------------------g15:
-;*** 623	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g19;
-	.dwpsn	"search.c",623,4
+;*** 625	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g19;
+	.dwpsn	"search.c",625,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |623| 
-        BF        L167,NTC              ; |623| 
-        ; branchcc occurs ; |623| 
+        TBIT      @_GpioDataRegs,#14    ; |625| 
+        BF        L167,NTC              ; |625| 
+        ; branchcc occurs ; |625| 
 L165:    
 ;***	-----------------------g16:
-;*** 628	-----------------------    VFDPrintf("IF:%4.3f", _IQ16toF(g_q16in_corner_fast_limit));
-;*** 609	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g14;
-	.dwpsn	"search.c",628,4
+;*** 630	-----------------------    VFDPrintf("IF:%4.3f", _IQ16toF(g_q16in_corner_fast_limit));
+;*** 611	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g14;
+	.dwpsn	"search.c",630,4
         MOVW      DP,#_g_q16in_corner_fast_limit
-        MOVL      ACC,@_g_q16in_corner_fast_limit ; |628| 
-        LCR       #__IQ16toF            ; |628| 
-        ; call occurs [#__IQ16toF] ; |628| 
-        MOVL      XAR4,#FSL29           ; |628| 
-        MOVL      *-SP[2],XAR4          ; |628| 
-        MOVL      *-SP[4],ACC           ; |628| 
-        LCR       #_VFDPrintf           ; |628| 
-        ; call occurs [#_VFDPrintf] ; |628| 
-	.dwpsn	"search.c",609,10
+        MOVL      ACC,@_g_q16in_corner_fast_limit ; |630| 
+        LCR       #__IQ16toF            ; |630| 
+        ; call occurs [#__IQ16toF] ; |630| 
+        MOVL      XAR4,#FSL29           ; |630| 
+        MOVL      *-SP[2],XAR4          ; |630| 
+        MOVL      *-SP[4],ACC           ; |630| 
+        LCR       #_VFDPrintf           ; |630| 
+        ; call occurs [#_VFDPrintf] ; |630| 
+	.dwpsn	"search.c",611,10
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |609| 
-        BF        L163,NTC              ; |609| 
-        ; branchcc occurs ; |609| 
+        TBIT      @_GpioDataRegs+1,#15  ; |611| 
+        BF        L163,NTC              ; |611| 
+        ; branchcc occurs ; |611| 
 L166:    
 ;***	-----------------------g17:
-;*** 616	-----------------------    K$0 = &GpioDataRegs;
-;*** 616	-----------------------    if ( K$0[1]&0x4000u ) goto g15;
-	.dwpsn	"search.c",616,9
-        MOVL      XAR3,#_GpioDataRegs   ; |616| 
-        TBIT      *+XAR3[1],#14         ; |616| 
-        BF        L164,TC               ; |616| 
-        ; branchcc occurs ; |616| 
-;*** 617	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 618	-----------------------    g_q16in_corner_fast_limit -= 655L;
-;*** 618	-----------------------    if ( *K$0&0x4000u ) goto g16;
-	.dwpsn	"search.c",617,5
+;*** 618	-----------------------    K$0 = &GpioDataRegs;
+;*** 618	-----------------------    if ( K$0[1]&0x4000u ) goto g15;
+	.dwpsn	"search.c",618,9
+        MOVL      XAR3,#_GpioDataRegs   ; |618| 
+        TBIT      *+XAR3[1],#14         ; |618| 
+        BF        L164,TC               ; |618| 
+        ; branchcc occurs ; |618| 
+;*** 619	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 620	-----------------------    g_q16in_corner_fast_limit -= 655L;
+;*** 620	-----------------------    if ( *K$0&0x4000u ) goto g16;
+	.dwpsn	"search.c",619,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |617| 
-        ; call occurs [#_DSP28x_usDelay] ; |617| 
-	.dwpsn	"search.c",618,5
+        LCR       #_DSP28x_usDelay      ; |619| 
+        ; call occurs [#_DSP28x_usDelay] ; |619| 
+	.dwpsn	"search.c",620,5
         MOVW      DP,#_g_q16in_corner_fast_limit
-        MOV       ACC,#655              ; |618| 
-        SUBL      @_g_q16in_corner_fast_limit,ACC ; |618| 
-        TBIT      *+XAR3[0],#14         ; |618| 
-        BF        L165,TC               ; |618| 
-        ; branchcc occurs ; |618| 
+        MOV       ACC,#655              ; |620| 
+        SUBL      @_g_q16in_corner_fast_limit,ACC ; |620| 
+        TBIT      *+XAR3[0],#14         ; |620| 
+        BF        L165,TC               ; |620| 
+        ; branchcc occurs ; |620| 
 L167:    
 ;***	-----------------------g19:
-;*** 624	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 625	-----------------------    DSP28x_usDelay(3399998uL);
+;*** 626	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 627	-----------------------    DSP28x_usDelay(3399998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g23;
-	.dwpsn	"search.c",624,5
+	.dwpsn	"search.c",626,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |624| 
-        ; call occurs [#_DSP28x_usDelay] ; |624| 
-	.dwpsn	"search.c",625,5
+        LCR       #_DSP28x_usDelay      ; |626| 
+        ; call occurs [#_DSP28x_usDelay] ; |626| 
+	.dwpsn	"search.c",627,5
         MOV       AL,#57662
         MOV       AH,#51
-        LCR       #_DSP28x_usDelay      ; |625| 
-        ; call occurs [#_DSP28x_usDelay] ; |625| 
+        LCR       #_DSP28x_usDelay      ; |627| 
+        ; call occurs [#_DSP28x_usDelay] ; |627| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L171,TC
         ; branchcc occurs
 L168:    
 ;***	-----------------------g20:
-;*** 637	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 638	-----------------------    g_q16out_corner_fast_limit += 655L;
-	.dwpsn	"search.c",637,5
+;*** 639	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 640	-----------------------    g_q16out_corner_fast_limit += 655L;
+	.dwpsn	"search.c",639,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |637| 
-        ; call occurs [#_DSP28x_usDelay] ; |637| 
-	.dwpsn	"search.c",638,5
+        LCR       #_DSP28x_usDelay      ; |639| 
+        ; call occurs [#_DSP28x_usDelay] ; |639| 
+	.dwpsn	"search.c",640,5
         MOVW      DP,#_g_q16out_corner_fast_limit
-        MOV       ACC,#655              ; |638| 
-        ADDL      @_g_q16out_corner_fast_limit,ACC ; |638| 
+        MOV       ACC,#655              ; |640| 
+        ADDL      @_g_q16out_corner_fast_limit,ACC ; |640| 
 L169:    
 ;***	-----------------------g21:
-;*** 648	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g25;
-	.dwpsn	"search.c",648,4
+;*** 650	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g25;
+	.dwpsn	"search.c",650,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |648| 
-        BF        L172,NTC              ; |648| 
-        ; branchcc occurs ; |648| 
+        TBIT      @_GpioDataRegs,#14    ; |650| 
+        BF        L172,NTC              ; |650| 
+        ; branchcc occurs ; |650| 
 L170:    
 ;***	-----------------------g22:
-;*** 653	-----------------------    VFDPrintf("OF:%4.3f", _IQ16toF(g_q16out_corner_fast_limit));
-;*** 634	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g20;
-	.dwpsn	"search.c",653,4
+;*** 655	-----------------------    VFDPrintf("OF:%4.3f", _IQ16toF(g_q16out_corner_fast_limit));
+;*** 636	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g20;
+	.dwpsn	"search.c",655,4
         MOVW      DP,#_g_q16out_corner_fast_limit
-        MOVL      ACC,@_g_q16out_corner_fast_limit ; |653| 
-        LCR       #__IQ16toF            ; |653| 
-        ; call occurs [#__IQ16toF] ; |653| 
-        MOVL      XAR4,#FSL30           ; |653| 
-        MOVL      *-SP[2],XAR4          ; |653| 
-        MOVL      *-SP[4],ACC           ; |653| 
-        LCR       #_VFDPrintf           ; |653| 
-        ; call occurs [#_VFDPrintf] ; |653| 
-	.dwpsn	"search.c",634,10
+        MOVL      ACC,@_g_q16out_corner_fast_limit ; |655| 
+        LCR       #__IQ16toF            ; |655| 
+        ; call occurs [#__IQ16toF] ; |655| 
+        MOVL      XAR4,#FSL30           ; |655| 
+        MOVL      *-SP[2],XAR4          ; |655| 
+        MOVL      *-SP[4],ACC           ; |655| 
+        LCR       #_VFDPrintf           ; |655| 
+        ; call occurs [#_VFDPrintf] ; |655| 
+	.dwpsn	"search.c",636,10
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |634| 
-        BF        L168,NTC              ; |634| 
-        ; branchcc occurs ; |634| 
+        TBIT      @_GpioDataRegs+1,#15  ; |636| 
+        BF        L168,NTC              ; |636| 
+        ; branchcc occurs ; |636| 
 L171:    
 ;***	-----------------------g23:
-;*** 641	-----------------------    K$0 = &GpioDataRegs;
-;*** 641	-----------------------    if ( K$0[1]&0x4000u ) goto g21;
-	.dwpsn	"search.c",641,9
-        MOVL      XAR3,#_GpioDataRegs   ; |641| 
-        TBIT      *+XAR3[1],#14         ; |641| 
-        BF        L169,TC               ; |641| 
-        ; branchcc occurs ; |641| 
-;*** 642	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 643	-----------------------    g_q16out_corner_fast_limit -= 655L;
-;*** 643	-----------------------    if ( *K$0&0x4000u ) goto g22;
-	.dwpsn	"search.c",642,5
+;*** 643	-----------------------    K$0 = &GpioDataRegs;
+;*** 643	-----------------------    if ( K$0[1]&0x4000u ) goto g21;
+	.dwpsn	"search.c",643,9
+        MOVL      XAR3,#_GpioDataRegs   ; |643| 
+        TBIT      *+XAR3[1],#14         ; |643| 
+        BF        L169,TC               ; |643| 
+        ; branchcc occurs ; |643| 
+;*** 644	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 645	-----------------------    g_q16out_corner_fast_limit -= 655L;
+;*** 645	-----------------------    if ( *K$0&0x4000u ) goto g22;
+	.dwpsn	"search.c",644,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |642| 
-        ; call occurs [#_DSP28x_usDelay] ; |642| 
-	.dwpsn	"search.c",643,5
+        LCR       #_DSP28x_usDelay      ; |644| 
+        ; call occurs [#_DSP28x_usDelay] ; |644| 
+	.dwpsn	"search.c",645,5
         MOVW      DP,#_g_q16out_corner_fast_limit
-        MOV       ACC,#655              ; |643| 
-        SUBL      @_g_q16out_corner_fast_limit,ACC ; |643| 
-        TBIT      *+XAR3[0],#14         ; |643| 
-        BF        L170,TC               ; |643| 
-        ; branchcc occurs ; |643| 
+        MOV       ACC,#655              ; |645| 
+        SUBL      @_g_q16out_corner_fast_limit,ACC ; |645| 
+        TBIT      *+XAR3[0],#14         ; |645| 
+        BF        L170,TC               ; |645| 
+        ; branchcc occurs ; |645| 
 L172:    
 ;***	-----------------------g25:
-;*** 649	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 650	-----------------------    handle_write_rom();
-;*** 655	-----------------------    return;
-	.dwpsn	"search.c",649,5
+;*** 651	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 652	-----------------------    handle_write_rom();
+;*** 657	-----------------------    return;
+	.dwpsn	"search.c",651,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |649| 
-        ; call occurs [#_DSP28x_usDelay] ; |649| 
-	.dwpsn	"search.c",650,5
-        LCR       #_handle_write_rom    ; |650| 
-        ; call occurs [#_handle_write_rom] ; |650| 
-	.dwpsn	"search.c",655,7
-	.dwpsn	"search.c",656,1
+        LCR       #_DSP28x_usDelay      ; |651| 
+        ; call occurs [#_DSP28x_usDelay] ; |651| 
+	.dwpsn	"search.c",652,5
+        LCR       #_handle_write_rom    ; |652| 
+        ; call occurs [#_handle_write_rom] ; |652| 
+	.dwpsn	"search.c",657,7
+	.dwpsn	"search.c",658,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -4444,7 +4442,7 @@ L172:
         LRETR
         ; return occurs
 	.dwattr DW$182, DW_AT_end_file("search.c")
-	.dwattr DW$182, DW_AT_end_line(0x290)
+	.dwattr DW$182, DW_AT_end_line(0x292)
 	.dwattr DW$182, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$182
@@ -4456,9 +4454,9 @@ DW$187	.dwtag  DW_TAG_subprogram, DW_AT_name("SET_END"), DW_AT_symbol_name("_SET
 	.dwattr DW$187, DW_AT_low_pc(_SET_END)
 	.dwattr DW$187, DW_AT_high_pc(0x00)
 	.dwattr DW$187, DW_AT_begin_file("search.c")
-	.dwattr DW$187, DW_AT_begin_line(0x293)
+	.dwattr DW$187, DW_AT_begin_line(0x295)
 	.dwattr DW$187, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",659,15
+	.dwpsn	"search.c",661,15
 
 	.dwfde DW$CIE
 
@@ -4505,249 +4503,249 @@ DW$190	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L173:    
 ;***	-----------------------g2:
-;*** 665	-----------------------    g_q17end_vel += 13107200L;
-;*** 666	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",665,5
+;*** 667	-----------------------    g_q17end_vel += 13107200L;
+;*** 668	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",667,5
         MOVW      DP,#_g_q17end_vel
-        MOVL      ACC,@_g_q17end_vel    ; |665| 
-        ADD       ACC,#400 << 15        ; |665| 
-        MOVL      @_g_q17end_vel,ACC    ; |665| 
-	.dwpsn	"search.c",666,5
+        MOVL      ACC,@_g_q17end_vel    ; |667| 
+        ADD       ACC,#400 << 15        ; |667| 
+        MOVL      @_g_q17end_vel,ACC    ; |667| 
+	.dwpsn	"search.c",668,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |666| 
-        ; call occurs [#_DSP28x_usDelay] ; |666| 
+        LCR       #_DSP28x_usDelay      ; |668| 
+        ; call occurs [#_DSP28x_usDelay] ; |668| 
 L174:    
 ;***	-----------------------g3:
-;*** 675	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",675,4
+;*** 677	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",677,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |675| 
-        BF        L177,NTC              ; |675| 
-        ; branchcc occurs ; |675| 
+        TBIT      @_GpioDataRegs,#14    ; |677| 
+        BF        L177,NTC              ; |677| 
+        ; branchcc occurs ; |677| 
 L175:    
 ;***	-----------------------g4:
-;*** 679	-----------------------    VFDPrintf("EDV:%4u", (unsigned)(g_q17end_vel>>17));
-;*** 661	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",679,3
+;*** 681	-----------------------    VFDPrintf("EDV:%4u", (unsigned)(g_q17end_vel>>17));
+;*** 663	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",681,3
         MOVW      DP,#_g_q17end_vel
-        MOVL      XAR4,#FSL31           ; |679| 
-        MOV       T,#17                 ; |679| 
-        MOVL      ACC,@_g_q17end_vel    ; |679| 
-        MOVL      *-SP[2],XAR4          ; |679| 
-        ASRL      ACC,T                 ; |679| 
-        MOV       *-SP[3],AL            ; |679| 
-        LCR       #_VFDPrintf           ; |679| 
-        ; call occurs [#_VFDPrintf] ; |679| 
-	.dwpsn	"search.c",661,8
+        MOVL      XAR4,#FSL31           ; |681| 
+        MOV       T,#17                 ; |681| 
+        MOVL      ACC,@_g_q17end_vel    ; |681| 
+        MOVL      *-SP[2],XAR4          ; |681| 
+        ASRL      ACC,T                 ; |681| 
+        MOV       *-SP[3],AL            ; |681| 
+        LCR       #_VFDPrintf           ; |681| 
+        ; call occurs [#_VFDPrintf] ; |681| 
+	.dwpsn	"search.c",663,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |661| 
-        BF        L173,NTC              ; |661| 
-        ; branchcc occurs ; |661| 
+        TBIT      @_GpioDataRegs+1,#15  ; |663| 
+        BF        L173,NTC              ; |663| 
+        ; branchcc occurs ; |663| 
 L176:    
 ;***	-----------------------g5:
-;*** 668	-----------------------    K$0 = &GpioDataRegs;
-;*** 668	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",668,9
-        MOVL      XAR3,#_GpioDataRegs   ; |668| 
-        TBIT      *+XAR3[1],#14         ; |668| 
-        BF        L174,TC               ; |668| 
-        ; branchcc occurs ; |668| 
-;*** 670	-----------------------    g_q17end_vel -= 13107200L;
-;*** 671	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 671	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",670,5
+;*** 670	-----------------------    K$0 = &GpioDataRegs;
+;*** 670	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",670,9
+        MOVL      XAR3,#_GpioDataRegs   ; |670| 
+        TBIT      *+XAR3[1],#14         ; |670| 
+        BF        L174,TC               ; |670| 
+        ; branchcc occurs ; |670| 
+;*** 672	-----------------------    g_q17end_vel -= 13107200L;
+;*** 673	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 673	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",672,5
         MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17end_vel
-        SUBL      @_g_q17end_vel,ACC    ; |670| 
-	.dwpsn	"search.c",671,5
+        SUBL      @_g_q17end_vel,ACC    ; |672| 
+	.dwpsn	"search.c",673,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |671| 
-        ; call occurs [#_DSP28x_usDelay] ; |671| 
-        TBIT      *+XAR3[0],#14         ; |671| 
-        BF        L175,TC               ; |671| 
-        ; branchcc occurs ; |671| 
+        LCR       #_DSP28x_usDelay      ; |673| 
+        ; call occurs [#_DSP28x_usDelay] ; |673| 
+        TBIT      *+XAR3[0],#14         ; |673| 
+        BF        L175,TC               ; |673| 
+        ; branchcc occurs ; |673| 
 L177:    
 ;***	-----------------------g7:
-;*** 676	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 678	-----------------------    DSP28x_usDelay(2499998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g11;
-	.dwpsn	"search.c",676,5
+	.dwpsn	"search.c",678,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |676| 
-        ; call occurs [#_DSP28x_usDelay] ; |676| 
+        LCR       #_DSP28x_usDelay      ; |678| 
+        ; call occurs [#_DSP28x_usDelay] ; |678| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L181,TC
         ; branchcc occurs
 L178:    
 ;***	-----------------------g8:
-;*** 687	-----------------------    g_q17end_dist += 1310720L;
-;*** 688	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",687,5
-        MOVL      XAR4,#1310720         ; |687| 
+;*** 689	-----------------------    g_q17end_dist += 1310720L;
+;*** 690	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",689,5
+        MOVL      XAR4,#1310720         ; |689| 
         MOVW      DP,#_g_q17end_dist
-        MOVL      ACC,XAR4              ; |687| 
-        ADDL      @_g_q17end_dist,ACC   ; |687| 
-	.dwpsn	"search.c",688,5
+        MOVL      ACC,XAR4              ; |689| 
+        ADDL      @_g_q17end_dist,ACC   ; |689| 
+	.dwpsn	"search.c",690,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |688| 
-        ; call occurs [#_DSP28x_usDelay] ; |688| 
+        LCR       #_DSP28x_usDelay      ; |690| 
+        ; call occurs [#_DSP28x_usDelay] ; |690| 
 L179:    
 ;***	-----------------------g9:
-;*** 698	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
-	.dwpsn	"search.c",698,4
+;*** 700	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
+	.dwpsn	"search.c",700,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |698| 
-        BF        L182,NTC              ; |698| 
-        ; branchcc occurs ; |698| 
+        TBIT      @_GpioDataRegs,#14    ; |700| 
+        BF        L182,NTC              ; |700| 
+        ; branchcc occurs ; |700| 
 L180:    
 ;***	-----------------------g10:
-;*** 702	-----------------------    VFDPrintf("EDIS:%3u", (unsigned)(g_q17end_dist>>17));
-;*** 683	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
-	.dwpsn	"search.c",702,3
+;*** 704	-----------------------    VFDPrintf("EDIS:%3u", (unsigned)(g_q17end_dist>>17));
+;*** 685	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
+	.dwpsn	"search.c",704,3
         MOVW      DP,#_g_q17end_dist
-        MOVL      XAR4,#FSL32           ; |702| 
-        MOV       T,#17                 ; |702| 
-        MOVL      ACC,@_g_q17end_dist   ; |702| 
-        MOVL      *-SP[2],XAR4          ; |702| 
-        ASRL      ACC,T                 ; |702| 
-        MOV       *-SP[3],AL            ; |702| 
-        LCR       #_VFDPrintf           ; |702| 
-        ; call occurs [#_VFDPrintf] ; |702| 
-	.dwpsn	"search.c",683,8
+        MOVL      XAR4,#FSL32           ; |704| 
+        MOV       T,#17                 ; |704| 
+        MOVL      ACC,@_g_q17end_dist   ; |704| 
+        MOVL      *-SP[2],XAR4          ; |704| 
+        ASRL      ACC,T                 ; |704| 
+        MOV       *-SP[3],AL            ; |704| 
+        LCR       #_VFDPrintf           ; |704| 
+        ; call occurs [#_VFDPrintf] ; |704| 
+	.dwpsn	"search.c",685,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |683| 
-        BF        L178,NTC              ; |683| 
-        ; branchcc occurs ; |683| 
+        TBIT      @_GpioDataRegs+1,#15  ; |685| 
+        BF        L178,NTC              ; |685| 
+        ; branchcc occurs ; |685| 
 L181:    
 ;***	-----------------------g11:
-;*** 690	-----------------------    K$0 = &GpioDataRegs;
-;*** 690	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
-	.dwpsn	"search.c",690,9
-        MOVL      XAR3,#_GpioDataRegs   ; |690| 
-        TBIT      *+XAR3[1],#14         ; |690| 
-        BF        L179,TC               ; |690| 
-        ; branchcc occurs ; |690| 
-;*** 692	-----------------------    g_q17end_dist -= 1310720L;
-;*** 693	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 693	-----------------------    if ( *K$0&0x4000u ) goto g10;
-	.dwpsn	"search.c",692,5
-        MOVL      XAR4,#1310720         ; |692| 
+;*** 692	-----------------------    K$0 = &GpioDataRegs;
+;*** 692	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
+	.dwpsn	"search.c",692,9
+        MOVL      XAR3,#_GpioDataRegs   ; |692| 
+        TBIT      *+XAR3[1],#14         ; |692| 
+        BF        L179,TC               ; |692| 
+        ; branchcc occurs ; |692| 
+;*** 694	-----------------------    g_q17end_dist -= 1310720L;
+;*** 695	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 695	-----------------------    if ( *K$0&0x4000u ) goto g10;
+	.dwpsn	"search.c",694,5
+        MOVL      XAR4,#1310720         ; |694| 
         MOVW      DP,#_g_q17end_dist
-        MOVL      ACC,XAR4              ; |692| 
-        SUBL      @_g_q17end_dist,ACC   ; |692| 
-	.dwpsn	"search.c",693,5
+        MOVL      ACC,XAR4              ; |694| 
+        SUBL      @_g_q17end_dist,ACC   ; |694| 
+	.dwpsn	"search.c",695,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |693| 
-        ; call occurs [#_DSP28x_usDelay] ; |693| 
-        TBIT      *+XAR3[0],#14         ; |693| 
-        BF        L180,TC               ; |693| 
-        ; branchcc occurs ; |693| 
+        LCR       #_DSP28x_usDelay      ; |695| 
+        ; call occurs [#_DSP28x_usDelay] ; |695| 
+        TBIT      *+XAR3[0],#14         ; |695| 
+        BF        L180,TC               ; |695| 
+        ; branchcc occurs ; |695| 
 L182:    
 ;***	-----------------------g13:
-;*** 699	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 700	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 701	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 702	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g17;
-	.dwpsn	"search.c",699,5
+	.dwpsn	"search.c",701,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |699| 
-        ; call occurs [#_DSP28x_usDelay] ; |699| 
-	.dwpsn	"search.c",700,5
+        LCR       #_DSP28x_usDelay      ; |701| 
+        ; call occurs [#_DSP28x_usDelay] ; |701| 
+	.dwpsn	"search.c",702,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |700| 
-        ; call occurs [#_DSP28x_usDelay] ; |700| 
+        LCR       #_DSP28x_usDelay      ; |702| 
+        ; call occurs [#_DSP28x_usDelay] ; |702| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L186,TC
         ; branchcc occurs
 L183:    
 ;***	-----------------------g14:
-;*** 713	-----------------------    g_q17end_acc += 6553600L;
-;*** 714	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",713,5
+;*** 715	-----------------------    g_q17end_acc += 6553600L;
+;*** 716	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",715,5
         MOVW      DP,#_g_q17end_acc
-        MOVL      ACC,@_g_q17end_acc    ; |713| 
-        ADD       ACC,#200 << 15        ; |713| 
-        MOVL      @_g_q17end_acc,ACC    ; |713| 
-	.dwpsn	"search.c",714,5
+        MOVL      ACC,@_g_q17end_acc    ; |715| 
+        ADD       ACC,#200 << 15        ; |715| 
+        MOVL      @_g_q17end_acc,ACC    ; |715| 
+	.dwpsn	"search.c",716,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |714| 
-        ; call occurs [#_DSP28x_usDelay] ; |714| 
+        LCR       #_DSP28x_usDelay      ; |716| 
+        ; call occurs [#_DSP28x_usDelay] ; |716| 
 L184:    
 ;***	-----------------------g15:
-;*** 724	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g19;
-	.dwpsn	"search.c",724,4
+;*** 726	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g19;
+	.dwpsn	"search.c",726,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |724| 
-        BF        L187,NTC              ; |724| 
-        ; branchcc occurs ; |724| 
+        TBIT      @_GpioDataRegs,#14    ; |726| 
+        BF        L187,NTC              ; |726| 
+        ; branchcc occurs ; |726| 
 L185:    
 ;***	-----------------------g16:
-;*** 731	-----------------------    VFDPrintf("EA:%5u", (unsigned)(g_q17end_acc>>17));
-;*** 708	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g14;
-	.dwpsn	"search.c",731,3
+;*** 733	-----------------------    VFDPrintf("EA:%5u", (unsigned)(g_q17end_acc>>17));
+;*** 710	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g14;
+	.dwpsn	"search.c",733,3
         MOVW      DP,#_g_q17end_acc
-        MOVL      XAR4,#FSL33           ; |731| 
-        MOV       T,#17                 ; |731| 
-        MOVL      ACC,@_g_q17end_acc    ; |731| 
-        MOVL      *-SP[2],XAR4          ; |731| 
-        ASRL      ACC,T                 ; |731| 
-        MOV       *-SP[3],AL            ; |731| 
-        LCR       #_VFDPrintf           ; |731| 
-        ; call occurs [#_VFDPrintf] ; |731| 
-	.dwpsn	"search.c",708,8
+        MOVL      XAR4,#FSL33           ; |733| 
+        MOV       T,#17                 ; |733| 
+        MOVL      ACC,@_g_q17end_acc    ; |733| 
+        MOVL      *-SP[2],XAR4          ; |733| 
+        ASRL      ACC,T                 ; |733| 
+        MOV       *-SP[3],AL            ; |733| 
+        LCR       #_VFDPrintf           ; |733| 
+        ; call occurs [#_VFDPrintf] ; |733| 
+	.dwpsn	"search.c",710,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |708| 
-        BF        L183,NTC              ; |708| 
-        ; branchcc occurs ; |708| 
+        TBIT      @_GpioDataRegs+1,#15  ; |710| 
+        BF        L183,NTC              ; |710| 
+        ; branchcc occurs ; |710| 
 L186:    
 ;***	-----------------------g17:
-;*** 716	-----------------------    K$0 = &GpioDataRegs;
-;*** 716	-----------------------    if ( K$0[1]&0x4000u ) goto g15;
-	.dwpsn	"search.c",716,9
-        MOVL      XAR3,#_GpioDataRegs   ; |716| 
-        TBIT      *+XAR3[1],#14         ; |716| 
-        BF        L184,TC               ; |716| 
-        ; branchcc occurs ; |716| 
-;*** 718	-----------------------    g_q17end_acc -= 6553600L;
-;*** 719	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 719	-----------------------    if ( *K$0&0x4000u ) goto g16;
-	.dwpsn	"search.c",718,5
+;*** 718	-----------------------    K$0 = &GpioDataRegs;
+;*** 718	-----------------------    if ( K$0[1]&0x4000u ) goto g15;
+	.dwpsn	"search.c",718,9
+        MOVL      XAR3,#_GpioDataRegs   ; |718| 
+        TBIT      *+XAR3[1],#14         ; |718| 
+        BF        L184,TC               ; |718| 
+        ; branchcc occurs ; |718| 
+;*** 720	-----------------------    g_q17end_acc -= 6553600L;
+;*** 721	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 721	-----------------------    if ( *K$0&0x4000u ) goto g16;
+	.dwpsn	"search.c",720,5
         MOV       AH,#100
         MOV       AL,#0
         MOVW      DP,#_g_q17end_acc
-        SUBL      @_g_q17end_acc,ACC    ; |718| 
-	.dwpsn	"search.c",719,5
+        SUBL      @_g_q17end_acc,ACC    ; |720| 
+	.dwpsn	"search.c",721,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |719| 
-        ; call occurs [#_DSP28x_usDelay] ; |719| 
-        TBIT      *+XAR3[0],#14         ; |719| 
-        BF        L185,TC               ; |719| 
-        ; branchcc occurs ; |719| 
+        LCR       #_DSP28x_usDelay      ; |721| 
+        ; call occurs [#_DSP28x_usDelay] ; |721| 
+        TBIT      *+XAR3[0],#14         ; |721| 
+        BF        L185,TC               ; |721| 
+        ; branchcc occurs ; |721| 
 L187:    
 ;***	-----------------------g19:
-;*** 725	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 727	-----------------------    acc_info_write_rom();
-;*** 729	-----------------------    return;
-	.dwpsn	"search.c",725,5
+;*** 727	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 729	-----------------------    acc_info_write_rom();
+;*** 731	-----------------------    return;
+	.dwpsn	"search.c",727,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |725| 
-        ; call occurs [#_DSP28x_usDelay] ; |725| 
-	.dwpsn	"search.c",727,5
-        LCR       #_acc_info_write_rom  ; |727| 
-        ; call occurs [#_acc_info_write_rom] ; |727| 
+        LCR       #_DSP28x_usDelay      ; |727| 
+        ; call occurs [#_DSP28x_usDelay] ; |727| 
 	.dwpsn	"search.c",729,5
-	.dwpsn	"search.c",734,1
+        LCR       #_acc_info_write_rom  ; |729| 
+        ; call occurs [#_acc_info_write_rom] ; |729| 
+	.dwpsn	"search.c",731,5
+	.dwpsn	"search.c",736,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -4756,7 +4754,7 @@ L187:
         LRETR
         ; return occurs
 	.dwattr DW$187, DW_AT_end_file("search.c")
-	.dwattr DW$187, DW_AT_end_line(0x2de)
+	.dwattr DW$187, DW_AT_end_line(0x2e0)
 	.dwattr DW$187, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$187
@@ -4768,9 +4766,9 @@ DW$191	.dwtag  DW_TAG_subprogram, DW_AT_name("Set_Accel"), DW_AT_symbol_name("_S
 	.dwattr DW$191, DW_AT_low_pc(_Set_Accel)
 	.dwattr DW$191, DW_AT_high_pc(0x00)
 	.dwattr DW$191, DW_AT_begin_file("search.c")
-	.dwattr DW$191, DW_AT_begin_line(0x2e0)
+	.dwattr DW$191, DW_AT_begin_line(0x2e2)
 	.dwattr DW$191, DW_AT_begin_column(0x06)
-	.dwpsn	"search.c",736,17
+	.dwpsn	"search.c",738,17
 
 	.dwfde DW$CIE
 
@@ -4813,174 +4811,174 @@ DW$193	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L188:    
 ;***	-----------------------g2:
-;*** 743	-----------------------    g_q17user_acc += 26214400L;
-;*** 744	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",743,5
+;*** 745	-----------------------    g_q17user_acc += 26214400L;
+;*** 746	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",745,5
         MOVW      DP,#_g_q17user_acc
-        MOVL      ACC,@_g_q17user_acc   ; |743| 
-        ADD       ACC,#800 << 15        ; |743| 
-        MOVL      @_g_q17user_acc,ACC   ; |743| 
-	.dwpsn	"search.c",744,5
+        MOVL      ACC,@_g_q17user_acc   ; |745| 
+        ADD       ACC,#800 << 15        ; |745| 
+        MOVL      @_g_q17user_acc,ACC   ; |745| 
+	.dwpsn	"search.c",746,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |744| 
-        ; call occurs [#_DSP28x_usDelay] ; |744| 
+        LCR       #_DSP28x_usDelay      ; |746| 
+        ; call occurs [#_DSP28x_usDelay] ; |746| 
 L189:    
 ;***	-----------------------g3:
-;*** 754	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
-	.dwpsn	"search.c",754,4
+;*** 756	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g7;
+	.dwpsn	"search.c",756,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |754| 
-        BF        L192,NTC              ; |754| 
-        ; branchcc occurs ; |754| 
+        TBIT      @_GpioDataRegs,#14    ; |756| 
+        BF        L192,NTC              ; |756| 
+        ; branchcc occurs ; |756| 
 L190:    
 ;***	-----------------------g4:
-;*** 758	-----------------------    VFDPrintf("AC:%5u", (unsigned)(g_q17user_acc>>17));
-;*** 738	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
-	.dwpsn	"search.c",758,3
+;*** 760	-----------------------    VFDPrintf("AC:%5u", (unsigned)(g_q17user_acc>>17));
+;*** 740	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g2;
+	.dwpsn	"search.c",760,3
         MOVW      DP,#_g_q17user_acc
-        MOVL      XAR4,#FSL34           ; |758| 
-        MOV       T,#17                 ; |758| 
-        MOVL      ACC,@_g_q17user_acc   ; |758| 
-        MOVL      *-SP[2],XAR4          ; |758| 
-        ASRL      ACC,T                 ; |758| 
-        MOV       *-SP[3],AL            ; |758| 
-        LCR       #_VFDPrintf           ; |758| 
-        ; call occurs [#_VFDPrintf] ; |758| 
-	.dwpsn	"search.c",738,8
+        MOVL      XAR4,#FSL34           ; |760| 
+        MOV       T,#17                 ; |760| 
+        MOVL      ACC,@_g_q17user_acc   ; |760| 
+        MOVL      *-SP[2],XAR4          ; |760| 
+        ASRL      ACC,T                 ; |760| 
+        MOV       *-SP[3],AL            ; |760| 
+        LCR       #_VFDPrintf           ; |760| 
+        ; call occurs [#_VFDPrintf] ; |760| 
+	.dwpsn	"search.c",740,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |738| 
-        BF        L188,NTC              ; |738| 
-        ; branchcc occurs ; |738| 
+        TBIT      @_GpioDataRegs+1,#15  ; |740| 
+        BF        L188,NTC              ; |740| 
+        ; branchcc occurs ; |740| 
 L191:    
 ;***	-----------------------g5:
-;*** 746	-----------------------    K$0 = &GpioDataRegs;
-;*** 746	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
-	.dwpsn	"search.c",746,9
-        MOVL      XAR3,#_GpioDataRegs   ; |746| 
-        TBIT      *+XAR3[1],#14         ; |746| 
-        BF        L189,TC               ; |746| 
-        ; branchcc occurs ; |746| 
-;*** 748	-----------------------    g_q17user_acc -= 26214400L;
-;*** 749	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 749	-----------------------    if ( *K$0&0x4000u ) goto g4;
-	.dwpsn	"search.c",748,5
+;*** 748	-----------------------    K$0 = &GpioDataRegs;
+;*** 748	-----------------------    if ( K$0[1]&0x4000u ) goto g3;
+	.dwpsn	"search.c",748,9
+        MOVL      XAR3,#_GpioDataRegs   ; |748| 
+        TBIT      *+XAR3[1],#14         ; |748| 
+        BF        L189,TC               ; |748| 
+        ; branchcc occurs ; |748| 
+;*** 750	-----------------------    g_q17user_acc -= 26214400L;
+;*** 751	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 751	-----------------------    if ( *K$0&0x4000u ) goto g4;
+	.dwpsn	"search.c",750,5
         MOV       ACC,#800 << 15
         MOVW      DP,#_g_q17user_acc
-        SUBL      @_g_q17user_acc,ACC   ; |748| 
-	.dwpsn	"search.c",749,5
+        SUBL      @_g_q17user_acc,ACC   ; |750| 
+	.dwpsn	"search.c",751,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |749| 
-        ; call occurs [#_DSP28x_usDelay] ; |749| 
-        TBIT      *+XAR3[0],#14         ; |749| 
-        BF        L190,TC               ; |749| 
-        ; branchcc occurs ; |749| 
+        LCR       #_DSP28x_usDelay      ; |751| 
+        ; call occurs [#_DSP28x_usDelay] ; |751| 
+        TBIT      *+XAR3[0],#14         ; |751| 
+        BF        L190,TC               ; |751| 
+        ; branchcc occurs ; |751| 
 L192:    
 ;***	-----------------------g7:
-;*** 755	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 756	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 757	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 758	-----------------------    DSP28x_usDelay(2999998uL);
 ;***  	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g11;
-	.dwpsn	"search.c",755,5
+	.dwpsn	"search.c",757,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |755| 
-        ; call occurs [#_DSP28x_usDelay] ; |755| 
-	.dwpsn	"search.c",756,5
+        LCR       #_DSP28x_usDelay      ; |757| 
+        ; call occurs [#_DSP28x_usDelay] ; |757| 
+	.dwpsn	"search.c",758,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |756| 
-        ; call occurs [#_DSP28x_usDelay] ; |756| 
+        LCR       #_DSP28x_usDelay      ; |758| 
+        ; call occurs [#_DSP28x_usDelay] ; |758| 
         MOVW      DP,#_GpioDataRegs+1
         TBIT      @_GpioDataRegs+1,#15
         BF        L196,TC
         ; branchcc occurs
 L193:    
 ;***	-----------------------g8:
-;*** 768	-----------------------    g_q17fast_vel_limit += 6553600L;
-;*** 769	-----------------------    DSP28x_usDelay(2499998uL);
-	.dwpsn	"search.c",768,5
+;*** 770	-----------------------    g_q17fast_vel_limit += 6553600L;
+;*** 771	-----------------------    DSP28x_usDelay(2499998uL);
+	.dwpsn	"search.c",770,5
         MOVW      DP,#_g_q17fast_vel_limit
-        MOVL      ACC,@_g_q17fast_vel_limit ; |768| 
-        ADD       ACC,#200 << 15        ; |768| 
-        MOVL      @_g_q17fast_vel_limit,ACC ; |768| 
-	.dwpsn	"search.c",769,5
+        MOVL      ACC,@_g_q17fast_vel_limit ; |770| 
+        ADD       ACC,#200 << 15        ; |770| 
+        MOVL      @_g_q17fast_vel_limit,ACC ; |770| 
+	.dwpsn	"search.c",771,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |769| 
-        ; call occurs [#_DSP28x_usDelay] ; |769| 
+        LCR       #_DSP28x_usDelay      ; |771| 
+        ; call occurs [#_DSP28x_usDelay] ; |771| 
 L194:    
 ;***	-----------------------g9:
-;*** 779	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
-	.dwpsn	"search.c",779,4
+;*** 781	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g13;
+	.dwpsn	"search.c",781,4
         MOVW      DP,#_GpioDataRegs
-        TBIT      @_GpioDataRegs,#14    ; |779| 
-        BF        L197,NTC              ; |779| 
-        ; branchcc occurs ; |779| 
+        TBIT      @_GpioDataRegs,#14    ; |781| 
+        BF        L197,NTC              ; |781| 
+        ; branchcc occurs ; |781| 
 L195:    
 ;***	-----------------------g10:
-;*** 783	-----------------------    VFDPrintf("FVL:%4u", (unsigned)(g_q17fast_vel_limit>>17));
-;*** 763	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
-	.dwpsn	"search.c",783,3
+;*** 785	-----------------------    VFDPrintf("FVL:%4u", (unsigned)(g_q17fast_vel_limit>>17));
+;*** 765	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
+	.dwpsn	"search.c",785,3
         MOVW      DP,#_g_q17fast_vel_limit
-        MOVL      XAR4,#FSL35           ; |783| 
-        MOV       T,#17                 ; |783| 
-        MOVL      ACC,@_g_q17fast_vel_limit ; |783| 
-        MOVL      *-SP[2],XAR4          ; |783| 
-        ASRL      ACC,T                 ; |783| 
-        MOV       *-SP[3],AL            ; |783| 
-        LCR       #_VFDPrintf           ; |783| 
-        ; call occurs [#_VFDPrintf] ; |783| 
-	.dwpsn	"search.c",763,8
+        MOVL      XAR4,#FSL35           ; |785| 
+        MOV       T,#17                 ; |785| 
+        MOVL      ACC,@_g_q17fast_vel_limit ; |785| 
+        MOVL      *-SP[2],XAR4          ; |785| 
+        ASRL      ACC,T                 ; |785| 
+        MOV       *-SP[3],AL            ; |785| 
+        LCR       #_VFDPrintf           ; |785| 
+        ; call occurs [#_VFDPrintf] ; |785| 
+	.dwpsn	"search.c",765,8
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#15  ; |763| 
-        BF        L193,NTC              ; |763| 
-        ; branchcc occurs ; |763| 
+        TBIT      @_GpioDataRegs+1,#15  ; |765| 
+        BF        L193,NTC              ; |765| 
+        ; branchcc occurs ; |765| 
 L196:    
 ;***	-----------------------g11:
-;*** 771	-----------------------    K$0 = &GpioDataRegs;
-;*** 771	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
-	.dwpsn	"search.c",771,9
-        MOVL      XAR3,#_GpioDataRegs   ; |771| 
-        TBIT      *+XAR3[1],#14         ; |771| 
-        BF        L194,TC               ; |771| 
-        ; branchcc occurs ; |771| 
-;*** 773	-----------------------    g_q17fast_vel_limit -= 6553600L;
-;*** 774	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 774	-----------------------    if ( *K$0&0x4000u ) goto g10;
-	.dwpsn	"search.c",773,5
+;*** 773	-----------------------    K$0 = &GpioDataRegs;
+;*** 773	-----------------------    if ( K$0[1]&0x4000u ) goto g9;
+	.dwpsn	"search.c",773,9
+        MOVL      XAR3,#_GpioDataRegs   ; |773| 
+        TBIT      *+XAR3[1],#14         ; |773| 
+        BF        L194,TC               ; |773| 
+        ; branchcc occurs ; |773| 
+;*** 775	-----------------------    g_q17fast_vel_limit -= 6553600L;
+;*** 776	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 776	-----------------------    if ( *K$0&0x4000u ) goto g10;
+	.dwpsn	"search.c",775,5
         MOV       AH,#100
         MOV       AL,#0
         MOVW      DP,#_g_q17fast_vel_limit
-        SUBL      @_g_q17fast_vel_limit,ACC ; |773| 
-	.dwpsn	"search.c",774,5
+        SUBL      @_g_q17fast_vel_limit,ACC ; |775| 
+	.dwpsn	"search.c",776,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |774| 
-        ; call occurs [#_DSP28x_usDelay] ; |774| 
-        TBIT      *+XAR3[0],#14         ; |774| 
-        BF        L195,TC               ; |774| 
-        ; branchcc occurs ; |774| 
+        LCR       #_DSP28x_usDelay      ; |776| 
+        ; call occurs [#_DSP28x_usDelay] ; |776| 
+        TBIT      *+XAR3[0],#14         ; |776| 
+        BF        L195,TC               ; |776| 
+        ; branchcc occurs ; |776| 
 L197:    
 ;***	-----------------------g13:
-;*** 780	-----------------------    DSP28x_usDelay(2499998uL);
-;*** 781	-----------------------    DSP28x_usDelay(2999998uL);
-;*** 788	-----------------------    SET_END();
-;*** 788	-----------------------    return;
-	.dwpsn	"search.c",780,5
+;*** 782	-----------------------    DSP28x_usDelay(2499998uL);
+;*** 783	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 790	-----------------------    SET_END();
+;*** 790	-----------------------    return;
+	.dwpsn	"search.c",782,5
         MOV       AL,#9630
         MOV       AH,#38
-        LCR       #_DSP28x_usDelay      ; |780| 
-        ; call occurs [#_DSP28x_usDelay] ; |780| 
-	.dwpsn	"search.c",781,5
+        LCR       #_DSP28x_usDelay      ; |782| 
+        ; call occurs [#_DSP28x_usDelay] ; |782| 
+	.dwpsn	"search.c",783,5
         MOV       AL,#50878
         MOV       AH,#45
-        LCR       #_DSP28x_usDelay      ; |781| 
-        ; call occurs [#_DSP28x_usDelay] ; |781| 
-	.dwpsn	"search.c",788,2
-        LCR       #_SET_END             ; |788| 
-        ; call occurs [#_SET_END] ; |788| 
-	.dwpsn	"search.c",790,1
+        LCR       #_DSP28x_usDelay      ; |783| 
+        ; call occurs [#_DSP28x_usDelay] ; |783| 
+	.dwpsn	"search.c",790,2
+        LCR       #_SET_END             ; |790| 
+        ; call occurs [#_SET_END] ; |790| 
+	.dwpsn	"search.c",792,1
         SUBB      SP,#4
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -4989,7 +4987,7 @@ L197:
         LRETR
         ; return occurs
 	.dwattr DW$191, DW_AT_end_file("search.c")
-	.dwattr DW$191, DW_AT_end_line(0x316)
+	.dwattr DW$191, DW_AT_end_line(0x318)
 	.dwattr DW$191, DW_AT_end_column(0x01)
 	.dwendentry
 	.dwendtag DW$191

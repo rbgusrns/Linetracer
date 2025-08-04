@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Tue Jul 29 01:52:27 2025                 *
+;* Date/Time created: Mon Aug 04 03:11:15 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -422,8 +422,8 @@ DW$99	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$99, DW_AT_type(*DW$T$160)
 	.dwattr DW$99, DW_AT_declaration(0x01)
 	.dwattr DW$99, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI32410 C:\Users\rbgus\AppData\Local\Temp\TI3244 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI3242 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI3246 --object_file sensor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI39210 C:\Users\rbgus\AppData\Local\Temp\TI3924 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI3922 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI3926 --object_file sensor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_position_PID
 
@@ -464,7 +464,7 @@ _position_PID:
 ;*** 499	-----------------------    g_pos.iq7proportion_val = __IQmpy(*(&g_pos+12L), g_pos.iq7kp, 7);
 ;*** 500	-----------------------    g_pos.iq7differential_val = __IQmpy(*(&g_pos+12L)-*(&g_pos+18L)+__IQmpy(384L, *(&g_pos+14L)-*(&g_pos+16L), 7), g_pos.iq7kd, 7);
 ;*** 501	-----------------------    g_pos.iq7pid_out = g_pos.iq7proportion_val+g_pos.iq7differential_val;
-;*** 503	-----------------------    if ( g_pos.iq7pid_out > 1536000L ) goto g4;
+;*** 503	-----------------------    if ( g_pos.iq7pid_out > 1856000L ) goto g4;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -551,28 +551,28 @@ DW$101	.dwtag  DW_TAG_variable, DW_AT_name("C$1"), DW_AT_symbol_name("C$1")
         ADDL      ACC,@_g_pos+20        ; |501| 
         MOVL      @_g_pos+28,ACC        ; |501| 
 	.dwpsn	"sensor.c",503,2
-        MOVL      XAR4,#1536000         ; |503| 
+        MOVL      XAR4,#1856000         ; |503| 
         MOVL      ACC,XAR4              ; |503| 
         CMPL      ACC,@_g_pos+28        ; |503| 
         BF        L1,LT                 ; |503| 
         ; branchcc occurs ; |503| 
-;*** 504	-----------------------    if ( g_pos.iq7pid_out >= (-1536000L) ) goto g5;
+;*** 504	-----------------------    if ( g_pos.iq7pid_out >= (-1856000L) ) goto g5;
 	.dwpsn	"sensor.c",504,7
-        MOV       ACC,#-375 << 12
+        MOV       ACC,#-3625 << 9
         CMPL      ACC,@_g_pos+28        ; |504| 
         BF        L2,LEQ                ; |504| 
         ; branchcc occurs ; |504| 
-;*** 504	-----------------------    g_pos.iq7pid_out = (-1536000L);
+;*** 504	-----------------------    g_pos.iq7pid_out = (-1856000L);
 ;*** 504	-----------------------    goto g5;
 	.dwpsn	"sensor.c",504,42
-        MOV       PH,#65512
-        MOV       PL,#36864
+        MOV       PH,#65507
+        MOV       PL,#44544
         MOVL      @_g_pos+28,P          ; |504| 
         BF        L2,UNC                ; |504| 
         ; branch occurs ; |504| 
 L1:    
 ;***	-----------------------g4:
-;*** 503	-----------------------    g_pos.iq7pid_out = 1536000L;
+;*** 503	-----------------------    g_pos.iq7pid_out = 1856000L;
 	.dwpsn	"sensor.c",503,36
         MOVL      @_g_pos+28,XAR4       ; |503| 
 L2:    
@@ -582,8 +582,8 @@ L2:
         MOVL      ACC,@_g_pos+28        ; |508| 
         BF        L8,GT                 ; |508| 
         ; branchcc occurs ; |508| 
-;*** 528	-----------------------    g_q16right_handle_temp = __IQmpy(g_q16han_accstep, _IQ16div(393216000L, 16384000L)-_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_accmax;
-;*** 529	-----------------------    g_q16left_handle_temp = __IQmpy(g_q16han_decstep, _IQ16div(393216000L, 16384000L)+_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_decmax;
+;*** 528	-----------------------    g_q16right_handle_temp = __IQmpy(g_q16han_accstep, _IQ16div(475136000L, 16384000L)-_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_accmax;
+;*** 529	-----------------------    g_q16left_handle_temp = __IQmpy(g_q16han_decstep, _IQ16div(475136000L, 16384000L)+_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_decmax;
 ;*** 531	-----------------------    if ( (*&g_Flag&0x800u) == 0 && g_q16left_handle_temp < 0L ) goto g15;
 	.dwpsn	"sensor.c",528,3
         MOV       PH,#250
@@ -597,7 +597,7 @@ L2:
         MOV       PL,#0
         MOVL      XAR1,ACC              ; |528| 
         MOVL      *-SP[2],P             ; |528| 
-        MOV       ACC,#12000 << 15
+        MOV       ACC,#14500 << 15
         LCR       #__IQ16div            ; |528| 
         ; call occurs [#__IQ16div] ; |528| 
         MOVW      DP,#_g_q16han_accstep
@@ -614,7 +614,7 @@ L2:
         MOV       PH,#250
         MOV       PL,#0
         MOVL      *-SP[2],P             ; |529| 
-        MOV       ACC,#12000 << 15
+        MOV       ACC,#14500 << 15
         LCR       #__IQ16div            ; |529| 
         ; call occurs [#__IQ16div] ; |529| 
         MOVW      DP,#_g_pos+28
@@ -726,8 +726,8 @@ L7:
         ; branch occurs ; |531| 
 L8:    
 ;***	-----------------------g16:
-;*** 510	-----------------------    g_q16right_handle_temp = __IQmpy(g_q16han_decstep, _IQ16div(393216000L, 16384000L)-_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_decmax;
-;*** 511	-----------------------    g_q16left_handle_temp = __IQmpy(g_q16han_accstep, _IQ16div(393216000L, 16384000L)+_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_accmax;
+;*** 510	-----------------------    g_q16right_handle_temp = __IQmpy(g_q16han_decstep, _IQ16div(475136000L, 16384000L)-_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_decmax;
+;*** 511	-----------------------    g_q16left_handle_temp = __IQmpy(g_q16han_accstep, _IQ16div(475136000L, 16384000L)+_IQ16div(g_pos.iq7pid_out<<9, 16384000L), 16)+g_q16han_accmax;
 ;*** 513	-----------------------    if ( (*&g_Flag&0x800u) == 0 && g_q16right_handle_temp < 0L ) goto g25;
 	.dwpsn	"sensor.c",510,3
         MOV       PH,#250
@@ -741,7 +741,7 @@ L8:
         MOV       PL,#0
         MOVL      XAR1,ACC              ; |510| 
         MOVL      *-SP[2],P             ; |510| 
-        MOV       ACC,#12000 << 15
+        MOV       ACC,#14500 << 15
         LCR       #__IQ16div            ; |510| 
         ; call occurs [#__IQ16div] ; |510| 
         MOVW      DP,#_g_q16han_decstep
@@ -758,7 +758,7 @@ L8:
         MOV       PH,#250
         MOV       PL,#0
         MOVL      *-SP[2],P             ; |511| 
-        MOV       ACC,#12000 << 15
+        MOV       ACC,#14500 << 15
         LCR       #__IQ16div            ; |511| 
         ; call occurs [#__IQ16div] ; |511| 
         MOVW      DP,#_g_pos+28
@@ -1412,7 +1412,7 @@ L30:
         ; return occurs
 
 DW$109	.dwtag  DW_TAG_loop
-	.dwattr DW$109, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L29:1:1753721547")
+	.dwattr DW$109, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L29:1:1754244675")
 	.dwattr DW$109, DW_AT_begin_file("sensor.c")
 	.dwattr DW$109, DW_AT_begin_line(0x2e0)
 	.dwattr DW$109, DW_AT_end_line(0x2e0)
@@ -1423,7 +1423,7 @@ DW$110	.dwtag  DW_TAG_loop_range
 
 
 DW$111	.dwtag  DW_TAG_loop
-	.dwattr DW$111, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L24:1:1753721547")
+	.dwattr DW$111, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L24:1:1754244675")
 	.dwattr DW$111, DW_AT_begin_file("sensor.c")
 	.dwattr DW$111, DW_AT_begin_line(0x2ce)
 	.dwattr DW$111, DW_AT_end_line(0x2de)
@@ -1462,7 +1462,7 @@ DW$122	.dwtag  DW_TAG_loop_range
 	.dwattr DW$122, DW_AT_high_pc(DW$L$_start_end_check$18$E)
 
 DW$123	.dwtag  DW_TAG_loop
-	.dwattr DW$123, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L25:2:1753721547")
+	.dwattr DW$123, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L25:2:1754244675")
 	.dwattr DW$123, DW_AT_begin_file("sensor.c")
 	.dwattr DW$123, DW_AT_begin_line(0x2d0)
 	.dwattr DW$123, DW_AT_end_line(0x2d0)
@@ -1473,7 +1473,7 @@ DW$124	.dwtag  DW_TAG_loop_range
 
 
 DW$125	.dwtag  DW_TAG_loop
-	.dwattr DW$125, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L21:2:1753721547")
+	.dwattr DW$125, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L21:2:1754244675")
 	.dwattr DW$125, DW_AT_begin_file("sensor.c")
 	.dwattr DW$125, DW_AT_begin_line(0x2d8)
 	.dwattr DW$125, DW_AT_end_line(0x2d8)
@@ -1486,7 +1486,7 @@ DW$126	.dwtag  DW_TAG_loop_range
 
 
 DW$127	.dwtag  DW_TAG_loop
-	.dwattr DW$127, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L19:1:1753721547")
+	.dwattr DW$127, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L19:1:1754244675")
 	.dwattr DW$127, DW_AT_begin_file("sensor.c")
 	.dwattr DW$127, DW_AT_begin_line(0x2c2)
 	.dwattr DW$127, DW_AT_end_line(0x2c5)
@@ -1920,55 +1920,55 @@ _sen_vari_init:
 ;*** 104	-----------------------    g_pos.iq7ki = 0L;
 ;*** 105	-----------------------    g_pos.iq7kd = 563L;
 ;*** 109	-----------------------    g_u16sen_enable = 0xffffu;
-;*** 156	-----------------------    *((volatile long *)C$1+218L) = 1536000L;
-;*** 156	-----------------------    *((volatile unsigned *)C$1+220L) = 0x8000u;
-;*** 156	-----------------------    *((volatile unsigned *)C$1+221L) = 32767u;
-;*** 157	-----------------------    *((volatile long *)C$1+204L) = 1331200L;
-;*** 157	-----------------------    *((volatile unsigned *)C$1+206L) = 16384u;
-;*** 157	-----------------------    *((volatile unsigned *)C$1+207L) = 0xbfffu;
-;*** 158	-----------------------    *((volatile long *)C$1+190L) = 1126400L;
-;*** 158	-----------------------    *((volatile unsigned *)C$1+192L) = 8192u;
-;*** 158	-----------------------    *((volatile unsigned *)C$1+193L) = 0xdfffu;
-;*** 159	-----------------------    *((volatile long *)C$1+176L) = 921600L;
-;*** 159	-----------------------    *((volatile unsigned *)C$1+178L) = 4096u;
-;*** 159	-----------------------    *((volatile unsigned *)C$1+179L) = 0xefffu;
-;*** 161	-----------------------    *((volatile long *)C$1+162L) = 704000L;
-;*** 161	-----------------------    *((volatile unsigned *)C$1+164L) = 2048u;
-;*** 161	-----------------------    *((volatile unsigned *)C$1+165L) = 0xf7ffu;
-;*** 162	-----------------------    *((volatile long *)C$1+148L) = 505600L;
-;*** 162	-----------------------    *((volatile unsigned *)C$1+150L) = 1024u;
-;*** 162	-----------------------    *((volatile unsigned *)C$1+151L) = 0xfbffu;
-;*** 163	-----------------------    *((volatile long *)C$1+134L) = 300800L;
-;*** 163	-----------------------    *((volatile unsigned *)C$1+136L) = 512u;
-;*** 163	-----------------------    *((volatile unsigned *)C$1+137L) = 0xfdffu;
-;*** 164	-----------------------    *((volatile long *)C$1+120L) = 96000L;
-;*** 164	-----------------------    *((volatile unsigned *)C$1+122L) = 256u;
-;*** 164	-----------------------    *((volatile unsigned *)C$1+123L) = 0xfeffu;
-;*** 166	-----------------------    *((volatile long *)C$1+106L) = (-96000L);
-;*** 166	-----------------------    *((volatile unsigned *)C$1+108L) = 128u;
-;*** 166	-----------------------    *((volatile unsigned *)C$1+109L) = 0xff7fu;
-;*** 167	-----------------------    *((volatile long *)C$1+92L) = (-300800L);
-;*** 167	-----------------------    *((volatile unsigned *)C$1+94L) = 64u;
-;*** 167	-----------------------    *((volatile unsigned *)C$1+95L) = 0xffbfu;
-;*** 168	-----------------------    *((volatile long *)C$1+78L) = (-505600L);
-;*** 168	-----------------------    *((volatile unsigned *)C$1+80L) = 32u;
-;*** 168	-----------------------    *((volatile unsigned *)C$1+81L) = 0xffdfu;
-;*** 169	-----------------------    *((volatile long *)C$1+64L) = (-704000L);
-;*** 169	-----------------------    *((volatile unsigned *)C$1+66L) = 16u;
-;*** 169	-----------------------    *((volatile unsigned *)C$1+67L) = 0xffefu;
-;*** 171	-----------------------    *((volatile long *)C$1+50L) = (-921600L);
-;*** 171	-----------------------    *((volatile unsigned *)C$1+52L) = 8u;
-;*** 171	-----------------------    *((volatile unsigned *)C$1+53L) = 0xfff7u;
-;*** 172	-----------------------    *((volatile long *)C$1+36L) = (-1126400L);
-;*** 172	-----------------------    *((volatile unsigned *)C$1+38L) = 4u;
-;*** 172	-----------------------    *((volatile unsigned *)C$1+39L) = 0xfffbu;
-;*** 173	-----------------------    *((volatile long *)C$1+22L) = (-1331200L);
-;*** 173	-----------------------    *((volatile unsigned *)C$1+24L) = 2u;
-;*** 173	-----------------------    *((volatile unsigned *)C$1+25L) = 0xfffdu;
-;*** 174	-----------------------    (g_sen[0]).iq7weight = (-1536000L);
-;*** 174	-----------------------    (g_sen[0]).u16active_arr = 1u;
-;*** 174	-----------------------    (g_sen[0]).u16passive_arr = 0xfffeu;
-;*** 174	-----------------------    return;
+;*** 134	-----------------------    *((volatile long *)C$1+218L) = 1856000L;
+;*** 134	-----------------------    *((volatile unsigned *)C$1+220L) = 0x8000u;
+;*** 134	-----------------------    *((volatile unsigned *)C$1+221L) = 32767u;
+;*** 135	-----------------------    *((volatile long *)C$1+204L) = 1600000L;
+;*** 135	-----------------------    *((volatile unsigned *)C$1+206L) = 16384u;
+;*** 135	-----------------------    *((volatile unsigned *)C$1+207L) = 0xbfffu;
+;*** 136	-----------------------    *((volatile long *)C$1+190L) = 1344000L;
+;*** 136	-----------------------    *((volatile unsigned *)C$1+192L) = 8192u;
+;*** 136	-----------------------    *((volatile unsigned *)C$1+193L) = 0xdfffu;
+;*** 137	-----------------------    *((volatile long *)C$1+176L) = 1088000L;
+;*** 137	-----------------------    *((volatile unsigned *)C$1+178L) = 4096u;
+;*** 137	-----------------------    *((volatile unsigned *)C$1+179L) = 0xefffu;
+;*** 139	-----------------------    *((volatile long *)C$1+162L) = 832000L;
+;*** 139	-----------------------    *((volatile unsigned *)C$1+164L) = 2048u;
+;*** 139	-----------------------    *((volatile unsigned *)C$1+165L) = 0xf7ffu;
+;*** 140	-----------------------    *((volatile long *)C$1+148L) = 576000L;
+;*** 140	-----------------------    *((volatile unsigned *)C$1+150L) = 1024u;
+;*** 140	-----------------------    *((volatile unsigned *)C$1+151L) = 0xfbffu;
+;*** 141	-----------------------    *((volatile long *)C$1+134L) = 320000L;
+;*** 141	-----------------------    *((volatile unsigned *)C$1+136L) = 512u;
+;*** 141	-----------------------    *((volatile unsigned *)C$1+137L) = 0xfdffu;
+;*** 142	-----------------------    *((volatile long *)C$1+120L) = 64000L;
+;*** 142	-----------------------    *((volatile unsigned *)C$1+122L) = 256u;
+;*** 142	-----------------------    *((volatile unsigned *)C$1+123L) = 0xfeffu;
+;*** 144	-----------------------    *((volatile long *)C$1+106L) = (-64000L);
+;*** 144	-----------------------    *((volatile unsigned *)C$1+108L) = 128u;
+;*** 144	-----------------------    *((volatile unsigned *)C$1+109L) = 0xff7fu;
+;*** 145	-----------------------    *((volatile long *)C$1+92L) = (-320000L);
+;*** 145	-----------------------    *((volatile unsigned *)C$1+94L) = 64u;
+;*** 145	-----------------------    *((volatile unsigned *)C$1+95L) = 0xffbfu;
+;*** 146	-----------------------    *((volatile long *)C$1+78L) = (-576000L);
+;*** 146	-----------------------    *((volatile unsigned *)C$1+80L) = 32u;
+;*** 146	-----------------------    *((volatile unsigned *)C$1+81L) = 0xffdfu;
+;*** 147	-----------------------    *((volatile long *)C$1+64L) = (-832000L);
+;*** 147	-----------------------    *((volatile unsigned *)C$1+66L) = 16u;
+;*** 147	-----------------------    *((volatile unsigned *)C$1+67L) = 0xffefu;
+;*** 149	-----------------------    *((volatile long *)C$1+50L) = (-1088000L);
+;*** 149	-----------------------    *((volatile unsigned *)C$1+52L) = 8u;
+;*** 149	-----------------------    *((volatile unsigned *)C$1+53L) = 0xfff7u;
+;*** 150	-----------------------    *((volatile long *)C$1+36L) = (-1344000L);
+;*** 150	-----------------------    *((volatile unsigned *)C$1+38L) = 4u;
+;*** 150	-----------------------    *((volatile unsigned *)C$1+39L) = 0xfffbu;
+;*** 151	-----------------------    *((volatile long *)C$1+22L) = (-1600000L);
+;*** 151	-----------------------    *((volatile unsigned *)C$1+24L) = 2u;
+;*** 151	-----------------------    *((volatile unsigned *)C$1+25L) = 0xfffdu;
+;*** 152	-----------------------    (g_sen[0]).iq7weight = (-1856000L);
+;*** 152	-----------------------    (g_sen[0]).u16active_arr = 1u;
+;*** 152	-----------------------    (g_sen[0]).u16passive_arr = 0xfffeu;
+;*** 152	-----------------------    return;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -2017,166 +2017,166 @@ DW$140	.dwtag  DW_TAG_variable, DW_AT_name("C$1"), DW_AT_symbol_name("C$1")
 	.dwpsn	"sensor.c",109,2
         MOVW      DP,#_g_u16sen_enable
         MOV       @_g_u16sen_enable,#65535 ; |109| 
-	.dwpsn	"sensor.c",156,2
-        MOVL      XAR4,#1536000         ; |156| 
-        MOVB      XAR0,#218             ; |156| 
-        MOVL      *+XAR3[AR0],XAR4      ; |156| 
-	.dwpsn	"sensor.c",156,40
-        MOVB      XAR0,#220             ; |156| 
-        MOV       *+XAR3[AR0],#32768    ; |156| 
-	.dwpsn	"sensor.c",156,77
-        MOVB      XAR0,#221             ; |156| 
-        MOV       *+XAR3[AR0],#32767    ; |156| 
-	.dwpsn	"sensor.c",157,3
-        MOVB      XAR0,#204             ; |157| 
-        MOVL      XAR4,#1331200         ; |157| 
-        MOVL      *+XAR3[AR0],XAR4      ; |157| 
-	.dwpsn	"sensor.c",157,41
-        MOVB      XAR0,#206             ; |157| 
-        MOV       *+XAR3[AR0],#16384    ; |157| 
-	.dwpsn	"sensor.c",157,78
-        MOVB      XAR0,#207             ; |157| 
-        MOV       *+XAR3[AR0],#49151    ; |157| 
-	.dwpsn	"sensor.c",158,2
-        MOVB      XAR0,#190             ; |158| 
-        MOVL      XAR4,#1126400         ; |158| 
-        MOVL      *+XAR3[AR0],XAR4      ; |158| 
-	.dwpsn	"sensor.c",158,43
-        MOVB      XAR0,#192             ; |158| 
-        MOV       *+XAR3[AR0],#8192     ; |158| 
-	.dwpsn	"sensor.c",158,80
-        MOVB      XAR0,#193             ; |158| 
-        MOV       *+XAR3[AR0],#57343    ; |158| 
-	.dwpsn	"sensor.c",159,2
-        MOVB      XAR0,#176             ; |159| 
-        MOVL      XAR4,#921600          ; |159| 
-        MOVL      *+XAR3[AR0],XAR4      ; |159| 
-	.dwpsn	"sensor.c",159,40
-        MOVB      XAR0,#178             ; |159| 
-        MOV       *+XAR3[AR0],#4096     ; |159| 
-	.dwpsn	"sensor.c",159,77
-        MOVB      XAR0,#179             ; |159| 
-        MOV       *+XAR3[AR0],#61439    ; |159| 
-	.dwpsn	"sensor.c",161,2
-        MOVB      XAR0,#162             ; |161| 
-        MOVL      XAR4,#704000          ; |161| 
-        MOVL      *+XAR3[AR0],XAR4      ; |161| 
-	.dwpsn	"sensor.c",161,40
-        MOVB      XAR0,#164             ; |161| 
-        MOV       *+XAR3[AR0],#2048     ; |161| 
-	.dwpsn	"sensor.c",161,77
-        MOVB      XAR0,#165             ; |161| 
-        MOV       *+XAR3[AR0],#63487    ; |161| 
-	.dwpsn	"sensor.c",162,2
-        MOVB      XAR0,#148             ; |162| 
-        MOVL      XAR4,#505600          ; |162| 
-        MOVL      *+XAR3[AR0],XAR4      ; |162| 
-	.dwpsn	"sensor.c",162,40
-        MOVB      XAR0,#150             ; |162| 
-        MOV       *+XAR3[AR0],#1024     ; |162| 
-	.dwpsn	"sensor.c",162,77
-        MOVB      XAR0,#151             ; |162| 
-        MOV       *+XAR3[AR0],#64511    ; |162| 
-	.dwpsn	"sensor.c",163,2
-        MOVB      XAR0,#134             ; |163| 
-        MOVL      XAR4,#300800          ; |163| 
-        MOVL      *+XAR3[AR0],XAR4      ; |163| 
-	.dwpsn	"sensor.c",163,40
-        MOVB      XAR0,#136             ; |163| 
-        MOV       *+XAR3[AR0],#512      ; |163| 
-	.dwpsn	"sensor.c",163,77
-        MOVB      XAR0,#137             ; |163| 
-        MOV       *+XAR3[AR0],#65023    ; |163| 
-	.dwpsn	"sensor.c",164,2
-        MOVB      XAR0,#120             ; |164| 
-        MOVL      XAR4,#96000           ; |164| 
-        MOVL      *+XAR3[AR0],XAR4      ; |164| 
-	.dwpsn	"sensor.c",164,39
-        MOVB      XAR0,#122             ; |164| 
-        MOV       *+XAR3[AR0],#256      ; |164| 
-	.dwpsn	"sensor.c",164,76
-        MOVB      XAR0,#123             ; |164| 
-        MOV       *+XAR3[AR0],#65279    ; |164| 
-	.dwpsn	"sensor.c",166,2
+	.dwpsn	"sensor.c",134,2
+        MOVL      XAR4,#1856000         ; |134| 
+        MOVB      XAR0,#218             ; |134| 
+        MOVL      *+XAR3[AR0],XAR4      ; |134| 
+	.dwpsn	"sensor.c",134,40
+        MOVB      XAR0,#220             ; |134| 
+        MOV       *+XAR3[AR0],#32768    ; |134| 
+	.dwpsn	"sensor.c",134,77
+        MOVB      XAR0,#221             ; |134| 
+        MOV       *+XAR3[AR0],#32767    ; |134| 
+	.dwpsn	"sensor.c",135,3
+        MOVB      XAR0,#204             ; |135| 
+        MOVL      XAR4,#1600000         ; |135| 
+        MOVL      *+XAR3[AR0],XAR4      ; |135| 
+	.dwpsn	"sensor.c",135,41
+        MOVB      XAR0,#206             ; |135| 
+        MOV       *+XAR3[AR0],#16384    ; |135| 
+	.dwpsn	"sensor.c",135,78
+        MOVB      XAR0,#207             ; |135| 
+        MOV       *+XAR3[AR0],#49151    ; |135| 
+	.dwpsn	"sensor.c",136,2
+        MOVB      XAR0,#190             ; |136| 
+        MOVL      XAR4,#1344000         ; |136| 
+        MOVL      *+XAR3[AR0],XAR4      ; |136| 
+	.dwpsn	"sensor.c",136,40
+        MOVB      XAR0,#192             ; |136| 
+        MOV       *+XAR3[AR0],#8192     ; |136| 
+	.dwpsn	"sensor.c",136,77
+        MOVB      XAR0,#193             ; |136| 
+        MOV       *+XAR3[AR0],#57343    ; |136| 
+	.dwpsn	"sensor.c",137,2
+        MOVB      XAR0,#176             ; |137| 
+        MOVL      XAR4,#1088000         ; |137| 
+        MOVL      *+XAR3[AR0],XAR4      ; |137| 
+	.dwpsn	"sensor.c",137,40
+        MOVB      XAR0,#178             ; |137| 
+        MOV       *+XAR3[AR0],#4096     ; |137| 
+	.dwpsn	"sensor.c",137,77
+        MOVB      XAR0,#179             ; |137| 
+        MOV       *+XAR3[AR0],#61439    ; |137| 
+	.dwpsn	"sensor.c",139,2
+        MOVB      XAR0,#162             ; |139| 
+        MOVL      XAR4,#832000          ; |139| 
+        MOVL      *+XAR3[AR0],XAR4      ; |139| 
+	.dwpsn	"sensor.c",139,40
+        MOVB      XAR0,#164             ; |139| 
+        MOV       *+XAR3[AR0],#2048     ; |139| 
+	.dwpsn	"sensor.c",139,77
+        MOVB      XAR0,#165             ; |139| 
+        MOV       *+XAR3[AR0],#63487    ; |139| 
+	.dwpsn	"sensor.c",140,2
+        MOVB      XAR0,#148             ; |140| 
+        MOVL      XAR4,#576000          ; |140| 
+        MOVL      *+XAR3[AR0],XAR4      ; |140| 
+	.dwpsn	"sensor.c",140,40
+        MOVB      XAR0,#150             ; |140| 
+        MOV       *+XAR3[AR0],#1024     ; |140| 
+	.dwpsn	"sensor.c",140,77
+        MOVB      XAR0,#151             ; |140| 
+        MOV       *+XAR3[AR0],#64511    ; |140| 
+	.dwpsn	"sensor.c",141,2
+        MOVB      XAR0,#134             ; |141| 
+        MOVL      XAR4,#320000          ; |141| 
+        MOVL      *+XAR3[AR0],XAR4      ; |141| 
+	.dwpsn	"sensor.c",141,40
+        MOVB      XAR0,#136             ; |141| 
+        MOV       *+XAR3[AR0],#512      ; |141| 
+	.dwpsn	"sensor.c",141,77
+        MOVB      XAR0,#137             ; |141| 
+        MOV       *+XAR3[AR0],#65023    ; |141| 
+	.dwpsn	"sensor.c",142,2
+        MOVB      XAR0,#120             ; |142| 
+        MOVL      XAR4,#64000           ; |142| 
+        MOVL      *+XAR3[AR0],XAR4      ; |142| 
+	.dwpsn	"sensor.c",142,39
+        MOVB      XAR0,#122             ; |142| 
+        MOV       *+XAR3[AR0],#256      ; |142| 
+	.dwpsn	"sensor.c",142,76
+        MOVB      XAR0,#123             ; |142| 
+        MOV       *+XAR3[AR0],#65279    ; |142| 
+	.dwpsn	"sensor.c",144,2
         SETC      SXM
-        MOVB      XAR0,#106             ; |166| 
-        MOV       ACC,#-375 << 8
-        MOVL      *+XAR3[AR0],ACC       ; |166| 
-	.dwpsn	"sensor.c",166,40
-        MOVB      XAR0,#108             ; |166| 
-        MOV       *+XAR3[AR0],#128      ; |166| 
-	.dwpsn	"sensor.c",166,77
-        MOVB      XAR0,#109             ; |166| 
-        MOV       *+XAR3[AR0],#65407    ; |166| 
-	.dwpsn	"sensor.c",167,2
-        MOVB      XAR0,#92              ; |167| 
-        MOV       ACC,#-1175 << 8
-        MOVL      *+XAR3[AR0],ACC       ; |167| 
-	.dwpsn	"sensor.c",167,41
-        MOVB      XAR0,#94              ; |167| 
-        MOV       *+XAR3[AR0],#64       ; |167| 
-	.dwpsn	"sensor.c",167,78
-        MOVB      XAR0,#95              ; |167| 
-        MOV       *+XAR3[AR0],#65471    ; |167| 
-	.dwpsn	"sensor.c",168,2
-        MOVB      XAR0,#78              ; |168| 
-        MOV       ACC,#-1975 << 8
-        MOVL      *+XAR3[AR0],ACC       ; |168| 
-	.dwpsn	"sensor.c",168,41
-        MOVB      XAR0,#80              ; |168| 
-        MOV       *+XAR3[AR0],#32       ; |168| 
-	.dwpsn	"sensor.c",168,78
-        MOVB      XAR0,#81              ; |168| 
-        MOV       *+XAR3[AR0],#65503    ; |168| 
-	.dwpsn	"sensor.c",169,2
-        MOVB      XAR0,#64              ; |169| 
-        MOV       ACC,#-1375 << 9
-        MOVL      *+XAR3[AR0],ACC       ; |169| 
-	.dwpsn	"sensor.c",169,41
-        MOVB      XAR0,#66              ; |169| 
-        MOV       *+XAR3[AR0],#16       ; |169| 
-	.dwpsn	"sensor.c",169,78
-        MOVB      XAR0,#67              ; |169| 
-        MOV       *+XAR3[AR0],#65519    ; |169| 
-	.dwpsn	"sensor.c",171,2
-        MOVB      XAR0,#50              ; |171| 
-        MOV       ACC,#-225 << 12
-        MOVL      *+XAR3[AR0],ACC       ; |171| 
-	.dwpsn	"sensor.c",171,40
-        MOVB      XAR0,#52              ; |171| 
-        MOV       *+XAR3[AR0],#8        ; |171| 
-	.dwpsn	"sensor.c",171,77
-        MOVB      XAR0,#53              ; |171| 
-        MOV       *+XAR3[AR0],#65527    ; |171| 
-	.dwpsn	"sensor.c",172,2
-        MOVB      XAR0,#36              ; |172| 
-        MOV       ACC,#-275 << 12
-        MOVL      *+XAR3[AR0],ACC       ; |172| 
-	.dwpsn	"sensor.c",172,40
-        MOVB      XAR0,#38              ; |172| 
-        MOV       *+XAR3[AR0],#4        ; |172| 
-	.dwpsn	"sensor.c",172,77
-        MOVB      XAR0,#39              ; |172| 
-        MOV       *+XAR3[AR0],#65531    ; |172| 
-	.dwpsn	"sensor.c",173,2
-        MOVB      XAR0,#22              ; |173| 
-        MOV       ACC,#-325 << 12
-        MOVL      *+XAR3[AR0],ACC       ; |173| 
-	.dwpsn	"sensor.c",173,41
-        MOVB      XAR0,#24              ; |173| 
-        MOV       *+XAR3[AR0],#2        ; |173| 
-	.dwpsn	"sensor.c",173,78
-        MOVB      XAR0,#25              ; |173| 
-        MOV       *+XAR3[AR0],#65533    ; |173| 
-	.dwpsn	"sensor.c",174,2
-        MOV       PH,#65512
-        MOV       PL,#36864
+        MOVB      XAR0,#106             ; |144| 
+        MOV       ACC,#-125 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |144| 
+	.dwpsn	"sensor.c",144,40
+        MOVB      XAR0,#108             ; |144| 
+        MOV       *+XAR3[AR0],#128      ; |144| 
+	.dwpsn	"sensor.c",144,77
+        MOVB      XAR0,#109             ; |144| 
+        MOV       *+XAR3[AR0],#65407    ; |144| 
+	.dwpsn	"sensor.c",145,2
+        MOVB      XAR0,#92              ; |145| 
+        MOV       ACC,#-625 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |145| 
+	.dwpsn	"sensor.c",145,41
+        MOVB      XAR0,#94              ; |145| 
+        MOV       *+XAR3[AR0],#64       ; |145| 
+	.dwpsn	"sensor.c",145,78
+        MOVB      XAR0,#95              ; |145| 
+        MOV       *+XAR3[AR0],#65471    ; |145| 
+	.dwpsn	"sensor.c",146,2
+        MOVB      XAR0,#78              ; |146| 
+        MOV       ACC,#-1125 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |146| 
+	.dwpsn	"sensor.c",146,41
+        MOVB      XAR0,#80              ; |146| 
+        MOV       *+XAR3[AR0],#32       ; |146| 
+	.dwpsn	"sensor.c",146,78
+        MOVB      XAR0,#81              ; |146| 
+        MOV       *+XAR3[AR0],#65503    ; |146| 
+	.dwpsn	"sensor.c",147,2
+        MOVB      XAR0,#64              ; |147| 
+        MOV       ACC,#-1625 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |147| 
+	.dwpsn	"sensor.c",147,41
+        MOVB      XAR0,#66              ; |147| 
+        MOV       *+XAR3[AR0],#16       ; |147| 
+	.dwpsn	"sensor.c",147,78
+        MOVB      XAR0,#67              ; |147| 
+        MOV       *+XAR3[AR0],#65519    ; |147| 
+	.dwpsn	"sensor.c",149,2
+        MOVB      XAR0,#50              ; |149| 
+        MOV       ACC,#-2125 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |149| 
+	.dwpsn	"sensor.c",149,40
+        MOVB      XAR0,#52              ; |149| 
+        MOV       *+XAR3[AR0],#8        ; |149| 
+	.dwpsn	"sensor.c",149,77
+        MOVB      XAR0,#53              ; |149| 
+        MOV       *+XAR3[AR0],#65527    ; |149| 
+	.dwpsn	"sensor.c",150,2
+        MOVB      XAR0,#36              ; |150| 
+        MOV       ACC,#-2625 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |150| 
+	.dwpsn	"sensor.c",150,41
+        MOVB      XAR0,#38              ; |150| 
+        MOV       *+XAR3[AR0],#4        ; |150| 
+	.dwpsn	"sensor.c",150,78
+        MOVB      XAR0,#39              ; |150| 
+        MOV       *+XAR3[AR0],#65531    ; |150| 
+	.dwpsn	"sensor.c",151,2
+        MOVB      XAR0,#22              ; |151| 
+        MOV       ACC,#-3125 << 9
+        MOVL      *+XAR3[AR0],ACC       ; |151| 
+	.dwpsn	"sensor.c",151,41
+        MOVB      XAR0,#24              ; |151| 
+        MOV       *+XAR3[AR0],#2        ; |151| 
+	.dwpsn	"sensor.c",151,78
+        MOVB      XAR0,#25              ; |151| 
+        MOV       *+XAR3[AR0],#65533    ; |151| 
+	.dwpsn	"sensor.c",152,2
+        MOV       PH,#65507
+        MOV       PL,#44544
         MOVW      DP,#_g_sen+8
-        MOVL      @_g_sen+8,P           ; |174| 
-	.dwpsn	"sensor.c",174,41
-        MOV       @_g_sen+10,#1         ; |174| 
-	.dwpsn	"sensor.c",174,78
-        MOV       @_g_sen+11,#65534     ; |174| 
+        MOVL      @_g_sen+8,P           ; |152| 
+	.dwpsn	"sensor.c",152,41
+        MOV       @_g_sen+10,#1         ; |152| 
+	.dwpsn	"sensor.c",152,78
+        MOV       @_g_sen+11,#65534     ; |152| 
 	.dwpsn	"sensor.c",201,1
 	.dwcfa	0x1d, -4
         MOVL      XAR3,*--SP
@@ -3079,7 +3079,7 @@ DW$152	.dwtag  DW_TAG_variable, DW_AT_name("K$6"), DW_AT_symbol_name("K$6")
 ;*** 310	-----------------------    g_pos.iq7sum_of_sec += __IQxmpy((*C$1).iq7weight, (*C$1).iq17data, 15);
 ;*** 312	-----------------------    g_pos.iq7sum = g_pos.iq17sum>>10;
 ;*** 314	-----------------------    g_pos.iq7temp_pos = _IQ7div(g_pos.iq7sum_of_sec, g_pos.iq7sum);
-;*** 316	-----------------------    if ( g_pos.iq7temp_pos > 1536000L ) goto g5;
+;*** 316	-----------------------    if ( g_pos.iq7temp_pos > 1856000L ) goto g5;
 	.dwpsn	"sensor.c",304,3
         LCR       #_cross_check$0       ; |304| 
         ; call occurs [#_cross_check$0] ; |304| 
@@ -3156,29 +3156,29 @@ DW$152	.dwtag  DW_TAG_variable, DW_AT_name("K$6"), DW_AT_symbol_name("K$6")
         MOVW      DP,#_g_pos+10
         MOVL      @_g_pos+10,ACC        ; |314| 
 	.dwpsn	"sensor.c",316,4
-        MOVL      XAR4,#1536000         ; |316| 
+        MOVL      XAR4,#1856000         ; |316| 
         MOVL      ACC,XAR4              ; |316| 
         CMPL      ACC,@_g_pos+10        ; |316| 
         BF        L70,LT                ; |316| 
         ; branchcc occurs ; |316| 
-;*** 317	-----------------------    if ( g_pos.iq7temp_pos >= (-1536000L) ) goto g6;
+;*** 317	-----------------------    if ( g_pos.iq7temp_pos >= (-1856000L) ) goto g6;
 	.dwpsn	"sensor.c",317,8
         SETC      SXM
-        MOV       ACC,#-375 << 12
+        MOV       ACC,#-3625 << 9
         CMPL      ACC,@_g_pos+10        ; |317| 
         BF        L71,LEQ               ; |317| 
         ; branchcc occurs ; |317| 
-;*** 317	-----------------------    g_pos.iq7temp_pos = (-1536000L);
+;*** 317	-----------------------    g_pos.iq7temp_pos = (-1856000L);
 ;*** 317	-----------------------    goto g6;
 	.dwpsn	"sensor.c",317,44
-        MOV       PH,#65512
-        MOV       PL,#36864
+        MOV       PH,#65507
+        MOV       PL,#44544
         MOVL      @_g_pos+10,P          ; |317| 
         BF        L71,UNC               ; |317| 
         ; branch occurs ; |317| 
 L70:    
 ;***	-----------------------g5:
-;*** 316	-----------------------    g_pos.iq7temp_pos = 1536000L;
+;*** 316	-----------------------    g_pos.iq7temp_pos = 1856000L;
 	.dwpsn	"sensor.c",316,40
         MOVL      @_g_pos+10,XAR4       ; |316| 
 L71:    
@@ -3348,7 +3348,7 @@ DW$L$_print_pos$2$E:
         ; return occurs
 
 DW$154	.dwtag  DW_TAG_loop
-	.dwattr DW$154, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L74:1:1753721547")
+	.dwattr DW$154, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L74:1:1754244675")
 	.dwattr DW$154, DW_AT_begin_file("sensor.c")
 	.dwattr DW$154, DW_AT_begin_line(0x3ea)
 	.dwattr DW$154, DW_AT_end_line(0x3f5)
@@ -3464,7 +3464,7 @@ DW$L$_print_maxmin$2$E:
         ; return occurs
 
 DW$159	.dwtag  DW_TAG_loop
-	.dwattr DW$159, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L75:1:1753721547")
+	.dwattr DW$159, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L75:1:1754244675")
 	.dwattr DW$159, DW_AT_begin_file("sensor.c")
 	.dwattr DW$159, DW_AT_begin_line(0x3fb)
 	.dwattr DW$159, DW_AT_end_line(0x3fe)
@@ -4184,7 +4184,7 @@ DW$L$_Set_Max_Min$16$E:
         ; return occurs
 
 DW$178	.dwtag  DW_TAG_loop
-	.dwattr DW$178, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L91:1:1753721547")
+	.dwattr DW$178, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L91:1:1754244675")
 	.dwattr DW$178, DW_AT_begin_file("sensor.c")
 	.dwattr DW$178, DW_AT_begin_line(0x393)
 	.dwattr DW$178, DW_AT_end_line(0x39a)
@@ -4195,7 +4195,7 @@ DW$179	.dwtag  DW_TAG_loop_range
 
 
 DW$180	.dwtag  DW_TAG_loop
-	.dwattr DW$180, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L90:1:1753721547")
+	.dwattr DW$180, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L90:1:1754244675")
 	.dwattr DW$180, DW_AT_begin_file("sensor.c")
 	.dwattr DW$180, DW_AT_begin_line(0x38d)
 	.dwattr DW$180, DW_AT_end_line(0x38d)
@@ -4206,7 +4206,7 @@ DW$181	.dwtag  DW_TAG_loop_range
 
 
 DW$182	.dwtag  DW_TAG_loop
-	.dwattr DW$182, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L87:1:1753721547")
+	.dwattr DW$182, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L87:1:1754244675")
 	.dwattr DW$182, DW_AT_begin_file("sensor.c")
 	.dwattr DW$182, DW_AT_begin_line(0x382)
 	.dwattr DW$182, DW_AT_end_line(0x391)
@@ -4229,7 +4229,7 @@ DW$187	.dwtag  DW_TAG_loop_range
 
 
 DW$188	.dwtag  DW_TAG_loop
-	.dwattr DW$188, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L86:1:1753721547")
+	.dwattr DW$188, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L86:1:1754244675")
 	.dwattr DW$188, DW_AT_begin_file("sensor.c")
 	.dwattr DW$188, DW_AT_begin_line(0x378)
 	.dwattr DW$188, DW_AT_end_line(0x378)
@@ -4240,7 +4240,7 @@ DW$189	.dwtag  DW_TAG_loop_range
 
 
 DW$190	.dwtag  DW_TAG_loop
-	.dwattr DW$190, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L83:1:1753721547")
+	.dwattr DW$190, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L83:1:1754244675")
 	.dwattr DW$190, DW_AT_begin_file("sensor.c")
 	.dwattr DW$190, DW_AT_begin_line(0x36d)
 	.dwattr DW$190, DW_AT_end_line(0x37c)
@@ -4579,7 +4579,7 @@ DW$L$_F_4095$11$E:
         ; return occurs
 
 DW$201	.dwtag  DW_TAG_loop
-	.dwattr DW$201, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L92:1:1753721547")
+	.dwattr DW$201, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L92:1:1754244675")
 	.dwattr DW$201, DW_AT_begin_file("sensor.c")
 	.dwattr DW$201, DW_AT_begin_line(0x3a8)
 	.dwattr DW$201, DW_AT_end_line(0x3c0)
@@ -4823,7 +4823,7 @@ DW$L$_F_127$11$E:
         ; return occurs
 
 DW$215	.dwtag  DW_TAG_loop
-	.dwattr DW$215, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L98:1:1753721547")
+	.dwattr DW$215, DW_AT_name("C:\project\Linetracer\_Vistan_\main\sensor.asm:L98:1:1754244675")
 	.dwattr DW$215, DW_AT_begin_file("sensor.c")
 	.dwattr DW$215, DW_AT_begin_line(0x3c8)
 	.dwattr DW$215, DW_AT_end_line(0x3e1)

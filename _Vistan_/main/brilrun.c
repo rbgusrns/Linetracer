@@ -264,7 +264,6 @@ static void bril_45_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_st
 	//if ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) pinfo->q17shift_after = _IQ(0.0);
 		
 	pinfo->q17dist_limit =  _IQ( pinfo->u16dist >> 1 );					
-
 	perr->q17err_dist[ mark_cnt ] = _IQ( pinfo->u16dist << 1 ); 
 	perr->q17under_dist[ mark_cnt ] = _IQ( pinfo->u16dist >> 2 );	
 
@@ -333,18 +332,7 @@ static void  bril_90_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_s
 	else //다음 턴이 턴일 경우 
 	{
         
-		if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_90 ) )  && ( ( pinfo + 1 )->u16turn_dir & ( TURN_90 ) ) ) //연속 턴 
-		{
-			bril_turn_division_compute( ( pinfo + 1 ) , ( mark_cnt + 1 ), perr );
-			
-			xcontinus_angle_vel_compute_func( pinfo , _IQ17( pinfo->u16dist >> 1 ) , POS_KP_DOWN );
-            pinfo->down_flag = ON; 
-            pinfo->q7kp_val = POS_KP_DOWN;
-            pinfo->q17shift_before = ( ( pinfo + 1 )->u16turn_dir & RTURN ) ? shift_right[ shift + 2 ] : shift_left[ shift + 2 ];
-            
-		} 
-        
-        else if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_90 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 90도 - 90도 - 직진 에서의 90도 
+        if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_90 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 90도 - 90도 - 직진 에서의 90도 
         {
             pinfo->down_flag = ON; 
             pinfo->q7kp_val = POS_KP_DOWN;
@@ -356,18 +344,31 @@ static void  bril_90_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_s
         
         else if( ( ( pinfo - 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 )  ) //직진 - 45 - 90 - 45 - 직진에서 90도  
         {
+            bril_turn_division_compute( ( pinfo + 1 ) , ( mark_cnt + 1 ), perr );
             pinfo->down_flag = ON; 
             pinfo->q7kp_val = POS_KP_DOWN;
             xcontinus_angle_vel_compute_func( pinfo , _IQ17( pinfo->u16dist >> 1 ) , POS_KP_DOWN );
         
             pinfo->q17shift_before = ( pinfo->u16turn_dir & RTURN ) ? shift_right[ shift + 2 ] : shift_left[ shift + 2 ];  //현재 턴 방향을 기준으로 shift
         }
-
-       
-
 		
 		pinfo->q17shift_after = pinfo->q17shift_before;
+
+        if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_90 ) )  && ( ( pinfo + 1 )->u16turn_dir & ( TURN_90 ) ) ) //연속 턴 
+        {
+            bril_turn_division_compute( ( pinfo + 1 ) , ( mark_cnt + 1 ), perr );
+            
+            xcontinus_angle_vel_compute_func( pinfo , _IQ17( pinfo->u16dist >> 1 ) , POS_KP_DOWN );
+            pinfo->down_flag = ON; 
+            pinfo->q7kp_val = POS_KP_DOWN;
+            pinfo->q17shift_before = ( pinfo->u16turn_dir & RTURN ) ? shift_right[ shift + 1 ] : shift_left[ shift + 1 ];
+            pinfo->q17shift_after  = ( ( pinfo + 1 )->u16turn_dir & RTURN ) ? shift_right[ shift + 1 ] : shift_left[ shift + 1 ];
+        } 
+
+
+        
 	}
+    
 
 	pinfo->q17dist_limit = _IQ( pinfo->u16dist >> 1 ); 
 

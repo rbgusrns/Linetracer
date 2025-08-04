@@ -1,23 +1,2 @@
----- s44s_flag Matches (22 in 14 files) ----
-brilrun.asm (main):	.dwattr DW$379, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-brilrun.c (main):		pinfo->s44s_flag = OFF;
-brilrun.c (main):			else 										pinfo->s44s_flag = ON;
-brilrun.c (main):			if( ( ( pinfo - 1 )->down_flag == OFF ) && ( ( pinfo - 1 )->s44s_flag == OFF ) ) // 보정 풀린 경우 가변 X 
-brilrun.c (main):            pinfo->s44s_flag = OFF;
-brilrun.c (main):	pinfo->s44s_flag = OFF;
-extremerun.asm (main):	.dwattr DW$108, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-fastrun.asm (main):	.dwattr DW$223, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-fastrun.c (main):	pinfo->s44s_flag = OFF;
-fastrun.c (main):	pinfo->s44s_flag = OFF;
-fastrun.c (main):	pinfo->s44s_flag = OFF;
-main.asm (main):	.dwattr DW$478, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-main.c (main):																								 							 g_fast_info[ i ].s44s_flag,
-menu.asm (main):	.dwattr DW$75, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-Motor.asm (main):	.dwattr DW$454, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-Motor.c (main):		g_fast_info[g_int32mark_cnt].s44s_flag= OFF;
-Motor.c (main):	else if( g_fast_info[g_int32mark_cnt].s44s_flag )  //직진 - 45도 - 45도 - 직진 에서 진입직진이 짧은 직진이 아닐 경우
-Motor.c (main):    //s44s_flag : 직진에서 다음, 다다음 턴이 45도인 경우에직진 거리가 200보다 길다면 ON. 200보다 낮다면 down_flag ON. 
-Rom.asm (main):	.dwattr DW$294, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-search.asm (main):	.dwattr DW$291, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-sensor.asm (main):	.dwattr DW$376, DW_AT_name("s44s_flag"), DW_AT_symbol_name("_s44s_flag")
-Struct.h (include):	Uint16 s44s_flag:1;
+---- 0.007 Matches (1 in 1 files) ----
+Motor.c (main):#define	DOWN_KP  				_IQ7( 0.007 )  // 

@@ -20,7 +20,7 @@
 #include "Main.h"
 #include "Motor.h"
 
-//#define WHEEL_RADIUS			36
+//#define WHEEL_RADIUS			36.44
 //#define Gear_Ratio 				3.35
 //#define M_PI					3.141592653589
 
@@ -28,21 +28,20 @@
 
 //PULSE_TO_D = (WHEEL_RADIUS * M_PI) / (encoder_pulse * 4) / geer_ratio 
 //(36 * M_PI) / 2048 / 3.35
-#define PULSE_TO_D				_IQ30( 0.016484569660 )
+//#define PULSE_TO_D				_IQ30( 0.016484569660 )
+#define PULSE_TO_D				_IQ30( 0.016686047734493 )
 
 //PULSE_TO_V = (WHEEL_RADIUS * M_PI) / (encoder_pulse * 4) / geer_ratio / SAMPLE_FRQ
 //(36 * M_PI) / 2048 / 3.35 / 0.0005
-#define PULSE_TO_V  			_IQ26( 32.96913932172 )
-
-//#define PULSE_TO_V  			_IQ26( 32.74018696 )
-// (35.75 * M_PI) / 2048 / 3.35 / 0.0005
+//#define PULSE_TO_V  			_IQ26( 32.96913932172 )
+#define PULSE_TO_V  			_IQ25( 33.37209546898672 )
 ////////////////////////////////////////////       PID information       ///////////////////////////////////////////////////
 
-// 9000으로 임의로 잡고 계산했을 경우 공회전으로 7800mm/s 정도까지 올라가는것 확인-> 정속 주행일때를 위해 좀 더 올려야 할 듯... 
-#define MAX_PID_OUT				_IQ( 9000.0 )
-#define MIN_PID_OUT				_IQ( -9000.0 )
+// 9000으로 임의로 잡고 계산했을 경우 공회전으로 7700mm/s 정도까지 올라가는것 확인-> 정속 주행일때를 위해 좀 더 올려야 할 듯... 
+#define MAX_PID_OUT				_IQ( 7700.0 )
+#define MIN_PID_OUT				_IQ( -7700.0 )
 
-#define PWM_CONVERT				_IQ30( 0.2 )
+#define PWM_CONVERT				_IQ30( 0.2597402597 )
 
 /*extreme pd value*/
 //#define	DOWN_KP  				_IQ7( 0.007 )  // 
@@ -412,11 +411,11 @@ interrupt void  motor_ISR(void)
 	
 	// vel check
 	g_rm.q17cur_vel[ 1 ] = g_rm.q17cur_vel[ 0 ];
-	g_rm.q17cur_vel[ 0 ] = _IQ17mpyIQX( ( int32 )( g_rm.int16qep_val ) << 21 , 21 , PULSE_TO_V , 26 ); //  현재속도 
+	g_rm.q17cur_vel[ 0 ] = _IQ17mpyIQX( ( int32 )( g_rm.int16qep_val ) << 21 , 21 , PULSE_TO_V , 25 ); //  현재속도 
 	g_rm.q17cur_vel_avr = ( g_rm.q17cur_vel[ 0 ] + g_rm.q17cur_vel[ 1 ] ) >> 1; 
 
 	g_lm.q17cur_vel[ 1 ] = g_lm.q17cur_vel[ 0 ];
-	g_lm.q17cur_vel[ 0 ] = _IQ17mpyIQX( ( int32 )( g_lm.int16qep_val ) << 21 , 21 , PULSE_TO_V , 26 );
+	g_lm.q17cur_vel[ 0 ] = _IQ17mpyIQX( ( int32 )( g_lm.int16qep_val ) << 21 , 21 , PULSE_TO_V , 25 );
 	g_lm.q17cur_vel_avr = ( g_lm.q17cur_vel[ 0 ] + g_lm.q17cur_vel[ 1 ] ) >> 1;
 
 
