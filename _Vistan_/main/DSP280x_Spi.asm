@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Mon Aug 04 03:11:13 2025                 *
+;* Date/Time created: Thu Aug 14 17:20:41 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -24,8 +24,8 @@ DW$4	.dwtag  DW_TAG_variable, DW_AT_name("GpioDataRegs"), DW_AT_symbol_name("_Gp
 	.dwattr DW$4, DW_AT_type(*DW$T$61)
 	.dwattr DW$4, DW_AT_declaration(0x01)
 	.dwattr DW$4, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI87610 C:\Users\rbgus\AppData\Local\Temp\TI8764 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI8762 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI8766 --object_file DSP280x_Spi.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI15210 C:\Users\rbgus\AppData\Local\Temp\TI1524 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI1522 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI1526 --object_file DSP280x_Spi.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_SpiTx
 
@@ -99,7 +99,7 @@ DW$L$_SpiTx$2$E:
         ; return occurs
 
 DW$9	.dwtag  DW_TAG_loop
-	.dwattr DW$9, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L1:1:1754244673")
+	.dwattr DW$9, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L1:1:1755159641")
 	.dwattr DW$9, DW_AT_begin_file("DSP280x_Spi.c")
 	.dwattr DW$9, DW_AT_begin_line(0xaa)
 	.dwattr DW$9, DW_AT_end_line(0xaa)
@@ -224,7 +224,7 @@ DW$L$_SpiBusyOK$2$E:
         ; return occurs
 
 DW$14	.dwtag  DW_TAG_loop
-	.dwattr DW$14, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L2:1:1754244673")
+	.dwattr DW$14, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L2:1:1755159641")
 	.dwattr DW$14, DW_AT_begin_file("DSP280x_Spi.c")
 	.dwattr DW$14, DW_AT_begin_line(0x2f)
 	.dwattr DW$14, DW_AT_end_line(0x3f)
@@ -441,7 +441,7 @@ L4:
         ; return occurs
 
 DW$28	.dwtag  DW_TAG_loop
-	.dwattr DW$28, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L3:1:1754244673")
+	.dwattr DW$28, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L3:1:1755159641")
 	.dwattr DW$28, DW_AT_begin_file("DSP280x_Spi.c")
 	.dwattr DW$28, DW_AT_begin_line(0x99)
 	.dwattr DW$28, DW_AT_end_line(0x9d)
@@ -679,7 +679,7 @@ L6:
         ; return occurs
 
 DW$42	.dwtag  DW_TAG_loop
-	.dwattr DW$42, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L5:1:1754244673")
+	.dwattr DW$42, DW_AT_name("C:\project\Linetracer\_Vistan_\main\DSP280x_Spi.asm:L5:1:1755159641")
 	.dwattr DW$42, DW_AT_begin_file("DSP280x_Spi.c")
 	.dwattr DW$42, DW_AT_begin_line(0x6a)
 	.dwattr DW$42, DW_AT_end_line(0x6e)

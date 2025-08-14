@@ -1,2 +1,18 @@
----- 0.007 Matches (1 in 1 files) ----
-Motor.c (main):#define	DOWN_KP  				_IQ7( 0.007 )  // 
+---- motor_ISR_flag Matches (17 in 11 files) ----
+brilrun.asm (main):	.dwattr DW$415, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
+brilrun.c (main):		if( g_Flag.motor_ISR_flag )	// 모터 interrupt 동기화 
+brilrun.c (main):				g_Flag.motor_ISR_flag = OFF;
+brilrun.c (main):			g_Flag.motor_ISR_flag = OFF;
+fastrun.asm (main):	.dwattr DW$252, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
+fastrun.c (main):		if( g_Flag.motor_ISR_flag )
+fastrun.c (main):                g_Flag.motor_ISR_flag = OFF;
+fastrun.c (main):			g_Flag.motor_ISR_flag = OFF;
+main.asm (main):	.dwattr DW$423, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
+Motor.asm (main):	.dwattr DW$420, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
+Motor.c (main):	g_Flag.motor_ISR_flag = ON; // 주행 플래그
+search.asm (main):	.dwattr DW$348, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
+search.c (main):		if( g_Flag.motor_ISR_flag )
+search.c (main):				g_Flag.motor_ISR_flag = OFF;
+search.c (main):			g_Flag.motor_ISR_flag = OFF;
+sensor.asm (main):	.dwattr DW$492, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
+Struct.h (include):	Uint16 motor_ISR_flag:1;	

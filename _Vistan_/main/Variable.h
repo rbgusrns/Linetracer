@@ -74,6 +74,7 @@
 #define POS_KP_UP		_IQ7( 0.7 )	//1.5
 //#define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 #define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
+#define POS_KP_NONE     _IQ7( 0.1 )
 
 #define POS_KD_UP		_IQ7( 4.4 )	//4.4
 #define POS_KD_DOWN		_IQ7( 3.4 )	//3.4
@@ -326,12 +327,17 @@ typedef enum extrem_variable_vel
 
 
 /*
-#define SHIFT_RATIO			_IQ(3.25)
-#define RETURN_RATIO		_IQ(3.75)
-#define ST_RET_RATIO		_IQ(1.75)
-#define PM_RATIO			_IQ(3.5)
+#define SHIFT_RATIO			_IQ(50)
+#define RETURN_RATIO		_IQ(40)
+#define ST_RET_RATIO		_IQ(10)
+#define PM_RATIO			_IQ(10)
 */
-
+/*
+#define SHIFT_RATIO			_IQ(30)
+#define RETURN_RATIO		_IQ(20)
+#define ST_RET_RATIO		_IQ(5)
+#define PM_RATIO			_IQ(5)
+*/
 #if 0 // by  재성이형 코드 
 #define SHIFT_RATIO			6.0
 #define RETURN_RATIO		7.0

@@ -63,7 +63,10 @@ typedef enum
 	
 	_END_ACC,
 	_FASTLIMIT_VEL,
-	_USER_ACC
+	_USER_ACC,
+	_POSINT_1,
+	_POSINT_2
+	
 
 }rom_e;
 
@@ -298,8 +301,11 @@ void maxmin_read_rom( void )
 
 for( Num = 0; Num < 16; Num++)
 {
-    TxPrintf("[%ld] : %5ld | %5ld |\n",Num,g_sen[ Num ].iq17min_value>>17,g_sen[ Num ].iq17max_value>>17);
+    g_sen[ Num ].iq17sub_value = g_sen[ Num ].iq17max_value - g_sen[ Num ].iq17min_value ;
+    TxPrintf("[%ld] : %5ld | %5ld | %5ld |\n",Num,g_sen[ Num ].iq17min_value>>17,g_sen[ Num ].iq17max_value>>17, g_sen[ Num ].iq17sub_value>>17);
+    
 }
+
 
 
 }
@@ -969,18 +975,20 @@ void mark_read_rom( void )
 void fast_infor_write_rom( void )
 {
 
-	int16 i = 0, j = 0, k = 0, l = 0, m = 0;
+	int16 i = 0, j = 0, k = 0, l = 0, m = 0, n = 0;
 
 	Uint16 dist_sarr[ MAX_PAGE ] = { 0, };
 	Uint16 turn_sarr[ MAX_PAGE ] = { 0, };
 	Uint16 ldist_sarr[ MAX_PAGE ] = { 0, };
 	Uint16 rdist_sarr[ MAX_PAGE ] = { 0, };
+    Uint16 posint_sarr[ MAX_PAGE ] = { 0, };
 	memset( (void * )dist_sarr , 0x00 , sizeof( dist_sarr ) );
 	memset( (void * )turn_sarr , 0x00 , sizeof( turn_sarr ) );
 	memset( (void * )ldist_sarr , 0x00 , sizeof( ldist_sarr ) );
 	memset( (void * )rdist_sarr , 0x00 , sizeof( rdist_sarr ) );
+    memset( (void * )posint_sarr , 0x00 , sizeof( posint_sarr ) );
 
-	j = k = l = m = 0;
+	j = k = l = m = n = 0;
 	for( i = 0; i < 128; i++ )
 	{
 		dist_sarr[ j++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16dist ) ) >> 0  ) & 0xff;
@@ -994,20 +1002,24 @@ void fast_infor_write_rom( void )
 
 		rdist_sarr[ m++ ] = ( ( ( Uint16 )(( g_fast_info[ i ].q17r_dist ) >> 17 )) >> 0  ) & 0xff;
 		rdist_sarr[ m++ ] = ( ( ( Uint16 )(( g_fast_info[ i ].q17r_dist ) >> 17 )) >> 8  ) & 0xff;
+
+        posint_sarr[ n++ ] = ( ( ( Uint16 )(( _IQ7abs( g_fast_info[ i ].iq7pos_integral_val ) ) >> 7 )) >> 0  ) & 0xff;
+		posint_sarr[ n++ ] = ( ( ( Uint16 )(( _IQ7abs( g_fast_info[ i ].iq7pos_integral_val ) ) >> 7 )) >> 8  ) & 0xff;
 	}
 
 	SpiWriteRom( ( Uint16 )LINE_DIST_PAFE_1, 0x00, ( Uint16 )MAX_PAGE, dist_sarr );
 	SpiWriteRom( ( Uint16 )LINE_TURN_PAGE_1, 0x00, ( Uint16 )MAX_PAGE, turn_sarr );
 	SpiWriteRom( ( Uint16 )LINE_LDIST_PAGE_1, 0x00, ( Uint16 )MAX_PAGE, ldist_sarr );
 	SpiWriteRom( ( Uint16 )LINE_RDIST_PAGE_1, 0x00, ( Uint16 )MAX_PAGE, rdist_sarr );
+    SpiWriteRom( ( Uint16 )_POSINT_1, 0x00, ( Uint16 )MAX_PAGE, posint_sarr );
 
-	j = k = l = m = 0;
+	j = k = l = m = n = 0;
 	for( i = 128; i < 256; i++ )
 	{
-		dist_sarr[ j++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16dist  ) ) >> 0  ) & 0xff;
+		dist_sarr[ j++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16dist ) ) >> 0  ) & 0xff;
 		dist_sarr[ j++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16dist  ) ) >> 8  ) & 0xff;
 
-		turn_sarr[ k++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16turn_way ) ) >> 0  ) & 0xff;
+		turn_sarr[ k++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16turn_way) ) >> 0  ) & 0xff;
 		turn_sarr[ k++ ] = ( ( ( Uint16 )( g_fast_info[ i ].u16turn_way ) ) >> 8  ) & 0xff;
 
 		ldist_sarr[ l++ ] = ( ( ( Uint16 )(( g_fast_info[ i ].q17l_dist ) >> 17 )) >> 0  ) & 0xff;
@@ -1015,28 +1027,35 @@ void fast_infor_write_rom( void )
 
 		rdist_sarr[ m++ ] = ( ( ( Uint16 )(( g_fast_info[ i ].q17r_dist ) >> 17 )) >> 0  ) & 0xff;
 		rdist_sarr[ m++ ] = ( ( ( Uint16 )(( g_fast_info[ i ].q17r_dist ) >> 17 )) >> 8  ) & 0xff;
+
+        posint_sarr[ n++ ] = ( ( ( Uint16 )(( _IQ7abs( g_fast_info[ i ].iq7pos_integral_val ) ) >> 7 )) >> 0  ) & 0xff;
+		posint_sarr[ n++ ] = ( ( ( Uint16 )(( _IQ7abs( g_fast_info[ i ].iq7pos_integral_val ) ) >> 7 )) >> 8  ) & 0xff;
 	}
+
 
 	SpiWriteRom( ( Uint16 )LINE_DIST_PAFE_2, 0x00, ( Uint16 )MAX_PAGE, dist_sarr );
 	SpiWriteRom( ( Uint16 )LINE_TURN_PAGE_2, 0x00, ( Uint16 )MAX_PAGE, turn_sarr );
 	SpiWriteRom( ( Uint16 )LINE_LDIST_PAGE_2, 0x00, ( Uint16 )MAX_PAGE, ldist_sarr );
 	SpiWriteRom( ( Uint16 )LINE_RDIST_PAGE_2, 0x00, ( Uint16 )MAX_PAGE, rdist_sarr );
+    SpiWriteRom( ( Uint16 )_POSINT_2, 0x00, ( Uint16 )MAX_PAGE, posint_sarr );
 
 }
 
 void fast_infor_read_rom( void )
 {
-	int16 i = 0, j = 0, k = 0, l = 0, m = 0;
+	int16 i = 0, j = 0, k = 0, l = 0, m = 0, n = 0;
 	Uint16 dist_larr[ MAX_PAGE ] = { 0, };
 	Uint16 turn_larr[ MAX_PAGE ] = { 0, };
 	Uint16 ldist_larr[ MAX_PAGE ] = { 0, };
 	Uint16 rdist_larr[ MAX_PAGE ] = { 0, };
+    Uint16 posint_larr[ MAX_PAGE ] = { 0, };
 
-	j = k = l = m = 0;
+	j = k = l = m = n = 0;
 	SpiReadRom( ( Uint16 )LINE_DIST_PAFE_1, 0x00, ( Uint16 )MAX_PAGE, dist_larr );
 	SpiReadRom( ( Uint16 )LINE_TURN_PAGE_1, 0x00, ( Uint16 )MAX_PAGE, turn_larr );
 	SpiReadRom( ( Uint16 )LINE_LDIST_PAGE_1, 0x00, ( Uint16 )MAX_PAGE, ldist_larr );
 	SpiReadRom( ( Uint16 )LINE_RDIST_PAGE_1, 0x00, ( Uint16 )MAX_PAGE, rdist_larr );
+    SpiReadRom( ( Uint16 )_POSINT_1, 0x00, ( Uint16 )MAX_PAGE, posint_larr );
 
 	for( i = 0; i < 128; i++ )
 	{
@@ -1050,14 +1069,19 @@ void fast_infor_read_rom( void )
 		g_fast_info[ i ].q17l_dist |= _IQ17( ( ldist_larr[ l++ ] & 0xff ) << 8 );
 
 		g_fast_info[ i ].q17r_dist = _IQ17( ( rdist_larr[ m++ ] & 0xff ) << 0 );
-		g_fast_info[ i ].q17r_dist |= _IQ17( ( rdist_larr[ m++ ] & 0xff ) << 8 );		
+		g_fast_info[ i ].q17r_dist |= _IQ17( ( rdist_larr[ m++ ] & 0xff ) << 8 );	
+        
+		g_fast_info[ i ].iq7pos_integral_val = _IQ7( ( posint_larr[ n++ ] & 0xff ) << 0 );
+		g_fast_info[ i ].iq7pos_integral_val |= _IQ7( ( posint_larr[ n++ ] & 0xff ) << 8 );	
+
 	}
 
-	j = k = l = m = 0;
+	j = k = l = m = n = 0;
 	SpiReadRom( ( Uint16 )LINE_DIST_PAFE_2, 0x00, ( Uint16 )MAX_PAGE, dist_larr );
 	SpiReadRom( ( Uint16 )LINE_TURN_PAGE_2, 0x00, ( Uint16 )MAX_PAGE, turn_larr );
 	SpiReadRom( ( Uint16 )LINE_LDIST_PAGE_2, 0x00, ( Uint16 )MAX_PAGE, ldist_larr );
 	SpiReadRom( ( Uint16 )LINE_RDIST_PAGE_2, 0x00, ( Uint16 )MAX_PAGE, rdist_larr );	
+    SpiReadRom( ( Uint16 )_POSINT_2, 0x00, ( Uint16 )MAX_PAGE, posint_larr );
 
 	for( i = 128; i < 256; i++ )
 	{
@@ -1072,6 +1096,10 @@ void fast_infor_read_rom( void )
 
 		g_fast_info[ i ].q17r_dist = _IQ17( ( rdist_larr[ m++ ] & 0xff ) << 0 );
 		g_fast_info[ i ].q17r_dist |= _IQ17( ( rdist_larr[ m++ ] & 0xff ) << 8 );	
+
+        g_fast_info[ i ].iq7pos_integral_val = _IQ7( ( posint_larr[ n++ ] & 0xff ) << 0 );
+        g_fast_info[ i ].iq7pos_integral_val |= _IQ7( ( posint_larr[ n++ ] & 0xff ) << 8 );    
+
 	}
 	
 }

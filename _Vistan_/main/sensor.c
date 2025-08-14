@@ -203,7 +203,7 @@ void sen_vari_init(void)
 interrupt void Sensor_Value(void)     
 {
 	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
-
+    //LEFT_BLUE_ON;
 	GpioDataRegs.GPASET.all = ( ON_L << sen_shoot_arr[ g_int32_sen_cnt ] );	 //sensor shoot code
 		
 	AdcRegs.ADCCHSELSEQ1.all = sen_adc_seq[ g_int32_sen_cnt ];  // adcchselseq =  Channel select sequencing control
@@ -284,6 +284,7 @@ interrupt void adc_timer_ISR(void)
 		g_int32_sen_cnt = 0;
 		StopCpuTimer0(); // sensor interrupt stop 
 	}
+    //LEFT_BLUE_OFF;
 }
 
 //	g_u16pos_cnt, g_u16sen_state, g_u16sen_enable
@@ -489,7 +490,7 @@ void position_PID(void) // 500us
 	g_pos.iq7pos_IIR_puting = g_pos.iq7temp_pos + (g_q17shift_pos_val >> 10);
 	//g_pos.iq7pos_IIR_puting = g_pos.iq7current_pos; // extreme run  
 	g_pos.iq7pos_IIR_output = _IQ7mpy( PID_Kb , (g_pos.iq7pos_IIR_puted + g_pos.iq7pos_IIR_puting )) - _IQ7mpy(PID_Ka , g_pos.iq7past_pos[ 0 ] );
-
+    
 	//////////////////PID compute
 	g_pos.iq7past_pos[ 3 ] = g_pos.iq7past_pos [ 2 ];
 	g_pos.iq7past_pos[ 2 ] = g_pos.iq7past_pos [ 1 ];
@@ -499,6 +500,7 @@ void position_PID(void) // 500us
 	g_pos.iq7proportion_val = _IQ7mpy( g_pos.iq7past_pos[ 0 ] , g_pos.iq7kp );
 	g_pos.iq7differential_val =_IQ7mpy(( g_pos.iq7past_pos[ 0 ] - g_pos.iq7past_pos[ 3 ] ) +_IQ7mpy( _IQ7(3) , (g_pos.iq7past_pos[ 1 ] - g_pos.iq7past_pos[ 2 ]) ),g_pos.iq7kd);
 	g_pos.iq7pid_out = g_pos.iq7proportion_val + g_pos.iq7differential_val; // position pd compute
+    //g_pos.iq7integral_val += _IQ7mpy(g_pos.iq7pid_out , g_pos.iq7ki );  
     
 	if( g_pos.iq7pid_out > POS_END)			g_pos.iq7pid_out = POS_END;
 	else if( g_pos.iq7pid_out < -POS_END )		g_pos.iq7pid_out = -POS_END;

@@ -87,7 +87,7 @@ void Variable_Init( void )
 
 	/*position pid value*/
 	g_pos.iq7kp = POS_KP_UP; // 1.5
-	g_pos.iq7ki = _IQ7(0);
+	g_pos.iq7ki = _IQ7(0.008);
 	g_pos.iq7kd = POS_KD_UP; // 4.4
 	
 	/*sensor value*/
@@ -154,7 +154,7 @@ void Variable_Init( void )
 	g_q1745user_vel = _IQ(3500);
     g_q1790user_vel = _IQ(3500);
 
-	g_q17_45acc = _IQ(10000);
+	g_q17_45acc = _IQ(8000);
 	g_q17_45vel = _IQ(7000); // g_q1745user_vel 
 
 	g_q17ext_large_vel = g_q17user_vel + _IQ(VEL_LARGE);
@@ -237,12 +237,12 @@ void main(void)
         *                                                                                                                                    *                                        
         \************************************************************************************************************************************/  
         //TxPrintf("L: %d\tR: %d\n",g_lm.int16qep_val ,g_rm.int16qep_val);
-        //TxPrintf("L: %ld\tR: %ld\n",g_lm.q17cur_vel_avr >> 17 ,g_lm.q17cur_vel_avr >> 17);
-        //GpioDataRegs.GPASET.bit.GPIO3 = 1;
+        //TxPrintf("L: %ld\tR: %ld\n",g_lm.q17cur_vel_avr >> 17 ,g_rm.q17cur_vel_avr >> 17);
+        //GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
 		//
-		//RightPwmRegs.CMPA.half.CMPA =300;
+		//RightPwmRegs.CMPA.half.CMPA =100;
 		//GpioDataRegs.GPASET.bit.GPIO1 = 1;
-		//LeftPwmRegs.CMPA.half.CMPA = 300;
+		//LeftPwmRegs.CMPA.half.CMPA = 100;
 	}
 }
 
@@ -263,7 +263,7 @@ void print_second_info()
 	for( i=0; i<256;i++)
 	{
 		
-							TxPrintf("%d| dst: %5d| dec: %5ld| mdst: %5ld| turn_dir: 0x%04X| acc: %5ld| in: %5ld| vel: %5ld| out: %5ld| cnt: %d | down: %d| s44s: %d| escape: %d| kp: %.2f|\n\n",
+							TxPrintf("%d| dst: %5d| dec: %5ld| mdst: %5ld| turn_dir: 0x%04X| acc: %5ld| in: %5ld| vel: %5ld| out: %5ld| cnt: %d | down: %d| s44s: %d| escape: %d| kp: %.2f| RDIST: %ld| LDIST: %ld| P: %ld\n\n",
 									i,
 										  g_fast_info[ i ].u16dist,
 													g_fast_info[ i ].q17dec_dist>>17,	
@@ -277,7 +277,10 @@ void print_second_info()
 																								 							 g_fast_info[ i ].down_flag,
 																								 							 g_fast_info[ i ].s44s_flag,
 																								 							 g_fast_info[ i ].escape_flag,
-																								 							 _IQ7toF(g_fast_info[ i ].q7kp_val)
+																								 							 _IQ7toF(g_fast_info[ i ].q7kp_val),
+																								 							 g_fast_info[ i ].q17r_dist>>17,
+																								 							 g_fast_info[ i ].q17l_dist>>17,
+																								 							 g_fast_info[ i ].iq7pos_integral_val>>7
 																								 							 );
 							if(i==g_int32total_cnt){
 								TxPrintf("-----------------------------------\n");

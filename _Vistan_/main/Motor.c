@@ -41,6 +41,7 @@
 #define MAX_PID_OUT				_IQ( 7700.0 )
 #define MIN_PID_OUT				_IQ( -7700.0 )
 
+//#define PWM_CONVERT				_IQ30( 0.2222222 )
 #define PWM_CONVERT				_IQ30( 0.2597402597 )
 
 /*extreme pd value*/
@@ -369,6 +370,7 @@ interrupt void  motor_ISR(void)
 {	
 	g_Flag.motor_ISR_flag = ON; // 주행 플래그
 	//LEFT_LED_ON;
+	//LEFT_BLUE_ON;
 	position_PID();
 	position_to_vel();
 	
@@ -418,7 +420,7 @@ interrupt void  motor_ISR(void)
 	g_lm.q17cur_vel[ 0 ] = _IQ17mpyIQX( ( int32 )( g_lm.int16qep_val ) << 21 , 21 , PULSE_TO_V , 25 );
 	g_lm.q17cur_vel_avr = ( g_lm.q17cur_vel[ 0 ] + g_lm.q17cur_vel[ 1 ] ) >> 1;
 
-
+    //TxPrintf("%ld %ld\n",g_lm.q17cur_vel_avr>>17, g_rm.q17cur_vel_avr>>17);
 	/* decelation a point of time flag */
 	if( g_rm.u16decel_flag == ON )
 	{
@@ -555,7 +557,7 @@ interrupt void  motor_ISR(void)
 			if( g_rm.q17pid_out > MAX_PID_OUT ) //오차 최대값
 				g_rm.q17pid_out = MAX_PID_OUT;
 
-			GpioDataRegs.GPASET.bit.GPIO3 = 1;	// motor dir
+			GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;	// motor dir
 			
 			g_rm.q17pid_result = _IQmpyIQX( g_rm.q17pid_out , 17 , PWM_CONVERT , 30 ); // pwm_convert = pwm 주파수 최대값 
 			RightPwmRegs.CMPA.half.CMPA =( Uint16 )( g_rm.q17pid_result >> 17 ); 
@@ -565,7 +567,7 @@ interrupt void  motor_ISR(void)
 			if( g_rm.q17pid_out < MIN_PID_OUT ) // 오차 최솟값 
 				g_rm.q17pid_out = MIN_PID_OUT;
 			
-			GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;	// motor dir	 
+			GpioDataRegs.GPASET.bit.GPIO3 = 1;	// motor dir	 
 			
 			g_rm.q17pid_result = _IQmpy(_IQmpyIQX( g_rm.q17pid_out , 17 , PWM_CONVERT , 30 ), _IQ( -1 ));
 			RightPwmRegs.CMPA.half.CMPA =( Uint16 )( g_rm.q17pid_result >> 17 ); // pid -> pwm
@@ -597,6 +599,7 @@ interrupt void  motor_ISR(void)
 	}
 	
 	if( g_Flag.start_flag )		g_int32timer_cnt++;
+    //LEFT_BLUE_OFF;
 	StartCpuTimer0();
 	
 }

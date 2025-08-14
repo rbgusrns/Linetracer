@@ -69,7 +69,7 @@ typedef	volatile struct sensor_variable
 	_iq17		iq17min_value;
 	_iq17		iq17max_value;
 	_iq17		iq17data;
-	
+	_iq17       iq17sub_value;
 	_iq7		iq7weight;
 	
 	Uint16		u16active_arr;
@@ -93,6 +93,7 @@ typedef volatile struct position
 	_iq7		iq7temp_pos;
 	_iq7		iq7past_pos[4];
 	_iq7		iq7proportion_val;
+    _iq7        iq7integral_val;
 	_iq7		iq7differential_val;
 	_iq7		iq7sum;
 	_iq7		iq7sum_of_sec;
@@ -213,6 +214,8 @@ typedef volatile struct fast_run_struct
 
 	_iq7 iq7mark_dist;
 	_iq7 iq7mark_start_dist;
+
+    _iq7 iq7pos_integral_val;
 
 	_iq17 q17dist_limit;
 	_iq17 q17shift_before;

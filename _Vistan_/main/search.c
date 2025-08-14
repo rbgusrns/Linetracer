@@ -94,8 +94,11 @@ void line_info(turnmark_t *pmark)
 	if( pmark == NULL) g_fast_info[g_int32mark_cnt].u16turn_way = ETURN; // end
 	
 	
-	g_fast_info[g_int32mark_cnt].u16dist = IQ_TO_UINT16(( g_fast_info[g_int32mark_cnt].q17l_dist + g_fast_info[g_int32mark_cnt].q17r_dist) >> 1); // 마크와 마크 사이 거리 
-	
+	g_fast_info[g_int32mark_cnt].u16dist = IQ_TO_UINT16( ( g_fast_info[g_int32mark_cnt].q17l_dist >> 1 ) + ( g_fast_info[g_int32mark_cnt].q17r_dist >> 1 ) ); // 마크와 마크 사이 거리 
+	g_fast_info[g_int32mark_cnt].iq7pos_integral_val = g_pos.iq7integral_val;
+
+    g_pos.iq7integral_val = _IQ7(0.0);
+	//TxPrintf("1\n");
 	g_int32mark_cnt++;
 	g_fast_info[g_int32mark_cnt].u16turn_way = ( pmark == g_ptr->g_lmark ) ? ( RTURN ) : ( LTURN );	// left or right 
 		
@@ -326,6 +329,7 @@ void  search_run(void)
 	
 	while(1)
 	{
+        //VFDPrintf("%ld",g_pos.iq7integral_val >> 7 );
         //TxPrintf("L:%f\tR:%f\n",_IQtoF(g_lm.q17cur_vel_avr),_IQtoF(g_rm.q17cur_vel_avr));
         //TxPrintf("L:%f\tR:%f\n",_IQtoF(g_lm.q17next_acc),_IQtoF(g_rm.q17next_acc));
 		make_position(); // 포지션 업데이트 
@@ -341,12 +345,13 @@ void  search_run(void)
 		
 		if( g_Flag.motor_ISR_flag )
 		{
+            /*
 			if( lineout_func())
 			{	
 				g_Flag.motor_ISR_flag = OFF;
 				return;
 			}
-			
+			*/
 			
 			g_Flag.motor_ISR_flag = OFF;
 		}
@@ -767,12 +772,12 @@ void Set_Accel(){
 
 			if(Up_SW){
 				
-				g_q17fast_vel_limit += _IQ(50);
+				g_q17fast_vel_limit += _IQ(500);
 				DELAY_US(125000);
 			}
 			else if(Down_SW){
 				
-				g_q17fast_vel_limit -= _IQ(50);
+				g_q17fast_vel_limit -= _IQ(500);
 				DELAY_US(125000);
 			}
 			else;
@@ -936,12 +941,12 @@ void extreme_ctl()
 	{
 		if(Up_SW)
 		{		
-			g_q1745user_vel += _IQ(200);
+			g_q1745user_vel += _IQ(100);
 			DELAY_US(125000);
 		}
 		else if(Down_SW)
 		{
-			g_q1745user_vel -= _IQ(200);
+			g_q1745user_vel -= _IQ(100);
 			DELAY_US(125000);
 			}
 		else;
@@ -1113,7 +1118,7 @@ void extreme_ctl()
 			DELAY_US(125000);
 			}
 		else;
-							
+						
 		if(Right_SW)
 		{
 			DELAY_US(125000);
@@ -1126,5 +1131,6 @@ void extreme_ctl()
     extvel_write_rom();
 	
 }
+
 
 

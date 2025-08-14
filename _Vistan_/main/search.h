@@ -27,7 +27,7 @@ typedef enum		//조절 필요
 */
 typedef enum		//조절 필요
 {
-	TURN_45_DIST = 275,
+	TURN_45_DIST = 270,
 	TURN_90_DIST = 460,
 	TURN_180_DIST = 720,
 	TURN_270_DIST = 1400//1050
@@ -70,5 +70,6 @@ extern void Set_PosPID(void);
 extern void Set_Shift();
 extern void extreme_ctl(void);
 extern void ext_turnmode_sel(void);
+extern void shift_ctl(void);
 
 #endif

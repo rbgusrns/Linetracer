@@ -350,13 +350,14 @@ void second_infor(fast_run_str * p_info, error_str *perr )
 
 	if( ( pinfo + g_int32mark_cnt )->u16turn_dir & ( STRAIGHT | LARGE_TURN | ETURN ) )		g_Flag.speed_up_start = ON;  // 가속 시작 flag on
 	else																					g_Flag.straight_run = OFF;
- 
+    //if( ( pinfo + g_int32mark_cnt )->q7kp_val <= POS_KP_DOWN ) g_q17shift_pos_val = _IQ(0.0);
 	move_to_move( _IQ17( ( pinfo + g_int32mark_cnt )->u16dist ), ( pinfo + g_int32mark_cnt )->q17dec_dist, ( pinfo + g_int32mark_cnt )->q17vel, ( pinfo + g_int32mark_cnt )->q17out_vel, ( pinfo + g_int32mark_cnt )->q17acc );
-
+    
 	perr->q17over_dist = _IQ17( 0.0 );
 	g_lm.q17gone_distance = g_rm.q17gone_distance = _IQ17(0.0); // 검출용 변수들 다시 초기화 
 	g_lm.q17total_dist = g_rm.q17total_dist = _IQ(0.0);
     g_rm.q17dist_sum = g_lm.q17dist_sum = _IQ(0.0);
+    g_pos.iq7integral_val = _IQ7(0.0);
 	
 }
    
