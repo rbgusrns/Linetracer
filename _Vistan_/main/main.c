@@ -74,7 +74,7 @@ void Variable_Init( void )
 	g_int32err_cnt = 0;
 	g_int32dist = 0;
 
-    g_int32decel = 15000; //가속보다 감속을 더하자 .. 감속도 고정 !
+    
 	g_float32time_cnt = 0.0;
 	g_int32timer_cnt = 0;
 
@@ -96,6 +96,7 @@ void Variable_Init( void )
     g_u16sen_state = 0;
 
 	g_int32_sen_cnt = 0;
+    g_int32_sen2_cnt = 0;
 	g_int32_full_cnt = 0;
 	g_int32speed_up_cnt = 0;   
 
@@ -108,10 +109,11 @@ void Variable_Init( void )
 
 
 	g_q17user_acc = _IQ(13000);
+    g_int32decel = 15000; //가속보다 감속을 더하자 .. 감속도 고정 !
 	g_q17end_acc = _IQ(12500); // _IQ(13500)
 	g_q17fast_vel_limit = _IQ(7700);
 	//g_q17sec_end_vel = _IQ(2300);
-	
+
 	g_q17user_vel = _IQ(2300); // search run vel
  	
 	//g_q17large_vel = _IQ(3200);
@@ -216,7 +218,7 @@ void main(void)
 
 	TxPrintf("%5f, %5F\n", _IQ16toF(HANDLE_CENTER / 250) , _IQ16toF(_IQ16div(HANDLE_CENTER, _IQ16(250)) ) );
 	TxPrintf("PULSE_TO_V: %10f\n",_IQ25toF(_IQ25( 33.37209546898672 )));
-	menu_start();
+	//menu_start();
 
 	while( 1 )
 	{
@@ -237,12 +239,12 @@ void main(void)
         *                                                                                                                                    *                                        
         \************************************************************************************************************************************/  
         //TxPrintf("L: %d\tR: %d\n",g_lm.int16qep_val ,g_rm.int16qep_val);
-        //TxPrintf("L: %ld\tR: %ld\n",g_lm.q17cur_vel_avr >> 17 ,g_rm.q17cur_vel_avr >> 17);
-        //GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
+        TxPrintf("L: %ld\tR: %ld\n",g_lm.q17cur_vel_avr >> 17 ,g_rm.q17cur_vel_avr >> 17);
+        GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
 		//
-		//RightPwmRegs.CMPA.half.CMPA =100;
-		//GpioDataRegs.GPASET.bit.GPIO1 = 1;
-		//LeftPwmRegs.CMPA.half.CMPA = 100;
+		RightPwmRegs.CMPA.half.CMPA =500;
+		GpioDataRegs.GPASET.bit.GPIO1 = 1;
+		LeftPwmRegs.CMPA.half.CMPA = 500;
 	}
 }
 

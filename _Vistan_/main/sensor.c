@@ -214,7 +214,7 @@ interrupt void Sensor_Value(void)
 	AdcRegs.ADCTRL2.bit.SOC_SEQ1 = 1;	
  
 }
-
+#if 1
 interrupt void adc_timer_ISR(void)
 {
 	long 	adc_v1 = 0,
@@ -225,8 +225,6 @@ interrupt void adc_timer_ISR(void)
 
 
 	GpioDataRegs.GPACLEAR.all = ( ON_L << sen_shoot_arr[ g_int32_sen_cnt ] ); //sensor shoot stop
-	
-#if 1
 
 	adc_v1 += (long)AdcMirror.ADCRESULT0;
 	adc_v1 += (long)AdcMirror.ADCRESULT1;
@@ -247,9 +245,7 @@ interrupt void adc_timer_ISR(void)
 	adc_v2 += (long)AdcMirror.ADCRESULT13;
 	adc_v2 += (long)AdcMirror.ADCRESULT14;
 	adc_v2 += (long)AdcMirror.ADCRESULT15;
-    
-#endif
-	
+    	
 	AdcRegs.ADCTRL2.bit.RST_SEQ1 = ON; //ADC 초기화	
 	AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1; /* SEQ1 interrupt clear */
 
@@ -286,7 +282,93 @@ interrupt void adc_timer_ISR(void)
 	}
     //LEFT_BLUE_OFF;
 }
+#endif
 
+#if 0
+interrupt void adc_timer_ISR(void)
+{
+	long 	adc_v1 = 0,
+		   	adc_v2 = 0;
+    
+
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+
+
+	GpioDataRegs.GPACLEAR.all = ( ON_L << sen_shoot_arr[ g_int32_sen_cnt ] ); //sensor shoot stop
+
+	adc_v1 += (long)AdcMirror.ADCRESULT0;
+	adc_v1 += (long)AdcMirror.ADCRESULT1;
+	adc_v1 += (long)AdcMirror.ADCRESULT2;
+	adc_v1 += (long)AdcMirror.ADCRESULT3;	
+	
+	adc_v2 += (long)AdcMirror.ADCRESULT4;
+	adc_v2 += (long)AdcMirror.ADCRESULT5;
+	adc_v2 += (long)AdcMirror.ADCRESULT6;
+	adc_v2 += (long)AdcMirror.ADCRESULT7;
+	
+	adc_v1 += (long)AdcMirror.ADCRESULT8;
+	adc_v1 += (long)AdcMirror.ADCRESULT9;
+	adc_v1 += (long)AdcMirror.ADCRESULT10;
+	adc_v1 += (long)AdcMirror.ADCRESULT11;
+	 
+	adc_v2 += (long)AdcMirror.ADCRESULT12;
+	adc_v2 += (long)AdcMirror.ADCRESULT13;
+	adc_v2 += (long)AdcMirror.ADCRESULT14;
+	adc_v2 += (long)AdcMirror.ADCRESULT15;
+    	
+	AdcRegs.ADCTRL2.bit.RST_SEQ1 = ON; //ADC 초기화	
+	AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1; /* SEQ1 interrupt clear */
+
+	// ADC_NUM = 16 , SEN_END = 8
+        g_sen[g_int32_sen_cnt].iq17result = adc_v1 << 14; 
+        g_sen[g_int32_sen2_cnt ].iq17result = adc_v2 << 14; //ADC average value compute
+
+    // 0~7번 calculate //
+	if( g_sen[ g_int32_sen_cnt ].iq17result > g_sen[ g_int32_sen_cnt ].iq17max_value ) // max	
+		g_sen[ g_int32_sen_cnt ].iq17data = _IQ(127);
+    
+	else if( g_sen[ g_int32_sen_cnt ].iq17result < g_sen[ g_int32_sen_cnt ].iq17min_value )	// min
+		g_sen[ g_int32_sen_cnt ].iq17data = _IQ(0);
+    
+	else //sensor data value compute
+	{
+		g_sen[ g_int32_sen_cnt ].iq17data = _IQ17mpy( ( g_sen[ g_int32_sen_cnt ].iq17result - g_sen[ g_int32_sen_cnt ].iq17min_value ) , ( g_sen[ g_int32_sen_cnt ].iq17sub_value_inverse_127mpy ) );
+												
+	}
+    // 8~15번 calculate //
+	if( g_sen[ g_int32_sen2_cnt ].iq17result > g_sen[ g_int32_sen2_cnt ].iq17max_value ) // max	
+		g_sen[ g_int32_sen2_cnt ].iq17data = _IQ(127);
+    
+	else if( g_sen[ g_int32_sen2_cnt ].iq17result < g_sen[ g_int32_sen2_cnt ].iq17min_value )	// min
+		g_sen[ g_int32_sen2_cnt ].iq17data = _IQ(0);
+    
+	else //sensor data value compute
+	{
+		g_sen[ g_int32_sen2_cnt ].iq17data = _IQ17mpy( ( g_sen[ g_int32_sen2_cnt ].iq17result - g_sen[ g_int32_sen2_cnt ].iq17min_value ) , ( g_sen[ g_int32_sen2_cnt ].iq17sub_value_inverse_127mpy ) );
+	}
+
+    // 0~7번 판별 
+	/* current sensor state compute : 흰색선 검은색 선 판별 , state 값은 cross check, turnmark check에 사용 */
+	if(g_sen[ g_int32_sen_cnt ].iq17data > g_q17sen_valmax )	g_pos.u16state |= g_sen[ g_int32_sen_cnt ].u16active_arr; 
+	else						 /*127 값 >    흰색 인정 값*/	g_pos.u16state &= g_sen[ g_int32_sen_cnt ].u16passive_arr;
+
+
+    // 8~15번 판별
+	if(g_sen[ g_int32_sen2_cnt ].iq17data > g_q17sen_valmax )	g_pos.u16state |= g_sen[ g_int32_sen2_cnt ].u16active_arr; 
+	else						 /*127 값 >    흰색 인정 값*/	g_pos.u16state &= g_sen[ g_int32_sen2_cnt ].u16passive_arr;
+
+
+	g_int32_sen_cnt++;
+    g_int32_sen2_cnt = g_int32_sen_cnt + SEN_END;
+	if(g_int32_sen_cnt >= SEN_END)
+	{		
+		g_int32_sen_cnt = 0;
+        g_int32_sen2_cnt = SEN_END;
+		StopCpuTimer0(); // sensor interrupt stop 
+	}
+    //LEFT_BLUE_OFF;
+}
+#endif
 //	g_u16pos_cnt, g_u16sen_state, g_u16sen_enable
 void make_position(void) // temp_pos = (-14500~14500) 값으로 변경. 어느 위치에 라인이 존재하는지 확인 후 일정 값으로 위치 도출 
 {
@@ -869,6 +951,7 @@ void turnmark_check(turnmark_t* p_mark,turnmark_t* p_remark)
 
 void Set_Max_Min(void)
 {
+    int16 Num = 0;
 	int16 sensor_channel = 0;
 
 	sen_vari_init();
@@ -922,6 +1005,12 @@ void Set_Max_Min(void)
 
 	
 	}
+    for( Num = 0; Num < 16; Num++)
+    {
+        g_sen[ Num ].iq17sub_value_inverse = _IQ17div( _IQ(1), (g_sen[ Num ].iq17max_value - g_sen[ Num ].iq17min_value ) );
+        //max-min의 차의 역수
+        g_sen[ Num ].iq17sub_value_inverse_127mpy = _IQ17mpy( g_sen[ Num ].iq17sub_value_inverse, _IQ(127) );
+    }
 	print_maxmin();
 	maxmin_write_rom(); // rom에 저장 
 	

@@ -69,7 +69,8 @@ typedef	volatile struct sensor_variable
 	_iq17		iq17min_value;
 	_iq17		iq17max_value;
 	_iq17		iq17data;
-	_iq17       iq17sub_value;
+	_iq17       iq17sub_value_inverse;
+    _iq17       iq17sub_value_inverse_127mpy;
 	_iq7		iq7weight;
 	
 	Uint16		u16active_arr;

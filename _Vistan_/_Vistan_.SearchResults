@@ -1,18 +1,6 @@
----- motor_ISR_flag Matches (17 in 11 files) ----
-brilrun.asm (main):	.dwattr DW$415, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
-brilrun.c (main):		if( g_Flag.motor_ISR_flag )	// 모터 interrupt 동기화 
-brilrun.c (main):				g_Flag.motor_ISR_flag = OFF;
-brilrun.c (main):			g_Flag.motor_ISR_flag = OFF;
-fastrun.asm (main):	.dwattr DW$252, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
-fastrun.c (main):		if( g_Flag.motor_ISR_flag )
-fastrun.c (main):                g_Flag.motor_ISR_flag = OFF;
-fastrun.c (main):			g_Flag.motor_ISR_flag = OFF;
-main.asm (main):	.dwattr DW$423, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
-Motor.asm (main):	.dwattr DW$420, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
-Motor.c (main):	g_Flag.motor_ISR_flag = ON; // 주행 플래그
-search.asm (main):	.dwattr DW$348, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
-search.c (main):		if( g_Flag.motor_ISR_flag )
-search.c (main):				g_Flag.motor_ISR_flag = OFF;
-search.c (main):			g_Flag.motor_ISR_flag = OFF;
-sensor.asm (main):	.dwattr DW$492, DW_AT_name("motor_ISR_flag"), DW_AT_symbol_name("_motor_ISR_flag")
-Struct.h (include):	Uint16 motor_ISR_flag:1;	
+---- g_int32decel Matches (5 in 4 files) ----
+main.asm (main):DW$135	.dwtag  DW_TAG_variable, DW_AT_name("g_int32decel"), DW_AT_symbol_name("_g_int32decel")
+main.asm (main):;*** 112	-----------------------    g_int32decel = 13000L;
+main.c (main):    g_int32decel = 13000; //가속보다 감속을 더하자 .. 감속도 고정 !
+Motor.c (main):    g_rm.int32decel = g_lm.int32decel = ( g_int32decel );
+Variable.h (main):					    g_int32decel,

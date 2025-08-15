@@ -190,6 +190,7 @@ typedef enum
 
 
 __VARIABLE_EXE__  int32 g_int32_sen_cnt,
+                        g_int32_sen2_cnt,
 						g_int32_full_cnt,
 					    g_int32accmode_cnt,
 					    g_int32tmode_cnt,

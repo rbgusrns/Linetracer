@@ -301,8 +301,11 @@ void maxmin_read_rom( void )
 
 for( Num = 0; Num < 16; Num++)
 {
-    g_sen[ Num ].iq17sub_value = g_sen[ Num ].iq17max_value - g_sen[ Num ].iq17min_value ;
-    TxPrintf("[%ld] : %5ld | %5ld | %5ld |\n",Num,g_sen[ Num ].iq17min_value>>17,g_sen[ Num ].iq17max_value>>17, g_sen[ Num ].iq17sub_value>>17);
+    g_sen[ Num ].iq17sub_value_inverse = _IQ17div( _IQ(1), (g_sen[ Num ].iq17max_value - g_sen[ Num ].iq17min_value ) );
+    //max-min의 차의 역수
+
+    g_sen[ Num ].iq17sub_value_inverse_127mpy = _IQ17mpy( g_sen[ Num ].iq17sub_value_inverse, _IQ(127) );
+    TxPrintf("[%ld] : %5ld | %5ld | %5ld |\n",Num,g_sen[ Num ].iq17min_value>>17,g_sen[ Num ].iq17max_value>>17, g_sen[ Num ].iq17sub_value_inverse>>17);
     
 }
 

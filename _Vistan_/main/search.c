@@ -277,12 +277,12 @@ int lineout_func(void)		// 라인아웃 체크 함수
 
 		while(g_rm.q17next_vel != _IQ(0) && g_lm.q17next_vel != _IQ(0));	//   속도가 완전히 0이 될때까지 기다리기
 
-		LEFT_LED_ON;
-		RIGHT_LED_ON;
+		//LEFT_LED_ON;
+		//RIGHT_LED_ON;
 
 		
-		LEFT_BLUE_ON;
-		RIGHT_BLUE_ON;
+		//LEFT_BLUE_ON;
+		//RIGHT_BLUE_ON;
 		
 		VFDPrintf("Err_%3ld_",g_int32total_cnt);
 		
@@ -345,13 +345,13 @@ void  search_run(void)
 		
 		if( g_Flag.motor_ISR_flag )
 		{
-            /*
+            
 			if( lineout_func())
 			{	
 				g_Flag.motor_ISR_flag = OFF;
 				return;
 			}
-			*/
+			
 			
 			g_Flag.motor_ISR_flag = OFF;
 		}
