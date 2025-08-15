@@ -71,12 +71,12 @@
 #define	MAX_SPEED_HANDLE			_IQ16(1.15)
 
 
-#define POS_KP_UP		_IQ7( 0.7 )	//1.5
+#define POS_KP_UP		_IQ7( 0.5 )	//1.5
 //#define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 #define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 #define POS_KP_NONE     _IQ7( 0.1 )
 
-#define POS_KD_UP		_IQ7( 4.4 )	//4.4
+#define POS_KD_UP		_IQ7( 1.5 )	//4.4
 #define POS_KD_DOWN		_IQ7( 3.4 )	//3.4
 
 #define	STRAIGHT					0x0001
@@ -239,7 +239,8 @@ __VARIABLE_EXE__  _iq g_q17right_handle,
 					  g_q17_45acc,
 					  g_q17_45vel,
 					  g_q17end,
-					  g_q17end_dist;
+					  g_q17end_dist,
+					  g_q17endturn_acc;
 					  
 
 /* extreme */

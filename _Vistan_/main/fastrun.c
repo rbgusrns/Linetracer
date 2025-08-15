@@ -124,15 +124,12 @@ static void straight_compute( fast_run_str *pinfo, int32 mark_cnt, error_str *pe
 		//( pinfo + 1 )->q17in_vel = pinfo->q17out_vel = _IQ17( 0.0);
 		// 엔드마크의 in_Vel = 마지막 구간의 out_Vel = end_Vel
 	//직진 길이별 가속도 설정
-	if( pinfo->u16dist > LONG_DIST )  // 큰 직진 가속 
-	{
-		pinfo->q17acc = g_q17user_acc;
-
-		if( pinfo->u16turn_dir & ETURN )
-			pinfo->q17acc = pinfo->q17acc > g_q17user_acc ? g_q17user_acc : g_q17user_acc;
-	}
+	
+	if( pinfo->u16dist > LONG_DIST )        pinfo->q17acc = g_q17user_acc;
 	else if( pinfo->u16dist> MID_DIST )		pinfo->q17acc = g_q17user_acc; //+ _IQ17(1000);  // 중간 직진 가속 
 	else									pinfo->q17acc = g_q17user_acc;// + _IQ17(4000);
+
+    if( pinfo->u16turn_dir & ETURN )        pinfo->q17acc = g_q17endturn_acc;
 
 	if( !mark_cnt && pinfo->q17acc > _IQ17(10000) )	pinfo->q17acc = _IQ17(10000); // 시작 직전 가속도 제한
 

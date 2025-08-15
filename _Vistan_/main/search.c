@@ -717,12 +717,12 @@ void SET_END(){
 
 			if(Up_SW){
 				
-				g_q17end_acc += _IQ(50);
+				g_q17end_acc += _IQ(100);
 				DELAY_US(125000);
 			}
 			else if(Down_SW){
 				
-				g_q17end_acc -= _IQ(50);
+				g_q17end_acc -= _IQ(100);
 				DELAY_US(125000);
 			}
 			else;
@@ -747,12 +747,12 @@ void Set_Accel(){
 
 			if(Up_SW){
 				
-				g_q17user_acc += _IQ(200);
+				g_q17user_acc += _IQ(500);
 				DELAY_US(125000);
 			}
 			else if(Down_SW){
-				
-				g_q17user_acc -= _IQ(200);
+			
+				g_q17user_acc -= _IQ(500);
 				DELAY_US(125000);
 			}
 			else;
@@ -772,12 +772,12 @@ void Set_Accel(){
 
 			if(Up_SW){
 				
-				g_q17fast_vel_limit += _IQ(500);
+				g_q17endturn_acc += _IQ(1000);
 				DELAY_US(125000);
 			}
 			else if(Down_SW){
 				
-				g_q17fast_vel_limit -= _IQ(500);
+				g_q17endturn_acc -= _IQ(1000);
 				DELAY_US(125000);
 			}
 			else;
@@ -787,7 +787,7 @@ void Set_Accel(){
 				DELAY_US(125000);
 				break;
 			}
-		VFDPrintf("FVL:%4u",IQ_TO_UINT16(g_q17fast_vel_limit));
+		VFDPrintf("ET:%5u",IQ_TO_UINT16(g_q17endturn_acc));
 		}
 	
 	DELAY_US(150000);

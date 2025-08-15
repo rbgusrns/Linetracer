@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Fri Aug 15 14:13:20 2025                 *
+;* Date/Time created: Sat Aug 16 02:43:35 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -219,8 +219,8 @@ DW$62	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$62, DW_AT_type(*DW$T$202)
 	.dwattr DW$62, DW_AT_declaration(0x01)
 	.dwattr DW$62, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI96010 C:\Users\rbgus\AppData\Local\Temp\TI9604 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI9602 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI9606 --object_file Motor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI56810 C:\Users\rbgus\AppData\Local\Temp\TI5684 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI5682 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI5686 --object_file Motor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_move_to_move
 
@@ -932,7 +932,7 @@ L1:
 ;*** 269	-----------------------    g_rm.q17user_vel = g_rm.q17user_vel = g_q17user_vel;
 ;*** 271	-----------------------    K$15 = &g_fast_info[0];
 ;*** 271	-----------------------    C$2 = &((volatile unsigned *)K$15)[40*g_int32mark_cnt];
-;*** 271	-----------------------    (*(volatile struct _fast_run_struct *)C$2).q7kp_val = 89L;
+;*** 271	-----------------------    (*(volatile struct _fast_run_struct *)C$2).q7kp_val = 64L;
 ;*** 272	-----------------------    C$2[14] &= 0xfffeu;
 ;*** 273	-----------------------    C$2[14] &= 0xfffdu;
 ;*** 274	-----------------------    C$2[14] &= 0xfff7u;
@@ -953,7 +953,7 @@ L1:
         LSL       ACC,3                 ; |271| 
         ADDL      ACC,XAR6
         ADDL      XAR4,ACC
-        MOVB      ACC,#89
+        MOVB      ACC,#64
         MOVL      *+XAR4[0],ACC         ; |271| 
 	.dwpsn	"Motor.c",272,3
         MOVB      ACC,#14

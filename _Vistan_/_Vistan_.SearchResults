@@ -1,6 +1,14 @@
----- g_int32decel Matches (5 in 4 files) ----
-main.asm (main):DW$135	.dwtag  DW_TAG_variable, DW_AT_name("g_int32decel"), DW_AT_symbol_name("_g_int32decel")
-main.asm (main):;*** 112	-----------------------    g_int32decel = 13000L;
-main.c (main):    g_int32decel = 13000; //가속보다 감속을 더하자 .. 감속도 고정 !
-Motor.c (main):    g_rm.int32decel = g_lm.int32decel = ( g_int32decel );
-Variable.h (main):					    g_int32decel,
+---- TURN_45 Matches (17 in 4 files) ----
+brilrun.c (main):		if( ( ( pinfo + 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 2 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) ) // 연속턴 | 직진 - 45도 - 45도 - 직진 | 직진 - 45도 - 90도 - 45도
+brilrun.c (main):			if( ( pinfo + 2 )->u16turn_dir & TURN_45 )	// 다다음 턴이 45도인 경우 
+brilrun.c (main):    if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 45도 - 45도 - 직진 에서의 45도 
+brilrun.c (main):    else if( ( ( pinfo - 2 )->u16turn_dir & STRAIGHT ) && ( ( pinfo - 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) ) //  직진 - 45 - 45 - 직진 에서의 45도 
+brilrun.c (main):	else if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) ) //45도 연속턴 탈출 - 직진 , 90 - 45 - 직진 
+brilrun.c (main):	else if( ( pinfo + 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) )  //  45도 연속턴
+brilrun.c (main):        else if( ( ( pinfo - 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 )  ) //직진 - 45 - 90 - 45 - 직진에서 90도  
+brilrun.c (main):        else if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) && ( pinfo + 1 )->u16turn_dir & ( TURN_90 | TURN_45 ) )
+brilrun.c (main):            if( ( pinfo - 1 )->u16turn_dir & ( TURN_90 | TURN_45 ) )
+brilrun.c (main):	else if( ( pinfo->u16turn_dir & TURN_45 ) && g_Flag.B45_flag )                      bril_45_turn_compute( pinfo, mark_cnt, perr );
+fastrun.c (main):	if( ( pinfo->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) )
+search.c (main):			pinfo->u16turn_dir = TURN_45 | pinfo->u16turn_way;
+Variable.h (main):#define	TURN_45						0x0010

@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Fri Aug 15 14:13:23 2025                 *
+;* Date/Time created: Sat Aug 16 02:43:38 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -102,23 +102,23 @@ DW$32	.dwtag  DW_TAG_variable, DW_AT_name("g_u16turnmark_limit"), DW_AT_symbol_n
 	.dwattr DW$32, DW_AT_type(*DW$T$19)
 	.dwattr DW$32, DW_AT_declaration(0x01)
 	.dwattr DW$32, DW_AT_external(0x01)
-DW$33	.dwtag  DW_TAG_variable, DW_AT_name("g_q17user_vel_2000"), DW_AT_symbol_name("_g_q17user_vel_2000")
+DW$33	.dwtag  DW_TAG_variable, DW_AT_name("g_q17turnmark_dist"), DW_AT_symbol_name("_g_q17turnmark_dist")
 	.dwattr DW$33, DW_AT_type(*DW$T$38)
 	.dwattr DW$33, DW_AT_declaration(0x01)
 	.dwattr DW$33, DW_AT_external(0x01)
-DW$34	.dwtag  DW_TAG_variable, DW_AT_name("g_q17user_vel"), DW_AT_symbol_name("_g_q17user_vel")
+DW$34	.dwtag  DW_TAG_variable, DW_AT_name("g_q17user_vel_2000"), DW_AT_symbol_name("_g_q17user_vel_2000")
 	.dwattr DW$34, DW_AT_type(*DW$T$38)
 	.dwattr DW$34, DW_AT_declaration(0x01)
 	.dwattr DW$34, DW_AT_external(0x01)
-DW$35	.dwtag  DW_TAG_variable, DW_AT_name("g_q17_45acc"), DW_AT_symbol_name("_g_q17_45acc")
+DW$35	.dwtag  DW_TAG_variable, DW_AT_name("g_q17end_dist"), DW_AT_symbol_name("_g_q17end_dist")
 	.dwattr DW$35, DW_AT_type(*DW$T$38)
 	.dwattr DW$35, DW_AT_declaration(0x01)
 	.dwattr DW$35, DW_AT_external(0x01)
-DW$36	.dwtag  DW_TAG_variable, DW_AT_name("g_q17turnmark_dist"), DW_AT_symbol_name("_g_q17turnmark_dist")
+DW$36	.dwtag  DW_TAG_variable, DW_AT_name("g_q17_45acc"), DW_AT_symbol_name("_g_q17_45acc")
 	.dwattr DW$36, DW_AT_type(*DW$T$38)
 	.dwattr DW$36, DW_AT_declaration(0x01)
 	.dwattr DW$36, DW_AT_external(0x01)
-DW$37	.dwtag  DW_TAG_variable, DW_AT_name("g_q17end_dist"), DW_AT_symbol_name("_g_q17end_dist")
+DW$37	.dwtag  DW_TAG_variable, DW_AT_name("g_q17endturn_acc"), DW_AT_symbol_name("_g_q17endturn_acc")
 	.dwattr DW$37, DW_AT_type(*DW$T$38)
 	.dwattr DW$37, DW_AT_declaration(0x01)
 	.dwattr DW$37, DW_AT_external(0x01)
@@ -162,7 +162,7 @@ DW$47	.dwtag  DW_TAG_variable, DW_AT_name("g_q17shift_pos_val"), DW_AT_symbol_na
 	.dwattr DW$47, DW_AT_type(*DW$T$38)
 	.dwattr DW$47, DW_AT_declaration(0x01)
 	.dwattr DW$47, DW_AT_external(0x01)
-DW$48	.dwtag  DW_TAG_variable, DW_AT_name("g_q17fast_vel_limit"), DW_AT_symbol_name("_g_q17fast_vel_limit")
+DW$48	.dwtag  DW_TAG_variable, DW_AT_name("g_q17user_vel"), DW_AT_symbol_name("_g_q17user_vel")
 	.dwattr DW$48, DW_AT_type(*DW$T$38)
 	.dwattr DW$48, DW_AT_declaration(0x01)
 	.dwattr DW$48, DW_AT_external(0x01)
@@ -309,8 +309,8 @@ DW$86	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$86, DW_AT_type(*DW$T$111)
 	.dwattr DW$86, DW_AT_declaration(0x01)
 	.dwattr DW$86, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI99210 C:\Users\rbgus\AppData\Local\Temp\TI9924 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI9922 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI9926 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI19610 C:\Users\rbgus\AppData\Local\Temp\TI1964 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI1962 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI1966 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_turn_info_compute
 
@@ -519,15 +519,17 @@ L4:
         TBIT      *+XAR1[AR0],#3        ; |159| 
         BF        L30,TC                ; |159| 
         ; branchcc occurs ; |159| 
-;*** 161	-----------------------    if ( (*pinfo).u16dist <= 270u ) goto g31;
+;*** 161	-----------------------    if ( (*pinfo).u16dist <= 250u ) goto g31;
 	.dwpsn	"search.c",161,3
         MOVB      XAR0,#39              ; |161| 
-        CMP       *+XAR1[AR0],#270      ; |161| 
+        MOV       AL,*+XAR1[AR0]        ; |161| 
+        CMPB      AL,#250               ; |161| 
         BF        L27,LOS               ; |161| 
         ; branchcc occurs ; |161| 
-;*** 166	-----------------------    if ( (*pinfo).u16dist <= 270u ) goto g15;
+;*** 166	-----------------------    if ( (*pinfo).u16dist <= 250u ) goto g15;
 	.dwpsn	"search.c",166,8
-        CMP       *+XAR1[AR0],#270      ; |166| 
+        MOV       AL,*+XAR1[AR0]        ; |166| 
+        CMPB      AL,#250               ; |166| 
         BF        L5,LOS                ; |166| 
         ; branchcc occurs ; |166| 
 ;*** 166	-----------------------    if ( (*pinfo).u16dist <= 460u ) goto g30;
@@ -961,7 +963,7 @@ L33:
         ; return occurs
 
 DW$104	.dwtag  DW_TAG_loop
-	.dwattr DW$104, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L32:1:1755234803")
+	.dwattr DW$104, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L32:1:1755279818")
 	.dwattr DW$104, DW_AT_begin_file("search.c")
 	.dwattr DW$104, DW_AT_begin_line(0x73)
 	.dwattr DW$104, DW_AT_end_line(0x77)
@@ -1232,7 +1234,7 @@ L41:
         ; return occurs
 
 DW$108	.dwtag  DW_TAG_loop
-	.dwattr DW$108, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L40:1:1755234803")
+	.dwattr DW$108, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L40:1:1755279818")
 	.dwattr DW$108, DW_AT_begin_file("search.c")
 	.dwattr DW$108, DW_AT_begin_line(0x125)
 	.dwattr DW$108, DW_AT_end_line(0x125)
@@ -1243,7 +1245,7 @@ DW$109	.dwtag  DW_TAG_loop_range
 
 
 DW$110	.dwtag  DW_TAG_loop
-	.dwattr DW$110, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L39:1:1755234803")
+	.dwattr DW$110, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L39:1:1755279818")
 	.dwattr DW$110, DW_AT_begin_file("search.c")
 	.dwattr DW$110, DW_AT_begin_line(0x121)
 	.dwattr DW$110, DW_AT_end_line(0x12a)
@@ -1254,7 +1256,7 @@ DW$111	.dwtag  DW_TAG_loop_range
 
 
 DW$112	.dwtag  DW_TAG_loop
-	.dwattr DW$112, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L37:1:1755234803")
+	.dwattr DW$112, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L37:1:1755279818")
 	.dwattr DW$112, DW_AT_begin_file("search.c")
 	.dwattr DW$112, DW_AT_begin_line(0x116)
 	.dwattr DW$112, DW_AT_end_line(0x116)
@@ -1497,7 +1499,7 @@ DW$L$_search_run$6$E:
         ; return occurs
 
 DW$122	.dwtag  DW_TAG_loop
-	.dwattr DW$122, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L43:1:1755234803")
+	.dwattr DW$122, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L43:1:1755279818")
 	.dwattr DW$122, DW_AT_begin_file("search.c")
 	.dwattr DW$122, DW_AT_begin_line(0x14f)
 	.dwattr DW$122, DW_AT_end_line(0x164)
@@ -2867,7 +2869,7 @@ DW$L$_ext_turnmode_sel$16$E:
         ; return occurs
 
 DW$150	.dwtag  DW_TAG_loop
-	.dwattr DW$150, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L100:1:1755234803")
+	.dwattr DW$150, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L100:1:1755279818")
 	.dwattr DW$150, DW_AT_begin_file("search.c")
 	.dwattr DW$150, DW_AT_begin_line(0x210)
 	.dwattr DW$150, DW_AT_end_line(0x22f)
@@ -4674,12 +4676,12 @@ L182:
         ; branchcc occurs
 L183:    
 ;***	-----------------------g14:
-;*** 720	-----------------------    g_q17end_acc += 6553600L;
+;*** 720	-----------------------    g_q17end_acc += 13107200L;
 ;*** 721	-----------------------    DSP28x_usDelay(2499998uL);
 	.dwpsn	"search.c",720,5
         MOVW      DP,#_g_q17end_acc
         MOVL      ACC,@_g_q17end_acc    ; |720| 
-        ADD       ACC,#200 << 15        ; |720| 
+        ADD       ACC,#400 << 15        ; |720| 
         MOVL      @_g_q17end_acc,ACC    ; |720| 
 	.dwpsn	"search.c",721,5
         MOV       AL,#9630
@@ -4722,11 +4724,11 @@ L186:
         TBIT      *+XAR3[1],#14         ; |723| 
         BF        L184,TC               ; |723| 
         ; branchcc occurs ; |723| 
-;*** 725	-----------------------    g_q17end_acc -= 6553600L;
+;*** 725	-----------------------    g_q17end_acc -= 13107200L;
 ;*** 726	-----------------------    DSP28x_usDelay(2499998uL);
 ;*** 726	-----------------------    if ( *K$0&0x4000u ) goto g16;
 	.dwpsn	"search.c",725,5
-        MOV       AH,#100
+        MOV       AH,#200
         MOV       AL,#0
         MOVW      DP,#_g_q17end_acc
         SUBL      @_g_q17end_acc,ACC    ; |725| 
@@ -4818,12 +4820,12 @@ DW$192	.dwtag  DW_TAG_variable, DW_AT_name("K$0"), DW_AT_symbol_name("K$0")
         ; branchcc occurs
 L188:    
 ;***	-----------------------g2:
-;*** 750	-----------------------    g_q17user_acc += 26214400L;
+;*** 750	-----------------------    g_q17user_acc += 65536000L;
 ;*** 751	-----------------------    DSP28x_usDelay(2499998uL);
 	.dwpsn	"search.c",750,5
         MOVW      DP,#_g_q17user_acc
         MOVL      ACC,@_g_q17user_acc   ; |750| 
-        ADD       ACC,#800 << 15        ; |750| 
+        ADD       ACC,#2000 << 15       ; |750| 
         MOVL      @_g_q17user_acc,ACC   ; |750| 
 	.dwpsn	"search.c",751,5
         MOV       AL,#9630
@@ -4866,11 +4868,11 @@ L191:
         TBIT      *+XAR3[1],#14         ; |753| 
         BF        L189,TC               ; |753| 
         ; branchcc occurs ; |753| 
-;*** 755	-----------------------    g_q17user_acc -= 26214400L;
+;*** 755	-----------------------    g_q17user_acc -= 65536000L;
 ;*** 756	-----------------------    DSP28x_usDelay(2499998uL);
 ;*** 756	-----------------------    if ( *K$0&0x4000u ) goto g4;
 	.dwpsn	"search.c",755,5
-        MOV       ACC,#800 << 15
+        MOV       ACC,#2000 << 15
         MOVW      DP,#_g_q17user_acc
         SUBL      @_g_q17user_acc,ACC   ; |755| 
 	.dwpsn	"search.c",756,5
@@ -4902,13 +4904,13 @@ L192:
         ; branchcc occurs
 L193:    
 ;***	-----------------------g8:
-;*** 775	-----------------------    g_q17fast_vel_limit += 65536000L;
+;*** 775	-----------------------    g_q17endturn_acc += 131072000L;
 ;*** 776	-----------------------    DSP28x_usDelay(2499998uL);
 	.dwpsn	"search.c",775,5
-        MOVW      DP,#_g_q17fast_vel_limit
-        MOVL      ACC,@_g_q17fast_vel_limit ; |775| 
-        ADD       ACC,#2000 << 15       ; |775| 
-        MOVL      @_g_q17fast_vel_limit,ACC ; |775| 
+        MOVW      DP,#_g_q17endturn_acc
+        MOVL      ACC,@_g_q17endturn_acc ; |775| 
+        ADD       ACC,#4000 << 15       ; |775| 
+        MOVL      @_g_q17endturn_acc,ACC ; |775| 
 	.dwpsn	"search.c",776,5
         MOV       AL,#9630
         MOV       AH,#38
@@ -4924,13 +4926,13 @@ L194:
         ; branchcc occurs ; |786| 
 L195:    
 ;***	-----------------------g10:
-;*** 790	-----------------------    VFDPrintf("FVL:%4u", (unsigned)(g_q17fast_vel_limit>>17));
+;*** 790	-----------------------    VFDPrintf("ET:%5u", (unsigned)(g_q17endturn_acc>>17));
 ;*** 770	-----------------------    if ( !(*(&GpioDataRegs+1)&0x8000u) ) goto g8;
 	.dwpsn	"search.c",790,3
-        MOVW      DP,#_g_q17fast_vel_limit
+        MOVW      DP,#_g_q17endturn_acc
         MOVL      XAR4,#FSL35           ; |790| 
         MOV       T,#17                 ; |790| 
-        MOVL      ACC,@_g_q17fast_vel_limit ; |790| 
+        MOVL      ACC,@_g_q17endturn_acc ; |790| 
         MOVL      *-SP[2],XAR4          ; |790| 
         ASRL      ACC,T                 ; |790| 
         MOV       *-SP[3],AL            ; |790| 
@@ -4950,13 +4952,13 @@ L196:
         TBIT      *+XAR3[1],#14         ; |778| 
         BF        L194,TC               ; |778| 
         ; branchcc occurs ; |778| 
-;*** 780	-----------------------    g_q17fast_vel_limit -= 65536000L;
+;*** 780	-----------------------    g_q17endturn_acc -= 131072000L;
 ;*** 781	-----------------------    DSP28x_usDelay(2499998uL);
 ;*** 781	-----------------------    if ( *K$0&0x4000u ) goto g10;
 	.dwpsn	"search.c",780,5
-        MOV       ACC,#2000 << 15
-        MOVW      DP,#_g_q17fast_vel_limit
-        SUBL      @_g_q17fast_vel_limit,ACC ; |780| 
+        MOV       ACC,#4000 << 15
+        MOVW      DP,#_g_q17endturn_acc
+        SUBL      @_g_q17endturn_acc,ACC ; |780| 
 	.dwpsn	"search.c",781,5
         MOV       AL,#9630
         MOV       AH,#38
@@ -5077,7 +5079,7 @@ FSL33:	.string	"EA:%5u",0
 	.align	2
 FSL34:	.string	"AC:%5u",0
 	.align	2
-FSL35:	.string	"FVL:%4u",0
+FSL35:	.string	"ET:%5u",0
 ;***************************************************************
 ;* UNDEFINED EXTERNAL REFERENCES                               *
 ;***************************************************************
@@ -5096,11 +5098,11 @@ FSL35:	.string	"FVL:%4u",0
 	.global	_extvel_write_rom
 	.global	_turnvel_write_rom
 	.global	_g_u16turnmark_limit
-	.global	_g_q17user_vel_2000
-	.global	_g_q17user_vel
-	.global	_g_q17_45acc
 	.global	_g_q17turnmark_dist
+	.global	_g_q17user_vel_2000
 	.global	_g_q17end_dist
+	.global	_g_q17_45acc
+	.global	_g_q17endturn_acc
 	.global	_g_q17end_acc
 	.global	_g_q17sen_valmax
 	.global	_g_q17user_acc
@@ -5111,7 +5113,7 @@ FSL35:	.string	"FVL:%4u",0
 	.global	_g_q16out_corner_fast_limit
 	.global	_g_q16out_corner_limit
 	.global	_g_q17shift_pos_val
-	.global	_g_q17fast_vel_limit
+	.global	_g_q17user_vel
 	.global	_g_q17max_acc
 	.global	_g_q17short_acc
 	.global	_g_q17mid_acc

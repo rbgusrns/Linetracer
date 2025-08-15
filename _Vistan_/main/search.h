@@ -27,7 +27,7 @@ typedef enum		//조절 필요
 */
 typedef enum		//조절 필요
 {
-	TURN_45_DIST = 270,
+	TURN_45_DIST = 250,
 	TURN_90_DIST = 460,
 	TURN_180_DIST = 720,
 	TURN_270_DIST = 1400//1050

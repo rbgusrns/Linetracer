@@ -214,7 +214,7 @@ interrupt void Sensor_Value(void)
 	AdcRegs.ADCTRL2.bit.SOC_SEQ1 = 1;	
  
 }
-#if 1
+#if 0
 interrupt void adc_timer_ISR(void)
 {
 	long 	adc_v1 = 0,
@@ -284,7 +284,7 @@ interrupt void adc_timer_ISR(void)
 }
 #endif
 
-#if 0
+#if 1
 interrupt void adc_timer_ISR(void)
 {
 	long 	adc_v1 = 0,

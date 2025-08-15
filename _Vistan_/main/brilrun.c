@@ -102,6 +102,8 @@ static void bril_straight_compute( fast_run_str *p_info, int32 mark_cnt, error_s
 			pinfo->q17dist_limit = _IQmpy(_IQ( pinfo->u16dist ),_IQ(0.15));  //  총 거리의 15%를 지나면 쉬프트를 시작한다. 
 		}
 
+        if( pinfo->u16turn_dir & ETURN )        pinfo->q17acc = g_q17endturn_acc;
+
 		pinfo->q17shift_after = ( ( pinfo + 1 )->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ];	
 		  
 		// 다음 턴이 45도이고 그 다음 턴이 45도 or 90도 인 경우 
