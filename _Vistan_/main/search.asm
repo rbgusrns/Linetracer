@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sat Aug 16 02:43:38 2025                 *
+;* Date/Time created: Sat Aug 16 15:32:52 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -309,8 +309,8 @@ DW$86	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$86, DW_AT_type(*DW$T$111)
 	.dwattr DW$86, DW_AT_declaration(0x01)
 	.dwattr DW$86, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI19610 C:\Users\rbgus\AppData\Local\Temp\TI1964 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI1962 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI1966 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI56810 C:\Users\rbgus\AppData\Local\Temp\TI5684 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI5682 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI5686 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_turn_info_compute
 
@@ -682,7 +682,7 @@ L13:
 L14:    
 ;***	-----------------------g26:
 ;*** 220	-----------------------    (*pinfo).u16turn_dir = (*pinfo).u16turn_way|0x80u;
-;*** 221	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$1 = 50u) : (S$1 = 1u);
+;*** 221	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$1 = 185u) : (S$1 = 1u);
 	.dwpsn	"search.c",220,5
         MOVB      XAR0,#36              ; |220| 
         MOV       AL,*+XAR1[AR0]        ; |220| 
@@ -694,7 +694,7 @@ L14:
         TBIT      *+XAR1[AR0],#0        ; |221| 
         BF        L15,NTC               ; |221| 
         ; branchcc occurs ; |221| 
-        MOVB      AL,#50                ; |221| 
+        MOVB      AL,#185               ; |221| 
         BF        L16,UNC               ; |221| 
         ; branch occurs ; |221| 
 L15:    
@@ -728,7 +728,7 @@ L17:
 L18:    
 ;***	-----------------------g28:
 ;*** 181	-----------------------    (*pinfo).u16turn_dir = (*pinfo).u16turn_way|0x80u;
-;*** 182	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$2 = 50u) : (S$2 = 1u);
+;*** 182	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$2 = 185u) : (S$2 = 1u);
 	.dwpsn	"search.c",181,4
         MOVB      XAR0,#36              ; |181| 
         MOV       AL,*+XAR1[AR0]        ; |181| 
@@ -740,7 +740,7 @@ L18:
         TBIT      *+XAR1[AR0],#0        ; |182| 
         BF        L19,NTC               ; |182| 
         ; branchcc occurs ; |182| 
-        MOVB      AL,#50                ; |182| 
+        MOVB      AL,#185               ; |182| 
         BF        L20,UNC               ; |182| 
         ; branch occurs ; |182| 
 L19:    
@@ -756,7 +756,7 @@ L20:
 L21:    
 ;***	-----------------------g29:
 ;*** 175	-----------------------    (*pinfo).u16turn_dir = (*pinfo).u16turn_way|0x40u;
-;*** 176	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$3 = 40u) : (S$3 = 1u);
+;*** 176	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$3 = 150u) : (S$3 = 1u);
 	.dwpsn	"search.c",175,4
         MOVB      XAR0,#36              ; |175| 
         MOV       AL,*+XAR1[AR0]        ; |175| 
@@ -768,7 +768,7 @@ L21:
         TBIT      *+XAR1[AR0],#0        ; |176| 
         BF        L22,NTC               ; |176| 
         ; branchcc occurs ; |176| 
-        MOVB      AL,#40                ; |176| 
+        MOVB      AL,#150               ; |176| 
         BF        L23,UNC               ; |176| 
         ; branch occurs ; |176| 
 L22:    
@@ -784,7 +784,7 @@ L23:
 L24:    
 ;***	-----------------------g30:
 ;*** 168	-----------------------    (*pinfo).u16turn_dir = (*pinfo).u16turn_way|0x20u;
-;*** 169	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$4 = 30u) : (S$4 = 1u);
+;*** 169	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$4 = 160u) : (S$4 = 1u);
 	.dwpsn	"search.c",168,4
         MOVB      XAR0,#36              ; |168| 
         MOV       AL,*+XAR1[AR0]        ; |168| 
@@ -796,7 +796,7 @@ L24:
         TBIT      *+XAR1[AR0],#0        ; |169| 
         BF        L25,NTC               ; |169| 
         ; branchcc occurs ; |169| 
-        MOVB      AL,#30                ; |169| 
+        MOVB      AL,#160               ; |169| 
         BF        L26,UNC               ; |169| 
         ; branch occurs ; |169| 
 L25:    
@@ -812,7 +812,7 @@ L26:
 L27:    
 ;***	-----------------------g31:
 ;*** 163	-----------------------    (*pinfo).u16turn_dir = (*pinfo).u16turn_way|0x10u;
-;*** 164	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$5 = 10u) : (S$5 = 1u);
+;*** 164	-----------------------    (*((volatile unsigned * const)pinfo+76L)&1u) ? (S$5 = 70u) : (S$5 = 1u);
 	.dwpsn	"search.c",163,4
         MOVB      XAR0,#36              ; |163| 
         MOV       AL,*+XAR1[AR0]        ; |163| 
@@ -824,7 +824,7 @@ L27:
         TBIT      *+XAR1[AR0],#0        ; |164| 
         BF        L28,NTC               ; |164| 
         ; branchcc occurs ; |164| 
-        MOVB      AL,#10                ; |164| 
+        MOVB      AL,#70                ; |164| 
         BF        L29,UNC               ; |164| 
         ; branch occurs ; |164| 
 L28:    
@@ -963,7 +963,7 @@ L33:
         ; return occurs
 
 DW$104	.dwtag  DW_TAG_loop
-	.dwattr DW$104, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L32:1:1755279818")
+	.dwattr DW$104, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L32:1:1755325972")
 	.dwattr DW$104, DW_AT_begin_file("search.c")
 	.dwattr DW$104, DW_AT_begin_line(0x73)
 	.dwattr DW$104, DW_AT_end_line(0x77)
@@ -1234,7 +1234,7 @@ L41:
         ; return occurs
 
 DW$108	.dwtag  DW_TAG_loop
-	.dwattr DW$108, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L40:1:1755279818")
+	.dwattr DW$108, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L40:1:1755325972")
 	.dwattr DW$108, DW_AT_begin_file("search.c")
 	.dwattr DW$108, DW_AT_begin_line(0x125)
 	.dwattr DW$108, DW_AT_end_line(0x125)
@@ -1245,7 +1245,7 @@ DW$109	.dwtag  DW_TAG_loop_range
 
 
 DW$110	.dwtag  DW_TAG_loop
-	.dwattr DW$110, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L39:1:1755279818")
+	.dwattr DW$110, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L39:1:1755325972")
 	.dwattr DW$110, DW_AT_begin_file("search.c")
 	.dwattr DW$110, DW_AT_begin_line(0x121)
 	.dwattr DW$110, DW_AT_end_line(0x12a)
@@ -1256,7 +1256,7 @@ DW$111	.dwtag  DW_TAG_loop_range
 
 
 DW$112	.dwtag  DW_TAG_loop
-	.dwattr DW$112, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L37:1:1755279818")
+	.dwattr DW$112, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L37:1:1755325972")
 	.dwattr DW$112, DW_AT_begin_file("search.c")
 	.dwattr DW$112, DW_AT_begin_line(0x116)
 	.dwattr DW$112, DW_AT_end_line(0x116)
@@ -1499,7 +1499,7 @@ DW$L$_search_run$6$E:
         ; return occurs
 
 DW$122	.dwtag  DW_TAG_loop
-	.dwattr DW$122, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L43:1:1755279818")
+	.dwattr DW$122, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L43:1:1755325972")
 	.dwattr DW$122, DW_AT_begin_file("search.c")
 	.dwattr DW$122, DW_AT_begin_line(0x14f)
 	.dwattr DW$122, DW_AT_end_line(0x164)
@@ -2869,7 +2869,7 @@ DW$L$_ext_turnmode_sel$16$E:
         ; return occurs
 
 DW$150	.dwtag  DW_TAG_loop
-	.dwattr DW$150, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L100:1:1755279818")
+	.dwattr DW$150, DW_AT_name("C:\project\Linetracer\_Vistan_\main\search.asm:L100:1:1755325972")
 	.dwattr DW$150, DW_AT_begin_file("search.c")
 	.dwattr DW$150, DW_AT_begin_line(0x210)
 	.dwattr DW$150, DW_AT_end_line(0x22f)

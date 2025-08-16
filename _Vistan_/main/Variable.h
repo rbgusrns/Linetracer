@@ -71,12 +71,12 @@
 #define	MAX_SPEED_HANDLE			_IQ16(1.15)
 
 
-#define POS_KP_UP		_IQ7( 0.5 )	//1.5
+#define POS_KP_UP		_IQ7( 0.7 )	//1.5
 //#define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 #define POS_KP_DOWN		_IQ7( 0.1 )	//0.1
 #define POS_KP_NONE     _IQ7( 0.1 )
 
-#define POS_KD_UP		_IQ7( 1.5 )	//4.4
+#define POS_KD_UP		_IQ7( 4.4 )	//4.4
 #define POS_KD_DOWN		_IQ7( 3.4 )	//3.4
 
 #define	STRAIGHT					0x0001
@@ -100,7 +100,7 @@
 #define MID_DIST  600
 #define SHORT_DIST  400
 
-#if 0
+#if 1
 #define D_STR 1
 #define D_45A 70 		//55 
 #define D_90A 160 		//125 
@@ -109,14 +109,14 @@
 #define D_SAFE 300 
 
 #endif
-
+#if 0
 #define D_STR 1
 #define D_45A 10 		//55 
 #define D_90A 30 		//125 
 #define D_180A 40 	//145  
 #define D_270A 50 	//170
 #define D_SAFE 300 
-
+#endif
 
 
 #define RIGHT_LED_ON GpioDataRegs.GPASET.bit.GPIO27 = 1

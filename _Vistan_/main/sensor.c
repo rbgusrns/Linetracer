@@ -214,7 +214,7 @@ interrupt void Sensor_Value(void)
 	AdcRegs.ADCTRL2.bit.SOC_SEQ1 = 1;	
  
 }
-#if 0
+#if 1
 interrupt void adc_timer_ISR(void)
 {
 	long 	adc_v1 = 0,
@@ -284,7 +284,7 @@ interrupt void adc_timer_ISR(void)
 }
 #endif
 
-#if 1
+#if 0
 interrupt void adc_timer_ISR(void)
 {
 	long 	adc_v1 = 0,
@@ -922,13 +922,13 @@ void turnmark_check(turnmark_t* p_mark,turnmark_t* p_remark)
 				if( pmark == g_ptr -> g_lmark )
                 {
                     
-                    //LEFT_LED_ON;
+                    LEFT_LED_ON;
 					//BUZZ_ON;
                     g_Flag.lmark_flag = ON;
 				}
 				else if ( pmark == g_ptr -> g_rmark )
 				{
-                    //RIGHT_LED_ON;
+                    RIGHT_LED_ON;
 					//BUZZ_ON;
                     g_Flag.rmark_flag = ON;
 				}

@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sat Aug 16 02:43:34 2025                 *
+;* Date/Time created: Sat Aug 16 15:32:49 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -404,8 +404,8 @@ DW$32	.dwtag  DW_TAG_variable, DW_AT_name("g_fast_info"), DW_AT_symbol_name("_g_
 	.dwattr DW$32, DW_AT_type(*DW$T$60)
 	.dwattr DW$32, DW_AT_declaration(0x01)
 	.dwattr DW$32, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI48410 C:\Users\rbgus\AppData\Local\Temp\TI4844 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI4842 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI4846 --object_file menu.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI25610 C:\Users\rbgus\AppData\Local\Temp\TI2564 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI2562 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI2566 --object_file menu.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_bril_run_start
 
@@ -913,7 +913,7 @@ DW$L$_menu_start$2$B:
 DW$L$_menu_start$2$E:
 
 DW$40	.dwtag  DW_TAG_loop
-	.dwattr DW$40, DW_AT_name("C:\project\Linetracer\_Vistan_\main\menu.asm:L8:1:1755279814")
+	.dwattr DW$40, DW_AT_name("C:\project\Linetracer\_Vistan_\main\menu.asm:L8:1:1755325969")
 	.dwattr DW$40, DW_AT_begin_file("menu.c")
 	.dwattr DW$40, DW_AT_begin_line(0x2f)
 	.dwattr DW$40, DW_AT_end_line(0x33)
