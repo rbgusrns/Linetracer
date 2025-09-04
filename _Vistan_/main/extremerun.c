@@ -61,7 +61,7 @@ extern void ext_memmove_sec_info_struct_func( fast_run_str *p_cur, fast_run_str 
 	  
 	if( cpy_info.q17vel > limit_vel ) 								pinfo->q17in_vel = limit_vel; // 설정한 limit vell보다 다음 직선의 최고속도가 큰 경우 최고속도로 지정
 	else if( cpy_info.q17vel < g_q17user_vel )						pinfo->q17in_vel = g_q17user_vel; // 다음 직선의 최고속도가 턴속보다 작은 경우 턴속으로 지정 
-	else															pinfo->q17in_vel = cpy_info.q17vel; //다음 직진의 최고 속도를 진입속도에 지정 
+	else															pinfo->q17in_vel = cpy_info.q17vel; //다음 직진의 최고 속도를 진입속도에 지정 .진입과 동시에 가속 !
 	
 	pinfo->q17vel = pinfo->q17out_vel = pinfo->q17in_vel;
 }

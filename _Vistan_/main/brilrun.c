@@ -29,6 +29,7 @@ volatile _iq17 shift_left[] =
 };
 
 
+#if 0
 volatile _iq17 shift_right_45[] = 
 {
 	_IQ(0.0) , _IQ(250.0) , _IQ(500.0) , _IQ(750.0) , _IQ(1000.0) , _IQ(1250.0) , _IQ(1500.0) , _IQ(1750.0) , _IQ(2000.0) , _IQ(2250.0) , _IQ(2500.0)
@@ -37,6 +38,19 @@ volatile _iq17 shift_right_45[] =
 volatile _iq17 shift_left_45[] = 
 {
 	_IQ(0.0) , _IQ(-250.0) , _IQ(-500.0) , _IQ(-750.0) , _IQ(-1000.0) , _IQ(-1250.0) , _IQ(-1500.0) , _IQ(-1750.0) , _IQ(-2000.0) , _IQ(-2250.0) , _IQ(-2500.0)
+};
+
+#endif
+
+volatile _iq17 shift_right_45[] = 
+{
+    _IQ(0.0) , _IQ(500.0) , _IQ(1500.0) , _IQ(2500.0) , _IQ(3500.0) , _IQ(4500.0) , _IQ(5500.0) , _IQ(6500.0) , _IQ(7500.0) , _IQ(8500.0) , _IQ(9500.0)
+};
+
+
+volatile _iq17 shift_left_45[] = 
+{
+    _IQ(0.0) , _IQ(-500.0) , _IQ(-1500.0) , _IQ(-2500.0) , _IQ(-3500.0) , _IQ(-4500.0) , _IQ(-5500.0) , _IQ(-6500.0) , _IQ(-7500.0) , _IQ(-8500.0) , _IQ(-9500.0)
 };
 
 
@@ -206,7 +220,7 @@ static void bril_45_turn_compute( fast_run_str *p_info, int32 mark_cnt, error_st
 
     //m_dist = ( pinfo + 1 )->u16dist > MID_DIST_LIMIT ? _IQ( ( pinfo + 1 )->u16dist >> 2 ) : _IQ( ( pinfo + 1 )->u16dist >> 1 );
     //다음 거리가 중간 직진보다 길다면 다음 거리의1/4를 m_dist로, 아니라면 다음 거리의 절반을 m_dist로..
-    if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 45도 - 45도 - 직진 에서의 45도 
+    else if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 45도 - 45도 - 직진 에서의 45도 
     {
         pinfo->down_flag = ON; 
         pinfo->q7kp_val = POS_KP_NONE;
@@ -486,6 +500,9 @@ static void bril_default_turn_compute( fast_run_str *pinfo, int32 mark_cnt, erro
 	pinfo->q7kp_val = POS_KP_UP; 
 	
 	pinfo->q17in_vel = g_q17user_vel;
+	if( g_q17user_vel > _IQ(LIMIT_SHIFT_VEL) )
+		pinfo->q17in_vel = _IQ( LIMIT_SHIFT_VEL );
+
 
 	pinfo->q17out_vel = pinfo->q17vel = pinfo->q17in_vel;
 	pinfo->q17shift_before = ( pinfo->u16turn_dir & RTURN ) ? shift_right[ shift ] : shift_left[ shift ];
@@ -727,7 +744,7 @@ extern void print_bril_info(fast_run_str *pinfo)
     bril_turn_division_func();
     print_second_info();
 
-	for( i=0; i<128;i++)
+	for( i=0; i<160;i++)
 	{
 		TxPrintf("%d| turn_dir: %5x| sft_after: %.3f| sft_before: %.3f| dist_limit: %5ld| dst: %5d | err_dst: %5ld| under_dst: %5ld|\n", 
 			i,
@@ -842,8 +859,8 @@ extern void bril_pos_shift_func( volatile _iq17 cur_dist , volatile _iq17 shift_
 	volatile _iq17 c_dist = cur_dist;	// 현재 간 거리
 	volatile _iq17 s_dist = shift_dist; //  쉬프트할 거리(틱당) 
 								 //     직진이고                            //중간거리보다 작다면 크게 쉬프팅         
- 	volatile _iq17 pre_ratio = ( pinfo->u16turn_dir & ( STRAIGHT | LARGE_TURN ) ) && ( pinfo->u16dist > MID_DIST_LIMIT ) ? ST_RET_RATIO : SHIFT_RATIO;	//  3.5  or  6.5
-	volatile _iq17 aft_ratio = ( pinfo->u16turn_dir & ( STRAIGHT | LARGE_TURN ) ) && ( pinfo->u16dist > MID_DIST_LIMIT ) ? ST_RET_RATIO : RETURN_RATIO;	//  3.5  or  7.5 	
+ 	volatile _iq17 pre_ratio = ( pinfo->u16turn_dir & ( STRAIGHT | LARGE_TURN ) ) && ( pinfo->u16dist > MID_DIST_LIMIT ) ? g_q17st_ret_ratio : g_q17shift_ratio;	//  3.5  or  6.5
+	volatile _iq17 aft_ratio = ( pinfo->u16turn_dir & ( STRAIGHT | LARGE_TURN ) ) && ( pinfo->u16dist > MID_DIST_LIMIT ) ? g_q17st_ret_ratio : g_q17return_ratio;	//  3.5  or  7.5 	
 	 								//     직진이고                            //중간거리보다 작다면 크게 쉬프팅
 	volatile _iq17 pos_val = g_q17shift_pos_val; //기본 0
 
@@ -866,7 +883,11 @@ extern void bril_pos_shift_func( volatile _iq17 cur_dist , volatile _iq17 shift_
 		if( pos_val > pinfo->q17shift_before + PM_RATIO )			pos_val -= _IQmpy( s_dist , pre_ratio ); //L로 쉬프트 
 		else if( pos_val < pinfo->q17shift_before - PM_RATIO )		pos_val += _IQmpy( s_dist , pre_ratio ); //R로 쉬프트 
 		else														pos_val = pinfo->q17shift_before;  //유지
-	}
+
+        //if( pos_val > _IQabs(_IQmpy(pinfo->q17shift_before,_IQ(0.9) ) ) )
+        //    LEFT_BLUE_ON;
+        //else LEFT_BLUE_OFF;
+    }
 	else 	// 현재 간 거리가 쉬프트 시작 거리보다 크다면after 적용 
 	{
 		if( pos_val > pinfo->q17shift_after + PM_RATIO )			pos_val -= _IQmpy( s_dist , aft_ratio ); 
@@ -875,6 +896,10 @@ extern void bril_pos_shift_func( volatile _iq17 cur_dist , volatile _iq17 shift_
 		{	
 			pos_val = pinfo->q17shift_after;	
 		}
+        //if( pos_val > _IQabs(_IQmpy(pinfo->q17shift_after,_IQ(0.9) ) ) )
+        //    RIGHT_BLUE_ON;
+        //else RIGHT_BLUE_OFF;
+
 	}		
 
 	g_q17shift_pos_val = pos_val;

@@ -165,9 +165,9 @@ void Variable_Init( void )
 	
 	g_q17max_acc = g_q17user_acc;
 	g_q17mid_acc = g_q17user_acc;
-	g_q17short_acc = g_q17user_acc;
+	g_q17short_acc = g_q17user_acc + _IQ(2000);
 	
-	g_q17s4s_vel = _IQ(3500);
+	g_q17s4s_vel = _IQ(3300);
 	g_q17s44s_vel = _IQ(4000); 
 	g_q17escape45_vel = _IQ(3500);
 	 
@@ -179,35 +179,44 @@ void Variable_Init( void )
 	g_int32fasterror_flag = 1;
 	i=0;
 
+    g_q17shift_ratio = _IQ(7);
+    g_q17return_ratio = _IQ(8);
+    g_q17st_ret_ratio = _IQ(4);
+
+
 }
 
 void main(void)
 {	
 	System_Init();
 	Variable_Init();
-	
+    race_start_init();
 	VfdInit();
 	
-	VFDPrintf("LOADING_");
+	
 
 	///초기값 설정//
 	MOTOR_TIMER_ENABLE; // start cputimer1 
-
+	
+    VFDPrintf("LOADING|");
 	maxmin_read_rom();
-    turnvel_read_rom();
+    turnvel_read_rom();    
     acc_info_read_rom();
     handle_read_rom();
+    VFDPrintf("LOADING/");
     turnmark_info_read_rom();
 	cross_info_read_rom();
 	mark_read_rom();
-	fast_infor_read_rom();
-	race_start_init();
+    VFDPrintf("LOADING-");
     extvel_read_rom();
+    VFDPrintf("LOADING\\");
+	fast_infor_read_rom();
+    
     
 	//g_Flag.motor_start = ON;
 	//move_to_end(_IQ(100), _IQ(0), g_q17end_acc);
 	
-
+    	
 	LEFT_LED_OFF;
 	RIGHT_LED_OFF;
 
@@ -266,7 +275,7 @@ void print_second_info()
 	for( i=0; i<256;i++)
 	{
 		
-							TxPrintf("%d| dst: %5d| dec: %5ld| mdst: %5ld| turn_dir: 0x%04X| acc: %5ld| in: %5ld| vel: %5ld| out: %5ld| cnt: %d | down: %d| s44s: %d| escape: %d| kp: %.2f| RDIST: %ld| LDIST: %ld| P: %ld\n\n",
+							TxPrintf("%d| dst: %5d| dec: %5ld| mdst: %5ld| turn_dir: 0x%04X| acc: %5ld| in: %5ld| vel: %5ld| out: %5ld| cnt: %d | down: %d| s44s: %d| escape: %d| kp: %.2f| RDIST: %ld| LDIST: %ld| P: %ld\n",
 									i,
 										  g_fast_info[ i ].u16dist,
 													g_fast_info[ i ].q17dec_dist>>17,	

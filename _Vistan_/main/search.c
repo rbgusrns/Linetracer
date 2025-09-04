@@ -241,7 +241,7 @@ void race_start_init(void)
 	
 	g_lm.q17total_dist = g_rm.q17dist_sum = g_lm.q17dist_sum = _IQ(0);
 	g_lm.q27tick_dist = g_rm.q27tick_dist = _IQ27(0);
-    	g_lm.q17gone_distance = g_rm.q17gone_distance = _IQ17(0);
+    g_lm.q17gone_distance = g_rm.q17gone_distance = _IQ17(0);
 
 	g_Flag.err = OFF;
 	g_Flag.lineout_flag = OFF;
@@ -765,6 +765,10 @@ void Set_Accel(){
 		VFDPrintf("AC:%5u",IQ_TO_UINT16(g_q17user_acc));
 		}
 
+    g_q17max_acc = g_q17user_acc;
+	g_q17mid_acc = g_q17user_acc;
+	g_q17short_acc = g_q17user_acc + _IQ(2000);
+
 	DELAY_US(150000);
 
 	while(1)
@@ -937,6 +941,7 @@ void extreme_ctl()
 	}
 	DELAY_US(150000);
 
+
 	while(1)
 	{
 		if(Up_SW)
@@ -984,7 +989,7 @@ void extreme_ctl()
 		VFDPrintf("45A%5u",IQ_TO_UINT16(g_q17_45acc));
 	}
 	DELAY_US(150000);
-
+#if 0
 	while(1)
 	{
 		if(Up_SW)
@@ -1056,7 +1061,7 @@ void extreme_ctl()
 		VFDPrintf("sht%5u",IQ_TO_UINT16(g_q17short_acc));
 	}
 	DELAY_US(150000);
-
+#endif
 	while(1)
 	{
 		if(Up_SW)
@@ -1130,6 +1135,84 @@ void extreme_ctl()
 	DELAY_US(150000);
     extvel_write_rom();
 	
+}
+
+void Set_ShiftRatio(void){
+	
+	#if 1
+			while(1){
+				// in
+			if(Up_SW){
+				DELAY_US(125000);
+				g_q17st_ret_ratio += _IQ(10);
+				
+			}
+			else if(Down_SW){
+				DELAY_US(125000);
+				g_q17st_ret_ratio -= _IQ(10);
+				
+			}
+			else;
+		
+			if(Right_SW){
+				DELAY_US(125000);
+				break;
+			}
+	
+			VFDPrintf("STR:%4f",_IQtoF(g_q17st_ret_ratio));
+			
+			}
+
+			DELAY_US(150000);
+			
+			while(1){
+				// out
+			if(Up_SW){
+				DELAY_US(125000);
+				g_q17return_ratio += _IQ(10);
+			
+			}
+			else if(Down_SW){
+				DELAY_US(125000);
+				g_q17return_ratio -= _IQ(10);
+			
+			}
+			else;
+		
+			if(Right_SW){
+				DELAY_US(125000);
+				break;
+			}
+	
+			VFDPrintf("RTN:%4f",_IQtoF(g_q17return_ratio));
+			
+			}
+	#endif
+			while(1){
+				// in
+			if(Up_SW){
+				DELAY_US(125000);
+				g_q17shift_ratio += _IQ(10);
+				
+			}
+			else if(Down_SW){
+				DELAY_US(125000);
+				g_q17shift_ratio -= _IQ(10);
+				
+			}
+			else;
+		
+			if(Right_SW){
+				DELAY_US(125000);
+				break;
+			}
+	
+			VFDPrintf("SFR:%4f",_IQtoF(g_q17shift_ratio));
+			
+			}
+
+			DELAY_US(150000);
+			extvel_write_rom();
 }
 
 

@@ -65,7 +65,10 @@ typedef enum
 	_FASTLIMIT_VEL,
 	_USER_ACC,
 	_POSINT_1,
-	_POSINT_2
+	_POSINT_2,
+	_SHIFT_RATIO_CTRL,
+	_SHIFT_RETURN_CTRL,
+	_SHIFT_STR_CTRL
 	
 
 }rom_e;
@@ -355,13 +358,16 @@ void turnvel_read_rom(void)
 
 void extvel_write_rom(void)
 {
-	int32 i,j,k,l,m,n;
+	int32 i,j,k,l,m,n,o,p,q;
 	Uint16 write_buf1[_TURNVEL_BLOCK]= {0,}; //s44s
     Uint16 write_buf2[_TURNVEL_BLOCK]= {0,}; //s4s
     Uint16 write_buf3[_TURNVEL_BLOCK]= {0,}; //45
     Uint16 write_buf4[_TURNVEL_BLOCK]= {0,}; //esc
     Uint16 write_buf5[_ACC_BLOCK]= {0,}; //45acc
     Uint16 write_buf6[_TURNMARK_BLOCK]= {0,}; //shift
+    Uint16 write_buf7[_TURNMARK_BLOCK]= {0,}; //shift
+    Uint16 write_buf8[_TURNMARK_BLOCK]= {0,}; //shift
+    Uint16 write_buf9[_TURNMARK_BLOCK]= {0,}; //shift
     
 	Uint16 Rom_Data_Buffer;
 	
@@ -371,6 +377,9 @@ void extvel_write_rom(void)
 	memset( (void * )write_buf4 , 0x00 , sizeof( write_buf4 ) );
 	memset( (void * )write_buf5 , 0x00 , sizeof( write_buf5 ) );
 	memset( (void * )write_buf6 , 0x00 , sizeof( write_buf6 ) );
+    memset( (void * )write_buf6 , 0x00 , sizeof( write_buf7 ) );
+    memset( (void * )write_buf6 , 0x00 , sizeof( write_buf8 ) );
+    memset( (void * )write_buf6 , 0x00 , sizeof( write_buf9 ) );
 
 	
 	i = 0;
@@ -424,6 +433,32 @@ void extvel_write_rom(void)
 	write_buf6[ n++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
 
 	SpiWriteRom((Uint16)(_SHIFT_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), write_buf6 );
+
+    o = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17st_ret_ratio >> 17 );
+	write_buf7[ o++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf7[ o++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_SHIFT_STR_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), write_buf7 );
+
+
+    p = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17shift_ratio >> 17 );
+	write_buf8[ p++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf8[ p++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_SHIFT_RATIO_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), write_buf8 );
+
+
+    q = 0;
+
+	Rom_Data_Buffer = (Uint16)( g_q17return_ratio >>17 );
+	write_buf9[ q++ ] = (Uint16)(( Rom_Data_Buffer >> 0 ) & 0xff);
+	write_buf9[ q++ ] = (Uint16)(( Rom_Data_Buffer >> 8 ) & 0xff);
+
+	SpiWriteRom((Uint16)(_SHIFT_RETURN_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), write_buf9 );
 	
 }
 
@@ -431,13 +466,17 @@ void extvel_write_rom(void)
 
 void extvel_read_rom(void)
 {
-	int32 i,j,k,l,m,n;
+	int32 i,j,k,l,m,n,o,p,q;
 	Uint16 read_buf1[_TURNVEL_BLOCK]= {0,}; //s44s
     Uint16 read_buf2[_TURNVEL_BLOCK]= {0,}; //s4s
     Uint16 read_buf3[_TURNVEL_BLOCK]= {0,}; //45
     Uint16 read_buf4[_TURNVEL_BLOCK]= {0,}; //esc
     Uint16 read_buf5[_ACC_BLOCK]= {0,}; //45acc
     Uint16 read_buf6[_TURNMARK_BLOCK]= {0,}; //shift
+    Uint16 read_buf7[_TURNMARK_BLOCK]= {0,}; //shift
+    Uint16 read_buf8[_TURNMARK_BLOCK]= {0,}; //shift
+    Uint16 read_buf9[_TURNMARK_BLOCK]= {0,}; //shift
+    
     
 	Uint16 Rom_Data_Buffer;
 
@@ -503,7 +542,33 @@ void extvel_read_rom(void)
 	Rom_Data_Buffer = ((read_buf6[n++] & 0xff) << 0);
 	Rom_Data_Buffer |= ((read_buf6[n++] & 0xff) << 8);
     g_int32shift_level = Rom_Data_Buffer;
-	
+
+
+    o = 0;
+
+    SpiReadRom((Uint16)(_SHIFT_STR_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), read_buf7 );
+
+	Rom_Data_Buffer = ((read_buf7[o++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf7[o++] & 0xff) << 8);
+    g_q17st_ret_ratio = _IQ(Rom_Data_Buffer);
+
+
+    p = 0;
+
+    SpiReadRom((Uint16)(_SHIFT_RATIO_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), read_buf8 );
+
+	Rom_Data_Buffer = ((read_buf8[p++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf8[p++] & 0xff) << 8);
+    g_q17shift_ratio = _IQ(Rom_Data_Buffer);
+
+
+    q = 0;
+
+    SpiReadRom((Uint16)(_SHIFT_RETURN_CTRL) , 0 , (Uint16)(_TURNMARK_BLOCK), read_buf9 );
+
+	Rom_Data_Buffer = ((read_buf9[q++] & 0xff) << 0);
+	Rom_Data_Buffer |= ((read_buf9[q++] & 0xff) << 8);
+    g_q17return_ratio = _IQ(Rom_Data_Buffer);
 	
 }
 
@@ -762,8 +827,10 @@ void handle_read_rom(void)
 	Uint16 Rom_Data_Buffer;
 
 	y = 0;
+    
+    RIGHT_LED_ON;
 	SpiReadRom((Uint16)(OUT_CONER_LIMIT) , 0 , (Uint16)(_HANDLE_BLOCK), read_buf1 );
-
+    RIGHT_LED_OFF;
 	Rom_Data_Buffer = ((read_buf1[y++] & 0xff) << 0);
 	Rom_Data_Buffer |= ((read_buf1[y++] & 0xff) << 8);
     
@@ -945,6 +1012,9 @@ void acc_info_read_rom(void)
 	Rom_Data_Buffer |= ((read_buf2[y++] & 0xff) << 8);
 	g_q17end_acc = _IQ(Rom_Data_Buffer);
 	
+	g_q17max_acc = g_q17user_acc;
+	g_q17mid_acc = g_q17user_acc;
+	g_q17short_acc = g_q17user_acc;
 
 
 }

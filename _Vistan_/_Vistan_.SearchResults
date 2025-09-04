@@ -1,14 +1,20 @@
----- TURN_45 Matches (17 in 4 files) ----
-brilrun.c (main):		if( ( ( pinfo + 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 2 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) ) // 연속턴 | 직진 - 45도 - 45도 - 직진 | 직진 - 45도 - 90도 - 45도
-brilrun.c (main):			if( ( pinfo + 2 )->u16turn_dir & TURN_45 )	// 다다음 턴이 45도인 경우 
-brilrun.c (main):    if( ( ( pinfo - 1 )->u16turn_dir & STRAIGHT ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 2 )->u16turn_dir & STRAIGHT ) ) //직진 - 45도 - 45도 - 직진 에서의 45도 
-brilrun.c (main):    else if( ( ( pinfo - 2 )->u16turn_dir & STRAIGHT ) && ( ( pinfo - 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) ) //  직진 - 45 - 45 - 직진 에서의 45도 
-brilrun.c (main):	else if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) && ( ( pinfo + 1 )->u16turn_dir & STRAIGHT ) ) //45도 연속턴 탈출 - 직진 , 90 - 45 - 직진 
-brilrun.c (main):	else if( ( pinfo + 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) )  //  45도 연속턴
-brilrun.c (main):        else if( ( ( pinfo - 1 )->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & TURN_45 )  ) //직진 - 45 - 90 - 45 - 직진에서 90도  
-brilrun.c (main):        else if( ( ( pinfo - 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) && ( pinfo + 1 )->u16turn_dir & ( TURN_90 | TURN_45 ) )
-brilrun.c (main):            if( ( pinfo - 1 )->u16turn_dir & ( TURN_90 | TURN_45 ) )
-brilrun.c (main):	else if( ( pinfo->u16turn_dir & TURN_45 ) && g_Flag.B45_flag )                      bril_45_turn_compute( pinfo, mark_cnt, perr );
-fastrun.c (main):	if( ( pinfo->u16turn_dir & TURN_45 ) && ( ( pinfo + 1 )->u16turn_dir & ( TURN_45 | TURN_90 ) ) )
-search.c (main):			pinfo->u16turn_dir = TURN_45 | pinfo->u16turn_way;
-Variable.h (main):#define	TURN_45						0x0010
+---- g_q17escape45_vel Matches (19 in 9 files) ----
+brilrun.asm (main):DW$66	.dwtag  DW_TAG_variable, DW_AT_name("g_q17escape45_vel"), DW_AT_symbol_name("_g_q17escape45_vel")
+brilrun.asm (main):;*** 239	-----------------------    ext_memmove_sec_info_struct_func(p_info, K$7, g_q17escape45_vel, m_dist);
+brilrun.c (main):		ext_memmove_sec_info_struct_func( pinfo, pinfo + 1, g_q17escape45_vel, m_dist); 	
+main.asm (main):DW$88	.dwtag  DW_TAG_variable, DW_AT_name("g_q17escape45_vel"), DW_AT_symbol_name("_g_q17escape45_vel")
+main.asm (main):;*** 172	-----------------------    g_q17escape45_vel = 458752000L;
+main.c (main):	g_q17escape45_vel = _IQ(3500);
+Rom.asm (main):DW$17	.dwtag  DW_TAG_variable, DW_AT_name("g_q17escape45_vel"), DW_AT_symbol_name("_g_q17escape45_vel")
+Rom.asm (main):;*** 415	-----------------------    C$5 = (unsigned)(g_q17escape45_vel>>17);
+Rom.asm (main):;*** 522	-----------------------    g_q17escape45_vel = (long)((long double)Rom_Data_Buffer*1.31072e5L);
+Rom.c (main):	Rom_Data_Buffer = (Uint16)( g_q17escape45_vel >> 17);
+Rom.c (main):    g_q17escape45_vel = _IQ(Rom_Data_Buffer);
+search.asm (main):DW$54	.dwtag  DW_TAG_variable, DW_AT_name("g_q17escape45_vel"), DW_AT_symbol_name("_g_q17escape45_vel")
+search.asm (main):;** 1117	-----------------------    g_q17escape45_vel += 13107200L;
+search.asm (main):;** 1133	-----------------------    VFDPrintf("escp%4u", (unsigned)(g_q17escape45_vel>>17));
+search.asm (main):;** 1122	-----------------------    g_q17escape45_vel -= 13107200L;
+search.c (main):			g_q17escape45_vel += _IQ(100);
+search.c (main):			g_q17escape45_vel -= _IQ(100);
+search.c (main):		VFDPrintf("escp%4u",IQ_TO_UINT16(g_q17escape45_vel));
+Variable.h (main):					  g_q17escape45_vel,

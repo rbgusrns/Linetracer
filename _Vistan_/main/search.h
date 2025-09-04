@@ -71,5 +71,6 @@ extern void Set_Shift();
 extern void extreme_ctl(void);
 extern void ext_turnmode_sel(void);
 extern void shift_ctl(void);
+extern void Set_ShiftRatio(void);
 
 #endif

@@ -100,7 +100,7 @@
 #define MID_DIST  600
 #define SHORT_DIST  400
 
-#if 1
+#if 0
 #define D_STR 1
 #define D_45A 70 		//55 
 #define D_90A 160 		//125 
@@ -109,7 +109,7 @@
 #define D_SAFE 300 
 
 #endif
-#if 0
+#if 1
 #define D_STR 1
 #define D_45A 10 		//55 
 #define D_90A 30 		//125 
@@ -254,7 +254,10 @@ __VARIABLE_EXE__  _iq g_q17shift_dist,
 					  g_q17escape45_vel,
 					  
 					  g_q17ext_large_vel,
-					  g_q17ext_large_acc;
+					  g_q17ext_large_acc,
+					  g_q17shift_ratio,
+					  g_q17return_ratio,
+					  g_q17st_ret_ratio;
 
 
 

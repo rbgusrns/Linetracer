@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sat Aug 16 15:32:49 2025                 *
+;* Date/Time created: Wed Sep 03 15:38:10 2025                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -488,11 +488,11 @@ _FontData:
 	.field  	65,16			; _FontData[91][2] @ 7312
 	.field  	127,16			; _FontData[91][3] @ 7328
 	.field  	0,16			; _FontData[91][4] @ 7344
-	.field  	84,16			; _FontData[92][0] @ 7360
-	.field  	52,16			; _FontData[92][1] @ 7376
-	.field  	31,16			; _FontData[92][2] @ 7392
-	.field  	52,16			; _FontData[92][3] @ 7408
-	.field  	84,16			; _FontData[92][4] @ 7424
+	.field  	2,16			; _FontData[92][0] @ 7360
+	.field  	4,16			; _FontData[92][1] @ 7376
+	.field  	8,16			; _FontData[92][2] @ 7392
+	.field  	16,16			; _FontData[92][3] @ 7408
+	.field  	32,16			; _FontData[92][4] @ 7424
 	.field  	0,16			; _FontData[93][0] @ 7440
 	.field  	127,16			; _FontData[93][1] @ 7456
 	.field  	65,16			; _FontData[93][2] @ 7472
@@ -673,8 +673,8 @@ DW$6	.dwtag  DW_TAG_variable, DW_AT_name("FontData"), DW_AT_symbol_name("_FontDa
 	.dwattr DW$6, DW_AT_location[DW_OP_addr _FontData]
 	.dwattr DW$6, DW_AT_type(*DW$T$60)
 	.dwattr DW$6, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI90810 C:\Users\rbgus\AppData\Local\Temp\TI9084 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI9082 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI9086 --object_file VFD.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
+;	..\Compiler\bin\opt2000.exe C:\Users\rbgus\AppData\Local\Temp\TI88010 C:\Users\rbgus\AppData\Local\Temp\TI8804 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\rbgus\AppData\Local\Temp\TI8802 --template_info_file C:\Users\rbgus\AppData\Local\Temp\TI8806 --object_file VFD.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile 
 	.sect	".text"
 	.global	_VfdCtlRegInit
 
@@ -823,7 +823,7 @@ DW$L$_VfdCtlRegInit$5$E:
         ; return occurs
 
 DW$14	.dwtag  DW_TAG_loop
-	.dwattr DW$14, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L1:1:1755325969")
+	.dwattr DW$14, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L1:1:1756881490")
 	.dwattr DW$14, DW_AT_begin_file("VFD.c")
 	.dwattr DW$14, DW_AT_begin_line(0xb1)
 	.dwattr DW$14, DW_AT_end_line(0xbd)
@@ -1196,7 +1196,7 @@ DW$L$_VfdDataLoad$11$E:
         ; return occurs
 
 DW$36	.dwtag  DW_TAG_loop
-	.dwattr DW$36, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L4:1:1755325969")
+	.dwattr DW$36, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L4:1:1756881490")
 	.dwattr DW$36, DW_AT_begin_file("VFD.c")
 	.dwattr DW$36, DW_AT_begin_line(0xde)
 	.dwattr DW$36, DW_AT_end_line(0xf5)
@@ -1208,7 +1208,7 @@ DW$38	.dwtag  DW_TAG_loop_range
 	.dwattr DW$38, DW_AT_high_pc(DW$L$_VfdDataLoad$11$E)
 
 DW$39	.dwtag  DW_TAG_loop
-	.dwattr DW$39, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L5:2:1755325969")
+	.dwattr DW$39, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L5:2:1756881490")
 	.dwattr DW$39, DW_AT_begin_file("VFD.c")
 	.dwattr DW$39, DW_AT_begin_line(0xe0)
 	.dwattr DW$39, DW_AT_end_line(0xf3)
@@ -1223,7 +1223,7 @@ DW$42	.dwtag  DW_TAG_loop_range
 	.dwattr DW$42, DW_AT_high_pc(DW$L$_VfdDataLoad$10$E)
 
 DW$43	.dwtag  DW_TAG_loop
-	.dwattr DW$43, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L6:3:1755325969")
+	.dwattr DW$43, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L6:3:1756881490")
 	.dwattr DW$43, DW_AT_begin_file("VFD.c")
 	.dwattr DW$43, DW_AT_begin_line(0xe2)
 	.dwattr DW$43, DW_AT_end_line(0xe3)
@@ -1234,7 +1234,7 @@ DW$44	.dwtag  DW_TAG_loop_range
 
 
 DW$45	.dwtag  DW_TAG_loop
-	.dwattr DW$45, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L7:3:1755325969")
+	.dwattr DW$45, DW_AT_name("C:\project\Linetracer\_Vistan_\main\VFD.asm:L7:3:1756881490")
 	.dwattr DW$45, DW_AT_begin_file("VFD.c")
 	.dwattr DW$45, DW_AT_begin_line(0xe5)
 	.dwattr DW$45, DW_AT_end_line(0xf1)

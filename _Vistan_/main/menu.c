@@ -19,10 +19,10 @@
 #if 1
 
 char menu_sel[4][6][9] = {
-							{"_SENSOR_", "MAX_MIN_", "__4095__", "SEN_127_", "Set_MARK", "  NULL  " },
+							{"_SENSOR_", "MAX_MIN_", "__4095__", "SEN_127_", "Set_MARK" , "  NULL  " },
 						 	{"MOTOR_ST", "Set_VELO", "Set_ACC_", "Set_HAND", "Set_MPID" , "Set_PPID" },
-						 	{"_ RACE _", "1st_RACE", "2nd_RACE", "fst_info", "brl__info" , "  NULL  " },
-                            {"EXTREME", "Bril_ctl", "_ MODE _", "Brl_RACE", "  NULL  "  , "  NULL  "}    
+						 	{"_ RACE _", "1st_RACE", "2nd_RACE", "fst_info", "brl_info" , "  NULL  " },
+                            {"EXTREME", "Bril_ctl", "_ MODE _", "Brl_RACE",  "SFT_CTRL" , "  NULL  " }    
 						  };
 
 
@@ -31,7 +31,7 @@ void (* menu_functions[ROW][COLUMN])(void) =
        NULL   , Set_Max_Min      ,    F_4095    ,     F_127      ,   Set_TurnMark   ,     NULL     ,
 	   NULL   , Set_Velocity     , Set_Accel    ,  Set_Handle    ,   Set_MotorPID   ,  Set_PosPID  ,
  	   NULL   , search_run       ,  fast_run    ,  fst_info      ,   bril_info      ,     NULL     ,
-	   NULL   , extreme_ctl      ,F_bril_select , bril_run_start ,       NULL       ,     NULL           
+	   NULL   , extreme_ctl      ,F_bril_select , bril_run_start ,   Set_ShiftRatio ,     NULL           
 };        //
 
 #endif
