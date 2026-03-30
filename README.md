@@ -12,7 +12,7 @@ A complete robot tracing project that brings together firmware, electronics, and
 <img src="https://img.shields.io/badge/MCU-TMS320F2809-1f2937?style=for-the-badge" alt="MCU badge" />
 <img src="https://img.shields.io/badge/Firmware-C%20%2B%20Assembly-0f766e?style=for-the-badge" alt="Firmware badge" />
 <img src="https://img.shields.io/badge/Project-Robotrace-b45309?style=for-the-badge" alt="Project badge" />
-<img src="https://img.shields.io/badge/Build-IAR%20Embedded%20Workbench-1d4ed8?style=for-the-badge" alt="Build badge" />
+<img src="https://img.shields.io/badge/Editor-Source%20Insight-1d4ed8?style=for-the-badge" alt="Editor badge" />
 
 </div>
 
@@ -99,7 +99,7 @@ The embedded source is centered in `Software/main/`, where the project is split 
 - `flash.c` - flash memory handling
 - `VFD.c` - display output control
 
-The shipped `Software/main/MAKEFILE` identifies the output target as `a_ZILLIIAX` and references the TI C2000 build chain through IAR tooling and supporting libraries.
+The source was written with Source Insight as the editing environment, and the shipped `Software/main/MAKEFILE` identifies the output target as `a_ZILLIIAX` while referencing a TI C2000-oriented IAR build chain and supporting libraries.
 
 ---
 
@@ -131,7 +131,8 @@ That combination makes the repository useful not only for firmware study, but al
 |---|---|
 | MCU | Texas Instruments `TMS320F2808` |
 | Firmware Language | `C`, `Assembly` |
-| Toolchain | IAR Embedded Workbench-based flow |
+| Editor | Source Insight |
+| Build Configuration | TI C2000 / IAR-oriented make flow |
 | Build Target | `a_ZILLIIAX` |
 | Repository Scope | Firmware, PCB, Gerber, STEP, reference docs |
 
@@ -157,6 +158,7 @@ The repository contains source and make configuration, but it does not yet provi
 What can be verified from the repository:
 
 - The firmware is built around a TI C2000 target
+- The codebase was written with Source Insight as the editing environment
 - `Software/main/MAKEFILE` references the IAR C2000 compiler, assembler, and linker
 - The output target name is `a_ZILLIIAX`
 
