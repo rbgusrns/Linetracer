@@ -9,7 +9,7 @@ An integrated line tracing robot project that combines race firmware, control el
 
 <br />
 
-<img src="https://img.shields.io/badge/MCU-TMS320F2808%2FF2809-1f2937?style=for-the-badge" alt="MCU badge" />
+<img src="https://img.shields.io/badge/MCU-TMS320F2809-1f2937?style=for-the-badge" alt="MCU badge" />
 <img src="https://img.shields.io/badge/Firmware-C%20%2B%20Assembly-0f766e?style=for-the-badge" alt="Firmware badge" />
 <img src="https://img.shields.io/badge/Project-Linetracer-b45309?style=for-the-badge" alt="Project badge" />
 <img src="https://img.shields.io/badge/Editor-Source%20Insight-1d4ed8?style=for-the-badge" alt="Editor badge" />
