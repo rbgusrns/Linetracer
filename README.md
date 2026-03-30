@@ -9,7 +9,7 @@ A complete robot tracing project that brings together firmware, electronics, and
 
 <br />
 
-<img src="https://img.shields.io/badge/MCU-TMS320F2808-1f2937?style=for-the-badge" alt="MCU badge" />
+<img src="https://img.shields.io/badge/MCU-TMS320F2809-1f2937?style=for-the-badge" alt="MCU badge" />
 <img src="https://img.shields.io/badge/Firmware-C%20%2B%20Assembly-0f766e?style=for-the-badge" alt="Firmware badge" />
 <img src="https://img.shields.io/badge/Project-Robotrace-b45309?style=for-the-badge" alt="Project badge" />
 <img src="https://img.shields.io/badge/Build-IAR%20Embedded%20Workbench-1d4ed8?style=for-the-badge" alt="Build badge" />
