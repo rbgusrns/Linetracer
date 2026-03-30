@@ -26,6 +26,22 @@ At the center of the project is a TI C2000-based control system tuned for fast a
 
 ---
 
+## Competition Result
+
+`JP_Robotrace` competed as `RT51` at MM2025 and finished in 8th place overall.
+
+The official best record captured in the event result sheet is `0:13.074`, which makes this repository not just a development archive, but also a record of a robot that completed the competition with a top-10 finish.
+
+<p align="center">
+  <img src="./Docs/Entry.png" alt="MM2025 result sheet showing RT51 finishing 8th" width="70%" />
+</p>
+
+<p align="center">
+  <sub>MM2025 result sheet for RT51: finished 8th with an official best record of 0:13.074.</sub>
+</p>
+
+---
+
 ## Gallery
 
 <table>
